@@ -1,0 +1,6 @@
+LITERATUREAGENT GITHUB SOURCE MANIFEST
+Files: 78
+Bytes: 89205997
+Audit: PASS
+Excluded: credentials, manuscripts, presentations, archives, local
+runs, extracted papers, logs, caches, and generated artifacts.

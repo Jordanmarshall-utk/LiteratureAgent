@@ -1,0 +1,11 @@
+# High-priority expansion searches
+# Use these as source-discovery queries for staged Crossref/RSS expansion.
+perovskite solar cell PCE J-V Voc Jsc fill factor device architecture
+perovskite solar cell stability T80 T95 retention lifetime aging
+perovskite device stability temperature humidity illumination encapsulation
+perovskite solar cell full device stack ETL HTL back contact
+perovskite solar cell processing annealing solvent additive deposition
+
+# Lower-priority indexing searches; summarize and graph, but gate full device extraction.
+perovskite materials characterization XRD PL KPFM mechanism
+perovskite computational theory review perspective

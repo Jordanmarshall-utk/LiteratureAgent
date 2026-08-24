@@ -1,0 +1,167 @@
+{
+  "profile_id": "kpfm_pl_perovskite_relationships_v1",
+  "description": "Ontology extension for paired KPFM and photoluminescence evidence in perovskite literature.",
+  "measurement_families": {
+    "kpfm": [
+      "KPFM",
+      "Kelvin probe force microscopy",
+      "scanning Kelvin probe microscopy",
+      "SKPM",
+      "surface potential",
+      "contact potential difference",
+      "CPD",
+      "work function",
+      "photo-KPFM",
+      "light-dark surface potential",
+      "photovoltage"
+    ],
+    "pl": [
+      "PL",
+      "photoluminescence",
+      "steady-state photoluminescence",
+      "PL mapping",
+      "photoluminescence mapping",
+      "PLQY",
+      "photoluminescence quantum yield",
+      "TRPL",
+      "time-resolved photoluminescence",
+      "carrier lifetime",
+      "PL peak",
+      "PL quenching"
+    ]
+  },
+  "physics_chemistry_concepts": {
+    "electronic_structure": [
+      "Fermi level",
+      "band bending",
+      "band alignment",
+      "surface dipole",
+      "work function",
+      "quasi-Fermi level splitting"
+    ],
+    "defects_recombination": [
+      "trap state",
+      "trap density",
+      "nonradiative recombination",
+      "surface recombination",
+      "grain boundary",
+      "passivation"
+    ],
+    "carrier_dynamics": [
+      "charge separation",
+      "charge extraction",
+      "carrier accumulation",
+      "carrier transport",
+      "carrier lifetime",
+      "photovoltage"
+    ],
+    "ionic_chemical_change": [
+      "ion migration",
+      "halide segregation",
+      "phase segregation",
+      "degradation",
+      "oxidation",
+      "chemical heterogeneity"
+    ],
+    "structure_composition": [
+      "composition",
+      "dimensionality",
+      "2D perovskite",
+      "quasi-2D perovskite",
+      "3D perovskite",
+      "phase",
+      "orientation",
+      "grain boundary"
+    ]
+  },
+  "relationship_types": [
+    "CORRELATES_WITH",
+    "INCREASES_WITH",
+    "DECREASES_WITH",
+    "SHIFTS_WITH",
+    "COLOCALIZES_WITH",
+    "DIVERGES_FROM",
+    "COMPLEMENTS",
+    "NO_CLEAR_RELATIONSHIP"
+  ],
+  "evidence_strength": [
+    "direct_paired",
+    "triangulated",
+    "parallel_only",
+    "unclear"
+  ],
+  "same_sample_link": [
+    "explicit",
+    "probable",
+    "unclear"
+  ],
+  "causal_status": [
+    "causal_supported",
+    "associative",
+    "complementary_only",
+    "uncertain"
+  ],
+  "causal_test_type": [
+    "controlled_intervention",
+    "temporal",
+    "spatial",
+    "none"
+  ],
+  "evidence_roles": [
+    "kpfm",
+    "pl",
+    "cross_technique_link",
+    "mechanism"
+  ],
+  "knowledge_graph": {
+    "node_types": [
+      "Paper",
+      "SampleContext",
+      "KPFMObservation",
+      "PLObservation",
+      "ScientificClaim",
+      "Evidence",
+      "MechanismConcept"
+    ],
+    "provenance_edges": [
+      "REPORTS_SAMPLE",
+      "REPORTS_CLAIM",
+      "ABOUT_SAMPLE",
+      "HAS_KPFM_OBSERVATION",
+      "HAS_PL_OBSERVATION",
+      "LINKS_KPFM",
+      "LINKS_PL",
+      "SUPPORTED_BY",
+      "INTERPRETED_AS"
+    ]
+  },
+  "required_context": {
+    "kpfm": [
+      "observable",
+      "dark_or_light",
+      "sign_convention_or_not_reported",
+      "spatial_context"
+    ],
+    "pl": [
+      "observable",
+      "steady_state_or_time_resolved",
+      "sample_stack_or_not_reported"
+    ],
+    "relationship": [
+      "same_sample_link",
+      "evidence_strength",
+      "direct_observation",
+      "paper_interpretation",
+      "causal_status",
+      "evidence",
+      "caveats"
+    ]
+  },
+  "scientific_guardrails": [
+    "KPFM measures contact potential difference or a derived surface potential/work function under a stated convention; it is not automatically a direct carrier-density measurement.",
+    "The sign of KPFM contrast or photovoltage is only interpretable when the paper's tip/sample convention and measurement configuration are known.",
+    "PL quenching alone does not distinguish useful charge extraction from nonradiative recombination.",
+    "A cross-technique association is not causal unless the paper provides causal evidence.",
+    "Keep direct observations separate from author interpretation and LiteratureAgent inference."
+  ]
+}

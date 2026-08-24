@@ -1,0 +1,123 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "schema_id": "https://literatureagent.local/schema/knowledge-graph/v1",
+  "name": "LiteratureAgent evidence-grounded scientific knowledge graph",
+  "version": "1.0.0",
+  "graph_model": "heterogeneous directed provenance-aware property graph",
+  "scope_semantics": {
+    "production": "All processed papers and retained extraction records in a versioned campaign snapshot.",
+    "controlled_benchmark": "A fixed evidence set used to compare reasoning policies without changing the input corpus.",
+    "derived_dag": "A task-specific acyclic projection. The canonical scientific graph is not required to be acyclic."
+  },
+  "causal_status_vocabulary": [
+    "not_causal",
+    "reported_association",
+    "reported_directional_hypothesis",
+    "experimentally_tested",
+    "validated_causal"
+  ],
+  "support_status_vocabulary": [
+    "evidence_linked",
+    "paper_linked",
+    "summary_only",
+    "unsupported"
+  ],
+  "node_types": {
+    "DatasetSnapshot": {
+      "required": ["snapshot_id", "schema_version", "scope"]
+    },
+    "ExtractionRun": {
+      "required": ["run_id", "agent_name"]
+    },
+    "Paper": {
+      "required": ["doi", "title", "corpus_status"]
+    },
+    "Device": {
+      "required": ["sample_id", "record_status", "doi"]
+    },
+    "StructuredObservation": {
+      "required": ["field", "value", "evidence_status"]
+    },
+    "Evidence": {
+      "required": ["evidence_text", "source_kind", "source_locator", "doi"]
+    },
+    "ScientificClaim": {
+      "required": ["claim_text", "predicate", "causal_status", "support_status", "doi"]
+    },
+    "ScientificEntity": {
+      "required": ["label", "normalized_label"]
+    },
+    "OntologyConcept": {
+      "required": ["concept_id", "label", "namespace"]
+    }
+  },
+  "relationship_types": {
+    "IN_SNAPSHOT": {
+      "source": ["Paper"],
+      "target": ["DatasetSnapshot"],
+      "required": ["provenance_scope"]
+    },
+    "GENERATED_BY": {
+      "source": ["DatasetSnapshot"],
+      "target": ["ExtractionRun"],
+      "required": []
+    },
+    "HAS_DEVICE": {
+      "source": ["Paper"],
+      "target": ["Device"],
+      "required": ["doi"]
+    },
+    "HAS_OBSERVATION": {
+      "source": ["Device"],
+      "target": ["StructuredObservation"],
+      "required": ["field"]
+    },
+    "MEASURES_PROPERTY": {
+      "source": ["StructuredObservation"],
+      "target": ["OntologyConcept"],
+      "required": ["ontology_version"]
+    },
+    "SUPPORTED_BY": {
+      "source": ["StructuredObservation", "ScientificClaim"],
+      "target": ["Evidence"],
+      "required": ["provenance_scope"]
+    },
+    "DERIVED_FROM": {
+      "source": ["Evidence"],
+      "target": ["Paper"],
+      "required": ["source_kind"]
+    },
+    "REPORTS_CLAIM": {
+      "source": ["Paper"],
+      "target": ["ScientificClaim"],
+      "required": ["doi"]
+    },
+    "HAS_SUBJECT": {
+      "source": ["ScientificClaim"],
+      "target": ["ScientificEntity"],
+      "required": []
+    },
+    "HAS_OBJECT": {
+      "source": ["ScientificClaim"],
+      "target": ["ScientificEntity"],
+      "required": []
+    },
+    "DIRECTIONAL_RELATION": {
+      "source": ["ScientificEntity"],
+      "target": ["ScientificEntity"],
+      "required": ["predicate", "causal_status", "claim_id", "evidence_id", "doi"]
+    },
+    "HAS_FIELD_EVIDENCE": {
+      "source": ["Device", "Paper"],
+      "target": ["Evidence"],
+      "required": ["field"]
+    }
+  },
+  "provenance_mapping": {
+    "Paper": "schema:ScholarlyArticle",
+    "Evidence": "prov:Entity",
+    "ExtractionRun": "prov:Activity",
+    "GENERATED_BY": "prov:wasGeneratedBy",
+    "DERIVED_FROM": "prov:wasDerivedFrom"
+  }
+}
