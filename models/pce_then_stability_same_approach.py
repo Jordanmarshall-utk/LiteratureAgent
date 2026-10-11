@@ -418,7 +418,13 @@ def is_forbidden_for_pce(col: str, target_col: str) -> bool:
 
 
 def is_forbidden_for_stability_design_only(col: str) -> bool:
-    # For pre-experiment stability, no measured performance and no stability outputs.
+    # This model-generated column is attached before the shared stability
+    # inventory is constructed.  Keep it out of the common baseline so it can
+    # be added explicitly only by ``design_plus_predicted_pce``.
+    if normalize_name(col) == "pce_model_oof_predicted_pce":
+        return True
+    # Exclude measured performance and stability outputs from the shared
+    # non-target baseline.  Retrospective modes add their allowed inputs below.
     if is_direct_performance_output(col):
         return True
     if is_stability_output(col):

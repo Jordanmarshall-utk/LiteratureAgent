@@ -1,6 +1,9 @@
 LITERATUREAGENT GITHUB SOURCE MANIFEST
-Files: 78
-Bytes: 89205997
+Files: 106
+Bytes: 179422444
 Audit: PASS
 Excluded: credentials, manuscripts, presentations, archives, local
 runs, extracted papers, logs, caches, and generated artifacts.
+Figure 5 scripts: scripts/plot_figure5_grouped_shap.py | scripts/figure5_grouped_shap_plots.py | scripts/audit_pce_feature_interpretability.py
+Figure 5 choice tables: data/figure5/pce_choice_stratified_shap_values.csv | data/figure5/pce_choice_stratified_shap_summary.csv
+Standalone v2 source: scripts/build_literatureagent_coworker_package.py | scripts/install_and_launch_platform.ps1 | literature_agent_platform/domain_profiles.py

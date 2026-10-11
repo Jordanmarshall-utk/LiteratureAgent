@@ -1,0 +1,20 @@
+path,role,required_for,released
+scripts/figure5_grouped_shap_plots.py,shared single-panel grouped-SHAP rendering and numerical validation,figure-only reproduction,yes
+scripts/plot_figure5_grouped_shap.py,four independent single-panel SHAP figure entry point,figure-only reproduction,yes
+scripts/audit_pce_feature_interpretability.py,final Figure 4-aligned harmonized feature contract choice-bundle and grouped TreeSHAP source audit,full source-level rebuild,yes
+scripts/requirements-figure5.txt,isolated Python dependency list,both workflows,yes
+data/figure5/pce_choice_stratified_shap_values.csv,signed bundle contributions for every fitted-training device across six prespecified choice bundles,figure-only reproduction,yes
+data/figure5/pce_choice_stratified_shap_summary.csv,all observed states with separate device and DOI/publication counts plus prevalence-governed main-figure selection,figure-only reproduction,yes
+data/figure5/pce_grouped_shap_importance.csv,all 218 grouped importances and encoded-input mappings,figure-only reproduction,yes
+data/figure5/pce_grouped_shap_importance_doi_balanced.csv,equal-publication sensitivity ranking for all 218 grouped importances,figure-only reproduction,yes
+data/figure5/pce_grouped_shap_values.csv,per-row signed contributions for all 218 groups,figure-only reproduction,yes
+data/figure5/pce_grouped_shap_row_metadata.csv,observed and predicted PCE baseline raw formulation and local display context,figure-only reproduction,yes
+data/figure5/pce_grouped_shap_validation.json,final harmonized model contract frozen 6263 encoded-input count full-cohort exact-interventional background coverage reconstruction and interpretation provenance,figure-only reproduction,yes
+data/figure5/pce_solvent_formulation_shap_values.csv,per-row formulation-only grouped contributions,figure-only reproduction,yes
+data/figure5/pce_solvent_formulation_shap_summary.csv,formulation sample counts and attribution summaries,figure-only reproduction,yes
+data/figure5/pce_grouped_shap_local_random_selection.json,fixed-seed local-record provenance and reconstruction,figure-only reproduction,yes
+models/pce_then_stability_same_approach.py,validated production preprocessing and model implementation,full source-level rebuild,yes
+models/frozen/pce_then_stability_same_approach_sha256_19f58acd.py,exact hash-pinned final Figure 4 model snapshot,full source-level rebuild,yes
+data/figure5/final_feature_typing_inventory.csv,frozen 113 numeric and 165 categorical predictor typing contract,full source-level rebuild,yes
+final_integrated_database.csv,governed integrated production modeling population,full source-level rebuild,no
+pce_feature_columns_278.csv,frozen leakage-audited predictor manifest,full source-level rebuild,no

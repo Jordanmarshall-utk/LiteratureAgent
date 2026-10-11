@@ -111,6 +111,21 @@ RUN_MISSING_FIELD_RECOVERY = os.getenv("MISSING_FIELD_RECOVERY_ENABLE", "0").str
 FAMILY_GATING_MODE = os.getenv("FAMILY_GATING_MODE", "strict").strip().lower()
 if FAMILY_GATING_MODE not in {"off", "moderate", "strict"}:
     FAMILY_GATING_MODE = "strict"
+DOMAIN_PROFILE = os.getenv("LITERATURE_AGENT_DOMAIN_PROFILE", "halide_pv").strip().lower()
+if DOMAIN_PROFILE not in {"general_science", "oxide_perovskite", "halide_pv"}:
+    DOMAIN_PROFILE = "halide_pv"
+
+DOMAIN_RECORD_COLUMNS = [
+    "Domain_study_type", "Domain_system_or_subject", "Domain_materials_or_entities",
+    "Domain_intervention_or_variable", "Domain_comparison", "Domain_methods",
+    "Domain_conditions", "Domain_measurements", "Domain_primary_findings",
+    "Domain_mechanisms", "Domain_limitations", "Domain_composition_formula",
+    "Domain_a_site_species", "Domain_b_site_species", "Domain_substitutions_or_dopants",
+    "Domain_oxygen_stoichiometry", "Domain_oxidation_states", "Domain_crystal_structure",
+    "Domain_space_group", "Domain_phases", "Domain_processing_steps",
+    "Domain_atmosphere", "Domain_temperatures", "Domain_defect_chemistry",
+    "Domain_microstructure", "Domain_characterization", "Domain_measured_properties",
+]
 
 
 def json_to_csv(records: List[Dict[str, Any]], out_csv: Path) -> None:
@@ -121,12 +136,13 @@ def json_to_csv(records: List[Dict[str, Any]], out_csv: Path) -> None:
     and JSON outputs retained those snippets. Keep a stable schema prefix while
     appending the union of provenance and evidence columns.
     """
-    base_columns = list(dict.fromkeys(list(ALL_COLUMNS) + list(EXTRA_COLUMNS)))
+    base_columns = list(dict.fromkeys(list(ALL_COLUMNS) + list(EXTRA_COLUMNS) + list(DOMAIN_RECORD_COLUMNS)))
     auxiliary = sorted({
         str(key)
         for record in (records or []) if isinstance(record, dict)
         for key in record
         if str(key).startswith(("_evidence_", "_source_", "_lit_agent_"))
+        or str(key).startswith("_domain_")
         or str(key) in {"_full_text_length", "_full_text_source", "_composition_json"}
     })
     columns = base_columns + [key for key in auxiliary if key not in base_columns]
@@ -1325,6 +1341,65 @@ class HuggingFaceQwenExtractor(_previous_hf_qwen_extractor_v21_4):
         return result
 
     def summarize_paper(self, metadata: Dict[str, Any], records: List[Dict[str, Any]], summary_text: str, paper_slug: str) -> Dict[str, Any]:
+        if DOMAIN_PROFILE != "halide_pv":
+            oxide = DOMAIN_PROFILE == "oxide_perovskite"
+            domain_focus = (
+                "For oxide perovskites, explicitly report composition and A/B-site substitutions, oxygen "
+                "stoichiometry or vacancies, oxidation states, crystal structure/space group/phases, synthesis "
+                "and thermal/atmosphere conditions, defects/microstructure, characterization, and measured properties."
+                if oxide else
+                "Use a domain-neutral scientific schema covering the studied system, design, methods, variables, "
+                "conditions, measurements, findings, mechanisms, evidence, uncertainty, and limitations."
+            )
+            system = (
+                "You write an evidence-grounded structured scientific paper summary. " + domain_focus + " "
+                "Preserve chemical formulas, numerical values, units, conditions, and caveats exactly when supported. "
+                "Distinguish the paper's results from background statements and label proposed mechanisms as interpretations. "
+                "Do not force photovoltaic terminology or invent facts. Return compact valid JSON only."
+            )
+            payload = {
+                "domain_profile": DOMAIN_PROFILE,
+                "paper_metadata": metadata or {},
+                "structured_records": records,
+                "paper_text": summary_text[:SUMMARY_MAX_TEXT_CHARS],
+                "output_format": {
+                    "paper_summary": {
+                        "paper_type": "experimental|computational|theoretical|review|mixed_or_unclear",
+                        "one_sentence_summary": "specific result-focused summary",
+                        "objective": None,
+                        "research_context": None,
+                        "system_or_subject": None,
+                        "materials_focus": None,
+                        "study_design": None,
+                        "methods": [],
+                        "variables_and_conditions": [],
+                        "measurements": [{"name": None, "value": None, "unit": None, "context": None}],
+                        "primary_findings": [],
+                        "characterization_and_evidence": [],
+                        "figure_or_visual_evidence": [],
+                        "mechanism_or_interpretation": None,
+                        "limitations": [],
+                        "main_contribution": None,
+                        "interpretive_takeaways": [],
+                        "data_quality_notes": [],
+                        "oxide_composition_and_structure": None if not oxide else {
+                            "formula": None, "a_site": [], "b_site": [], "substitutions_or_dopants": [],
+                            "oxygen_stoichiometry": None, "oxidation_states": [], "crystal_structure": None,
+                            "space_group": None, "phases": []
+                        },
+                        "oxide_processing_and_defects": None if not oxide else {
+                            "processing_steps": [], "atmosphere": [], "temperatures": [],
+                            "defect_chemistry": [], "microstructure": []
+                        },
+                        "measured_properties": [],
+                    }
+                },
+            }
+            result = self._call(system, payload, paper_slug=paper_slug, stage=f"{DOMAIN_PROFILE}_paper_summary")
+            if isinstance(result, dict):
+                result["_domain_profile"] = DOMAIN_PROFILE
+                result["_structured_record_count"] = len(records or [])
+            return result
         review_like = _v21_4_is_review_like(metadata)
         metadata = metadata or {}
         source_collection = str(metadata.get("source_collection") or "").strip().lower()
@@ -1528,6 +1603,65 @@ def validate_record_keys(records: List[Dict[str, Any]], allowed_columns: List[st
     return cleaned
 
 
+_previous_build_fallback_paper_summary_v22 = build_fallback_paper_summary
+
+
+def build_fallback_paper_summary(metadata: Dict[str, Any], records: List[Dict[str, Any]]) -> Dict[str, Any]:
+    if DOMAIN_PROFILE == "halide_pv":
+        return _previous_build_fallback_paper_summary_v22(metadata, records)
+    record = next((item for item in (records or []) if isinstance(item, dict)), {})
+    def decoded(field: str, default: Any = None) -> Any:
+        value = record.get(field, default)
+        if isinstance(value, str) and value[:1] in {"[", "{"}:
+            try:
+                return json.loads(value)
+            except Exception:
+                return value
+        return value
+    title = metadata.get("title") or "Untitled paper"
+    payload = {
+        "_domain_profile": DOMAIN_PROFILE,
+        "paper_summary": {
+            "paper_type": decoded("Domain_study_type", "unclear"),
+            "one_sentence_summary": f"{title}: structured domain record created; dedicated summary generation was unavailable.",
+            "objective": None,
+            "research_context": None,
+            "system_or_subject": decoded("Domain_system_or_subject"),
+            "materials_focus": decoded("Domain_materials_or_entities"),
+            "study_design": decoded("Domain_study_type"),
+            "methods": decoded("Domain_methods", []),
+            "variables_and_conditions": decoded("Domain_conditions", []),
+            "measurements": decoded("Domain_measurements", []),
+            "primary_findings": decoded("Domain_primary_findings", []),
+            "mechanism_or_interpretation": decoded("Domain_mechanisms", []),
+            "limitations": decoded("Domain_limitations", []),
+            "main_contribution": None,
+            "data_quality_notes": ["Fallback summary assembled from evidence-grounded structured fields."],
+        },
+    }
+    if DOMAIN_PROFILE == "oxide_perovskite":
+        payload["paper_summary"]["oxide_composition_and_structure"] = {
+            "formula": decoded("Domain_composition_formula"),
+            "a_site": decoded("Domain_a_site_species", []),
+            "b_site": decoded("Domain_b_site_species", []),
+            "substitutions_or_dopants": decoded("Domain_substitutions_or_dopants", []),
+            "oxygen_stoichiometry": decoded("Domain_oxygen_stoichiometry"),
+            "oxidation_states": decoded("Domain_oxidation_states", []),
+            "crystal_structure": decoded("Domain_crystal_structure"),
+            "space_group": decoded("Domain_space_group"),
+            "phases": decoded("Domain_phases", []),
+        }
+        payload["paper_summary"]["oxide_processing_and_defects"] = {
+            "processing_steps": decoded("Domain_processing_steps", []),
+            "atmosphere": decoded("Domain_atmosphere", []),
+            "temperatures": decoded("Domain_temperatures", []),
+            "defect_chemistry": decoded("Domain_defect_chemistry", []),
+            "microstructure": decoded("Domain_microstructure", []),
+        }
+        payload["paper_summary"]["measured_properties"] = decoded("Domain_measured_properties", [])
+    return payload
+
+
 _previous_ensure_summary_outputs_v21_4 = ensure_summary_outputs
 
 def ensure_summary_outputs(slug: str, meta: Dict[str, Any], records: List[Dict[str, Any]], full_text: str,
@@ -1551,6 +1685,56 @@ _previous_render_paper_summary_text_v21_4 = render_paper_summary_text
 
 def render_paper_summary_text(summary_payload: Dict[str, Any], metadata: Optional[Dict[str, Any]] = None) -> str:
     metadata = dict(metadata or {})
+    if isinstance(summary_payload, dict) and summary_payload.get("_domain_profile") in {"general_science", "oxide_perovskite"}:
+        ps = summary_payload.get("paper_summary", {})
+        if not isinstance(ps, dict):
+            ps = {}
+        lines = [
+            str(metadata.get("title") or "Untitled paper"),
+            "=" * 72,
+            f"Domain profile: {summary_payload.get('_domain_profile')}",
+        ]
+        for label, key in [
+            ("DOI", "doi"), ("Journal", "journal"), ("Year", "year"),
+        ]:
+            if metadata.get(key):
+                lines.append(f"{label}: {metadata.get(key)}")
+        for heading, key in [
+            ("One-sentence summary", "one_sentence_summary"),
+            ("Objective", "objective"),
+            ("Research context", "research_context"),
+            ("System or subject", "system_or_subject"),
+            ("Materials focus", "materials_focus"),
+            ("Study design", "study_design"),
+            ("Methods", "methods"),
+            ("Variables and conditions", "variables_and_conditions"),
+            ("Measurements", "measurements"),
+            ("Primary findings", "primary_findings"),
+            ("Characterization and evidence", "characterization_and_evidence"),
+            ("Figure or visual evidence", "figure_or_visual_evidence"),
+            ("Mechanism or interpretation", "mechanism_or_interpretation"),
+            ("Oxide composition and structure", "oxide_composition_and_structure"),
+            ("Oxide processing and defects", "oxide_processing_and_defects"),
+            ("Measured properties", "measured_properties"),
+            ("Limitations", "limitations"),
+            ("Main contribution", "main_contribution"),
+            ("Interpretive takeaways", "interpretive_takeaways"),
+            ("Data-quality notes", "data_quality_notes"),
+        ]:
+            value = ps.get(key)
+            if value in (None, "", [], {}):
+                continue
+            lines.extend(["", f"{heading}:"])
+            if isinstance(value, list):
+                for item in value:
+                    lines.append("- " + (json.dumps(item, ensure_ascii=False) if isinstance(item, dict) else str(item)))
+            elif isinstance(value, dict):
+                for item_key, item_value in value.items():
+                    if item_value not in (None, "", [], {}):
+                        lines.append(f"- {item_key.replace('_', ' ')}: {json.dumps(item_value, ensure_ascii=False) if isinstance(item_value, (dict, list)) else item_value}")
+            else:
+                lines.append(str(value))
+        return "\n".join(lines).rstrip() + "\n"
     reconciled_metadata = (
         summary_payload.get("_summary_metadata_reconciliation", {})
         if isinstance(summary_payload, dict)
@@ -2132,10 +2316,158 @@ def extract_family_for_chunks(
 
 _previous_extract_records_with_llm_v21_4 = extract_records_with_llm
 
+
+def _v22_normalized_evidence_text(value: Any) -> str:
+    return re.sub(r"[^a-z0-9]+", " ", str(value or "").lower()).strip()
+
+
+def _v22_grounded_domain_records(
+    meta: Dict[str, Any], extraction_text: str, extractor: HuggingFaceQwenExtractor, paper_slug: str
+) -> List[Dict[str, Any]]:
+    """Extract evidence-linked records without imposing the photovoltaic schema."""
+    oxide = DOMAIN_PROFILE == "oxide_perovskite"
+    common_schema = {
+        "study_type": None,
+        "system_or_subject": None,
+        "materials_or_entities": [],
+        "intervention_or_variable": None,
+        "comparison": None,
+        "methods": [],
+        "conditions": [],
+        "measurements": [{"name": None, "value": None, "unit": None, "context": None, "evidence": None}],
+        "primary_findings": [{"claim": None, "evidence": None, "confidence": "low|medium|high"}],
+        "mechanisms": [],
+        "limitations": [],
+        "field_evidence": {"field_name": "verbatim supporting excerpt from the supplied paper text"},
+    }
+    oxide_schema = {
+        "composition_formula": None,
+        "a_site_species": [],
+        "b_site_species": [],
+        "substitutions_or_dopants": [],
+        "oxygen_stoichiometry": None,
+        "oxidation_states": [],
+        "crystal_structure": None,
+        "space_group": None,
+        "phases": [],
+        "processing_steps": [],
+        "atmosphere": [],
+        "temperatures": [],
+        "defect_chemistry": [],
+        "microstructure": [],
+        "characterization": [],
+        "measured_properties": [{"name": None, "value": None, "unit": None, "conditions": None, "evidence": None}],
+    }
+    output_record = dict(common_schema)
+    if oxide:
+        output_record.update(oxide_schema)
+    domain_instruction = (
+        "The domain is oxide perovskites. Resolve ABO3 composition, A/B-site substitutions, oxygen "
+        "nonstoichiometry, oxidation states, crystal symmetry/phases, processing conditions, defects, "
+        "microstructure, characterization, and measured functional properties."
+        if oxide else
+        "The domain may be any scientific field. Preserve the paper's own terminology and extract a "
+        "domain-neutral study/subject/method/measurement/finding record."
+    )
+    system = (
+        "You extract structured scientific evidence from one paper. " + domain_instruction + " "
+        "Every populated factual field must have a verbatim supporting excerpt in field_evidence. "
+        "Every measurement and primary finding must carry its own verbatim evidence excerpt. "
+        "Do not infer missing values, do not translate units, and distinguish reported results from background claims. "
+        "Return compact valid JSON only."
+    )
+    payload = {
+        "paper_metadata": {k: meta.get(k) for k in ("title", "doi", "journal", "year", "lead_author")},
+        "paper_text": extraction_text[:30000],
+        "output_schema": {"domain_records": [output_record]},
+    }
+    result = extractor._call(system, payload, paper_slug=paper_slug, stage=f"{DOMAIN_PROFILE}_structured_records")
+    candidates = result.get("domain_records", []) if isinstance(result, dict) else []
+    if not isinstance(candidates, list):
+        candidates = []
+    source_norm = _v22_normalized_evidence_text(extraction_text)
+    mapped_fields = {
+        "study_type": "Domain_study_type",
+        "system_or_subject": "Domain_system_or_subject",
+        "materials_or_entities": "Domain_materials_or_entities",
+        "intervention_or_variable": "Domain_intervention_or_variable",
+        "comparison": "Domain_comparison",
+        "methods": "Domain_methods",
+        "conditions": "Domain_conditions",
+        "measurements": "Domain_measurements",
+        "primary_findings": "Domain_primary_findings",
+        "mechanisms": "Domain_mechanisms",
+        "limitations": "Domain_limitations",
+        "composition_formula": "Domain_composition_formula",
+        "a_site_species": "Domain_a_site_species",
+        "b_site_species": "Domain_b_site_species",
+        "substitutions_or_dopants": "Domain_substitutions_or_dopants",
+        "oxygen_stoichiometry": "Domain_oxygen_stoichiometry",
+        "oxidation_states": "Domain_oxidation_states",
+        "crystal_structure": "Domain_crystal_structure",
+        "space_group": "Domain_space_group",
+        "phases": "Domain_phases",
+        "processing_steps": "Domain_processing_steps",
+        "atmosphere": "Domain_atmosphere",
+        "temperatures": "Domain_temperatures",
+        "defect_chemistry": "Domain_defect_chemistry",
+        "microstructure": "Domain_microstructure",
+        "characterization": "Domain_characterization",
+        "measured_properties": "Domain_measured_properties",
+    }
+    records: List[Dict[str, Any]] = []
+    for index, candidate in enumerate(candidates[:8], start=1):
+        if not isinstance(candidate, dict):
+            continue
+        evidence_map = candidate.get("field_evidence") if isinstance(candidate.get("field_evidence"), dict) else {}
+        rec = enrich_record_with_metadata(make_empty_record(), meta, index)
+        rec["_domain_profile"] = DOMAIN_PROFILE
+        rec["Ref_free_text_comment"] = f"domain_profile={DOMAIN_PROFILE}; evidence-grounded domain record"
+        for source_field, csv_field in mapped_fields.items():
+            value = candidate.get(source_field)
+            if value in (None, "", [], {}):
+                continue
+            if source_field in {"measurements", "primary_findings", "measured_properties"}:
+                grounded_items = []
+                for item in value if isinstance(value, list) else []:
+                    if not isinstance(item, dict):
+                        continue
+                    quote = str(item.get("evidence") or "").strip()
+                    quote_norm = _v22_normalized_evidence_text(quote)
+                    if len(quote_norm) >= 12 and quote_norm in source_norm:
+                        grounded_items.append(item)
+                if grounded_items:
+                    rec[csv_field] = grounded_items
+                    rec[f"_evidence_{csv_field}"] = " | ".join(str(item.get("evidence")) for item in grounded_items[:4])
+                continue
+            quote = str(evidence_map.get(source_field) or "").strip()
+            quote_norm = _v22_normalized_evidence_text(quote)
+            if len(quote_norm) < 12 or quote_norm not in source_norm:
+                continue
+            rec[csv_field] = value
+            rec[f"_evidence_{csv_field}"] = quote
+        records.append(rec)
+    if not records:
+        rec = enrich_record_with_metadata(make_empty_record(), meta, 1)
+        rec["_domain_profile"] = DOMAIN_PROFILE
+        rec["Ref_free_text_comment"] = f"domain_profile={DOMAIN_PROFILE}; no evidence-grounded domain fields returned"
+        records = [rec]
+    try:
+        (RAW_LLM_DIR / f"{paper_slug}_{DOMAIN_PROFILE}_structured_records.json").write_text(
+            json.dumps({"domain_profile": DOMAIN_PROFILE, "records": records, "raw_response": result}, indent=2, ensure_ascii=False),
+            encoding="utf-8",
+        )
+    except Exception:
+        pass
+    return records
+
 def extract_records_with_llm(meta: Dict[str, Any], extraction_text: str, extractor: HuggingFaceQwenExtractor) -> List[Dict[str, Any]]:
     initial_slug = slugify((meta or {}).get("title") or (meta or {}).get("doi") or "paper")
     meta = _v21_enrich_meta_from_text(meta, extraction_text, initial_slug)
     title = str(meta.get("title") or meta.get("doi") or "")
+    if DOMAIN_PROFILE != "halide_pv":
+        print(f"[DOMAIN EXTRACTION] {DOMAIN_PROFILE}: using evidence-grounded cross-domain schema; PCE device families are disabled.")
+        return _v22_grounded_domain_records(meta, extraction_text, extractor, initial_slug)
     if not REVIEW_FULL_EXTRACTION_ENABLE and _v21_4_is_review_like(meta):
         gate_scores = _v21_paper_type_scores(meta, extraction_text)
         rec = make_empty_record()
@@ -7859,6 +8191,7 @@ def _prime_import_time_environment(args) -> None:
     settings, ontology path, output directory, and vision settings are honored.
     """
     _setenv("WORK_DIR", args.work_dir)
+    _setenv("LITERATURE_AGENT_DOMAIN_PROFILE", getattr(args, "domain_profile", "halide_pv"))
     _setenv("PEROVSKITE_ONTOLOGY_PATH", args.ontology_path)
     _setenv("GOOGLE_DRIVE_OAUTH_CLIENT_SECRETS", args.google_drive_oauth_client_secrets)
     _setenv("GOOGLE_DRIVE_OAUTH_TOKEN_FILE", args.google_drive_oauth_token_file)
@@ -7937,6 +8270,7 @@ def _run_literature_agent(lit_module, args) -> _Path_controller:
 
     # Environment expected by LiteratureAgent.
     _setenv("WORK_DIR", args.work_dir)
+    _setenv("LITERATURE_AGENT_DOMAIN_PROFILE", getattr(args, "domain_profile", "halide_pv"))
     _setenv("PEROVSKITE_ONTOLOGY_PATH", args.ontology_path)
     _setenv("GOOGLE_DRIVE_OAUTH_CLIENT_SECRETS", args.google_drive_oauth_client_secrets)
     _setenv("GOOGLE_DRIVE_OAUTH_TOKEN_FILE", args.google_drive_oauth_token_file)
@@ -8028,6 +8362,9 @@ def _run_literature_agent(lit_module, args) -> _Path_controller:
     if hasattr(lit_module, "SEARCH_QUERY") and str(getattr(args, "search_query", "") or "").strip():
         lit_module.SEARCH_QUERY = str(args.search_query).strip()
         print(f"[INFO] Expansion search query: {lit_module.SEARCH_QUERY}")
+    if getattr(args, "domain_profile", "halide_pv") != "halide_pv" and hasattr(lit_module, "sort_candidates_for_processing"):
+        lit_module.sort_candidates_for_processing = lambda candidates: list(candidates or [])
+        print(f"[INFO] Domain-neutral candidate ordering active for {args.domain_profile}; photovoltaic relevance ranking disabled.")
     if hasattr(lit_module, "crossref_search"):
         _original_crossref_search = lit_module.crossref_search
         def _crossref_search_with_progress(query, year_min, year_max, rows_per_page=100, max_pages=8):
@@ -8154,8 +8491,35 @@ def _run_literature_agent(lit_module, args) -> _Path_controller:
         else:
             raise exc
     print(f"[INFO] LiteratureAgent records ready: {all_records}")
+    if getattr(args, "domain_profile", "halide_pv") != "halide_pv":
+        _write_domain_records_view(all_records, _Path_controller(args.work_dir), args.domain_profile)
     _run_target_finalization_if_enabled(args)
     return all_records
+
+
+def _write_domain_records_view(all_records: _Path_controller, work_dir: _Path_controller, domain_profile: str) -> _Path_controller:
+    """Write a compact cross-domain table without hundreds of empty PCE columns."""
+    target = work_dir / "csv" / "domain_records.csv"
+    target.parent.mkdir(parents=True, exist_ok=True)
+    with all_records.open("r", encoding="utf-8-sig", newline="") as source:
+        reader = _csv_controller.DictReader(source)
+        source_fields = list(reader.fieldnames or [])
+        fields = [
+            name for name in source_fields
+            if name.startswith("Domain_") or name.startswith("_evidence_Domain_")
+            or name in {
+                "Ref_DOI_number", "Ref_lead_author", "Ref_publication_date", "Ref_journal",
+                "Ref_original_filename_data_upload", "Ref_internal_sample_id", "_domain_profile",
+                "_source_pdf_url", "_source_landing_page", "_full_text_source",
+            }
+        ]
+        with target.open("w", encoding="utf-8-sig", newline="") as destination:
+            writer = _csv_controller.DictWriter(destination, fieldnames=fields, extrasaction="ignore")
+            writer.writeheader()
+            for row in reader:
+                writer.writerow(row)
+    print(f"[INFO] {domain_profile} structured records view: {target}")
+    return target
 
 
 def _run_target_finalization_if_enabled(args) -> None:
@@ -8710,6 +9074,9 @@ def _parse_controller_args():
     p.add_argument("--extraction_profile", default="none",
                    choices=["none", "hypothesis_support", "general_literature", "pce_stability_modeling"],
                    help="High-level caller profile. none preserves existing behavior; hypothesis_support/general_literature are broad evidence-retrieval modes; pce_stability_modeling is strict target-row mining.")
+    p.add_argument("--domain_profile", default="halide_pv",
+                   choices=["general_science", "oxide_perovskite", "halide_pv"],
+                   help="Scientific domain pack. General/oxide profiles use evidence-grounded domain records and knowledge graphs; halide_pv enables PCE/stability integration and modeling.")
     p.add_argument("--evidence_query", default="",
                    help="Query used by pipeline_stage=evidence_packet. Defaults to --search_query if omitted.")
     p.add_argument("--evidence_limit", type=int, default=5,
@@ -8741,9 +9108,9 @@ def _parse_controller_args():
                    help="Override the embedded Crossref/search expansion query. Use target-rich device/stability terms for expansion campaigns.")
 
     # LLM / local Ollama defaults.
-    p.add_argument("--llm_api_key", default="ollama")
+    p.add_argument("--llm_api_key", default=_os_controller.getenv("HF_API_KEY") or _os_controller.getenv("HUGGINGFACE_API_KEY") or "ollama")
     p.add_argument("--llm_api_url", default="http://localhost:11434/v1/chat/completions")
-    p.add_argument("--llm_model", default="qwen2.5:7b")
+    p.add_argument("--llm_model", default="qwen2.5:3b")
     p.add_argument("--llm_model_fast", default=None)
     p.add_argument("--llm_model_strong", default=None)
     p.add_argument("--llm_cost_mode", default="balanced", choices=["cheap", "balanced", "thorough"])
@@ -8799,9 +9166,9 @@ def _parse_controller_args():
     p.add_argument("--figure_report_enable", type=int, default=1)
     p.add_argument("--vision_enable", type=int, default=0)
     p.add_argument("--vision_provider", default="openai_compatible")
-    p.add_argument("--vision_api_key", default="ollama")
+    p.add_argument("--vision_api_key", default=_os_controller.getenv("HF_API_KEY") or _os_controller.getenv("HUGGINGFACE_API_KEY") or "ollama")
     p.add_argument("--vision_api_url", default="http://localhost:11434/v1/chat/completions")
-    p.add_argument("--vision_model", default="qwen2.5vl:7b-q4_K_M")
+    p.add_argument("--vision_model", default="qwen2.5vl:3b")
     p.add_argument("--vision_max_figures_per_paper", type=int, default=1)
     p.add_argument("--vision_max_image_width", type=int, default=800)
     p.add_argument("--vision_cache_enable", type=int, default=1)
@@ -8856,6 +9223,10 @@ def _parse_controller_args():
 
     args = p.parse_args()
     _apply_extraction_profile(args)
+    if args.domain_profile != "halide_pv":
+        if args.run_model or args.pipeline_stage == "integrate_and_model":
+            p.error("PCE/stability integration and modeling require --domain_profile halide_pv. Cross-domain structured extraction and knowledge_graph remain available.")
+        args.skip_integration = True
 
     # v21 default strategy:
     # - Main extraction pass preserves original summary/extraction quality and strict schema-family extraction.
@@ -8911,23 +9282,33 @@ def _v21_call_openai_compatible_vision(args, image_path: _Path_controller, conte
     import urllib.error as _urlerror
 
     data_url = _v21_image_to_data_url(image_path, max_width=int(args.vision_max_image_width))
+    domain_profile = str(getattr(args, "domain_profile", "halide_pv") or "halide_pv")
+    if domain_profile == "oxide_perovskite":
+        domain_instruction = (
+            "Analyze oxide-perovskite figures, including composition/phase maps, diffraction, spectroscopy, "
+            "microscopy, processing-property relationships, and measured functional properties."
+        )
+    elif domain_profile == "general_science":
+        domain_instruction = "Analyze the scientific figure without assuming a materials or photovoltaic domain."
+    else:
+        domain_instruction = "Analyze halide-perovskite photovoltaic figures and device/stability evidence."
     system = (
-        "You are a figure-analysis assistant for halide-perovskite and photovoltaic research. "
-        "Return compact valid JSON only. Write in English. Treat all values as candidate evidence unless explicitly labeled."
+        "You are a scientific figure-analysis assistant. " + domain_instruction + " "
+        "Return compact valid JSON only. Write in English. Treat values as candidate evidence unless explicitly labeled."
     )
     user_payload = {
         "task": (
             "Analyze this figure image/crop for a literature-mining workflow. Identify the figure type, "
-            "what it shows, any candidate numerical values, materials/compositions, device information, "
-            "stability/PCE/JV/EQE/XRD/PL evidence, and whether it should affect the paper summary."
+            "what it shows, axes/variables, groups or samples, trends, candidate numerical values and units, "
+            "materials or entities, uncertainty, and whether it should affect the paper summary."
         ),
         "figure_id": figure_id,
         "context_text": context_text[:2500],
         "output_schema": {
-            "figure_type": "one of: stability_curve, jv_curve, eqe_spectrum, device_schematic, xrd, pl_uvvis, microscopy, table_or_other",
+            "figure_type": "domain-appropriate concise type such as curve, spectrum, diffraction, microscopy, schematic, map, table, or other",
             "is_high_value": True,
             "visual_summary": "...",
-            "candidate_database_fields": {},
+            "candidate_structured_fields": {},
             "summary_relevant_points": ["..."],
             "confidence": "low|medium|high",
             "needs_human_check": True
@@ -9033,7 +9414,7 @@ def _v21_append_visual_evidence_to_summary(summary_path: _Path_controller, visio
         if isinstance(pts, list):
             for pt in pts[:4]:
                 lines.append(f"  - {pt}")
-        fields = item.get("candidate_database_fields") or {}
+        fields = item.get("candidate_structured_fields") or item.get("candidate_database_fields") or {}
         if isinstance(fields, dict) and fields:
             compact = "; ".join(f"{k}: {v}" for k, v in list(fields.items())[:8])
             lines.append(f"  - Candidate database fields: {compact}")
@@ -9045,8 +9426,9 @@ def _v21_append_visual_evidence_to_summary(summary_path: _Path_controller, visio
 def _v21_call_text_addendum(args, summary_text: str, vision_items: list[dict]) -> str:
     import json as _json
     import urllib.request as _urlrequest
+    domain_profile = str(getattr(args, "domain_profile", "halide_pv") or "halide_pv")
     system = (
-        "You update a perovskite-paper summary using new figure-analysis evidence. "
+        f"You update a scientific-paper summary using new figure-analysis evidence for domain profile {domain_profile}. "
         "Write in English. Do not rewrite the whole summary. Return only a concise addendum with facts supported by the vision evidence."
     )
     body = {

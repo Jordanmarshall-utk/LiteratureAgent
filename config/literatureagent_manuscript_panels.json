@@ -1,0 +1,340 @@
+{
+  "schema_version": 1,
+  "candidate_package": true,
+  "final_figure_width_mm": 180,
+  "standards": {
+    "axis_labels_pt": 8.5,
+    "tick_and_category_labels_pt": 7.5,
+    "legend_and_annotation_pt": 7.5,
+    "panel_titles_pt": 9,
+    "panel_letters_pt": 10,
+    "ordinary_line_width_pt": 0.9,
+    "raster_dpi": 600,
+    "vector_formats": [
+      "pdf",
+      "svg"
+    ],
+    "preserve_physical_canvas": true,
+    "tight_bbox_crop": false
+  },
+  "assembly_groups": {
+    "Figure2": {
+      "layout": "1 x 2",
+      "rows": 1,
+      "columns": 2,
+      "panel_ids": ["figure2a", "figure2b"],
+      "final_width_mm": 180,
+      "recommended_final_height_mm": 82
+    },
+    "Figure3": {
+      "layout": "1 x 4; panels ordered a through d from left to right",
+      "rows": 1,
+      "columns": 4,
+      "panel_ids": ["figure3a", "figure3b", "figure3c", "figure3d"],
+      "final_width_mm": 362,
+      "recommended_final_height_mm": 70
+    },
+    "Figure4": {
+      "layout": "1 x 6; panels ordered a through f from left to right",
+      "rows": 1,
+      "columns": 6,
+      "panel_ids": ["figure4a", "figure4b", "figure4c", "figure4d", "figure4e", "figure4f"],
+      "final_width_mm": 544,
+      "recommended_final_height_mm": 60
+    },
+    "Figure6": {
+      "layout": "1 x 2",
+      "rows": 1,
+      "columns": 2,
+      "panel_ids": ["figure6a", "figure6b"],
+      "final_width_mm": 180,
+      "recommended_final_height_mm": 82
+    },
+    "FigureS4": {
+      "layout": "1 x 2; panels ordered a then b from left to right",
+      "rows": 1,
+      "columns": 2,
+      "panel_ids": ["figureS4a", "figureS4b"],
+      "final_width_mm": 370,
+      "recommended_final_height_mm": 95
+    }
+  },
+  "panels": [
+    {
+      "panel_id": "figure2a",
+      "stem": "Figure2A_campaign_accounting",
+      "title": "Campaign record accounting",
+      "figure": "Figure2",
+      "panel_label": "a",
+      "role": "main",
+      "renderer": "campaign_accounting",
+      "width_mm": 85,
+      "height_mm": 72
+    },
+    {
+      "panel_id": "figure2b",
+      "stem": "Figure2B_model_ready_support",
+      "title": "Readiness field-presence screens",
+      "figure": "Figure2",
+      "panel_label": "b",
+      "role": "main",
+      "renderer": "campaign_readiness",
+      "width_mm": 85,
+      "height_mm": 72
+    },
+    {
+      "panel_id": "figure3a",
+      "stem": "Figure3A_phrase_recall",
+      "title": "Ground-truth phrase recall",
+      "figure": "Figure3",
+      "panel_label": "a",
+      "role": "main",
+      "renderer": "benchmark",
+      "metric": "GT Phrase Recall (%)",
+      "axis_label": "Ground-truth phrase recall (%)",
+      "width_mm": 85,
+      "height_mm": 60
+    },
+    {
+      "panel_id": "figure3b",
+      "stem": "Figure3B_cosine_similarity",
+      "title": "Cosine similarity",
+      "figure": "Figure3",
+      "panel_label": "b",
+      "role": "main",
+      "renderer": "benchmark",
+      "metric": "Cosine Similarity (%)",
+      "axis_label": "Cosine similarity (%)",
+      "width_mm": 85,
+      "height_mm": 60
+    },
+    {
+      "panel_id": "figure3c",
+      "stem": "Figure3C_token_f1",
+      "title": "Ground-truth token F1",
+      "figure": "Figure3",
+      "panel_label": "c",
+      "role": "main",
+      "renderer": "benchmark",
+      "metric": "GT Token F1 Score (%)",
+      "axis_label": "Ground-truth token F1 (%)",
+      "width_mm": 85,
+      "height_mm": 60
+    },
+    {
+      "panel_id": "figure3d",
+      "stem": "Figure3D_verbosity_ratio",
+      "title": "Verbosity ratio",
+      "figure": "Figure3",
+      "panel_label": "d",
+      "role": "main",
+      "renderer": "benchmark",
+      "metric": "Verbosity Ratio",
+      "axis_label": "Response/reference word ratio",
+      "width_mm": 85,
+      "height_mm": 60
+    },
+    {
+      "panel_id": "figure4a",
+      "stem": "Figure4A_historical_R2",
+      "title": "Historical domain: R²",
+      "figure": "Figure4",
+      "panel_label": "a",
+      "role": "main",
+      "renderer": "pce_metric",
+      "domain": "historical",
+      "metric": "r2",
+      "width_mm": 85,
+      "height_mm": 50
+    },
+    {
+      "panel_id": "figure4b",
+      "stem": "Figure4B_historical_RMSE",
+      "title": "Historical domain: RMSE",
+      "figure": "Figure4",
+      "panel_label": "b",
+      "role": "main",
+      "renderer": "pce_metric",
+      "domain": "historical",
+      "metric": "rmse",
+      "width_mm": 85,
+      "height_mm": 50
+    },
+    {
+      "panel_id": "figure4c",
+      "stem": "Figure4C_historical_MAE",
+      "title": "Historical domain: MAE",
+      "figure": "Figure4",
+      "panel_label": "c",
+      "role": "main",
+      "renderer": "pce_metric",
+      "domain": "historical",
+      "metric": "mae",
+      "width_mm": 85,
+      "height_mm": 50
+    },
+    {
+      "panel_id": "figure4d",
+      "stem": "Figure4D_literatureagent_R2",
+      "title": "Accepted LiteratureAgent domain: R²",
+      "figure": "Figure4",
+      "panel_label": "d",
+      "role": "main",
+      "renderer": "pce_metric",
+      "domain": "accepted_literatureagent",
+      "metric": "r2",
+      "width_mm": 85,
+      "height_mm": 50
+    },
+    {
+      "panel_id": "figure4e",
+      "stem": "Figure4E_literatureagent_RMSE",
+      "title": "Accepted LiteratureAgent domain: RMSE",
+      "figure": "Figure4",
+      "panel_label": "e",
+      "role": "main",
+      "renderer": "pce_metric",
+      "domain": "accepted_literatureagent",
+      "metric": "rmse",
+      "width_mm": 85,
+      "height_mm": 50
+    },
+    {
+      "panel_id": "figure4f",
+      "stem": "Figure4F_literatureagent_MAE",
+      "title": "Accepted LiteratureAgent domain: MAE",
+      "figure": "Figure4",
+      "panel_label": "f",
+      "role": "main",
+      "renderer": "pce_metric",
+      "domain": "accepted_literatureagent",
+      "metric": "mae",
+      "width_mm": 85,
+      "height_mm": 50
+    },
+    {
+      "panel_id": "figure5",
+      "stem": "figure_pce_choice_stratified_shap",
+      "title": "Recorded states and fitted-model PCE attribution",
+      "figure": "Figure5",
+      "panel_label": "",
+      "role": "main",
+      "renderer": "choice_shap",
+      "width_mm": 180,
+      "height_mm": 155
+    },
+    {
+      "panel_id": "figureS5_global",
+      "stem": "figure_pce_grouped_shap_beeswarm",
+      "title": "Global grouped SHAP audit",
+      "figure": "FigureS1",
+      "panel_label": "",
+      "role": "supplementary",
+      "renderer": "global_shap",
+      "width_mm": 180,
+      "height_mm": 160
+    },
+    {
+      "panel_id": "figureS5_solvent",
+      "stem": "figure_pce_solvent_formulation_shap",
+      "title": "Solvent-formulation attribution",
+      "figure": "FigureS2",
+      "panel_label": "",
+      "role": "supplementary",
+      "renderer": "solvent_shap",
+      "width_mm": 180,
+      "height_mm": 130
+    },
+    {
+      "panel_id": "figureS5_local",
+      "stem": "figure_pce_grouped_shap_local_random",
+      "title": "Fixed-seed single-record explanation",
+      "figure": "FigureS3",
+      "panel_label": "",
+      "role": "supplementary",
+      "renderer": "local_shap",
+      "width_mm": 180,
+      "height_mm": 125
+    },
+    {
+      "panel_id": "figure6a",
+      "stem": "Figure6A_stability_classification",
+      "title": "Post-fabrication stability classification",
+      "figure": "Figure6",
+      "panel_label": "a",
+      "role": "main",
+      "renderer": "stability_metric",
+      "family": "classification",
+      "width_mm": 85,
+      "height_mm": 72
+    },
+    {
+      "panel_id": "figure6b",
+      "stem": "Figure6B_stability_regression",
+      "title": "Condition-aware stability regression",
+      "figure": "Figure6",
+      "panel_label": "b",
+      "role": "main",
+      "renderer": "stability_metric",
+      "family": "regression",
+      "width_mm": 85,
+      "height_mm": 72
+    },
+    {
+      "panel_id": "figureS4a",
+      "stem": "FigureS4A_normalized_target_distribution",
+      "title": "Normalized-target distributions",
+      "figure": "FigureS4",
+      "panel_label": "a",
+      "role": "supplementary",
+      "renderer": "normalization_distribution",
+      "width_mm": 180,
+      "height_mm": 85
+    },
+    {
+      "panel_id": "figureS4b",
+      "stem": "FigureS4B_normalization_rank_robustness",
+      "title": "Normalization rank robustness",
+      "figure": "FigureS4",
+      "panel_label": "b",
+      "role": "supplementary",
+      "renderer": "normalization_robustness",
+      "width_mm": 180,
+      "height_mm": 78
+    },
+    {
+      "panel_id": "figure1",
+      "stem": "Figure1_LiteratureAgent_workflow",
+      "title": "LiteratureAgent workflow",
+      "figure": "Figure1",
+      "panel_label": "",
+      "role": "main",
+      "renderer": "workflow_diagram",
+      "width_mm": 180,
+      "height_mm": 104
+    },
+    {
+      "panel_id": "figure7_schema",
+      "stem": "Figure7_production_KG_schema",
+      "title": "Production knowledge-graph schema",
+      "figure": "Figure7",
+      "panel_label": "",
+      "role": "main",
+      "renderer": "kg_schema",
+      "width_mm": 180,
+      "height_mm": 98
+    },
+    {
+      "panel_id": "figureS5_dag",
+      "stem": "FigureS5_directional_claim_DAG",
+      "title": "Evidence-linked directional-claim view",
+      "figure": "FigureS5",
+      "panel_label": "",
+      "role": "supplementary",
+      "renderer": "claim_dag",
+      "width_mm": 180,
+      "height_mm": 102
+    }
+  ],
+  "external_vector_panels": []
+}

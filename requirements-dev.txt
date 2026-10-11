@@ -1,0 +1,6 @@
+-r requirements-platform.txt
+-r scripts/requirements-figure5.txt
+
+openpyxl
+pytest
+python-docx

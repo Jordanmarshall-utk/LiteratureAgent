@@ -1,0 +1,10 @@
+{
+  "id": "general_science",
+  "version": "1.0",
+  "description": "Domain-neutral scientific literature profile. Extend the concept lists for a specific field without changing the output contract.",
+  "concepts": {
+    "study_design": ["experiment", "simulation", "theory", "review", "meta-analysis"],
+    "evidence": ["measurement", "observation", "figure", "table", "statistical analysis"],
+    "quality": ["uncertainty", "limitation", "replicate", "control", "confidence interval"]
+  }
+}

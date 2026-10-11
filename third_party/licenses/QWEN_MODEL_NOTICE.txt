@@ -1,0 +1,20 @@
+Qwen model notice
+=================
+
+LiteratureAgent does not redistribute Qwen model weights. During first setup,
+Ollama downloads the user-selected model profile directly into the user's local
+Ollama model store.
+
+Laptop profile:
+- qwen2.5:3b
+- qwen2.5vl:3b
+
+Quality profile:
+- qwen2.5:7b
+- qwen2.5vl:7b-q4_K_M
+
+Review the model metadata and license displayed by Ollama before use:
+- https://ollama.com/library/qwen2.5
+- https://ollama.com/library/qwen2.5vl
+
+These model files are not included in the LiteratureAgent ZIP.

@@ -33,6 +33,7 @@ def test_common_args_keep_vision_out_of_extraction() -> None:
     )
     assert args[args.index("--inline_vision") + 1] == "0"
     assert args[args.index("--use_reasoning_layer") + 1] == "1"
+    assert args[args.index("--domain_profile") + 1] == "halide_pv"
 
 
 def test_reasoning_can_be_disabled_without_changing_output_contract() -> None:

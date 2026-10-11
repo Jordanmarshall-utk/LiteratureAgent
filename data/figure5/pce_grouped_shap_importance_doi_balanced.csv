@@ -1,0 +1,219 @@
+scientific_group,doi_balanced_mean_absolute_grouped_shap_pce_points,doi_balanced_signed_mean_grouped_shap_pce_points
+A-site composition,0.49861781243004705,0.07557146778778476
+Perovskite precursor solvent formulation,0.35844667234576766,0.03440776603914788
+Quenching-induced crystallization,0.3487443520413754,0.03308229384021797
+HTL material/stack and processing,0.26351762502603626,0.016412312073975123
+ETL material/stack and processing,0.23296568658740227,0.034673563015130214
+X-site/halide composition,0.22131363310288715,0.06357194615030672
+Perovskite composition short form,0.15776474953703,0.043673372435274055
+Back-contact material,0.1516498150090465,0.0035285059447056656
+Fully inorganic absorber,0.14191275771085918,0.020853571912279538
+Back-contact deposition method,0.12728931338609015,-0.007331263291147906
+Cell stack sequence,0.09335146042138653,-0.0069191285183707405
+Perovskite composition long form,0.08829371160635217,0.02445604107264018
+B-site composition,0.08270489512212822,0.025217826405740294
+Perovskite additives compounds,0.06680053394677318,0.018848918280215857
+Perovskite composition leadfree,0.05882835893035723,0.006771911269503469
+Perovskite deposition synthesis atmosphere,0.05655480691715556,-0.007399343795747047
+Perovskite deposition thermal annealing time,0.053225034305329634,0.011280919752905974
+Substrate stack sequence,0.05277835646583145,0.0039315436824197076
+Perovskite deposition thermal annealing temperature,0.05225822404633962,0.005439277084605172
+Perovskite deposition procedure,0.04721002553203979,-0.0005708810214295337
+Perovskite deposition aggregation state of reactants,0.039671340714834295,-0.0071712721444548745
+ADD DESC text length,0.0394214381190865,-0.0010949655201888825
+Backcontact thickness list,0.03737828490460308,0.007901828753218657
+Cell architecture,0.03444972510031708,0.002873044488969959
+Perovskite dimension 2D,0.03419994784530974,-0.001212655461038559
+Perovskite deposition quenching media,0.029450948480031325,0.005178545236105075
+Perovskite band gap estimation basis,0.02557759792657357,0.004842112976282233
+Perovskite dimension 3D,0.021927554824140494,-0.002573783643612915
+Perovskite deposition thermal annealing atmosphere,0.02191582958845266,0.0011976187664420523
+Perovskite additives concentrations,0.014679125994578504,0.010309484888060208
+Cell flexible,0.014170531182971657,0.00031583455761614903
+Perovskite dimension list of layers,0.011069377269523456,-0.0011807804893344787
+Cell semitransparent,0.009776227994763062,-0.009776227994763064
+Perovskite deposition solvent annealing,0.009505905290715095,0.0012072196297677113
+Perovskite band gap,0.007954221114420262,-0.0002920172525128847
+Perovskite composition none stoichiometry components in excess,0.007445631054653191,0.002192831833634448
+Add lay front function,0.006908919541043048,-0.0010694306344198922
+Cell area measured,0.006121141800950152,0.0006094251158666701
+Perovskite deposition number of deposition steps,0.00603947220496204,0.0005386125172276862
+Perovskite pl max,0.0054579243456010455,-0.0004426262761627905
+Perovskite deposition substrate temperature,0.00505536729463488,-5.3659915545824154e-05
+Perovskite composition perovskite ABC3 structure,0.004836886287656568,0.0040340235334984575
+Perovskite deposition quenching media additives compounds,0.004575894454799217,0.004336385360454678
+Perovskite deposition reaction solutions compounds,0.00448636483491508,0.001465211082978184
+Perovskite thickness,0.004483775151197622,-0.00022269098999425424
+Perovskite deposition after treatment of formed perovskite,0.003915446437031834,-0.0009996383029097088
+Perovskite storage atmosphere,0.003913043164647749,-0.0012274097775686573
+Perovskite deposition solvent annealing solvent atmosphere,0.0037713214860320113,-0.0007226423515642797
+Perovskite deposition after treatment of formed perovskite met,0.003727188185419598,0.0008508308902670725
+Perovskite deposition reaction solutions compounds supplier,0.003709301911431519,-0.0022676376981182033
+Perovskite deposition reaction solutions concentrations,0.0035450743165892505,-0.00116794872450367
+Perovskite deposition synthesis atmosphere relative humidity,0.003437752072012138,0.00022090085821089474
+Encapsulation,0.003265678481094444,-0.00145479343935631
+Substrate brand name,0.0028536527436181795,-0.0019056208178957138
+Encapsulation stack sequence,0.0027591708072639944,-0.0024664349244738204
+Perovskite deposition solvent annealing timing,0.0024648968523209606,0.002456216681573423
+Module JV data recalculated per cell,0.002432958956332836,-0.0024329589563328365
+Module,0.0022430594354990708,-0.0021238077360979934
+Perovskite composition assumption,0.0021174346445974666,0.0011110795350578937
+Substrate cleaning procedure,0.0020814087488688405,0.00043880267414116446
+ADD DESC has known additive,0.002053540043140731,0.0005760316927475164
+Encapsulation edge sealing materials,0.0019432650510361167,-0.001664167118423634
+Perovskite deposition thermal annealing relative humidity,0.0018687682299571204,-0.0005709399129687259
+Perovskite dimension 3D with 2D capping layer,0.0018212007779004954,0.0018071139608322158
+Backcontact deposition thermal annealing temperature,0.001787080831068405,0.00042654257244030146
+Substrate supplier,0.0017607994930771405,-0.0007217913310199864
+ADD DESC sum chloride,0.0017447763761006486,-0.00032557005420619743
+Perovskite solvent supplier,0.0016399518952003476,-0.0003605588524227452
+Perovskite dimension 0D,0.0015002172213887516,-0.0015002172213887516
+Add lay front,0.0012075533695336397,0.0010604174378521466
+Perovskite deposition quenching media additives concentrations,0.0011048005310183347,-0.0004940112757664573
+ADD DESC known match count,0.0010767963574198245,0.0003755961066472209
+ADD DESC has macl,0.0010025914985489852,-0.00011981566767294802
+Backcontact deposition reaction solutions compounds,0.0009936028983356386,3.8496832662264725e-05
+ADD DESC mean chloride,0.0009723767108771135,-0.00010992379743127379
+Cell area total,0.0007500022083013405,0.0001338581995939788
+ADD DESC sum mw,0.0007160704332773878,0.00032600497597588905
+ADD DESC sum chain length,0.0007094775943323657,3.7642817132254963e-05
+ADD DESC mean mw,0.0006740977684015621,0.0002417904932289992
+ADD DESC mean chain length,0.0006332388000430775,0.00013268189943693368
+Backcontact deposition aggregation state of reactants,0.0006224565840694166,-0.0006096100156367813
+Backcontact deposition synthesis atmosphere pressure total,0.0006086190942836605,8.647002823118291e-05
+Perovskite deposition reaction solutions temperature,0.0005338344672561718,-0.0001519576077678271
+Cell number of cells per substrate,0.0005204558778717335,-0.00019023903343816766
+Perovskite deposition quenching media volume,0.0004974717129211288,-2.1942122196199337e-05
+Substrate thickness,0.0004895480252870346,-0.00020101463647403538
+Perovskite surface treatment before next deposition step,0.00047335889794262597,0.00042528000596225656
+Perovskite storage time until next deposition step,0.000406980554502477,0.00017892025615221015
+Module number of cells in module,0.00039914041220254166,-0.00038208545744861094
+Perovskite solvent purity,0.00037667362014613453,-0.00018229369227433542
+Perovskite dimension 2D3D mixture,0.000356718170956501,0.00025690677180879894
+Backcontact deposition thermal annealing time,0.00030873891493328736,-0.0002911029115011428
+Perovskite single crystal,0.00030053203156454465,-0.0003005320315645447
+Perovskite deposition reaction solutions compounds purity,0.0002982430968788511,-6.780320863004893e-05
+Add lay front thickness list,0.00029134895696443795,0.00011736087132866149
+Substrate deposition procedure,0.00026360476109539446,-2.3290123881895338e-05
+Perovskite composition perovskite inspired structure,0.00025903658644165845,9.877048320449746e-05
+ADD DESC sum iodide,0.00024539183909250183,0.00018247464035309248
+ADD DESC text mentions aromatic,0.00023310693524053659,0.00021961017980114096
+Encapsulation atmosphere for encapsulation,0.0002221477833127611,0.00016746722033304066
+ADD DESC mean iodide,0.0002030197856762768,9.311814784482591e-05
+Perovskite deposition solvent annealing time,0.00020209312295954357,8.416161662440905e-05
+Backcontact deposition synthesis atmosphere pressure partial,0.00019290011763517498,-9.501713214009172e-05
+Backcontact deposition thermal annealing atmosphere,0.00018518174575008593,6.313569884215377e-05
+Substrate area,0.00018299137539194065,5.296595645091877e-05
+Add lay back function,0.00016122452017649174,2.1214371780332557e-05
+Module area effective,0.0001587814452756417,-3.071805530145165e-05
+Add lay front stack sequence,0.00015588610498300533,-2.965286967683604e-05
+Module area total,0.00014834658970813098,-5.636235135526267e-05
+Backcontact deposition reaction solutions compounds supplier,0.00014601423724583534,5.7509068632187926e-05
+Backcontact deposition synthesis atmosphere,0.00014327323928971618,-0.00013045846880801172
+ADD DESC sum rp like,0.00013045283738760273,4.578727681211625e-05
+Perovskite deposition synthesis atmosphere pressure total,0.00011286195068386407,-7.727178954965864e-05
+ADD DESC mean rp like,0.00011118677687623594,5.649006535113019e-05
+Substrate etching procedure,0.00010439808179205095,-3.7719094640123045e-05
+Perovskite storage relative humidity,0.00010122114232441623,6.617886909144409e-06
+Perovskite deposition solvent annealing temperature,9.002356376009559e-05,2.8124930129168277e-05
+Perovskite deposition reaction solutions age,8.515786435902569e-05,-7.535695764494829e-05
+Perovskite deposition synthesis atmosphere pressure partial,8.476297325704088e-05,-3.078158527006788e-05
+ADD DESC text mentions chloride,8.022937967430748e-05,6.749170016915205e-05
+Perovskite band gap graded,7.637195290376367e-05,1.457210779139349e-06
+ADD DESC mean aromatic,7.610239886241286e-05,3.995488585567222e-05
+ADD DESC text mentions iodide,7.573341494202116e-05,2.204507164810033e-05
+ADD DESC has peai,7.384652500521524e-05,2.6723529515813136e-05
+ADD DESC sum aromatic,7.367498067817904e-05,2.545851645048358e-05
+Perovskite deposition reaction solutions volumes,7.085021227985759e-05,1.0234894255085591e-05
+Backcontact storage atmosphere,6.0089091665903174e-05,-2.809346918076016e-05
+Add lay back,5.55555016266371e-05,-6.220461140510944e-07
+Backcontact additives compounds,4.245890139901959e-05,-3.30679998901229e-05
+ADD DESC text mentions bromide,4.0640215251319356e-05,1.3457821651910322e-05
+Backcontact deposition solvents,3.707714685581683e-05,-2.59543066478269e-05
+Backcontact deposition substrate temperature,3.42235321639987e-05,-2.0352853888366205e-05
+ADD DESC has bai,2.4116062282874215e-05,-3.202640787048382e-06
+ADD DESC has fai,2.203431796792909e-05,-1.891695633411305e-05
+ADD DESC has mai,2.0692820079371396e-05,-1.0071358556079237e-05
+Backcontact additives concentrations,1.4356556484570614e-05,-1.4356556484570614e-05
+Backcontact deposition synthesis atmosphere relative humidity,1.128469375919603e-05,-1.128469375919603e-05
+Cell semitransparent wavelength range,8.620053713736249e-06,-8.620053713736249e-06
+Backcontact storage relative humidity,8.614254748862536e-06,-7.790782529310207e-06
+Backcontact deposition solvents mixing ratios,7.782423877039858e-06,7.782423877039858e-06
+Backcontact deposition reaction solutions compounds purity,7.644264019724564e-06,7.644264019724564e-06
+Backcontact surface treatment before next deposition step,6.014765662074993e-06,-6.014765662074993e-06
+Backcontact deposition reaction solutions temperature,3.393591887144518e-06,-3.393591887144518e-06
+ADD DESC has pmai,2.8550951161060833e-06,2.8550951161060833e-06
+Backcontact deposition solvents supplier,2.291962247902717e-06,-2.291962247902717e-06
+Backcontact storage time until next deposition step,1.476183834609962e-06,-1.476183834609962e-06
+Substrate surface roughness rms,0.0,0.0
+Cell semitransparent AVT,0.0,0.0
+Perovskite deposition thermal annealing pressure,0.0,0.0
+Cell flexible min bending radius,0.0,0.0
+Perovskite deposition quenching media mixing ratios,0.0,0.0
+Backcontact deposition solvents purity,0.0,0.0
+Add lay front deposition synthesis atmosphere relative humidity,0.0,0.0
+Add lay front deposition synthesis atmosphere pressure partial,0.0,0.0
+Encapsulation oxygen transmission rate,0.0,0.0
+ADD DESC has oai,0.0,0.0
+Add lay back deposition thermal annealing atmosphere,0.0,0.0
+Add lay back storage time until next deposition step,0.0,0.0
+Add lay back storage atmosphere,0.0,0.0
+Add lay back storage relative humidity,0.0,0.0
+Add lay back surface treatment before next deposition step,0.0,0.0
+Encapsulation water vapour transmission rate,0.0,0.0
+Add lay back deposition thermal annealing time,0.0,0.0
+Add lay back deposition thermal annealing temperature,0.0,0.0
+Add lay back deposition reaction solutions compounds purity,0.0,0.0
+Add lay back deposition reaction solutions concentrations,0.0,0.0
+Add lay back deposition reaction solutions volumes,0.0,0.0
+Add lay back deposition reaction solutions age,0.0,0.0
+Add lay back deposition reaction solutions temperature,0.0,0.0
+Add lay back deposition substrate temperature,0.0,0.0
+Add lay back deposition solvents purity,0.0,0.0
+Add lay back deposition solvents supplier,0.0,0.0
+Add lay back deposition solvents mixing ratios,0.0,0.0
+Add lay back deposition solvents,0.0,0.0
+Add lay back deposition synthesis atmosphere relative humidity,0.0,0.0
+Add lay back deposition synthesis atmosphere pressure partial,0.0,0.0
+Add lay back deposition reaction solutions compounds supplier,0.0,0.0
+Add lay back deposition reaction solutions compounds,0.0,0.0
+Add lay back deposition synthesis atmosphere pressure total,0.0,0.0
+Add lay back deposition synthesis atmosphere,0.0,0.0
+Add lay front storage atmosphere,0.0,0.0
+Add lay front storage relative humidity,0.0,0.0
+Add lay front surface treatment before next deposition step,0.0,0.0
+Add lay back thickness list,0.0,0.0
+Add lay back additives concentrations,0.0,0.0
+Add lay back deposition aggregation state of reactants,0.0,0.0
+Add lay front deposition reaction solutions compounds supplier,0.0,0.0
+Add lay front deposition reaction solutions compounds,0.0,0.0
+Add lay front deposition solvents purity,0.0,0.0
+Add lay front deposition solvents supplier,0.0,0.0
+Add lay front deposition solvents mixing ratios,0.0,0.0
+Add lay front deposition solvents,0.0,0.0
+Add lay front storage time until next deposition step,0.0,0.0
+Add lay front deposition thermal annealing atmosphere,0.0,0.0
+Add lay front deposition thermal annealing time,0.0,0.0
+Add lay front deposition thermal annealing temperature,0.0,0.0
+Add lay front deposition substrate temperature,0.0,0.0
+Add lay front deposition reaction solutions temperature,0.0,0.0
+Add lay front deposition reaction solutions age,0.0,0.0
+Add lay front deposition reaction solutions volumes,0.0,0.0
+Add lay front deposition reaction solutions concentrations,0.0,0.0
+Add lay front deposition reaction solutions compounds purity,0.0,0.0
+Add lay front deposition synthesis atmosphere pressure total,0.0,0.0
+Add lay front deposition synthesis atmosphere,0.0,0.0
+Add lay front deposition aggregation state of reactants,0.0,0.0
+Add lay front additives concentrations,0.0,0.0
+Backcontact deposition reaction solutions age,0.0,0.0
+ADD DESC mean long chain,0.0,0.0
+ADD DESC has oami,0.0,0.0
+ADD DESC text has additive info,0.0,0.0
+ADD DESC sum long chain,0.0,0.0
+Backcontact deposition reaction solutions concentrations,0.0,0.0
+Backcontact deposition reaction solutions volumes,0.0,0.0
+Add lay front additives compounds,0.0,0.0
+Add lay front deposition procedure,0.0,0.0
+Add lay back deposition procedure,0.0,0.0
+Add lay back stack sequence,0.0,0.0
+Add lay back additives compounds,0.0,0.0

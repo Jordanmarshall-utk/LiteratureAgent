@@ -1,0 +1,94 @@
+{
+  "selection_method": "uniform random draw from the ordered 21434-row fitted-training-cohort in-sample explanation table",
+  "explanation_scope": "Final model refit on the full training cohort; in-sample attribution (not out-of-fold)",
+  "explanation_table_rows": 21434,
+  "random_seed": 42,
+  "selected_position_zero_based": 1913,
+  "production_row_index": 3943,
+  "publication_group_id": "10.1016/j.solmat.2019.110052",
+  "publication_group_device_count": 4,
+  "publication_group_count_unit": "explained records sharing the selected publication_group_id",
+  "base_value_pce_points": 14.03948506830264,
+  "base_value_semantics": "Interventional-background expectation",
+  "predicted_pce": 11.82206089240564,
+  "observed_pce": 9.74,
+  "reconstruction_target": "predicted_pce",
+  "observed_pce_role": "reference outcome shown for comparison; not reconstructed by SHAP",
+  "prediction_reconstruction_difference": -8.405966411828558e-08,
+  "top_group_count": 10,
+  "other_group_count": 208,
+  "other_group_signed_net_remainder_pce_points": -0.03659605970242641,
+  "other_group_aggregation": "signed net sum of all undisplayed scientific-group contributions; positive and negative contributions can cancel",
+  "displayed_group_context": [
+    {
+      "scientific_group": "A-site composition",
+      "context_source_column": "context_a_site_composition",
+      "displayed_context": "Cs",
+      "grouped_shap_pce_points": -1.0307302918225052,
+      "metadata_proxy": false
+    },
+    {
+      "scientific_group": "Fully inorganic absorber",
+      "context_source_column": "context_fully_inorganic",
+      "displayed_context": "Yes",
+      "grouped_shap_pce_points": -0.7028394107890381,
+      "metadata_proxy": false
+    },
+    {
+      "scientific_group": "Perovskite composition short form",
+      "context_source_column": "context_perovskite_short_form",
+      "displayed_context": "CsPbBrI",
+      "grouped_shap_pce_points": -0.3892536338151308,
+      "metadata_proxy": false
+    },
+    {
+      "scientific_group": "X-site/halide composition",
+      "context_source_column": "context_x_site_composition",
+      "displayed_context": "Br / I: 2",
+      "grouped_shap_pce_points": -0.3091974002455891,
+      "metadata_proxy": false
+    },
+    {
+      "scientific_group": "Quenching-induced crystallization",
+      "context_source_column": "context_quenching",
+      "displayed_context": "Yes",
+      "grouped_shap_pce_points": 0.222365725399627,
+      "metadata_proxy": false
+    },
+    {
+      "scientific_group": "Perovskite composition long form",
+      "context_source_column": "context_perovskite_long_form",
+      "displayed_context": "CsPbBrI2",
+      "grouped_shap_pce_points": -0.1582505985152159,
+      "metadata_proxy": false
+    },
+    {
+      "scientific_group": "Perovskite precursor solvent formulation",
+      "context_source_column": "context_solvent_formulation",
+      "displayed_context": "DMF/DMSO (9:1)",
+      "grouped_shap_pce_points": 0.1021182909845492,
+      "metadata_proxy": false
+    },
+    {
+      "scientific_group": "Back-contact material",
+      "context_source_column": "context_back_contact",
+      "displayed_context": "Au",
+      "grouped_shap_pce_points": 0.0869267673889726,
+      "metadata_proxy": false
+    },
+    {
+      "scientific_group": "Cell stack sequence",
+      "context_source_column": "context_cell_stack",
+      "displayed_context": "SLG | FTO | TiO$_2$-c | Perovskite | Spiro-MeOTAD | Au",
+      "grouped_shap_pce_points": -0.0648589505776214,
+      "metadata_proxy": false
+    },
+    {
+      "scientific_group": "ETL material/stack and processing",
+      "context_source_column": "context_etl",
+      "displayed_context": "TiO$_2$-c; spin-coated",
+      "grouped_shap_pce_points": 0.0628913017377122,
+      "metadata_proxy": false
+    }
+  ]
+}

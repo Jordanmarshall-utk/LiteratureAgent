@@ -21,7 +21,7 @@ CAMPAIGN_RUNNER = PROJECT_ROOT / "scripts" / "run_expansion_campaign.py"
 DEFAULT_BASE_CSV = PROJECT_ROOT / "data" / "Perovskite_database_content_all_data.csv"
 DEFAULT_ONTOLOGY = PROJECT_ROOT / "config" / "perovskite_ontology_library_v19.json"
 DEFAULT_MODEL = PROJECT_ROOT / "models" / "pce_then_stability_same_approach.py"
-PLATFORM_ROOT = PROJECT_ROOT / "platform_workspace"
+PLATFORM_ROOT = Path(os.environ.get("LITERATUREAGENT_RUNTIME_HOME", "")).expanduser() if os.environ.get("LITERATUREAGENT_RUNTIME_HOME") else PROJECT_ROOT / "platform_workspace"
 RUNS_DIR = PLATFORM_ROOT / "runs"
 STATE_FILE = PLATFORM_ROOT / "platform_state.json"
 SETTINGS_FILE = PLATFORM_ROOT / "settings.json"
@@ -43,9 +43,9 @@ def load_settings() -> dict[str, str]:
         "base_csv": str(DEFAULT_BASE_CSV),
         "ontology": str(DEFAULT_ONTOLOGY),
         "llm_api_url": "http://localhost:11434/v1/chat/completions",
-        "llm_model": "qwen2.5:7b",
+        "llm_model": "qwen2.5:3b",
         "vision_api_url": "http://localhost:11434/v1/chat/completions",
-        "vision_model": "qwen2.5vl:7b-q4_K_M",
+        "vision_model": "qwen2.5vl:3b",
         "oauth_client": str(PROJECT_ROOT / "secrets" / "google_drive_oauth_client.json"),
         "oauth_token": str(PROJECT_ROOT / "secrets" / "google_drive_token.json"),
     }
@@ -165,7 +165,9 @@ class RunStore:
         _json_dump(run_dir / "platform_run.json", asdict(run))
         return run
 
-    def register_existing(self, name: str, output_dir: Path) -> RunRecord:
+    def register_existing(
+        self, name: str, output_dir: Path, domain_profile: str = "halide_pv", ontology: str = ""
+    ) -> RunRecord:
         output_dir = output_dir.resolve()
         if not output_dir.exists():
             raise FileNotFoundError(output_dir)
@@ -178,7 +180,7 @@ class RunStore:
             workflow="existing_collection",
             status="finished",
             created_at=datetime.now().isoformat(timespec="seconds"),
-            command=[],
+            command=["--domain_profile", domain_profile, "--ontology_path", ontology] if ontology else ["--domain_profile", domain_profile],
             run_dir=str(output_dir),
             stdout_path=str(output_dir / "platform_stdout.log"),
             stderr_path=str(output_dir / "platform_stderr.log"),
@@ -220,6 +222,7 @@ def common_controller_args(
     *, base_csv: str, ontology: str, work_dir: str, integration_dir: str,
     model_dir: str, reasoning_mode: str = "auto", llm_api_url: str = "",
     llm_model: str = "", vision_api_url: str = "", vision_model: str = "",
+    domain_profile: str = "halide_pv",
 ) -> list[str]:
     args = [
         "--base_csv", base_csv,
@@ -228,6 +231,7 @@ def common_controller_args(
         "--integration_out_dir", integration_dir,
         "--model_out_dir", model_dir,
         "--model_script", str(DEFAULT_MODEL),
+        "--domain_profile", domain_profile,
         "--llm_cache_enable", "1",
         "--use_reasoning_layer", "0" if reasoning_mode == "off" else "1",
         "--reasoning_policy_mode", reasoning_mode,

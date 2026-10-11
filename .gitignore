@@ -10,6 +10,8 @@ __pycache__/
 .ruff_cache/
 .venv/
 venv/
+.tools/
+installers/*.exe
 platform_workspace/
 secrets/*
 !secrets/README.md

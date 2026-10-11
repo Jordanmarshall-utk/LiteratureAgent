@@ -1,10 +1,11 @@
 # LiteratureAgent
 
-LiteratureAgent is an evidence-linked scientific literature mining platform for
-perovskite research. It collects papers, extracts structured device and sample
-records with field-level provenance, applies quality gates, builds directed
-heterogeneous knowledge graphs, and prepares data for downstream PCE and
-stability modeling.
+LiteratureAgent is an evidence-linked scientific literature mining platform. It
+collects papers, extracts ontology-guided structured records with field-level
+provenance, applies quality gates, builds directed heterogeneous knowledge
+graphs, and retains plain-language summaries and evidence for later review.
+The original halide-perovskite photovoltaic workflow also prepares data for PCE
+and stability modeling.
 
 ## Main capabilities
 
@@ -16,23 +17,50 @@ stability modeling.
 - Policy-aware scientific reasoning modes for task-appropriate analysis.
 - Streamlit interface for extraction, later processing passes, graphs, evidence
   packets, run monitoring, results, and endpoint settings.
+- Domain profiles for general science, oxide perovskites, and halide-perovskite
+  photovoltaics. Custom domains can be added by supplying an ontology file.
+- Structured extraction and knowledge-graph generation for every domain; only
+  the halide-PV profile enables the specialized PCE/stability model.
 
 ## Windows quick start
 
-1. Install Python 3.11 or 3.12.
+1. Extract the complete Windows release ZIP to a normal local folder.
 2. Double-click `Setup_LiteratureAgent.cmd` once.
-3. Double-click `Launch_LiteratureAgent.cmd` to open the local application.
-4. Configure an OpenAI-compatible endpoint or local Ollama models in Settings.
+3. Complete the bundled official Ollama installer if prompted; setup then
+   downloads the selected local Qwen text and vision models.
+4. Double-click `Launch_LiteratureAgent.cmd` to open the local application.
 
-The setup script creates a private `.venv` and installs `requirements-platform.txt`.
+The release includes an embedded Python runtime and the original Ollama Windows
+installer. Qwen model weights are downloaded by Ollama during setup and are not
+stored in the ZIP. The default laptop profile uses the 3B text and vision models;
+`Setup_Quality_Models.cmd` selects the larger 7B profile.
+
+For a source checkout, the setup script can use an installed Python or Windows
+Package Manager when the release-only runtime and installer are absent.
 
 ## Manual setup
 
 ```powershell
 py -3.12 -m venv .venv
 .venv\Scripts\python.exe -m pip install -r requirements-platform.txt
-.venv\Scripts\python.exe -m streamlit run literature_agent_platformpp.py
+.venv\Scripts\python.exe -m streamlit run literature_agent_platform\app.py
 ```
+
+## Tests and manuscript-figure reproduction
+
+Install the development and figure dependencies, then run the repository tests:
+
+```powershell
+.venv\Scripts\python.exe -m pip install -r requirements-dev.txt
+.venv\Scripts\python.exe -m pytest tests -q
+```
+
+The four released Figure 5 panels can be regenerated from the included source
+tables with `python scripts/plot_figure5_grouped_shap.py --top 20`. Recomputing
+the complete 21,434-row SHAP audit is a separate, long-running workflow that
+requires the governed integrated database and frozen 278-predictor manifest;
+see `scripts/FIGURE5_REPRODUCTION.md`. The validated numerical environment used
+scikit-learn 1.8.0 and SHAP 0.51.0.
 
 ## Repository layout
 
@@ -43,6 +71,10 @@ py -3.12 -m venv .venv
 - `data/`: baseline perovskite dataset required by the default workflow.
 - `models/`: PCE and stability modeling implementation.
 - `scripts/`: reusable campaign, QA, analysis, graph, and plotting tools.
+- `scripts/build_literatureagent_coworker_package.py`: audited Windows release
+  builder; its local build prerequisites are documented in the standalone guide.
+- `scripts/FIGURE5_REPRODUCTION.md`: choice-stratified main, global audit, solvent-formulation, and fixed-seed local SHAP inputs and commands.
+- `third_party/licenses/`: Ollama license and Qwen model notice.
 - `tests/`: pipeline, model, integration, reasoning, and platform checks.
 
 ## Local state and credentials

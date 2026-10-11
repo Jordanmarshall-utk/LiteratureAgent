@@ -15,9 +15,6 @@ from scipy.stats import spearmanr
 
 
 ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_INPUT = Path(
-    r"E:\LiteratureAgent\final_model_comparison_fast_20260811\grouped\integrated\stability\physical_layer\physical_targets_preview.csv"
-)
 DEFAULT_OUT = (
     ROOT
     / "artifacts"
@@ -197,7 +194,12 @@ def plot(summary: pd.DataFrame, long_values: pd.DataFrame, stem: Path) -> None:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--input-csv", type=Path, default=DEFAULT_INPUT)
+    parser.add_argument(
+        "--input-csv",
+        type=Path,
+        required=True,
+        help="Physical-target preview CSV produced by the stability-model workflow.",
+    )
     parser.add_argument("--out-dir", type=Path, default=DEFAULT_OUT)
     parser.add_argument("--figure-dir", type=Path, default=DEFAULT_FIGURE_DIR)
     args = parser.parse_args()

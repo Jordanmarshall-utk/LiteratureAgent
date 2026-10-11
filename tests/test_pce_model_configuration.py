@@ -56,8 +56,28 @@ def test_row_random_cv_is_explicit_and_reproducible():
     )
 
 
+def test_stability_baseline_excludes_model_generated_pce():
+    module = load_model_module()
+    frame = pd.DataFrame(
+        {
+            "Ref_DOI_number": ["10.1000/example"],
+            "Cell_area_measured": [0.10],
+            "PCE_MODEL_oof_predicted_PCE": [18.2],
+        }
+    )
+    features = module.build_base_feature_columns(
+        frame,
+        "__stability_target_placeholder__",
+        purpose="stability_design",
+    )
+    assert "Cell_area_measured" in features
+    assert "PCE_MODEL_oof_predicted_PCE" not in features
+    assert module.is_forbidden_for_stability_design_only("pce-model OOF predicted PCE")
+
+
 if __name__ == "__main__":
     test_extra_trees_honors_requested_estimator_count()
     test_grouped_cv_keeps_each_group_in_one_side_of_fold()
     test_row_random_cv_is_explicit_and_reproducible()
+    test_stability_baseline_excludes_model_generated_pce()
     print("PCE model configuration tests passed")

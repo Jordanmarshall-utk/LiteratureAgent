@@ -11,6 +11,8 @@ import pandas as pd
 import streamlit as st
 
 from literature_agent_platform.health import platform_health
+from literature_agent_platform.domain_profiles import DOMAIN_PROFILES, command_option, get_domain_profile
+from literature_agent_platform.video_demo import clear_demo_runtime, demo_requested, render_video_demo
 from literature_agent_platform.run_manager import (
     DEFAULT_BASE_CSV,
     DEFAULT_MODEL,
@@ -31,6 +33,11 @@ from literature_agent_platform.run_manager import (
 
 
 st.set_page_config(page_title="LiteratureAgent", page_icon="LA", layout="wide")
+
+if demo_requested():
+    render_video_demo()
+    st.stop()
+clear_demo_runtime()
 st.markdown(
     """
     <style>
@@ -106,10 +113,10 @@ def extraction_dir_for_run(run) -> Path:
     return root / "outputs"
 
 
-def configured_common_args(*, work_dir: str, integration_dir: str, model_dir: str, reasoning_mode: str) -> list[str]:
+def configured_common_args(*, work_dir: str, integration_dir: str, model_dir: str, reasoning_mode: str, domain_profile: str = "halide_pv", ontology_path: str = "") -> list[str]:
     return common_controller_args(
         base_csv=base_csv,
-        ontology=ontology,
+        ontology=ontology_path or ontology,
         work_dir=work_dir,
         integration_dir=integration_dir,
         model_dir=model_dir,
@@ -118,6 +125,7 @@ def configured_common_args(*, work_dir: str, integration_dir: str, model_dir: st
         llm_model=runtime_settings["llm_model"],
         vision_api_url=runtime_settings["vision_api_url"],
         vision_model=runtime_settings["vision_model"],
+        domain_profile=domain_profile,
     )
 
 
@@ -147,15 +155,18 @@ if bundled_root.exists():
             store.register_existing(bundled.name.replace("_", " "), bundled)
 
 st.sidebar.title("LiteratureAgent")
+if st.sidebar.button("Start video walkthrough", type="primary", use_container_width=True):
+    st.query_params["video_demo"] = "1"
+    st.rerun()
 if "nav_page" not in st.session_state:
     st.session_state["nav_page"] = "Home"
 page = st.sidebar.radio(
     "Workspace",
-    ["Home", "New literature run", "Analyze outputs", "Knowledge graphs", "Evidence packets", "Runs", "Results", "Settings"],
+    ["Home", "New literature run", "Analyze outputs", "Summary library", "Knowledge graphs", "Evidence packets", "Runs", "Results", "Settings"],
     key="nav_page",
 )
 render_health(compact=True)
-st.sidebar.caption("Standalone scientific literature mining")
+st.sidebar.caption("General scientific literature review and evidence mining")
 
 runtime_settings = load_settings()
 base_csv = st.session_state.get("base_csv", runtime_settings["base_csv"])
@@ -218,9 +229,20 @@ elif page == "New literature run":
     st.title("New literature run")
     st.caption("Set the research goal, source, and topic. LiteratureAgent selects the matching pipeline preset.")
     with st.form("extract_form"):
+        domain_labels = {profile.label: profile for profile in DOMAIN_PROFILES.values()}
+        domain_label = st.selectbox(
+            "Scientific domain",
+            list(domain_labels),
+            index=list(domain_labels).index("General science"),
+            help="Domain packs control the structured record schema, summary prompt, ontology, and knowledge graph. They do not change the search query you enter.",
+        )
+        domain = domain_labels[domain_label]
+        purpose_options = ["General literature collection", "Evidence for a hypothesis"]
+        if domain.supports_pce_modeling:
+            purpose_options.append("PCE and stability dataset")
         purpose = st.selectbox(
             "Research goal",
-            ["General literature collection", "Evidence for a hypothesis", "PCE and stability dataset"],
+            purpose_options,
             help="General and hypothesis modes prioritize summaries and evidence. PCE/stability mode also produces database-ready device records.",
         )
         source = st.segmented_control("Paper source", ["Web search", "Google Drive", "Local PDF"], default="Web search")
@@ -301,6 +323,7 @@ elif page == "New literature run":
         args = configured_common_args(
             work_dir=str(work), integration_dir=str(run_dir / "integration"),
             model_dir=str(run_dir / "models"), reasoning_mode=reasoning,
+            domain_profile=domain.id, ontology_path=str(domain.ontology),
         )
         args += [
             "--pipeline_stage", "full" if run_full_pipeline else "extract_batch",
@@ -347,6 +370,7 @@ elif page == "Analyze outputs":
     with st.expander("Attach an existing LiteratureAgent collection"):
         with st.form("attach_existing_form"):
             existing_name = st.text_input("Collection name", value="existing_literature_collection")
+            existing_domain_label = st.selectbox("Collection domain", [profile.label for profile in DOMAIN_PROFILES.values()])
             existing_path = st.text_input(
                 "Existing output folder",
                 placeholder="Choose a LiteratureAgent output folder",
@@ -354,7 +378,8 @@ elif page == "Analyze outputs":
             attach = st.form_submit_button("Attach collection")
         if attach:
             try:
-                attached = store.register_existing(existing_name, Path(existing_path))
+                existing_domain = next(profile for profile in DOMAIN_PROFILES.values() if profile.label == existing_domain_label)
+                attached = store.register_existing(existing_name, Path(existing_path), existing_domain.id, str(existing_domain.ontology))
                 st.session_state["selected_run"] = attached.id
                 st.success("Collection attached. Existing papers will not be re-extracted.")
                 st.rerun()
@@ -367,12 +392,19 @@ elif page == "Analyze outputs":
         labels = {f"{run.name} | {run.created_at}": run for run in output_runs}
         with st.form("process_form"):
             selected_label = st.selectbox("Source run", labels)
-            stage = st.segmented_control("Pass", ["Vision", "Sanitize summaries", "Integrate & model", "Knowledge graph"], default="Vision")
+            selected_source = labels[selected_label]
+            selected_domain = command_option(selected_source.command, "--domain_profile", "halide_pv")
+            stages = ["Vision", "Sanitize summaries", "Knowledge graph"]
+            if get_domain_profile(selected_domain).supports_pce_modeling:
+                stages.insert(2, "Integrate & model")
+            stage = st.segmented_control("Pass", stages, default="Vision")
             run_model = st.toggle("Train PCE and stability models", value=True, disabled=stage != "Integrate & model")
             reasoning = st.selectbox("Reasoning policy", ["auto", "multi", "single", "off"])
             submitted = st.form_submit_button("Start pass", type="primary")
         if submitted:
             source_run = labels[selected_label]
+            source_domain = command_option(source_run.command, "--domain_profile", "halide_pv")
+            source_ontology = command_option(source_run.command, "--ontology_path", str(get_domain_profile(source_domain).ontology))
             source_root = Path(source_run.run_dir)
             work = extraction_dir_for_run(source_run)
             followup_dir = new_run_dir(f"{source_run.name}_{slug(stage)}")
@@ -380,6 +412,7 @@ elif page == "Analyze outputs":
             args = configured_common_args(
                 work_dir=str(work), integration_dir=str(source_root / "integration"),
                 model_dir=str(source_root / "models"), reasoning_mode=reasoning,
+                domain_profile=source_domain, ontology_path=source_ontology,
             )
             args += ["--pipeline_stage", stage_map[stage], "--run_mode", "initial", "--skip_literature_agent"]
             if stage == "Vision":
@@ -418,13 +451,15 @@ elif page == "Knowledge graphs":
             submitted = st.form_submit_button("Build knowledge graph", type="primary")
         if submitted:
             source_run = labels[selected_label]
+            source_domain = command_option(source_run.command, "--domain_profile", "halide_pv")
+            source_ontology = command_option(source_run.command, "--ontology_path", str(get_domain_profile(source_domain).ontology))
             work = extraction_dir_for_run(source_run)
             records = work / "csv" / "all_records.csv"
             run_dir = new_run_dir("knowledge_graph")
             if graph_mode == "Single policy":
                 command = [
                     os.sys.executable, "-u", str(PROJECT_ROOT / "scripts" / "build_literature_knowledge_graph.py"),
-                    "--records", str(records), "--ontology", ontology, "--work-dir", str(work),
+                    "--records", str(records), "--ontology", source_ontology, "--work-dir", str(work),
                     "--out", str(run_dir / "knowledge_graph"), "--max-records", str(max_records),
                     "--reasoning-policy", selected_policy,
                 ]
@@ -435,7 +470,7 @@ elif page == "Knowledge graphs":
                     st.stop()
                 command = [
                     os.sys.executable, "-u", str(PROJECT_ROOT / "scripts" / "build_reasoning_policy_knowledge_graph_variants.py"),
-                    "--records", str(records), "--ontology", ontology, "--work-dir", str(work),
+                    "--records", str(records), "--ontology", source_ontology, "--work-dir", str(work),
                     "--out-root", str(run_dir / "knowledge_graph_comparison"), "--max-records", str(max_records),
                     "--policies", *selected_policies,
                 ]
@@ -452,6 +487,80 @@ elif page == "Knowledge graphs":
             if summary_csv.exists():
                 st.dataframe(pd.read_csv(summary_csv), hide_index=True, width="stretch")
             st.caption(str(prior_graphs))
+
+elif page == "Summary library":
+    st.title("Summary library")
+    st.caption(
+        "Read and search the plain-language paper summaries produced by any general or specialized literature run."
+    )
+
+    summary_rows = []
+    seen_summary_paths = set()
+    for run in runs:
+        summary_root = extraction_dir_for_run(run) / "paper_summaries_text"
+        if not summary_root.exists():
+            continue
+        for summary_path in sorted(summary_root.glob("*_summary.txt")):
+            resolved = str(summary_path.resolve())
+            if resolved in seen_summary_paths:
+                continue
+            seen_summary_paths.add(resolved)
+            try:
+                summary_text = summary_path.read_text(encoding="utf-8", errors="replace").strip()
+            except OSError:
+                continue
+            if not summary_text:
+                continue
+            first_line = next(
+                (line.strip().lstrip("# ") for line in summary_text.splitlines() if line.strip()),
+                summary_path.stem.replace("_summary", ""),
+            )
+            summary_rows.append(
+                {
+                    "title": first_line,
+                    "collection": run.name,
+                    "text": summary_text,
+                    "path": summary_path,
+                }
+            )
+
+    if not summary_rows:
+        st.info("No paper summaries are available yet. Start a general literature run to create them.")
+    else:
+        collection_options = ["All collections"] + sorted(
+            {row["collection"] for row in summary_rows}, key=str.lower
+        )
+        selected_collection = st.selectbox("Collection", collection_options)
+        search_text = st.text_input(
+            "Search summaries",
+            placeholder="Topic, material, method, result, author, or DOI",
+        ).strip().lower()
+        filtered_rows = [
+            row
+            for row in summary_rows
+            if (selected_collection == "All collections" or row["collection"] == selected_collection)
+            and (
+                not search_text
+                or search_text in row["title"].lower()
+                or search_text in row["text"].lower()
+            )
+        ]
+        st.caption(f"{len(filtered_rows):,} of {len(summary_rows):,} summaries shown")
+
+        if not filtered_rows:
+            st.warning("No summaries match the current search.")
+        else:
+            labels = [f"{row['title']} | {row['collection']}" for row in filtered_rows]
+            selected_label = st.selectbox("Paper", labels)
+            selected_row = filtered_rows[labels.index(selected_label)]
+            st.divider()
+            st.markdown(selected_row["text"])
+            st.download_button(
+                "Download this summary",
+                data=selected_row["text"],
+                file_name=selected_row["path"].name,
+                mime="text/plain",
+            )
 
 elif page == "Evidence packets":
     st.title("Evidence search")
@@ -471,11 +580,14 @@ elif page == "Evidence packets":
                 st.error("Enter a scientific question or hypothesis.")
                 st.stop()
             source_run = labels[source_label]
+            source_domain = command_option(source_run.command, "--domain_profile", "halide_pv")
+            source_ontology = command_option(source_run.command, "--ontology_path", str(get_domain_profile(source_domain).ontology))
             source_root = Path(source_run.run_dir)
             run_dir = new_run_dir("evidence_packet")
             args = configured_common_args(
                 work_dir=str(extraction_dir_for_run(source_run)), integration_dir=str(source_root / "integration"),
                 model_dir=str(source_root / "models"), reasoning_mode="auto",
+                domain_profile=source_domain, ontology_path=source_ontology,
             )
             args += [
                 "--pipeline_stage", "evidence_packet", "--skip_literature_agent",

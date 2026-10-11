@@ -32,6 +32,7 @@ def run_builder(
     out_dir: Path,
     policy: str,
     max_records: int,
+    portable_formats: tuple[str, ...],
 ) -> None:
     cmd = [
         sys.executable,
@@ -49,6 +50,8 @@ def run_builder(
     ]
     if max_records > 0:
         cmd.extend(["--max-records", str(max_records)])
+    if portable_formats:
+        cmd.extend(["--portable-formats", *portable_formats])
     print("\n[KG POLICY]", policy)
     print("> " + " ".join(cmd), flush=True)
     subprocess.run(cmd, check=True)
@@ -90,6 +93,13 @@ def main() -> None:
         choices=POLICIES,
         help="Policies to build. Defaults to current plus all philosophy reasoning schools.",
     )
+    parser.add_argument(
+        "--portable-formats",
+        nargs="*",
+        choices=("jsonl", "graphml"),
+        default=(),
+        help="Optional portable exports for every variant. The default builds none.",
+    )
     args = parser.parse_args()
 
     builder_script = Path(__file__).resolve().with_name("build_literature_knowledge_graph.py")
@@ -106,6 +116,7 @@ def main() -> None:
             out_dir=variant_dir,
             policy=policy,
             max_records=args.max_records,
+            portable_formats=tuple(dict.fromkeys(args.portable_formats)),
         )
         summaries.append(read_summary(policy, variant_dir))
 
@@ -113,7 +124,8 @@ def main() -> None:
     comparison_path = args.out_root / "reasoning_policy_kg_comparison.csv"
     comparison.to_csv(comparison_path, index=False)
 
-    readme = """Reasoning Policy Knowledge Graph Comparison
+    requested_portable = ", ".join(dict.fromkeys(args.portable_formats)) or "none"
+    readme = f"""Reasoning Policy Knowledge Graph Comparison
 ==========================================
 
 This folder contains separate graph builds from the same LiteratureAgent records:
@@ -128,8 +140,9 @@ This folder contains separate graph builds from the same LiteratureAgent records
 - platonic_abstraction: constructs abstract principle/pattern nodes.
 
 Use reasoning_policy_kg_comparison.csv for the quick comparison table.
-Each variant keeps the same standard KG outputs: Neo4j CSV, GraphML, JSONL,
-reports, derived views, and plots.
+Each variant keeps the same standard outputs: Neo4j CSVs, reports, derived
+views, and plots. Portable JSONL and GraphML are optional and are not generated
+by default. Portable formats requested for this build: {requested_portable}.
 """
     (args.out_root / "README.txt").write_text(readme, encoding="utf-8")
     print(f"\nWrote reasoning-policy KG comparison to: {args.out_root.resolve()}")

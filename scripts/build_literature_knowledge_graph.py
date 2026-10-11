@@ -89,11 +89,14 @@ CHARACTERIZATION_HINTS = {
 
 SUMMARY_CLAIM_FIELDS = {
     "one_sentence_summary": "Finding",
+    "objective": "ResearchObjective",
+    "primary_findings": "Finding",
     "fabrication_highlights": "ProcessFinding",
     "synthesis_or_processing_insights": "ProcessFinding",
     "stability_summary": "StabilityFinding",
     "structure_composition_insights": "StructureCompositionFinding",
     "mechanism_or_interpretation": "Mechanism",
+    "limitations": "Limitation",
     "main_contribution": "Contribution",
     "interpretive_takeaways": "Finding",
     "data_quality_notes": "DataQualityClaim",
@@ -291,6 +294,18 @@ def split_values(value: Any, stack: bool = False) -> List[str]:
     pattern = r"\s*(?:/|>|→|\||;)\s*" if stack else r"\s*(?:;|\||\n)\s*"
     values = [x.strip(" []'\"") for x in re.split(pattern, text)]
     return list(dict.fromkeys(x for x in values if x and x.lower() not in MISSING))
+
+
+def json_cell(value: Any, default: Any) -> Any:
+    if isinstance(value, (dict, list)):
+        return value
+    text = clean(value)
+    if not text:
+        return default
+    try:
+        return json.loads(text)
+    except (TypeError, json.JSONDecodeError):
+        return default
 
 
 def numeric_value(value: Any) -> Optional[float]:
@@ -760,13 +775,13 @@ class GraphBuilder:
         summary: Dict[str, Any],
         summary_path: Path,
     ) -> None:
-        system = summary.get("perovskite_system")
+        system = summary.get("perovskite_system") or summary.get("system_or_subject") or summary.get("oxide_composition_and_structure")
         if not system:
             return
         if isinstance(system, dict):
-            composition = clean(system.get("composition")) or clean(summary.get("materials_focus")) or "Summary-extracted material system"
+            composition = clean(system.get("composition")) or clean(system.get("formula")) or clean(summary.get("materials_focus")) or "Summary-extracted material system"
             properties = {
-                "composition": clean(system.get("composition")),
+                "composition": clean(system.get("composition")) or clean(system.get("formula")),
                 "dimensionality": clean(system.get("dimensionality")),
                 "spacer_additive": clean(system.get("spacer/additive")),
                 "chemistry": clean(system.get("A/B/halide chemistry")),
@@ -784,7 +799,7 @@ class GraphBuilder:
             source_path=str(summary_path),
             **properties,
         )
-        self.add_edge(paper_id, system_id, "STUDIES_MATERIAL_SYSTEM", "perovskite_system", record_id, source_path=str(summary_path))
+        self.add_edge(paper_id, system_id, "STUDIES_SYSTEM", "system_or_subject", record_id, source_path=str(summary_path))
         for key, relation in [
             ("dimensionality", "HAS_SUMMARY_DIMENSIONALITY"),
             ("spacer_additive", "HAS_SUMMARY_SPACER_ADDITIVE"),
@@ -1009,11 +1024,20 @@ class GraphBuilder:
             source_pdf_url=clean(row.get("_source_pdf_url")),
             source_landing_page=clean(row.get("_source_landing_page")),
             **artifacts,
+            domain_profile=clean(row.get("_domain_profile")) or "halide_pv",
         )
         if paper_type:
             type_id = stable_id("PaperType", paper_type)
             self.add_node(type_id, ["PaperType"], paper_type)
             self.add_edge(paper_id, type_id, "CLASSIFIED_AS", "Ref_free_text_comment", record_id)
+
+        domain_profile = clean(row.get("_domain_profile")) or "halide_pv"
+        if domain_profile != "halide_pv":
+            self.add_domain_record(paper_id, paper_slug, record_id, row, domain_profile)
+            if paper_id not in self.processed_papers:
+                self.add_paper_knowledge(paper_id, paper_slug, record_id)
+                self.processed_papers.add(paper_id)
+            return
 
         device_id = stable_id("Device", record_id)
         self.add_node(
@@ -1111,14 +1135,113 @@ class GraphBuilder:
             self.add_paper_knowledge(paper_id, paper_slug, record_id)
             self.processed_papers.add(paper_id)
 
-    def write(self, out_dir: Path) -> None:
+    def add_domain_record(
+        self, paper_id: str, paper_slug: str, record_id: str, row: pd.Series, domain_profile: str
+    ) -> None:
+        """Build a domain-neutral record subgraph, with oxide-specific relations when available."""
+        system_name = clean(row.get("Domain_system_or_subject")) or clean(row.get("Domain_composition_formula")) or paper_slug
+        system_id = stable_id("StudiedSystem", f"{domain_profile}|{system_name}")
+        labels = ["StudiedSystem", "DomainEntity"]
+        if domain_profile == "oxide_perovskite":
+            labels += ["MaterialSystem", "OxidePerovskite"]
+        self.add_node(system_id, labels, system_name, domain_profile=domain_profile)
+        self.add_edge(paper_id, system_id, "STUDIES_SYSTEM", "Domain_system_or_subject", record_id)
+        field_targets: Dict[str, List[str]] = defaultdict(list)
+        field_targets["Domain_system_or_subject"].append(system_id)
+
+        for entity in split_values(row.get("Domain_materials_or_entities")):
+            entity_id = stable_id("DomainEntity", entity)
+            self.add_node(entity_id, ["DomainEntity", "ScientificConcept"], entity)
+            self.add_edge(system_id, entity_id, "INCLUDES_ENTITY", "Domain_materials_or_entities", record_id)
+            field_targets["Domain_materials_or_entities"].append(entity_id)
+
+        for field, relation, label in [
+            ("Domain_methods", "USES_METHOD", "Method"),
+            ("Domain_conditions", "HAS_CONDITION", "ExperimentalCondition"),
+            ("Domain_intervention_or_variable", "TESTS_VARIABLE", "ScientificVariable"),
+            ("Domain_comparison", "USES_COMPARISON", "Comparison"),
+            ("Domain_processing_steps", "PROCESSED_BY", "Process"),
+            ("Domain_characterization", "USES_CHARACTERIZATION", "Characterization"),
+            ("Domain_defect_chemistry", "HAS_DEFECT_CHEMISTRY", "DefectChemistry"),
+            ("Domain_microstructure", "HAS_MICROSTRUCTURE", "Microstructure"),
+        ]:
+            for value in split_values(row.get(field)):
+                node_id = stable_id(label, value)
+                self.add_node(node_id, [label, "DomainEntity"], value)
+                self.add_edge(system_id if field.startswith("Domain_") else paper_id, node_id, relation, field, record_id)
+                field_targets[field].append(node_id)
+
+        oxide_fields = [
+            ("Domain_composition_formula", "HAS_COMPOSITION", "Composition"),
+            ("Domain_a_site_species", "HAS_A_SITE_SPECIES", "Chemical"),
+            ("Domain_b_site_species", "HAS_B_SITE_SPECIES", "Chemical"),
+            ("Domain_substitutions_or_dopants", "HAS_SUBSTITUTION_OR_DOPANT", "Chemical"),
+            ("Domain_oxygen_stoichiometry", "HAS_OXYGEN_STOICHIOMETRY", "Stoichiometry"),
+            ("Domain_oxidation_states", "HAS_OXIDATION_STATE", "OxidationState"),
+            ("Domain_crystal_structure", "HAS_CRYSTAL_STRUCTURE", "CrystalStructure"),
+            ("Domain_space_group", "HAS_SPACE_GROUP", "SpaceGroup"),
+            ("Domain_phases", "HAS_PHASE", "MaterialPhase"),
+            ("Domain_atmosphere", "PROCESSED_UNDER", "ExperimentalCondition"),
+            ("Domain_temperatures", "PROCESSED_AT_TEMPERATURE", "ExperimentalCondition"),
+        ]
+        for field, relation, label in oxide_fields:
+            for value in split_values(row.get(field)):
+                canonical, category = self.canonical(value)
+                node_id = stable_id(label, canonical)
+                self.add_node(node_id, [label, "DomainEntity"], canonical, raw_name=value, ontology_category=category)
+                self.add_edge(system_id, node_id, relation, field, record_id)
+                field_targets[field].append(node_id)
+
+        for field in ("Domain_measurements", "Domain_measured_properties"):
+            items = json_cell(row.get(field), [])
+            for item in items if isinstance(items, list) else []:
+                if not isinstance(item, dict):
+                    continue
+                name = clean(item.get("name")) or clean(item.get("property")) or "measurement"
+                value = clean(item.get("value"))
+                unit = clean(item.get("unit"))
+                context = clean(item.get("context")) or clean(item.get("conditions"))
+                measurement_id = stable_id("DomainMeasurement", f"{record_id}|{name}|{value}|{unit}|{context}")
+                self.add_node(
+                    measurement_id,
+                    ["Measurement", "DomainMeasurement"],
+                    name,
+                    value=value,
+                    unit=unit,
+                    context=context,
+                    domain_profile=domain_profile,
+                )
+                self.add_edge(system_id, measurement_id, "HAS_MEASUREMENT", field, record_id)
+                field_targets[field].append(measurement_id)
+
+        for field, targets in field_targets.items():
+            evidence = clean(row.get(f"_evidence_{field}"))
+            if not evidence:
+                continue
+            evidence_id = stable_id("DomainEvidence", f"{paper_slug}|{field}|{evidence}")
+            self.add_node(
+                evidence_id,
+                ["Evidence", "TextEvidence", "DomainEvidence"],
+                evidence[:120],
+                evidence_text=evidence,
+                evidence_field=field,
+            )
+            self.add_edge(paper_id, evidence_id, "HAS_TEXT_EVIDENCE", field, record_id)
+            for target in targets:
+                self.add_edge(evidence_id, target, "SUPPORTS_ENTITY_OR_MEASUREMENT", field, record_id)
+
+    def write(self, out_dir: Path, portable_formats: Sequence[str] = ()) -> None:
         out_dir.mkdir(parents=True, exist_ok=True)
+        portable_formats = tuple(dict.fromkeys(portable_formats))
         neo4j_dir = out_dir / "neo4j_import"
         portable_dir = out_dir / "portable"
         reports_dir = out_dir / "reports"
         views_dir = out_dir / "derived_views"
         plots_dir = out_dir / "plots"
-        for path in [neo4j_dir, portable_dir, reports_dir, views_dir, plots_dir]:
+        output_dirs = [neo4j_dir, reports_dir, views_dir, plots_dir]
+        if portable_formats:
+            output_dirs.append(portable_dir)
+        for path in output_dirs:
             path.mkdir(parents=True, exist_ok=True)
 
         node_rows = []
@@ -1145,31 +1268,33 @@ class GraphBuilder:
         pd.DataFrame(node_rows).to_csv(neo4j_dir / "nodes.csv", index=False)
         pd.DataFrame(edge_rows).to_csv(neo4j_dir / "relationships.csv", index=False)
 
-        with (portable_dir / "graph.jsonl").open("w", encoding="utf-8") as handle:
-            for node in self.nodes.values():
-                serial = {**node, "labels": sorted(node["labels"])}
-                handle.write(json_text({"kind": "node", **serial}) + "\n")
-            for edge in self.edges.values():
-                handle.write(json_text({"kind": "relationship", **edge}) + "\n")
+        if "jsonl" in portable_formats:
+            with (portable_dir / "graph.jsonl").open("w", encoding="utf-8") as handle:
+                for node in self.nodes.values():
+                    serial = {**node, "labels": sorted(node["labels"])}
+                    handle.write(json_text({"kind": "node", **serial}) + "\n")
+                for edge in self.edges.values():
+                    handle.write(json_text({"kind": "relationship", **edge}) + "\n")
 
-        graph = nx.MultiDiGraph()
-        for node in self.nodes.values():
-            graph.add_node(
-                node["node_id"],
-                labels=xml_safe(";".join(sorted(node["labels"]))),
-                name=xml_safe(node.get("name", "")),
-                properties_json=xml_safe(json_text({k: v for k, v in node.items() if k not in {"node_id", "labels", "name"}})),
-            )
-        for edge in self.edges.values():
-            graph.add_edge(
-                edge["start_id"],
-                edge["end_id"],
-                key=edge["relationship_id"],
-                type=xml_safe(edge["type"]),
-                source_field=xml_safe(edge.get("source_field", "")),
-                source_record_id=xml_safe(edge.get("source_record_id", "")),
-            )
-        nx.write_graphml(graph, portable_dir / "literature_knowledge_graph.graphml")
+        if "graphml" in portable_formats:
+            graph = nx.MultiDiGraph()
+            for node in self.nodes.values():
+                graph.add_node(
+                    node["node_id"],
+                    labels=xml_safe(";".join(sorted(node["labels"]))),
+                    name=xml_safe(node.get("name", "")),
+                    properties_json=xml_safe(json_text({k: v for k, v in node.items() if k not in {"node_id", "labels", "name"}})),
+                )
+            for edge in self.edges.values():
+                graph.add_edge(
+                    edge["start_id"],
+                    edge["end_id"],
+                    key=edge["relationship_id"],
+                    type=xml_safe(edge["type"]),
+                    source_field=xml_safe(edge.get("source_field", "")),
+                    source_record_id=xml_safe(edge.get("source_record_id", "")),
+                )
+            nx.write_graphml(graph, portable_dir / "literature_knowledge_graph.graphml")
 
         node_counts = Counter(label for node in self.nodes.values() for label in node["labels"])
         rel_counts = Counter(edge["type"] for edge in self.edges.values())
@@ -1181,6 +1306,7 @@ class GraphBuilder:
         summary = {
             "graph_model": "evidence-grounded claim-centered scientific property graph",
             "reasoning_policy": self.reasoning_policy,
+            "portable_formats": list(portable_formats),
             "nodes": len(self.nodes),
             "relationships": len(self.edges),
             "scientific_claims": len(claim_nodes),
@@ -1390,7 +1516,16 @@ class GraphBuilder:
             fig.savefig(plots_dir / "learned_scientific_relationships.png", bbox_inches="tight")
             plt.close(fig)
 
-        readme = f"""LiteratureAgent Knowledge Graph
+        portable_readme_lines = []
+        if "jsonl" in portable_formats:
+            portable_readme_lines.append("- portable/graph.jsonl")
+        if "graphml" in portable_formats:
+            portable_readme_lines.append("- portable/literature_knowledge_graph.graphml")
+        portable_readme = "\n".join(portable_readme_lines)
+        if not portable_readme:
+            portable_readme = "- No portable export requested for this build."
+
+        readme = f"""LiteratureAgent Scientific Knowledge Graph
 ================================
 
 Canonical model: evidence-grounded claim-centered scientific property graph.
@@ -1422,12 +1557,17 @@ Open first:
 - reports/reasoning_policy_findings.csv
 - neo4j_import/nodes.csv
 - neo4j_import/relationships.csv
-- portable/literature_knowledge_graph.graphml
 - derived_views/sankey_schema_flows.csv
 - derived_views/material_process_performance_dag_edges.csv
 - derived_views/learned_scientific_relationships.csv
 - derived_views/cross_paper_relationship_patterns.csv
 - derived_views/paper_knowledge_cards.jsonl
+
+Portable exports:
+{portable_readme}
+
+Portable JSONL and GraphML are optional. Use `--portable-formats` only when an
+external consumer specifically requires one of them.
 
 Neo4j import:
 The CSV files use Neo4j bulk-import headers (:ID, :LABEL, :START_ID, :END_ID, :TYPE).
@@ -1438,9 +1578,9 @@ Directional scientific relationships are reported paper claims, not assumed univ
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Build an evidence-grounded perovskite literature knowledge graph.")
+    parser = argparse.ArgumentParser(description="Build an evidence-grounded scientific literature knowledge graph.")
     parser.add_argument("--records", required=True, help="LiteratureAgent all_records.csv")
-    parser.add_argument("--ontology", required=True, help="Perovskite ontology JSON")
+    parser.add_argument("--ontology", required=True, help="Domain ontology JSON")
     parser.add_argument("--work-dir", required=True, help="LiteratureAgent output directory containing evidence artifacts")
     parser.add_argument("--out", required=True, help="Knowledge-graph output directory")
     parser.add_argument("--max-records", type=int, default=0, help="Optional test limit; 0 processes all records")
@@ -1449,6 +1589,13 @@ def main() -> None:
         default="current",
         choices=sorted(KG_REASONING_POLICIES),
         help="Optional reasoning-school overlay for local POLARIS policy testing",
+    )
+    parser.add_argument(
+        "--portable-formats",
+        nargs="*",
+        choices=("jsonl", "graphml"),
+        default=(),
+        help="Optional portable exports. The default build writes none.",
     )
     args = parser.parse_args()
 
@@ -1463,7 +1610,7 @@ def main() -> None:
     for row_index, row in df.iterrows():
         builder.add_record(row, int(row_index))
     builder.apply_reasoning_policy_lens(args.reasoning_policy)
-    builder.write(out_dir)
+    builder.write(out_dir, args.portable_formats)
     print(f"Knowledge graph written to: {out_dir.resolve()}")
     print(f"Reasoning policy: {builder.reasoning_policy}")
     print(f"Nodes: {len(builder.nodes):,} | Relationships: {len(builder.edges):,}")

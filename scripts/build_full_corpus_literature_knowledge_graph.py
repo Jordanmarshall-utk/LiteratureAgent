@@ -887,7 +887,7 @@ def make_figures(summary: dict[str, Any], graph: PropertyGraph, figure_dir: Path
     ax.plot([field_start[0], 9.72, 9.72, field_end[0] + 0.18], [field_start[1], field_start[1], field_end[1], field_end[1]], color="#50555C", linewidth=1.4)
     ax.add_patch(FancyArrowPatch((field_end[0] + 0.18, field_end[1]), field_end, arrowstyle="-|>", mutation_scale=13, linewidth=1.4, color="#50555C"))
     ax.text(9.72, 4.9, "field evidence", rotation=90, ha="center", va="center", fontsize=8.2, color="#454A50", bbox={"facecolor": "white", "edgecolor": "none", "pad": 0.7})
-    ax.text(0.5, 9.45, f"910 DOI papers | {corpus['accepted_device_sample_rows']:,} accepted sample records | {corpus['field_evidence_source_rows']:,} field-evidence rows", fontsize=10.5, color="#30343B")
+    ax.text(0.5, 9.45, f"910 DOI papers | {corpus['accepted_device_sample_rows']:,} retained sample records | {corpus['field_evidence_source_rows']:,} field-evidence rows", fontsize=10.5, color="#30343B")
     ax.text(0.5, 0.05, "Canonical model: directed heterogeneous property graph.\nAcyclic causal views are derived projections.", fontsize=8.9, color="#50555C", linespacing=1.35)
 
     ax2 = fig.add_subplot(grid[0, 1])
@@ -966,9 +966,22 @@ def make_figures(summary: dict[str, Any], graph: PropertyGraph, figure_dir: Path
     return [figure_base.with_suffix(".png"), figure_base.with_suffix(".pdf"), causal_base.with_suffix(".png"), causal_base.with_suffix(".pdf")]
 
 
-def write_readme(output: Path, summary: dict[str, Any], validation: dict[str, Any]) -> None:
+def write_readme(
+    output: Path,
+    summary: dict[str, Any],
+    validation: dict[str, Any],
+    portable_formats: tuple[str, ...],
+) -> None:
     corpus = summary["corpus"]
     graph = summary["graph"]
+    portable_descriptions = {
+        "jsonl": "- `portable/graph.jsonl`: streaming property-graph exchange file.",
+        "jsonld": "- `portable/graph.jsonld`: JSON-LD with Schema.org and PROV-O-compatible context.",
+        "graphml": "- `portable/graph.graphml`: directed GraphML export.",
+    }
+    portable_exports = "\n".join(portable_descriptions[name] for name in portable_formats)
+    if not portable_exports:
+        portable_exports = "- No portable export was requested for this build."
     text = f"""# LiteratureAgent full-corpus knowledge graph
 
 This is the versioned production graph for the cumulative 910-paper web-expansion campaign. It is separate from the fixed 36-paper graph used for controlled reasoning-policy comparisons.
@@ -993,13 +1006,14 @@ Directional claims parsed from retained abstracts are labeled `reported_directio
 ## Exports
 
 - `neo4j/nodes.csv` and `neo4j/relationships.csv`: Neo4j-compatible property tables.
-- `portable/graph.jsonl`: streaming property-graph exchange file.
-- `portable/graph.jsonld`: JSON-LD with Schema.org and PROV-O-compatible context.
-- `portable/graph.graphml`: directed GraphML export.
+{portable_exports}
 - `schema/literatureagent_kg_schema_v1.json`: frozen graph contract.
 - `schema/literatureagent_kg_shapes.ttl`: SHACL constraint definitions.
 - `reports/graph_summary.json`: corpus and graph counts.
 - `reports/validation_report.json`: structural and provenance checks.
+
+The default build writes Neo4j CSVs and portable JSONL. JSON-LD and GraphML are
+available only when explicitly requested with `--portable-formats`.
 
 ## Scope note
 
@@ -1019,6 +1033,13 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
     parser.add_argument("--figure-dir", type=Path, default=DEFAULT_FIGURES)
     parser.add_argument("--skip-figures", action="store_true")
+    parser.add_argument(
+        "--portable-formats",
+        nargs="*",
+        choices=("jsonl", "jsonld", "graphml"),
+        default=("jsonl",),
+        help="Portable exports to write. Defaults to JSONL; pass JSON-LD or GraphML explicitly when needed.",
+    )
     return parser.parse_args()
 
 
@@ -1036,9 +1057,14 @@ def main() -> int:
     shutil.copy2(args.schema, args.output / "schema" / args.schema.name) if (args.output / "schema").mkdir(parents=True, exist_ok=True) is None else None
     write_shapes(args.output / "schema" / "literatureagent_kg_shapes.ttl")
     write_csv_exports(graph, args.output)
-    write_jsonl(graph, args.output / "portable" / "graph.jsonl")
-    write_jsonld(graph, args.output / "portable" / "graph.jsonld")
-    write_graphml(graph, args.output / "portable" / "graph.graphml")
+    portable_formats = tuple(dict.fromkeys(args.portable_formats))
+    if "jsonl" in portable_formats:
+        write_jsonl(graph, args.output / "portable" / "graph.jsonl")
+    if "jsonld" in portable_formats:
+        write_jsonld(graph, args.output / "portable" / "graph.jsonld")
+    if "graphml" in portable_formats:
+        write_graphml(graph, args.output / "portable" / "graph.graphml")
+    summary["portable_formats"] = list(portable_formats)
     write_json(args.output / "reports" / "graph_summary.json", summary)
     write_json(args.output / "reports" / "validation_report.json", validation)
     write_count_tables(summary, args.output)
@@ -1046,7 +1072,7 @@ def main() -> int:
         generated = make_figures(summary, graph, args.figure_dir)
         summary["publication_figures"] = [str(path.resolve()) for path in generated]
         write_json(args.output / "reports" / "graph_summary.json", summary)
-    write_readme(args.output, summary, validation)
+    write_readme(args.output, summary, validation, portable_formats)
     log.append(f"validation_pass={validation['validation_pass']}")
     log.append(f"output={args.output.resolve()}")
     (args.output / "build.log").write_text("\n".join(log) + "\n", encoding="utf-8")

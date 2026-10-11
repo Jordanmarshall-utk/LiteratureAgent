@@ -7,7 +7,7 @@ import urllib.request
 from pathlib import Path
 from typing import Any
 
-from .run_manager import CONTROLLER, DEFAULT_BASE_CSV, DEFAULT_MODEL, DEFAULT_ONTOLOGY
+from .run_manager import CONTROLLER, DEFAULT_MODEL, load_settings
 
 
 def _ollama_models(url: str = "http://localhost:11434/api/tags") -> tuple[bool, list[str], str]:
@@ -20,16 +20,31 @@ def _ollama_models(url: str = "http://localhost:11434/api/tags") -> tuple[bool, 
         return False, [], str(exc)
 
 
+def _model_present(configured: str, installed: list[str]) -> bool:
+    wanted = configured.strip().casefold()
+    if not wanted:
+        return False
+    aliases = {wanted, wanted.removesuffix(":latest")}
+    for name in installed:
+        normalized = name.strip().casefold()
+        if normalized in aliases or normalized.removesuffix(":latest") in aliases:
+            return True
+    return False
+
+
 def platform_health() -> dict[str, Any]:
+    settings = load_settings()
+    configured_base = Path(settings["base_csv"])
+    configured_ontology = Path(settings["ontology"])
     ollama_ok, models, ollama_message = _ollama_models()
     checks = {
         "Python": {"ok": sys.version_info >= (3, 10), "detail": sys.version.split()[0]},
         "Controller": {"ok": CONTROLLER.exists(), "detail": str(CONTROLLER)},
-        "Baseline database": {"ok": DEFAULT_BASE_CSV.exists(), "detail": str(DEFAULT_BASE_CSV)},
-        "Ontology": {"ok": DEFAULT_ONTOLOGY.exists(), "detail": str(DEFAULT_ONTOLOGY)},
+        "Baseline database": {"ok": configured_base.exists(), "detail": str(configured_base)},
+        "Ontology": {"ok": configured_ontology.exists(), "detail": str(configured_ontology)},
         "Model script": {"ok": DEFAULT_MODEL.exists(), "detail": str(DEFAULT_MODEL)},
         "Ollama": {"ok": ollama_ok, "detail": ollama_message},
-        "Text model": {"ok": any(name.startswith("qwen2.5:7b") for name in models), "detail": ", ".join(models) or "No models found"},
-        "Vision model": {"ok": any("qwen2.5vl:7b" in name for name in models), "detail": ", ".join(models) or "No models found"},
+        "Text model": {"ok": _model_present(settings["llm_model"], models), "detail": f"Configured: {settings['llm_model']} | Installed: {', '.join(models) or 'none'}"},
+        "Vision model": {"ok": _model_present(settings["vision_model"], models), "detail": f"Configured: {settings['vision_model']} | Installed: {', '.join(models) or 'none'}"},
     }
-    return {"ready": all(item["ok"] for key, item in checks.items() if key != "Vision model"), "checks": checks}
+    return {"ready": all(item["ok"] for item in checks.values()), "checks": checks}

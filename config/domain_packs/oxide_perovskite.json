@@ -1,0 +1,19 @@
+{
+  "id": "oxide_perovskite",
+  "version": "1.0",
+  "description": "Editable ontology for oxide-perovskite literature mining. Add project-specific compositions, synthesis terms, characterization methods, and properties as needed.",
+  "structure": {
+    "formulas": ["ABO3", "A2BB'O6", "Ruddlesden-Popper", "brownmillerite"],
+    "symmetry": ["cubic", "tetragonal", "orthorhombic", "rhombohedral", "space group", "Glazer tilt"]
+  },
+  "chemistry": {
+    "sites": ["A-site", "B-site", "cation substitution", "doping", "solid solution"],
+    "defects": ["oxygen vacancy", "oxygen nonstoichiometry", "delta", "oxidation state", "valence state"]
+  },
+  "processing": {
+    "methods": ["solid-state reaction", "sol-gel", "Pechini", "hydrothermal", "sputtering", "pulsed laser deposition", "molecular beam epitaxy"],
+    "conditions": ["calcination", "sintering", "annealing", "oxygen partial pressure", "reducing atmosphere", "oxidizing atmosphere"]
+  },
+  "characterization": ["XRD", "Rietveld refinement", "TEM", "SEM", "XPS", "XAS", "neutron diffraction", "Raman", "impedance spectroscopy"],
+  "properties": ["dielectric", "ferroelectric", "piezoelectric", "magnetic", "electronic", "ionic conductivity", "catalytic", "optical", "thermal"]
+}
