@@ -1,3 +1,8 @@
+import sys
+
+import pytest
+
+import literature_agent_full_end_to_end_v21_3_english_sanitizer as controller
 from literature_agent_platform.domain_profiles import DOMAIN_PROFILES, PROJECT_ROOT, command_option
 from literature_agent_platform.health import _model_present
 
@@ -37,3 +42,35 @@ def test_ollama_packaging_inputs_are_licensed_and_source_safe() -> None:
         assert installer.stat().st_size > 1_000_000_000
     else:
         assert "installers/*.exe" in (PROJECT_ROOT / ".gitignore").read_text(encoding="utf-8")
+
+
+def test_cross_domain_cli_rejects_legacy_inline_vision(monkeypatch, capsys) -> None:
+    monkeypatch.setattr(
+        sys,
+        "argv",
+        [
+            "literature_agent",
+            "--base_csv",
+            str(PROJECT_ROOT / "data" / "Perovskite_database_content_all_data.csv"),
+            "--domain_profile",
+            "general_science",
+            "--inline_vision",
+            "1",
+        ],
+    )
+
+    with pytest.raises(SystemExit) as error:
+        controller._parse_controller_args()
+
+    assert error.value.code == 2
+    assert "Inline vision uses the legacy halide-PV prompt" in capsys.readouterr().err
+
+
+def test_release_controller_contains_no_personal_retrieval_identity() -> None:
+    source = (
+        PROJECT_ROOT / "literature_agent_full_end_to_end_v21_3_english_sanitizer.py"
+    ).read_text(encoding="utf-8")
+
+    assert "Jmarsh39" + "@vols.utk.edu" not in source
+    assert "client_secret_" + "298117362376" not in source
+    assert 'UNPAYWALL_EMAIL = os.getenv("UNPAYWALL_EMAIL", "").strip()' in source

@@ -1,0 +1,49 @@
+{
+  "id": "custom_domain",
+  "version": "1.0",
+  "description": "Copy this file, rename it, and replace the examples for the coworker's scientific domain.",
+  "customization_notes": [
+    "Keep field names in lower-case snake_case; each becomes Domain_<field_name> in csv/domain_records.csv.",
+    "Every populated field must have field_evidence, or an evidence item inside a list-of-objects field.",
+    "Ontology aliases normalize graph terminology; they do not create database columns."
+  ],
+  "structured_output": {
+    "domain_instruction": "Extract the studied system, samples, composition or formulation, preparation, operating conditions, characterization, quantitative measurements, outcomes, mechanisms, and limitations using the paper's own scientific terminology.",
+    "fields": {
+      "sample_or_record_id": null,
+      "composition_or_formulation": [],
+      "preparation_steps": [],
+      "operating_conditions": [],
+      "target_properties": [],
+      "domain_measurements": [
+        {
+          "name": null,
+          "value": null,
+          "unit": null,
+          "conditions": null,
+          "evidence": null
+        }
+      ],
+      "domain_outcomes": [
+        {
+          "claim": null,
+          "confidence": "low|medium|high",
+          "evidence": null
+        }
+      ]
+    }
+  },
+  "canonical_terms": [
+    {
+      "canonical": "scanning electron microscopy",
+      "aliases": ["SEM", "scanning electron microscope"],
+      "category": "characterization_method"
+    }
+  ],
+  "concepts": {
+    "materials_or_entities": ["replace with domain terms"],
+    "methods": ["replace with domain methods"],
+    "properties": ["replace with target properties"],
+    "conditions": ["replace with important operating conditions"]
+  }
+}

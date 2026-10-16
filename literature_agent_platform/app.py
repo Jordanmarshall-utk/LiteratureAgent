@@ -12,7 +12,7 @@ import streamlit as st
 
 from literature_agent_platform.health import platform_health
 from literature_agent_platform.domain_profiles import DOMAIN_PROFILES, command_option, get_domain_profile
-from literature_agent_platform.video_demo import clear_demo_runtime, demo_requested, render_video_demo
+from literature_agent.domain_pack import load_structured_output_contract
 from literature_agent_platform.run_manager import (
     DEFAULT_BASE_CSV,
     DEFAULT_MODEL,
@@ -34,10 +34,6 @@ from literature_agent_platform.run_manager import (
 
 st.set_page_config(page_title="LiteratureAgent", page_icon="LA", layout="wide")
 
-if demo_requested():
-    render_video_demo()
-    st.stop()
-clear_demo_runtime()
 st.markdown(
     """
     <style>
@@ -155,9 +151,6 @@ if bundled_root.exists():
             store.register_existing(bundled.name.replace("_", " "), bundled)
 
 st.sidebar.title("LiteratureAgent")
-if st.sidebar.button("Start video walkthrough", type="primary", use_container_width=True):
-    st.query_params["video_demo"] = "1"
-    st.rerun()
 if "nav_page" not in st.session_state:
     st.session_state["nav_page"] = "Home"
 page = st.sidebar.radio(
@@ -228,15 +221,15 @@ if page == "Home":
 elif page == "New literature run":
     st.title("New literature run")
     st.caption("Set the research goal, source, and topic. LiteratureAgent selects the matching pipeline preset.")
+    domain_labels = {profile.label: profile for profile in DOMAIN_PROFILES.values()}
+    domain_label = st.selectbox(
+        "Scientific domain",
+        list(domain_labels),
+        index=list(domain_labels).index("General science"),
+        help="Choose General science for any non-perovskite field, then select an edited domain-pack JSON in Advanced options.",
+    )
+    domain = domain_labels[domain_label]
     with st.form("extract_form"):
-        domain_labels = {profile.label: profile for profile in DOMAIN_PROFILES.values()}
-        domain_label = st.selectbox(
-            "Scientific domain",
-            list(domain_labels),
-            index=list(domain_labels).index("General science"),
-            help="Domain packs control the structured record schema, summary prompt, ontology, and knowledge graph. They do not change the search query you enter.",
-        )
-        domain = domain_labels[domain_label]
         purpose_options = ["General literature collection", "Evidence for a hypothesis"]
         if domain.supports_pce_modeling:
             purpose_options.append("PCE and stability dataset")
@@ -287,6 +280,15 @@ elif page == "New literature run":
             gating = c2.selectbox("Paper-family gating", ["strict", "moderate", "off"], index=gating_default)
             reasoning = c3.selectbox("Reasoning policy", ["auto", "multi", "single", "off"])
             figure_reports = st.toggle("Create text-based figure reports", value=True)
+            selected_ontology = st.text_input(
+                "Ontology / domain-pack JSON",
+                value=str(domain.ontology),
+                key=f"new_run_ontology_{domain.id}",
+                help=(
+                    "Edit a copy of config/domain_packs/custom_domain_template.json to add terminology "
+                    "and structured database fields. Ontology aliases and structured-output fields are separate sections."
+                ),
+            )
         run_full_pipeline = st.toggle(
             "Integrate records and run PCE/stability modeling after extraction",
             value=purpose == "PCE and stability dataset",
@@ -295,6 +297,14 @@ elif page == "New literature run":
         submitted = st.form_submit_button("Start extraction", type="primary")
 
     if submitted:
+        try:
+            selected_ontology_path = Path(selected_ontology).expanduser().resolve()
+            if not selected_ontology_path.is_file():
+                raise FileNotFoundError(selected_ontology_path)
+            load_structured_output_contract(selected_ontology_path)
+        except (OSError, ValueError) as exc:
+            st.error(f"The ontology/domain-pack JSON is invalid: {exc}")
+            st.stop()
         run_dir = new_run_dir(run_name)
         work = run_dir / "outputs"
         is_modeling = purpose == "PCE and stability dataset"
@@ -309,7 +319,7 @@ elif page == "New literature run":
                 "--target-processed-papers", str(max_papers), "--max-candidate-attempts", str(max(500, int(max_papers) * 12)),
                 "--target-mode", "pce_stability", "--search-query", query.strip(),
                 "--campaign-root", str(run_dir / "campaign"), "--work-dir", str(work),
-                "--base-csv", base_csv, "--ontology-path", ontology,
+                "--base-csv", base_csv, "--ontology-path", str(selected_ontology_path),
                 "--family-gating", gating, "--expansion-candidate-filter", candidate_filter,
                 "--expansion-require-oa", "0", "--reasoning-policy-mode", reasoning,
                 "--figure-report-enable", "1" if figure_reports else "0",
@@ -323,7 +333,7 @@ elif page == "New literature run":
         args = configured_common_args(
             work_dir=str(work), integration_dir=str(run_dir / "integration"),
             model_dir=str(run_dir / "models"), reasoning_mode=reasoning,
-            domain_profile=domain.id, ontology_path=str(domain.ontology),
+            domain_profile=domain.id, ontology_path=str(selected_ontology_path),
         )
         args += [
             "--pipeline_stage", "full" if run_full_pipeline else "extract_batch",
@@ -371,6 +381,10 @@ elif page == "Analyze outputs":
         with st.form("attach_existing_form"):
             existing_name = st.text_input("Collection name", value="existing_literature_collection")
             existing_domain_label = st.selectbox("Collection domain", [profile.label for profile in DOMAIN_PROFILES.values()])
+            existing_ontology_path = st.text_input(
+                "Collection ontology / domain-pack JSON",
+                placeholder="Leave blank to use the selected profile default",
+            )
             existing_path = st.text_input(
                 "Existing output folder",
                 placeholder="Choose a LiteratureAgent output folder",
@@ -379,7 +393,9 @@ elif page == "Analyze outputs":
         if attach:
             try:
                 existing_domain = next(profile for profile in DOMAIN_PROFILES.values() if profile.label == existing_domain_label)
-                attached = store.register_existing(existing_name, Path(existing_path), existing_domain.id, str(existing_domain.ontology))
+                attached_ontology = Path(existing_ontology_path).expanduser() if existing_ontology_path.strip() else existing_domain.ontology
+                load_structured_output_contract(attached_ontology)
+                attached = store.register_existing(existing_name, Path(existing_path), existing_domain.id, str(attached_ontology.resolve()))
                 st.session_state["selected_run"] = attached.id
                 st.success("Collection attached. Existing papers will not be re-extracted.")
                 st.rerun()
@@ -671,7 +687,7 @@ elif page == "Settings":
     st.caption("Configure local project resources. Changes apply to new runs.")
     with st.form("settings_form"):
         configured_base = st.text_input("Baseline database", value=base_csv)
-        configured_ontology = st.text_input("Ontology file", value=ontology)
+        configured_ontology = st.text_input("Default ontology file (legacy/halide workflows)", value=ontology)
         c1, c2 = st.columns(2)
         configured_llm_url = c1.text_input("Text-model endpoint", value=runtime_settings["llm_api_url"])
         configured_llm_model = c2.text_input("Text model", value=runtime_settings["llm_model"])
@@ -704,6 +720,6 @@ elif page == "Settings":
     render_health()
     st.subheader("Distribution")
     st.code(
-        "powershell -ExecutionPolicy Bypass -File .\\scripts\\build_standalone_platform_package.ps1 -IncludeBaselineDatabase",
+        "python .\\scripts\\build_literatureagent_coworker_package.py",
         language="powershell",
     )

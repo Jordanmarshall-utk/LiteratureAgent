@@ -427,7 +427,7 @@ def test_background_formula_is_not_selected_as_device_composition():
 def test_embedded_csv_export_preserves_evidence_columns():
     patch_source = controller._v21_controller_embedded_quality_patch_source()
 
-    assert 'startswith(("_evidence_", "_source_", "_lit_agent_"))' in patch_source
+    assert 'startswith(("Domain_", "_evidence_", "_source_", "_lit_agent_"))' in patch_source
     assert "pd.DataFrame(rows, columns=columns).to_csv" in patch_source
 
 

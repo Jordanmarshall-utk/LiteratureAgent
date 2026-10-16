@@ -201,7 +201,7 @@ $utf8NoBom = New-Object System.Text.UTF8Encoding($false)
     $utf8NoBom
 )
 $state = [ordered]@{
-    package_version = "2.0.0"
+    package_version = "2.1.0"
     requirements_sha256 = $requirementsHash
     model_profile = $ModelProfile
     text_model = $textModel

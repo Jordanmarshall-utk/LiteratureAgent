@@ -18,9 +18,9 @@ and stability modeling.
 - Streamlit interface for extraction, later processing passes, graphs, evidence
   packets, run monitoring, results, and endpoint settings.
 - Domain profiles for general science, oxide perovskites, and halide-perovskite
-  photovoltaics. Custom domains can be added by supplying an ontology file.
-- Structured extraction and knowledge-graph generation for every domain; only
-  the halide-PV profile enables the specialized PCE/stability model.
+  photovoltaics. General science is the starting point for other fields.
+- Structured extraction and knowledge-graph generation for every shipped
+  profile; only halide-PV enables the specialized PCE/stability model.
 
 ## Windows quick start
 
@@ -37,6 +37,14 @@ stored in the ZIP. The default laptop profile uses the 3B text and vision models
 
 For a source checkout, the setup script can use an installed Python or Windows
 Package Manager when the release-only runtime and installer are absent.
+
+For a non-perovskite project, read
+[`docs/CUSTOMIZING_FOR_A_NEW_DOMAIN.md`](docs/CUSTOMIZING_FOR_A_NEW_DOMAIN.md)
+before the first campaign. Copy
+`config/domain_packs/custom_domain_template.json`, select it under **General
+science > Advanced options**, and pilot it on one to three known papers.
+`canonical_terms` controls graph normalization, while
+`structured_output.fields` adds evidence-gated `Domain_<field>` columns.
 
 ## Manual setup
 
@@ -68,11 +76,15 @@ scikit-learn 1.8.0 and SHAP 0.51.0.
 - `literature_agent_platform/`: standalone application and run manager.
 - `literature_agent/reasoning/`: reasoning policies and philosophy manager.
 - `config/`: extraction ontology, graph schema, and source priorities.
+- `config/domain_packs/custom_domain_template.json`: editable vocabulary and
+  structured-output template for another scientific field.
 - `data/`: baseline perovskite dataset required by the default workflow.
 - `models/`: PCE and stability modeling implementation.
 - `scripts/`: reusable campaign, QA, analysis, graph, and plotting tools.
 - `scripts/build_literatureagent_coworker_package.py`: audited Windows release
   builder; its local build prerequisites are documented in the standalone guide.
+- `docs/CUSTOMIZING_FOR_A_NEW_DOMAIN.md`: ontology, structured-output,
+  database-design, graph-mapping, and pilot-validation checklist.
 - `scripts/FIGURE5_REPRODUCTION.md`: choice-stratified main, global audit, solvent-formulation, and fixed-seed local SHAP inputs and commands.
 - `third_party/licenses/`: Ollama license and Qwen model notice.
 - `tests/`: pipeline, model, integration, reasoning, and platform checks.
@@ -86,6 +98,10 @@ outputs.
 
 ## Data note
 
-The bundled baseline CSV supports the default perovskite workflow. Confirm the
-underlying dataset's redistribution and citation requirements before changing
-this repository from private to public.
+The bundled baseline CSV and the model under `models/` support only the original
+halide-perovskite photovoltaic workflow. They are not the destination database
+for a new domain. General science runs write `csv/domain_records.csv`, while
+knowledge-graph builds write Neo4j import CSVs under
+`knowledge_graph/neo4j_import/`. Confirm the baseline dataset's redistribution
+and citation requirements before changing this repository from private to
+public.

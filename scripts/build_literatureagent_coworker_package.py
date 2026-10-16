@@ -9,7 +9,7 @@ from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 DIST_ROOT = PROJECT_ROOT / "deliverables" / "distribution"
-VERSION = "2.0.0"
+VERSION = "2.1.0"
 PACKAGE_NAME = f"LiteratureAgent_Standalone_Windows_{VERSION}"
 STAGING_ROOT = DIST_ROOT / PACKAGE_NAME
 ZIP_PATH = DIST_ROOT / f"{PACKAGE_NAME}.zip"
@@ -22,7 +22,13 @@ IGNORED_NAMES = {
 }
 FORBIDDEN_SUFFIXES = {".db", ".log", ".pyc", ".pyo", ".sqlite", ".sqlite3", ".tmp"}
 TEXT_SUFFIXES = {".bat", ".cmd", ".ini", ".json", ".md", ".ps1", ".py", ".toml", ".txt", ".yaml", ".yml"}
-LOCAL_MARKERS = ("E:\\LiteratureAgentProject", "C:\\Users\\jorda", ".codex\\attachments")
+LOCAL_MARKERS = (
+    "E:" + "\\LiteratureAgentProject",
+    "C:" + "\\Users\\jorda",
+    ".codex" + "\\attachments",
+    "Jmarsh39" + "@vols.utk.edu",
+    "client_secret_" + "298117362376",
+)
 
 
 def _assert_distribution_path(path: Path) -> None:
@@ -103,6 +109,7 @@ def _copy_payload() -> None:
     _copy(OLLAMA_INSTALLER, STAGING_ROOT / "installers" / "OllamaSetup.exe")
     _copy_tree(PROJECT_ROOT / "third_party" / "licenses", STAGING_ROOT / "third_party" / "licenses")
     _copy(PROJECT_ROOT / "docs" / "STANDALONE_PLATFORM_GUIDE.md", STAGING_ROOT / "docs" / "STANDALONE_PLATFORM_GUIDE.md")
+    _copy(PROJECT_ROOT / "docs" / "CUSTOMIZING_FOR_A_NEW_DOMAIN.md", STAGING_ROOT / "docs" / "CUSTOMIZING_FOR_A_NEW_DOMAIN.md")
     (STAGING_ROOT / "secrets").mkdir(parents=True, exist_ok=True)
     _write(STAGING_ROOT / "secrets" / "README.txt", "Optional Google OAuth files belong here. Never share personal credentials or tokens.")
 
@@ -140,8 +147,25 @@ SCIENTIFIC WORKFLOWS
 Only the halide-PV profile can run the PCE/stability integration and predictive model.
 All three profiles support structured extraction and knowledge-graph generation.
 
+BEFORE A NON-PEROVSKITE OR CUSTOM-DOMAIN RUN
+Read docs\CUSTOMIZING_FOR_A_NEW_DOMAIN.md before processing a full collection.
+Start with the General science profile and pilot it on 1-3 papers you know well.
+
+- Copy config\domain_packs\custom_domain_template.json and edit the copy.
+- In General science > Advanced options, select the copy as the domain-pack JSON.
+- Decide the database row grain, identifiers, fields, types, units, and missing-value rules.
+- canonical_terms controls graph names and aliases; it does not add database columns.
+- structured_output.fields adds evidence-gated Domain_<field> columns without code edits.
+- Custom fields receive generic graph nodes/evidence links; add typed mappings only when needed.
+- Inspect csv\domain_records.csv, raw JSON, and the Neo4j import CSVs before scaling up.
+
+The bundled Perovskite Database CSV and PCE/stability model are retained only for
+the halide-photovoltaics profile. Do not use or overwrite that baseline as the
+database for another scientific domain.
+
 LATER USE
 Double-click Launch_LiteratureAgent.cmd. The interface opens at http://127.0.0.1:8501.
+This production package opens the working application directly; it contains no video-demo mode.
 
 REQUIREMENTS
 - 64-bit Windows 10 or 11.
@@ -182,9 +206,13 @@ def _audit_and_manifest() -> tuple[int, int]:
         "literature_agent_full_end_to_end_v21_3_english_sanitizer.py",
         "scripts/build_literature_knowledge_graph.py",
         "data/Perovskite_database_content_all_data.csv",
+        "config/domain_packs/custom_domain_template.json",
         "config/domain_packs/general_science.json",
         "config/domain_packs/oxide_perovskite.json",
         "config/perovskite_ontology_library_v19.json",
+        "docs/CUSTOMIZING_FOR_A_NEW_DOMAIN.md",
+        "docs/STANDALONE_PLATFORM_GUIDE.md",
+        "literature_agent/domain_pack.py",
         "third_party/licenses/Ollama_LICENSE.txt",
         "README_FIRST.txt",
     )
@@ -194,6 +222,14 @@ def _audit_and_manifest() -> tuple[int, int]:
 
     files = sorted(path for path in STAGING_ROOT.rglob("*") if path.is_file())
     problems: list[str] = []
+    demo_module = STAGING_ROOT / "literature_agent_platform" / "video_demo.py"
+    if demo_module.exists():
+        problems.append(f"video-demo module in production package: {demo_module.relative_to(STAGING_ROOT)}")
+    app_path = STAGING_ROOT / "literature_agent_platform" / "app.py"
+    app_text = app_path.read_text(encoding="utf-8", errors="ignore").casefold()
+    for marker in ("video_demo", "video walkthrough", "render_video_demo", "demo_requested"):
+        if marker in app_text:
+            problems.append(f"video-demo activation marker in literature_agent_platform/app.py: {marker}")
     for path in files:
         relative = path.relative_to(STAGING_ROOT)
         if path.name.casefold() in {".env", ".env.local"} or path.suffix.casefold() in FORBIDDEN_SUFFIXES:

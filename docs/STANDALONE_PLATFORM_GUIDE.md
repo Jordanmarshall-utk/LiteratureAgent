@@ -23,6 +23,9 @@ private Python environment, and run history are stored under
 `%LOCALAPPDATA%\LiteratureAgent`, so the extracted application folder contains
 no personal configuration.
 
+The production package opens the working application directly. It does not
+start a prerecorded or video-demonstration interface.
+
 ## Domain profiles
 
 Every new campaign starts by selecting a scientific domain:
@@ -49,19 +52,46 @@ Only `halide_pv` may enter the baseline database merge or PCE/stability model.
 The controller rejects that stage for other profiles instead of silently
 mapping unrelated science into photovoltaic fields.
 
-## Editing or adding domain terminology
+The bundled `data/Perovskite_database_content_all_data.csv` and the script under
+`models/` are halide-PV compatibility resources. Do not overwrite the baseline
+CSV to create a database for another field. General and custom-domain database
+work should begin with `csv/domain_records.csv` and the provenance artifacts in
+the same run folder.
+
+## Before using a new scientific domain
+
+Read `docs/CUSTOMIZING_FOR_A_NEW_DOMAIN.md` before a full campaign. It separates
+four decisions that must stay aligned:
+
+1. the ontology's `canonical_terms` and synonyms;
+2. the domain pack's `structured_output.fields` and evidence contract;
+3. the eventual database's row grain, identifiers, types, units, and missing
+   values; and
+4. the knowledge-graph node and relationship mapping.
+
+Changing ontology vocabulary alone does not add structured-output columns;
+adding `structured_output.fields` does. Custom columns receive generic graph
+nodes and evidence links automatically, while richer typed graph relations
+remain a separate design choice. Run the required pilot on one to three
+familiar papers and review both the records and graph before scaling up.
+
+## Editing domain terminology
 
 The shipped editable ontology files are:
 
 - `config/domain_packs/general_science.json`
 - `config/domain_packs/oxide_perovskite.json`
+- `config/domain_packs/custom_domain_template.json`
 - `config/perovskite_ontology_library_v19.json`
 
-Changing an ontology extends canonical terms and synonyms used by graph and
-retrieval logic. The selected domain profile still determines the structured
-field contract. For a field outside oxide perovskites, start with General
-science and edit `general_science.json`; the domain-neutral record and graph
-schema remain available without code changes.
+For a field outside oxide perovskites, copy and edit
+`custom_domain_template.json`, then choose **General science** and select the
+copy under **Advanced options > Ontology / domain-pack JSON**. Top-level
+`canonical_terms` entries define preferred graph names and aliases.
+`structured_output.fields` adds evidence-gated fields that are exported as
+`Domain_<field_name>` columns without editing the controller. Extra `Domain_*`
+fields receive a safe generic graph mapping; the customization guide explains
+the JSON contract and when richer typed relationships are needed.
 
 ## Workflows
 
@@ -77,14 +107,18 @@ schema remain available without code changes.
 
 The user-supplied search query is preserved. General/oxide runs disable the old
 photovoltaic candidate ranking and PCE schema-family calls. Vision prompts also
-follow the selected domain.
+follow the selected domain. The legacy inline-vision path is intentionally
+rejected for non-halide profiles; use the domain-aware **Analyze outputs >
+Vision pass** workflow instead.
 
 ## Google Drive and privacy
 
 No API keys, OAuth files, prior papers, prior runs, or model weights are in the
 distribution. Optional Google OAuth files must be supplied by the recipient.
 Local model requests go to Ollama on that computer. Web literature retrieval
-still contacts the selected scholarly/web services.
+still contacts the selected scholarly/web services. LiteratureAgent does not
+ship a personal Unpaywall identity; set `UNPAYWALL_EMAIL` (or pass
+`--unpaywall_email`) if that retrieval source should be used.
 
 ## Building the supported bundle
 
@@ -94,7 +128,10 @@ From the project root:
 python .\scripts\build_literatureagent_coworker_package.py
 ```
 
-The builder requires `third_party/installers/OllamaSetup.exe`, audits the staged
-package for credentials/generated files/machine-specific paths, creates a
-per-file SHA-256 manifest, and writes the ZIP plus a ZIP SHA-256 file to
-`deliverables/distribution`.
+The builder requires the local portable runtime at
+`polaris_full_stack/.tools/Python312` and
+`third_party/installers/OllamaSetup.exe`. These large prerequisites are not
+ordinary source-control payloads. The builder audits the staged package for
+credentials, generated files, machine-specific paths, required customization
+resources, and video-demo code; creates a per-file SHA-256 manifest; and writes
+the ZIP plus a ZIP SHA-256 file to `deliverables/distribution`.

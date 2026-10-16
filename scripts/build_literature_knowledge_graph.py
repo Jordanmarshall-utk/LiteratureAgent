@@ -87,6 +87,26 @@ CHARACTERIZATION_HINTS = {
     "device_schematic": "device schematic",
 }
 
+# Only these legacy ontology roots use the historical
+# ``canonical_name: [aliases...]`` representation. Other bare lists in domain
+# packs are category vocabularies, not synonym sets, and must not be collapsed
+# to their parent key (for example, every characterization term must not become
+# the single concept ``characterization``).
+LEGACY_CANONICAL_ONTOLOGY_ROOTS = {
+    "a_site_cations",
+    "b_site_cations",
+    "x_site_anions",
+    "additives_passivators",
+    "solvents",
+}
+ONTOLOGY_NON_TERM_ROOTS = {
+    "device_layers",
+    "family_gate_terms",
+    "family_ontology_map",
+    "figure_task_ontology",
+    "structured_output",
+}
+
 SUMMARY_CLAIM_FIELDS = {
     "one_sentence_summary": "Finding",
     "objective": "ResearchObjective",
@@ -308,6 +328,26 @@ def json_cell(value: Any, default: Any) -> Any:
         return default
 
 
+def domain_attribute_values(value: Any) -> List[str]:
+    """Return stable scalar representations for an otherwise unknown domain field."""
+    parsed = value
+    if isinstance(value, str):
+        text = clean(value)
+        if not text:
+            return []
+        if text[:1] in {"[", "{"}:
+            try:
+                parsed = json.loads(text)
+            except json.JSONDecodeError:
+                parsed = value
+    if isinstance(parsed, list):
+        values = [json_text(item) if isinstance(item, (dict, list)) else str(item) for item in parsed]
+        return list(dict.fromkeys(item for item in values if clean(item)))
+    if isinstance(parsed, dict):
+        return [json_text(parsed)] if parsed else []
+    return split_values(parsed)
+
+
 def numeric_value(value: Any) -> Optional[float]:
     text = clean(value)
     if not text:
@@ -332,29 +372,62 @@ def xml_safe(value: Any) -> str:
     )
 
 
+def _ontology_strings(value: Any) -> List[str]:
+    if isinstance(value, str):
+        return [value]
+    if isinstance(value, (list, tuple, set)):
+        return [str(item) for item in value if isinstance(item, (str, int, float)) and clean(item)]
+    return []
+
+
 def flatten_ontology(data: Any, path: Tuple[str, ...] = ()) -> Iterable[Tuple[str, str, str]]:
+    """Yield only deliberate synonym mappings from an ontology document.
+
+    New domain packs should use ``canonical_terms`` entries shaped as
+    ``{"canonical": "...", "aliases": ["..."], "category": "..."}``.
+    The narrow legacy-root branch keeps the shipped halide ontology compatible
+    without interpreting broad vocabulary lists as aliases.
+    """
+    if path and path[0] in ONTOLOGY_NON_TERM_ROOTS:
+        return
+
     if isinstance(data, dict):
+        canonical = clean(data.get("canonical"))
+        if canonical:
+            category = clean(data.get("category")) or "/".join(path[:-1] if path and path[-1].isdigit() else path)
+            terms = [canonical]
+            terms.extend(_ontology_strings(data.get("aliases")))
+            terms.extend(_ontology_strings(data.get("synonyms")))
+            for synonym in dict.fromkeys(terms):
+                yield synonym, canonical, category
+            return
+
         for key, value in data.items():
-            if key in {"version", "description"}:
+            key_text = str(key)
+            if key_text in {"id", "version", "description"}:
                 continue
-            if isinstance(value, list):
-                canonical = path[-1] if key in {"terms", "keywords", "synonyms", "aliases"} and path else str(key)
-                category = "/".join(path[:-1] if key in {"terms", "keywords", "synonyms", "aliases"} else path)
-                for synonym in value:
-                    yield str(synonym), canonical, category
-            else:
-                yield from flatten_ontology(value, path + (str(key),))
+            if not path and key_text in ONTOLOGY_NON_TERM_ROOTS:
+                continue
+            yield from flatten_ontology(value, path + (key_text,))
+        return
+
+    if isinstance(data, list):
+        if all(isinstance(item, dict) for item in data):
+            for index, item in enumerate(data):
+                yield from flatten_ontology(item, path + (str(index),))
+            return
+        if path and path[0] in LEGACY_CANONICAL_ONTOLOGY_ROOTS:
+            canonical = path[-1]
+            category = "/".join(path[:-1])
+            terms = [canonical, *_ontology_strings(data)]
+            for synonym in dict.fromkeys(terms):
+                yield synonym, canonical, category
 
 
 def ontology_index(path: Path) -> Dict[str, Dict[str, str]]:
     data = json.loads(path.read_text(encoding="utf-8"))
     index: Dict[str, Dict[str, str]] = {}
     for synonym, canonical, category in flatten_ontology(data):
-        root = category.split("/", 1)[0]
-        # Family gates and figure-task terms are retrieval keywords, not
-        # canonical scientific entities.
-        if root in {"family_gate_terms", "figure_task_ontology", "family_ontology_map", "device_layers"}:
-            continue
         key = norm(synonym)
         if key and key not in index:
             index[key] = {"canonical": canonical, "category": category}
@@ -376,8 +449,7 @@ class GraphBuilder:
 
     def canonical(self, name: str) -> Tuple[str, str]:
         hit = self.ontology.get(norm(name))
-        root = hit["category"].split("/", 1)[0] if hit else ""
-        if hit and root in {"a_site_cations", "b_site_cations", "x_site_anions", "additives_passivators", "solvents"}:
+        if hit:
             self.ontology_usage[(hit["category"], hit["canonical"])] += 1
             return hit["canonical"], hit["category"]
         return name, ""
@@ -437,6 +509,20 @@ class GraphBuilder:
         device_nodes = [node for node in self.nodes.values() if "Device" in node["labels"]]
         measurement_nodes = [node for node in self.nodes.values() if "Measurement" in node["labels"]]
         material_nodes = [node for node in self.nodes.values() if "Material" in node["labels"]]
+        system_nodes = [node for node in self.nodes.values() if "StudiedSystem" in node["labels"]]
+        domain_entity_nodes = [node for node in self.nodes.values() if "DomainEntity" in node["labels"]]
+        scientific_entity_nodes = list({
+            node["node_id"]: node
+            for node in [
+                *paper_nodes,
+                *device_nodes,
+                *system_nodes,
+                *material_nodes,
+                *domain_entity_nodes,
+                *measurement_nodes,
+                *claim_nodes,
+            ]
+        }.values())
 
         if policy_id == "humean_evidence":
             for claim in claim_nodes:
@@ -463,7 +549,7 @@ class GraphBuilder:
                 })
 
         elif policy_id == "kantian_constraints":
-            for node in [*device_nodes, *measurement_nodes, *material_nodes]:
+            for node in scientific_entity_nodes:
                 node["reasoning_policy"] = policy_id
                 node["constraint_checked"] = True
                 self.add_edge(policy_node, node["node_id"], "POLICY_CHECKS_SCHEMA_CONSTRAINTS", "reasoning_policy", policy_id)
@@ -490,6 +576,43 @@ class GraphBuilder:
                         "status": "warning",
                         "reason": issue_text,
                     })
+            for system in system_nodes:
+                outgoing = [edge for edge in self.edges.values() if edge["start_id"] == system["node_id"]]
+                has_scientific_content = any(
+                    edge["type"] in {
+                        "INCLUDES_ENTITY", "USES_METHOD", "HAS_CONDITION", "TESTS_VARIABLE",
+                        "HAS_MEASUREMENT", "HAS_DOMAIN_ATTRIBUTE", "HAS_COMPOSITION",
+                    }
+                    for edge in outgoing
+                )
+                has_evidence = any(
+                    edge["type"] == "SUPPORTS_ENTITY_OR_MEASUREMENT" and edge["end_id"] == system["node_id"]
+                    for edge in self.edges.values()
+                ) or any(
+                    edge["type"] == "SUPPORTS_ENTITY_OR_MEASUREMENT"
+                    and any(candidate["end_id"] == edge["end_id"] for candidate in outgoing)
+                    for edge in self.edges.values()
+                )
+                if has_scientific_content and has_evidence:
+                    continue
+                issue_text = "missing_domain_content_or_evidence"
+                issue_id = stable_id("ConstraintIssue", f"{system['node_id']}|{issue_text}")
+                self.add_node(
+                    issue_id,
+                    ["ReasoningFinding", "ConstraintIssue"],
+                    issue_text,
+                    policy_id=policy_id,
+                    missing_domain_content=not has_scientific_content,
+                    missing_evidence=not has_evidence,
+                )
+                self.add_edge(system["node_id"], issue_id, "HAS_SCHEMA_CONSTRAINT_WARNING", "reasoning_policy", policy_id)
+                self.reasoning_report_rows.append({
+                    "policy_id": policy_id,
+                    "node_id": system["node_id"],
+                    "node_type": "StudiedSystem",
+                    "status": "warning",
+                    "reason": issue_text,
+                })
 
         elif policy_id == "socratic_uncertainty":
             for claim in claim_nodes:
@@ -570,9 +693,48 @@ class GraphBuilder:
                         "status": "decomposed",
                         "reason": f"Device construction decomposed through {step_name}",
                     })
+            domain_steps = [
+                ({"INCLUDES_ENTITY", "HAS_COMPOSITION"}, "entities or composition"),
+                ({"PROCESSED_BY", "USES_METHOD", "USES_CHARACTERIZATION"}, "methods or processing"),
+                ({"HAS_CONDITION", "TESTS_VARIABLE", "USES_COMPARISON"}, "conditions or variables"),
+                ({"HAS_MEASUREMENT", "HAS_DOMAIN_ATTRIBUTE"}, "measurements or domain attributes"),
+            ]
+            for system in system_nodes:
+                related_edges = [edge for edge in self.edges.values() if edge["start_id"] == system["node_id"]]
+                previous_step = None
+                for step_number, (relationship_types, step_name) in enumerate(domain_steps, start=1):
+                    present_types = sorted({
+                        edge["type"] for edge in related_edges if edge["type"] in relationship_types
+                    })
+                    if not present_types:
+                        continue
+                    step_id = stable_id(
+                        "ReasoningStep",
+                        f"{system['node_id']}|{policy_id}|{step_number}|{'|'.join(present_types)}",
+                    )
+                    self.add_node(
+                        step_id,
+                        ["ReasoningFinding", "DecompositionStep"],
+                        f"{step_number}. {step_name}",
+                        policy_id=policy_id,
+                        step_number=step_number,
+                        relationship_type=";".join(present_types),
+                    )
+                    self.add_edge(policy_node, step_id, "POLICY_DECOMPOSES_STEP", "reasoning_policy", policy_id)
+                    self.add_edge(system["node_id"], step_id, "HAS_DECOMPOSITION_STEP", "reasoning_policy", policy_id)
+                    if previous_step:
+                        self.add_edge(previous_step, step_id, "NEXT_REASONING_STEP", "reasoning_policy", policy_id)
+                    previous_step = step_id
+                    self.reasoning_report_rows.append({
+                        "policy_id": policy_id,
+                        "node_id": system["node_id"],
+                        "node_type": "StudiedSystem",
+                        "status": "decomposed",
+                        "reason": f"Domain system decomposed through {step_name}",
+                    })
 
         elif policy_id == "aristotelian_classification":
-            for node in [*paper_nodes, *device_nodes, *material_nodes, *measurement_nodes, *claim_nodes]:
+            for node in scientific_entity_nodes:
                 primary = sorted(node["labels"])[0] if node.get("labels") else "Entity"
                 if "Claim" in node.get("labels", set()):
                     primary = clean(node.get("claim_type")) or "Claim"
@@ -639,6 +801,10 @@ class GraphBuilder:
                 ("interface_passivation", ["interface", "passivation", "defect", "trap", "recombination"]),
                 ("composition_dimensionality", ["composition", "cation", "halide", "2d", "3d", "dimensional"]),
                 ("processing_control", ["anneal", "solvent", "deposition", "processing", "crystallization"]),
+                ("experimental_method", ["method", "experiment", "characterization", "analysis", "simulation"]),
+                ("measurement_relationship", ["measurement", "property", "response", "value", "condition"]),
+                ("mechanism_or_causality", ["mechanism", "cause", "drives", "controls", "leads to"]),
+                ("uncertainty_or_limitation", ["uncertainty", "limitation", "error", "confidence", "variability"]),
             ]
             for claim in claim_nodes:
                 text = f"{claim.get('statement', '')} {claim.get('claim_type', '')}".lower()
@@ -988,7 +1154,9 @@ class GraphBuilder:
         evidence_nodes.extend(self.add_summary_evidence(paper_id, paper_slug, record_id, summary, summary_path))
         evidence_nodes.extend(self.add_raw_text_evidence(paper_id, paper_slug, record_id))
         self.add_summary_material_system(paper_id, paper_slug, record_id, summary, summary_path)
-        self.add_summary_performance(paper_id, paper_slug, record_id, summary, summary_path)
+        paper_domain = clean(self.nodes.get(paper_id, {}).get("domain_profile")) or "halide_pv"
+        if paper_domain == "halide_pv":
+            self.add_summary_performance(paper_id, paper_slug, record_id, summary, summary_path)
         self.add_structured_observations(paper_id, paper_slug, record_id)
 
         for field, claim_type in SUMMARY_CLAIM_FIELDS.items():
@@ -1025,6 +1193,9 @@ class GraphBuilder:
             source_landing_page=clean(row.get("_source_landing_page")),
             **artifacts,
             domain_profile=clean(row.get("_domain_profile")) or "halide_pv",
+            domain_pack_id=clean(row.get("_domain_pack_id")),
+            domain_pack_version=clean(row.get("_domain_pack_version")),
+            domain_pack_file=clean(row.get("_domain_pack_file")),
         )
         if paper_type:
             type_id = stable_id("PaperType", paper_type)
@@ -1139,23 +1310,41 @@ class GraphBuilder:
         self, paper_id: str, paper_slug: str, record_id: str, row: pd.Series, domain_profile: str
     ) -> None:
         """Build a domain-neutral record subgraph, with oxide-specific relations when available."""
-        system_name = clean(row.get("Domain_system_or_subject")) or clean(row.get("Domain_composition_formula")) or paper_slug
+        raw_system_name = clean(row.get("Domain_system_or_subject")) or clean(row.get("Domain_composition_formula")) or paper_slug
+        system_name, system_category = self.canonical(raw_system_name)
         system_id = stable_id("StudiedSystem", f"{domain_profile}|{system_name}")
         labels = ["StudiedSystem", "DomainEntity"]
         if domain_profile == "oxide_perovskite":
             labels += ["MaterialSystem", "OxidePerovskite"]
-        self.add_node(system_id, labels, system_name, domain_profile=domain_profile)
+        self.add_node(
+            system_id,
+            labels,
+            system_name,
+            domain_profile=domain_profile,
+            domain_pack_id=clean(row.get("_domain_pack_id")),
+            domain_pack_version=clean(row.get("_domain_pack_version")),
+            domain_pack_file=clean(row.get("_domain_pack_file")),
+            raw_name=raw_system_name,
+            ontology_category=system_category,
+        )
         self.add_edge(paper_id, system_id, "STUDIES_SYSTEM", "Domain_system_or_subject", record_id)
         field_targets: Dict[str, List[str]] = defaultdict(list)
         field_targets["Domain_system_or_subject"].append(system_id)
 
         for entity in split_values(row.get("Domain_materials_or_entities")):
-            entity_id = stable_id("DomainEntity", entity)
-            self.add_node(entity_id, ["DomainEntity", "ScientificConcept"], entity)
+            canonical, category = self.canonical(entity)
+            entity_id = stable_id("DomainEntity", canonical)
+            self.add_node(
+                entity_id,
+                ["DomainEntity", "ScientificConcept"],
+                canonical,
+                raw_name=entity,
+                ontology_category=category,
+            )
             self.add_edge(system_id, entity_id, "INCLUDES_ENTITY", "Domain_materials_or_entities", record_id)
             field_targets["Domain_materials_or_entities"].append(entity_id)
 
-        for field, relation, label in [
+        common_fields = [
             ("Domain_methods", "USES_METHOD", "Method"),
             ("Domain_conditions", "HAS_CONDITION", "ExperimentalCondition"),
             ("Domain_intervention_or_variable", "TESTS_VARIABLE", "ScientificVariable"),
@@ -1164,10 +1353,18 @@ class GraphBuilder:
             ("Domain_characterization", "USES_CHARACTERIZATION", "Characterization"),
             ("Domain_defect_chemistry", "HAS_DEFECT_CHEMISTRY", "DefectChemistry"),
             ("Domain_microstructure", "HAS_MICROSTRUCTURE", "Microstructure"),
-        ]:
+        ]
+        for field, relation, label in common_fields:
             for value in split_values(row.get(field)):
-                node_id = stable_id(label, value)
-                self.add_node(node_id, [label, "DomainEntity"], value)
+                canonical, category = self.canonical(value)
+                node_id = stable_id(label, canonical)
+                self.add_node(
+                    node_id,
+                    [label, "DomainEntity"],
+                    canonical,
+                    raw_name=value,
+                    ontology_category=category,
+                )
                 self.add_edge(system_id if field.startswith("Domain_") else paper_id, node_id, relation, field, record_id)
                 field_targets[field].append(node_id)
 
@@ -1213,6 +1410,40 @@ class GraphBuilder:
                 )
                 self.add_edge(system_id, measurement_id, "HAS_MEASUREMENT", field, record_id)
                 field_targets[field].append(measurement_id)
+
+        mapped_fields = {
+            "Domain_system_or_subject",
+            "Domain_materials_or_entities",
+            *(field for field, _, _ in common_fields),
+            *(field for field, _, _ in oxide_fields),
+            "Domain_measurements",
+            "Domain_measured_properties",
+        }
+        for raw_field, raw_value in row.items():
+            field = str(raw_field)
+            if not field.startswith("Domain_") or field in mapped_fields:
+                continue
+            for value in domain_attribute_values(raw_value):
+                canonical, category = self.canonical(value)
+                node_id = stable_id("DomainAttribute", f"{field}|{canonical}")
+                self.add_node(
+                    node_id,
+                    ["DomainAttribute", "DomainEntity"],
+                    canonical,
+                    domain_field=field,
+                    domain_profile=domain_profile,
+                    raw_name=value,
+                    ontology_category=category,
+                )
+                self.add_edge(
+                    system_id,
+                    node_id,
+                    "HAS_DOMAIN_ATTRIBUTE",
+                    field,
+                    record_id,
+                    domain_field=field,
+                )
+                field_targets[field].append(node_id)
 
         for field, targets in field_targets.items():
             evidence = clean(row.get(f"_evidence_{field}"))
