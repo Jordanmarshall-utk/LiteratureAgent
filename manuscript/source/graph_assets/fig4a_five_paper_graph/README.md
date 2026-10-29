@@ -1,7 +1,17 @@
-# Editable five-paper knowledge-graph Panel A
+# Five-paper relationship provenance
 
-`PanelA_five_paper_knowledge_graph_EDITABLE.pptx` is a portrait PowerPoint containing only the finished Panel A. Every node, label, line, arrow, diamond, and background is a native editable PowerPoint object.
+The current manuscript uses an author-created compact orange PowerPoint panel,
+identified in `manuscript/figures/AUTHOR_GRAPHICS.csv`. The earlier portrait
+PowerPoint, template and generated previews are not that final graphic and are
+not bundled as current editable masters.
 
-`Figure4_KG_A_SHAP_B_EDITABLE_TEMPLATE.pptx` is an 8.18 × 4.62 inch two-panel manuscript canvas. Panel A is fully editable on the left. Panel B is an editable placeholder sized for the revised SHAP artwork.
+`build_manifest.json` retains historical prototype builder identifiers, original
+output filenames and hashes for provenance only. Its output entries are not an
+inventory of files available in this release and are not instructions to rebuild
+an alternative manuscript graphic.
 
-The displayed five-paper paths reproduce the previously validated 25-node/25-relationship DAG projection from the frozen production LiteratureAgent graph. Artwork labels are shortened; `PanelA_source_paths.csv` retains the exact titles, DOIs, production node IDs, claims, entities, predicates, and evidence passages.
+`PanelA_source_paths.csv` retains the five scientific paths, exact titles, DOIs,
+production node identifiers, claims, entities, predicates and evidence passages.
+These are scientific source records, not proof that the earlier prototype
+artwork is the author-used layout. No scientific relationships were changed by
+the figure-scope cleanup.

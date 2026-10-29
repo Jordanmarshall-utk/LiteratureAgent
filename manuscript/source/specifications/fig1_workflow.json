@@ -2,61 +2,12 @@
   "plot_id": "fig1_workflow",
   "current_figure": "Figure 1",
   "panel": "",
-  "status": "READY",
-  "required_action": "RETAIN",
+  "status": "SCIENTIFIC_SOURCE_METADATA_ONLY",
+  "required_action": "AUTHOR_COMPOSED_GRAPHIC_NOT_BUNDLED",
   "scientific_content": "LiteratureAgent workflow diagram",
   "authoritative_analysis_version": "retained current release",
   "portable_paths_only": true,
-  "style": {
-    "standalone_dimensions_mm": {
-      "width": 180,
-      "height": 104
-    },
-    "font_family": "Times New Roman",
-    "font_sizes_pt": {
-      "tick_and_category": 8,
-      "legend": 8,
-      "axis_label": 9,
-      "title": 9
-    },
-    "background": "white",
-    "outer_frame": "none",
-    "spines": {
-      "top": false,
-      "right": false,
-      "left": true,
-      "bottom": true
-    },
-    "grid_color": "#D9DEE5",
-    "export": {
-      "vector": [
-        "PDF",
-        "SVG or EMF"
-      ],
-      "raster": "PNG, 600 dpi at final physical dimensions",
-      "transparent_background": false
-    },
-    "palette": {
-      "blue": "#0072B2",
-      "sky": "#3C8DBC",
-      "teal": "#009E73",
-      "amber": "#E69F00",
-      "orange": "#D55E00",
-      "purple": "#7B61A8",
-      "neutral": "#4B5563",
-      "grid": "#D9DEE5",
-      "pale": "#F4F6F8",
-      "ink": "#202124",
-      "white": "#FFFFFF"
-    }
-  },
-  "output_filenames": [
-    "fig1_workflow.opju",
-    "fig1_workflow.pdf",
-    "fig1_workflow.svg",
-    "fig1_workflow.png"
-  ],
-  "assembly_instruction": "Standalone plot only. Do not assemble with another panel in OriginPro.",
+  "output_filenames": [],
   "input": {
     "workflow_configuration_files": [
       "data/fig1_workflow/literatureagent_kg_schema_v1.json",
@@ -64,7 +15,7 @@
       "data/fig1_workflow/perovskite_ontology_library_v19.json"
     ]
   },
-  "plot_type": "retained workflow diagram; no statistical axes",
-  "axes": null,
-  "retention_decision": "Retain the current vector export; repaired data do not change the workflow."
+  "retention_decision": "Retain scientific inputs and counts, not the superseded generated rendering or its visual design.",
+  "rendering_scope": "The generated rendering was excluded because it is not the author-composed visual used in the supplied manuscript. Scientific input metadata remain available.",
+  "author_graphic_manifest": "../../figures/AUTHOR_GRAPHICS.csv"
 }

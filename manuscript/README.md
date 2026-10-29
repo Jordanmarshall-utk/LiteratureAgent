@@ -3,9 +3,12 @@
 These materials combine the repaired analysis of 27 October 2026, the completed
 stability and PCE comparisons of 28 October, the canonical identity and grouping
 checks of 29 October, and the manuscript figure sources.
-The 24 individual panels comprise 14 main and 10 supplementary panels.
+The included 19 source panels comprise nine main and ten supplementary panels.
+They are plot/diagram components used in the manuscript, not a substitute for
+the author's assembled figures.
 
-- `figures/`: PNG, SVG, PDF, and editable assets for each panel, plus legends.
+- `figures/`: the 19 used source panels and their used legends, plus a separate
+  author-created-graphics inventory.
 - `source/data/`: exact figure inputs and shared scientific tables.
 - `source/specifications/`: endpoint definitions and plotting specifications.
 - `source/graph_assets/`: graph aggregates and representative relationships.
@@ -29,8 +32,21 @@ assets are vector SVGs. The two panels are supplied separately for manual
 manuscript assembly; no manuscript layout is assembled here. The other Origin
 panels retain the supplied OPJU projects. Dense SHAP SVG/PDF exports embed the
 complete raster rendering; the OPJU files retain editable plot data.
-The five-paper graph source PowerPoint is retained under
-`source/graph_assets/fig4a_five_paper_graph/`.
+
+Figures 1, 2, 4a and 6 use author-created PowerPoint graphics. The different
+generated workflow, campaign-bar, five-paper and integrated-graph illustrations
+are not current manuscript graphics and are excluded, including the outdated
+five-paper PowerPoint/preview. `figures/AUTHOR_GRAPHICS.csv` identifies these
+locations and the supporting data retained in the repository. No unverified
+final PowerPoint master is claimed. The reviewed DOCX files and their comments
+are not included. Figure S5 retains the used three-path scientific diagram as
+a source component; the supplied SI uses a more compact author-assembled layout.
+
+The supplied documents determine figure membership, not numerical authority:
+the corrected Figure 5 panels remain the approved updated sources for insertion
+into the manuscript. The 24 Figure 5 estimates are data rows across two panels,
+not a count of included image files. All scientific tables, saved predictions,
+folds and audit evidence remain; only unused rendered assets are excluded.
 
 The validation report measures file integrity and scientific consistency. It
 does not certify journal acceptance, author approval, licensing, or a new

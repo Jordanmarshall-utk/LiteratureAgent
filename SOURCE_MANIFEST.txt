@@ -1,10 +1,12 @@
-LiteratureAgent 2.2.0
+LiteratureAgent 2.2.1
 
 The source release includes the application, pipeline, model implementation,
 configuration, tests, third-party notices, and manuscript research materials.
 Current file hashes are recorded in manuscript/validation/FILE_MANIFEST.csv.
 
 Current manuscript source: manuscript/source/data/
+Included manuscript plot scope: manuscript/figures/ALL_FIGURES.csv
+Author-created figure scope: manuscript/figures/AUTHOR_GRAPHICS.csv
 Windows distribution builder: scripts/build_windows_release.py
 Scientific definitions: manuscript/docs/ANALYSIS.md
 Reproduction: manuscript/docs/REPRODUCIBILITY.md

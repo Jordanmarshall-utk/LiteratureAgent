@@ -1,4 +1,5 @@
 {
+  "artifact_scope": "Historical prototype provenance only; listed output artwork is not bundled as the final author-created manuscript panel.",
   "builder": "source_records/build_editable_five_paper_panel_powerpoint.py",
   "builder_sha256": "2369408266f3f80fc76ffc1fbde08bfd01d5b1da6658fc42c6960766db8e0a29",
   "source_table": "source_records/PanelB_source_paths.csv",

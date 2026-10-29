@@ -2,70 +2,19 @@
   "plot_id": "fig4a_five_paper_graph",
   "current_figure": "Figure 4",
   "panel": "a",
-  "status": "READY",
-  "required_action": "RETAIN",
+  "status": "SCIENTIFIC_SOURCE_METADATA_ONLY",
+  "required_action": "AUTHOR_COMPOSED_GRAPHIC_NOT_BUNDLED",
   "scientific_content": "Five-paper source/evidence knowledge graph",
   "authoritative_analysis_version": "retained current release",
   "portable_paths_only": true,
-  "style": {
-    "standalone_dimensions_mm": {
-      "width": 85,
-      "height": 98
-    },
-    "font_family": "Times New Roman",
-    "font_sizes_pt": {
-      "tick_and_category": 8,
-      "legend": 8,
-      "axis_label": 9,
-      "title": 9
-    },
-    "background": "white",
-    "outer_frame": "none",
-    "spines": {
-      "top": false,
-      "right": false,
-      "left": true,
-      "bottom": true
-    },
-    "grid_color": "#D9DEE5",
-    "export": {
-      "vector": [
-        "PDF",
-        "SVG or EMF"
-      ],
-      "raster": "PNG, 600 dpi at final physical dimensions",
-      "transparent_background": false
-    },
-    "palette": {
-      "blue": "#0072B2",
-      "sky": "#3C8DBC",
-      "teal": "#009E73",
-      "amber": "#E69F00",
-      "orange": "#D55E00",
-      "purple": "#7B61A8",
-      "neutral": "#4B5563",
-      "grid": "#D9DEE5",
-      "pale": "#F4F6F8",
-      "ink": "#202124",
-      "white": "#FFFFFF"
-    }
-  },
-  "output_filenames": [
-    "fig4a_five_paper_graph.opju",
-    "fig4a_five_paper_graph.pdf",
-    "fig4a_five_paper_graph.svg",
-    "fig4a_five_paper_graph.png"
-  ],
-  "assembly_instruction": "Standalone plot only. Do not assemble with another panel in OriginPro.",
+  "output_filenames": [],
   "input": {
-    "source_evidence_map": "graph_assets/fig4a_five_paper_graph/PanelA_source_paths.csv",
-    "editable_reference": "graph_assets/fig4a_five_paper_graph/PanelA_five_paper_knowledge_graph_EDITABLE.pptx",
-    "vector_reference": "graph_assets/fig4a_five_paper_graph/PanelA_five_paper_knowledge_graph.pdf"
+    "source_evidence_map": "graph_assets/fig4a_five_paper_graph/PanelA_source_paths.csv"
   },
-  "plot_type": "retained evidence graph; no statistical axes",
-  "axes": null,
-  "retention_decision": "The five represented publications are unaffected; use the existing standalone editable panel.",
+  "retention_decision": "Retain scientific inputs and counts, not the superseded generated rendering or its visual design.",
   "expected_plotted_counts": {
     "papers": 5
-  }
+  },
+  "rendering_scope": "The generated rendering was excluded because it is not the author-composed visual used in the supplied manuscript. Scientific input metadata remain available.",
+  "author_graphic_manifest": "../../figures/AUTHOR_GRAPHICS.csv"
 }

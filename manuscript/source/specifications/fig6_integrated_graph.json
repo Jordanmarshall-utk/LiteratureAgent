@@ -2,61 +2,12 @@
   "plot_id": "fig6_integrated_graph",
   "current_figure": "Figure 6",
   "panel": "",
-  "status": "READY",
-  "required_action": "REGENERATE",
+  "status": "SCIENTIFIC_SOURCE_METADATA_ONLY",
+  "required_action": "AUTHOR_COMPOSED_GRAPHIC_NOT_BUNDLED",
   "scientific_content": "Final integrated knowledge-graph schema and exact counts",
   "authoritative_analysis_version": "2026-10-27_controlled_repaired_rerun_v1",
   "portable_paths_only": true,
-  "style": {
-    "standalone_dimensions_mm": {
-      "width": 180,
-      "height": 98
-    },
-    "font_family": "Times New Roman",
-    "font_sizes_pt": {
-      "tick_and_category": 8,
-      "legend": 8,
-      "axis_label": 9,
-      "title": 9
-    },
-    "background": "white",
-    "outer_frame": "none",
-    "spines": {
-      "top": false,
-      "right": false,
-      "left": true,
-      "bottom": true
-    },
-    "grid_color": "#D9DEE5",
-    "export": {
-      "vector": [
-        "PDF",
-        "SVG or EMF"
-      ],
-      "raster": "PNG, 600 dpi at final physical dimensions",
-      "transparent_background": false
-    },
-    "palette": {
-      "blue": "#0072B2",
-      "sky": "#3C8DBC",
-      "teal": "#009E73",
-      "amber": "#E69F00",
-      "orange": "#D55E00",
-      "purple": "#7B61A8",
-      "neutral": "#4B5563",
-      "grid": "#D9DEE5",
-      "pale": "#F4F6F8",
-      "ink": "#202124",
-      "white": "#FFFFFF"
-    }
-  },
-  "output_filenames": [
-    "fig6_integrated_graph.opju",
-    "fig6_integrated_graph.pdf",
-    "fig6_integrated_graph.svg",
-    "fig6_integrated_graph.png"
-  ],
-  "assembly_instruction": "Standalone plot only. Do not assemble with another panel in OriginPro.",
+  "output_filenames": [],
   "input": {
     "complete_graph_jsonl": "graph_assets/fig6_integrated_graph/repaired_integrated_graph.jsonl",
     "node_counts": "graph_assets/fig6_integrated_graph/effective_node_counts.csv",
@@ -66,28 +17,14 @@
     "display_edges": "graph_assets/fig6_integrated_graph/schema_layout_edges.csv",
     "evidence_map": "graph_assets/fig6_integrated_graph/repaired_evidence_links.csv"
   },
-  "plot_type": "knowledge-graph schema diagram with exact repaired counts; no statistical axes",
-  "axes": {
-    "x": {
-      "limits": [
-        0,
-        1
-      ],
-      "visible": false
-    },
-    "y": {
-      "limits": [
-        0,
-        1
-      ],
-      "visible": false
-    }
-  },
   "node_class_rule": "Use JSONL node.label; if absent, use node.type. This includes 142 repaired Evidence nodes.",
   "expected_plotted_counts": {
     "displayed_schema_classes": 9,
     "graph_nodes": 91134,
     "graph_relationships": 173911,
     "structured_observations_with_explicit_passage_links": 31116
-  }
+  },
+  "rendering_scope": "The generated rendering was excluded because it is not the author-composed visual used in the supplied manuscript. Scientific input metadata remain available.",
+  "author_graphic_manifest": "../../figures/AUTHOR_GRAPHICS.csv",
+  "retention_decision": "Retain scientific inputs and counts, not the superseded generated rendering or its visual design."
 }

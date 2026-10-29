@@ -7,6 +7,7 @@ import importlib.util
 import os
 import hashlib
 import json
+import sys
 from pathlib import Path
 from types import SimpleNamespace
 
@@ -263,3 +264,79 @@ def test_first_seen_multinomial_bootstrap_matches_literal_row_resampling() -> No
         validator.bootstrap_regression(actual, predictions, groups, {**contract, "seed": 43})
     with pytest.raises(ValueError, match="multiplicities differ"):
         validator.bootstrap_regression(actual, predictions, groups, {**contract, "multiplicity_sha256_int64_c": "0" * 64})
+
+
+def test_current_plot_scope_is_the_19_manuscript_used_source_panels() -> None:
+    rows = [{"plot_id": plot_id} for plot_id in sorted(validator.CURRENT_PLOT_IDS)]
+    assert len(rows) == 19
+    assert validator.figure_identity_errors(rows) == []
+    assert validator.figure_identity_errors(rows[:-1])
+    assert validator.figure_identity_errors(rows + [rows[0]])
+    for unused in validator.AUTHOR_GRAPHIC_IDS:
+        assert validator.figure_identity_errors(rows + [{"plot_id": unused}])
+
+
+def test_graphical_inventory_rejects_unindexed_diagnostic_and_alternative_exports(tmp_path: Path) -> None:
+    selected = tmp_path / "manuscript/figures/main/png_600dpi/fig5a_stability_classification.png"
+    selected.parent.mkdir(parents=True)
+    selected.write_bytes(b"selected asset")
+    diagnostic = tmp_path / "manuscript/analysis/stability/fits/example/importance.png"
+    diagnostic.parent.mkdir(parents=True)
+    diagnostic.write_bytes(b"diagnostic asset")
+    alternative = tmp_path / "manuscript/source/references/current_individual_exports/unused.svg"
+    alternative.parent.mkdir(parents=True)
+    alternative.write_text("<svg/>", encoding="utf-8")
+    assert validator.unexpected_graphics(tmp_path, {selected}) == [
+        diagnostic.relative_to(tmp_path).as_posix(), alternative.relative_to(tmp_path).as_posix(),
+    ]
+
+
+def test_canonical_asset_copy_paths_allow_sibling_figures_but_not_outside_manuscript(tmp_path: Path) -> None:
+    script = SCRIPT.parent / "copy_reference_assets.py"
+    spec = importlib.util.spec_from_file_location("canonical_asset_copy", script)
+    copier = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(copier)
+    source = tmp_path / "manuscript/source"
+    source.mkdir(parents=True)
+    assert copier.resolve_within(source, "../figures/main/svg/current.svg") == tmp_path / "manuscript/figures/main/svg/current.svg"
+    with pytest.raises(ValueError, match="escapes manuscript"):
+        copier.resolve_within(source, "../../outside.svg")
+
+
+def test_retained_asset_copy_keeps_distinct_vector_and_editable_paths(tmp_path: Path) -> None:
+    script = SCRIPT.parent / "copy_reference_assets.py"
+    spec = importlib.util.spec_from_file_location("canonical_asset_copy_formats", script)
+    copier = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(copier)
+    source = tmp_path / "manuscript/source"
+    source.mkdir(parents=True)
+    entries = []
+    for folder in ("svg", "editable"):
+        path = tmp_path / f"manuscript/figures/main/{folder}/used.svg"
+        path.parent.mkdir(parents=True)
+        path.write_text("<svg/>", encoding="utf-8")
+        entries.append(f"../figures/main/{folder}/used.svg")
+    (source / "PLOT_MANIFEST.csv").write_text(
+        "plot_id,required_action,scientific_status,editable_or_vector_reference_paths\n"
+        + "used,RETAIN,READY," + ";".join(entries) + "\n", encoding="utf-8")
+    report = copier.copy_retained_assets(source, tmp_path / "output")
+    assert report["summary"]["asset_count"] == 2
+    assert len({row["destination_relative_to_output"] for row in report["assets"]}) == 2
+    assert all(row["sha256_source"] == row["sha256_destination"] for row in report["assets"])
+
+
+def test_benchmark_canonical_origin_reference_preserves_explicit_axis_contract(tmp_path: Path) -> None:
+    script = SCRIPT.parent / "build_figs6_benchmark_origin.py"
+    spec = importlib.util.spec_from_file_location("benchmark_canonical_reference", script)
+    benchmark = importlib.util.module_from_spec(spec)
+    sys.modules[spec.name] = benchmark
+    spec.loader.exec_module(benchmark)
+    svg = tmp_path / "current.svg"
+    svg.write_text('<svg xmlns="http://www.w3.org/2000/svg" width="3.346457in" height="2.519685in"/>', encoding="utf-8")
+    configured = {"xlim": (8.0, 80.0), "xstep": 20.0}
+    axis = benchmark.parse_reference_axis(svg, configured)
+    assert (axis.width_mm, axis.height_mm) == pytest.approx((85.0, 64.0), abs=0.002)
+    assert axis.xlim == configured["xlim"]
+    assert axis.x_ticks == (20.0, 40.0, 60.0, 80.0)
+    with pytest.raises(RuntimeError, match="frozen plotting configuration"):
+        benchmark.parse_reference_axis(svg)

@@ -31,6 +31,17 @@ TEXT_SUFFIXES = {
     ".ps1", ".cmd", ".bat", ".yml", ".yaml", ".toml", ".ini", ".bib", ".ris",
 }
 TEXT_NAMES = {"VERSION", "SHA256SUMS", ".gitignore", ".gitattributes"}
+CURRENT_PLOT_IDS = frozenset({
+    "fig3a_historical_r2", "fig3b_historical_rmse", "fig3c_historical_mae",
+    "fig3d_literatureagent_r2", "fig3e_literatureagent_rmse", "fig3f_literatureagent_mae",
+    "fig4b_choice_shap", "fig5a_stability_classification", "fig5b_stability_regression",
+    "figs1_global_shap", "figs2_solvent_shap", "figs3_local_shap",
+    "figs4a_normalized_stability", "figs4b_normalization_sensitivity", "figs5_reasoning_graph",
+    "figs6a_benchmark", "figs6b_benchmark", "figs6c_benchmark", "figs6d_benchmark",
+})
+AUTHOR_GRAPHIC_IDS = frozenset({"fig1_workflow", "fig2a_campaign_accounting", "fig2b_campaign_readiness",
+                                 "fig4a_five_paper_graph", "fig6_integrated_graph"})
+GRAPHICAL_SUFFIXES = {".png", ".svg", ".pdf", ".opju", ".pptx", ".jpg", ".jpeg", ".tif", ".tiff", ".gif", ".bmp", ".emf", ".wmf", ".eps"}
 AUTHORING_PATTERN = re.compile(
     r"(?<![a-z])(?:" + "|".join((
         "co" + "dex", "pro" + "fessor", "hand" + "off", "co" + "worker",
@@ -327,6 +338,24 @@ def verify_file_manifest(root: Path, manifest: Path) -> list[str]:
     return errors
 
 
+def figure_identity_errors(rows: list[dict[str, str]]) -> list[str]:
+    identifiers = [row["plot_id"] for row in rows]
+    errors = []
+    if len(identifiers) != len(set(identifiers)):
+        errors.append("figure plot IDs are not unique")
+    if len(rows) != len(CURRENT_PLOT_IDS) or set(identifiers) != CURRENT_PLOT_IDS:
+        errors.append("figure index must contain exactly the 19 manuscript-used source panels")
+    if set(identifiers) & AUTHOR_GRAPHIC_IDS:
+        errors.append("generated alternatives to author-created graphics must not be indexed")
+    return errors
+
+
+def unexpected_graphics(root: Path, allowed_assets: set[Path]) -> list[str]:
+    allowed = {path.resolve() for path in allowed_assets}
+    return [path.relative_to(root).as_posix() for path in release_files(root)
+            if path.suffix.lower() in GRAPHICAL_SUFFIXES and path.resolve() not in allowed]
+
+
 def validate_release(root: Path, *, verify_manifest: bool = True) -> dict[str, Any]:
     root = root.resolve()
     report: dict[str, Any] = {"status": "PASS", "checks": [], "errors": [], "visual_review_performed": False}
@@ -347,14 +376,15 @@ def validate_release(root: Path, *, verify_manifest: bool = True) -> dict[str, A
         directory = root / "manuscript/figures"
         combined_index = directory / "ALL_FIGURES.csv"
         rows = csv_rows(combined_index if combined_index.is_file() else directory / "FIGURE_INDEX.csv")
-        require(len(rows) == 24, f"figure index has {len(rows)} rows; expected 24")
-        require(len({row["plot_id"] for row in rows}) == 24, "figure plot IDs are not unique")
+        require(not figure_identity_errors(rows), "; ".join(figure_identity_errors(rows)))
         count = 0
+        allowed_assets: set[Path] = set()
         for row in rows:
             for kind in ("png", "svg", "pdf", "editable"):
                 require(bool(row.get(kind)), f"figure {row['plot_id']} lacks {kind} path")
                 asset = resolve_asset(root, row[kind])
                 require(asset.is_file() and asset.stat().st_size > 0, f"figure asset missing: {row[kind]}")
+                allowed_assets.add(asset.resolve())
                 if kind == "png":
                     with asset.open("rb") as handle:
                         require(handle.read(8) == b"\x89PNG\r\n\x1a\n", f"invalid PNG header: {row[kind]}")
@@ -364,7 +394,28 @@ def validate_release(root: Path, *, verify_manifest: bool = True) -> dict[str, A
                 elif kind == "svg" or asset.suffix.lower() == ".svg":
                     require(ElementTree.parse(asset).getroot().tag.endswith("svg"), f"invalid SVG root: {row[kind]}")
                 count += 1
-        return {"panels": len(rows), "asset_references": count}
+        manual = csv_rows(directory / "AUTHOR_GRAPHICS.csv")
+        require(len(manual) == 4, "author-graphics scope must identify Figures 1, 2, 4a and 6")
+        require(all(row["status"] == "author_composed_not_bundled" for row in manual),
+                "author-created graphics must not imply that an unverified editable master is bundled")
+        manual_ids = {value.strip() for row in manual for value in row["excluded_plot_ids"].split(";") if value.strip()}
+        require(manual_ids == AUTHOR_GRAPHIC_IDS, "author-graphics scope does not match the excluded generated alternatives")
+        for row in csv_rows(directory / "legends/LEGEND_INDEX.csv"):
+            require(row["legend_id"] != "legend_fig4a_knowledge_graph", "unused generated author-graphic legend remains indexed")
+            for kind in ("png", "svg", "editable"):
+                if not row.get(kind):
+                    continue
+                relative = row[kind].replace("\\", "/")
+                candidate = (directory / "legends" / relative).resolve()
+                require(candidate.is_relative_to(root), "legend asset path leaves the release directory")
+                if not candidate.is_file():
+                    candidate = resolve_asset(root, relative)
+                require(candidate.is_file(), f"legend asset missing: {relative}")
+                allowed_assets.add(candidate.resolve())
+        extra = unexpected_graphics(root, allowed_assets)
+        require(not extra, "unlisted or non-manuscript graphical assets: " + "; ".join(extra))
+        return {"panels": len(rows), "asset_references": count, "author_created_graphics": len(manual),
+                "graphical_files": len(allowed_assets), "unlisted_graphical_files": len(extra)}
 
     def stability() -> dict[str, int]:
         analysis = root / "manuscript/analysis/stability"

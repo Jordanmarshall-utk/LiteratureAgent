@@ -65,5 +65,6 @@
   "retained_layout_procedure": "scripts/build_manuscript_panel_package.py::build_claim_dag",
   "expected_plotted_counts": {
     "claims": 3
-  }
+  },
+  "manuscript_layout_scope": "The same scientific diagram is retained as a source panel; the manuscript uses a more compact author-composed assembly, not this exact export."
 }

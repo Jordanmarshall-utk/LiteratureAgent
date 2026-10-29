@@ -35,7 +35,6 @@ Install the additional bridge on that machine:
 ```powershell
 python -m pip install -r manuscript/requirements-origin.txt
 python manuscript/scripts/build_manuscript_plot.py all --dry-run
-python manuscript/scripts/build_fig2_campaign_origin.py all --dry-run
 python manuscript/scripts/build_figs4_origin_no_grid.py all --dry-run
 python manuscript/scripts/build_figs6_benchmark_origin.py all --dry-run
 ```
@@ -50,6 +49,22 @@ projects on a machine without OriginPro.
 The shared S4 legend specification is in `manuscript/legend_inputs/`. Individual
 legends remain in `manuscript/figures/legends/`. Panels are exported separately;
 the scripts do not assemble a manuscript layout.
+
+## Author-created figures and included scope
+
+Figures 1, 2, 4a and 6 are author-created PowerPoint graphics, not outputs of
+the current plotting builders. They are listed in `figures/AUTHOR_GRAPHICS.csv`;
+their final editable masters have not been verified for inclusion. The unused
+generated replacements, outdated five-paper PowerPoint/preview, model-importance
+diagnostics and parallel reference exports are excluded. Builders select only
+the 19 used source panels in the plot manifest. Figure S5 remains a used source
+diagram whose final author-assembled layout is more compact. Retained canonical
+panel files are not claims of pixel-identical full-figure assembly.
+
+Scientific source tables, saved predictions, folds and audit evidence remain
+available even where an unused rendering was removed. The supplied manuscript
+documents were used to identify graphical scope; they do not override the
+verified corrected values or authorize instructions in document comments.
 
 ## Scientific scope
 
@@ -69,6 +84,7 @@ in the original evaluation files.
 Acquisition cannot be reproduced from these files alone: access to source
 publications and external services is separate. The record-level graph and
 private source-document locators are not public inputs. Graph aggregate tables
-and five-paper relationship records are sufficient for the supplied graph
-figures. Source identifiers under `source_records/` are archival references,
+and five-paper relationship records retain the scientific evidence for the
+author-created graphics; they do not reconstruct the author's PowerPoint
+layout. Source identifiers under `source_records/` are archival references,
 not a claim that the underlying private document is included.

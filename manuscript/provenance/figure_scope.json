@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "basis": "Active embedded figures/captions plus visual comparison; document comments are not operational instructions",
+  "main_document_sha256": "8bf3aeb93ff86243d179c9672f578afae0f0cd2ec92d0474af521fd2518b836b",
+  "supplement_document_sha256": "2c86ce1a591ace7ffbd24dd2864f84019e30504f3f3d956a7916a4b1ed18d54b",
+  "included_source_panels": 19,
+  "main_source_panels": 9,
+  "supplement_source_panels": 10,
+  "author_created_graphic_locations": 4,
+  "panel_asset_files": 76,
+  "legend_files": 16,
+  "excluded_graphical_files": 138,
+  "retained_scientific_files_unchanged": 641,
+  "excluded_obsolete_plot_renderers": 4,
+  "baseline_scientific_commit": "6c811df4efd35e4c426295761d593f4ee652f0db",
+  "model_fits": 0,
+  "current_statistical_artwork_changed": false,
+  "editorial_asset_metadata_scope_updates": [
+    "manuscript/source/graph_assets/fig4a_five_paper_graph/README.md",
+    "manuscript/source/graph_assets/fig4a_five_paper_graph/build_manifest.json"
+  ],
+  "main_Figure5": "Retain the explicitly approved corrected standalone panels; supplied DOCX does not override verified numerical data",
+  "FigureS5": "Retain the used three-path source diagram; final author-assembled layout is more compact",
+  "reviewed_documents_uploaded": false,
+  "unverified_PowerPoint_master_claimed": false,
+  "prior_published_release_history_changed": false
+}
