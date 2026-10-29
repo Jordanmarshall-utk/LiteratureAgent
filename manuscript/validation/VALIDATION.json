@@ -15,7 +15,47 @@
       "details": {
         "full_estimates": 66,
         "main_plot_rows": 24,
-        "requested_alternatives": 24
+        "requested_alternatives": 24,
+        "table_s10_rows": 33,
+        "recomputed_fold_metric_values": 1170,
+        "canonical_publications_crossing_folds": 0
+      }
+    },
+    {
+      "check": "canonical_pce_holdout_and_bootstrap",
+      "status": "PASS",
+      "details": {
+        "frozen_row_random_records": 4159,
+        "corrected_expanded_training_records": 17267,
+        "identified_publications": 2242,
+        "pooled_unresolved_records": 48,
+        "row_random_clusters": 2243,
+        "main_historical_records": 4092,
+        "main_historical_groups": 741,
+        "retained_main_intervals": 9,
+        "bootstrap_iterations": 2000
+      }
+    },
+    {
+      "check": "frozen_predictor_inventory_and_lineage",
+      "status": "PASS",
+      "details": {
+        "inventory_fields": 461,
+        "included": 278,
+        "excluded": 183,
+        "numeric": 113,
+        "categorical": 165,
+        "descriptor_source_fields": 21,
+        "indirect_excluded_fields": 6
+      }
+    },
+    {
+      "check": "figure5_rendered_scientific_values",
+      "status": "PASS",
+      "details": {
+        "individual_panels": 2,
+        "rendered_estimates_reconciled": 24,
+        "vector_svg_raster_images": 0
       }
     },
     {
@@ -50,14 +90,17 @@
       "status": "PASS",
       "details": {
         "nodes": 91134,
-        "relationships": 173911
+        "relationships": 173911,
+        "historical_field_mappings": 37663,
+        "current_field_links": 37805,
+        "repair_field_links": 142
       }
     },
     {
       "check": "file_size_and_source_text",
       "status": "PASS",
       "details": {
-        "files_checked": 778,
+        "files_checked": 1051,
         "longest_relative_path_length": 132
       }
     }
@@ -70,5 +113,9 @@
     "limit": 180
   },
   "file_issues": [],
-  "validated_at_utc": "2026-10-29T19:31:00.660505+00:00"
+  "validated_at_utc": "2026-10-29T21:32:11.348003+00:00",
+  "visually_reviewed_current_panels": [
+    "fig5a_stability_classification",
+    "fig5b_stability_regression"
+  ]
 }

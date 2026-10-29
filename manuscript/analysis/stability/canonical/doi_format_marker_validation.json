@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "normalization_rule": "Remove only leading U+FEFF from the already-recorded DOI; then strip DOI URL/doi: prefixes, casefold valid DOI strings, and remove terminal space/period/semicolon/comma. Opaque non-DOI identities remain verbatim.",
+  "bom_source_records": 12,
+  "datasets": [
+    "baseline",
+    "integrated"
+  ],
+  "source_rows_with_unprefixed_duplicate": 0,
+  "raw_source_rows_with_unprefixed_duplicate": 0,
+  "oof_populations_with_bom": 48,
+  "new_missing_identity_assignments": 0,
+  "main_pce_model_fits": 0,
+  "stability_model_fits": 0
+}

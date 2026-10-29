@@ -1,0 +1,10 @@
+condition,metric,difference,status
+original,r2,0.0,PASS
+original,rmse,0.0,PASS
+original,mae,0.0,PASS
+curated,r2,0.0,PASS
+curated,rmse,0.0,PASS
+curated,mae,0.0,PASS
+expanded,r2,1.1102230246251565e-16,PASS
+expanded,rmse,0.0,PASS
+expanded,mae,0.0,PASS

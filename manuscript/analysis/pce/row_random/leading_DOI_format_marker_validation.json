@@ -1,0 +1,66 @@
+{
+  "status": "PASS",
+  "correction": "strip only leading U+FEFF in canonical publication/key prefix",
+  "source_doi": "10.1016/j.nanoen.2019.03.091",
+  "new_source_identity_assignment": false,
+  "model_refit_required": false,
+  "raw_keys_labels_sample_suffixes_targets_predictions_preserved": true,
+  "group_partitions_memberships_and_first_seen_codes_unchanged": true,
+  "files": [
+    {
+      "path": "historical_741_group_order.csv",
+      "sha256_before": "de94945ef57e48ef6408823758d55e45c1fab3903fce645db064752ec136e095",
+      "sha256_after": "7a1403c4dcfae2da6fca400bbe41c1cbe5f5eb4c408b61a2b023ed145acd0455",
+      "rows": 741,
+      "changed_label_cells": 1,
+      "groups_before": 741,
+      "groups_after": 741,
+      "first_seen_group_codes_unchanged": true,
+      "all_noncanonical_fields_including_actual_predictions_and_raw_keys_unchanged": true
+    },
+    {
+      "path": "historical_predictions_curated.csv",
+      "sha256_before": "ce4c393b72bd268f54ba5ed6bea0bec180598e036926b5d174ce424710203c93",
+      "sha256_after": "a6ad0ce5d96f4beb1cb8bfc9d0ff87996aec315a31cbebafb5431394db378d1c",
+      "rows": 4092,
+      "changed_label_cells": 8,
+      "groups_before": 741,
+      "groups_after": 741,
+      "first_seen_group_codes_unchanged": true,
+      "all_noncanonical_fields_including_actual_predictions_and_raw_keys_unchanged": true
+    },
+    {
+      "path": "historical_predictions_expanded.csv",
+      "sha256_before": "7eca99b949095056c1c7bfe38d89ffbdc8fdfd272677ac107731fe125f22f67b",
+      "sha256_after": "0d5ff9083ac789f4e992a69ef76abcbbf50eab562ddf46ab47caadb8dc4b92af",
+      "rows": 4092,
+      "changed_label_cells": 8,
+      "groups_before": 741,
+      "groups_after": 741,
+      "first_seen_group_codes_unchanged": true,
+      "all_noncanonical_fields_including_actual_predictions_and_raw_keys_unchanged": true
+    },
+    {
+      "path": "historical_predictions_original.csv",
+      "sha256_before": "a7634271775cae8c4ad0bb5d29bef8096efc6597111d31e02d66e7fbdf00e9f9",
+      "sha256_after": "33fd34c9814a48ca92d451059e4df70f549bc7f2e5cf408fc72c505bddc56b23",
+      "rows": 4092,
+      "changed_label_cells": 8,
+      "groups_before": 741,
+      "groups_after": 741,
+      "first_seen_group_codes_unchanged": true,
+      "all_noncanonical_fields_including_actual_predictions_and_raw_keys_unchanged": true
+    },
+    {
+      "path": "training_membership.csv",
+      "sha256_before": "503dda8797f37e4d2094926fe24097c7420f566c007f828ebe4c1dcfe67db0c0",
+      "sha256_after": "8841d218e6732ae96abfe50cf787e561baf8639065b5451ac190a52fd4cd4b2d",
+      "rows": 63119,
+      "changed_label_cells": 24,
+      "groups_before": 4080,
+      "groups_after": 4080,
+      "first_seen_group_codes_unchanged": true,
+      "all_noncanonical_fields_including_actual_predictions_and_raw_keys_unchanged": true
+    }
+  ]
+}

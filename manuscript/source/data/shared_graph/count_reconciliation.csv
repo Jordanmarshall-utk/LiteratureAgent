@@ -1,0 +1,5 @@
+snapshot,nodes,relationships,legacy_snapshot_field_evidence_count,observation_to_evidence_supported_by,scientific_claim_supported_by,all_supported_by,device_has_field_evidence,paper_has_field_evidence,all_has_field_evidence,active_unique_field_evidence_links,active_unique_field_evidence_targets,unique_observations_with_field_evidence
+frozen,91023,173831,37663,30974,2694,33668,6308,381,6689,37663,37663,30974
+repaired,91134,173911,37663,31116,2694,33810,6308,381,6689,37805,37805,31116
+enriched,91134,173911,37663,31116,2694,33810,6308,381,6689,37805,37805,31116
+staged_metadata_reconciled,91134,173911,37663,31116,2694,33810,6308,381,6689,37805,37805,31116

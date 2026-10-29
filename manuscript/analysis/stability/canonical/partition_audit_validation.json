@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "estimates_audited": 66,
+  "raw_alias_populations": 7,
+  "verified_historical_fold_reconstructions": 66,
+  "canonical_publications_crossing_verified_test_folds": 0,
+  "new_model_refits_required": 0,
+  "fold_metric_tolerance": 1e-12,
+  "model_script_sha256": "19f58acdfb6143a75df5d034be08f1de070d43713b716cba6c77d4b422898115",
+  "software": {
+    "python": "3.11.9",
+    "numpy": "2.3.5",
+    "pandas": "3.0.2",
+    "scikit_learn": "1.8.0"
+  }
+}

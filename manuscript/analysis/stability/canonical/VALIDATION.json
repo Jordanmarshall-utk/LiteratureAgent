@@ -1,0 +1,83 @@
+{
+  "status": "PASS",
+  "estimates_audited": 66,
+  "raw_alias_populations": 7,
+  "verified_historical_fold_reconstructions": 66,
+  "canonical_publications_crossing_verified_test_folds": 0,
+  "new_model_refits_required": 0,
+  "fold_metric_tolerance": 1e-12,
+  "model_script_sha256": "19f58acdfb6143a75df5d034be08f1de070d43713b716cba6c77d4b422898115",
+  "software": {
+    "python": "3.11.9",
+    "numpy": "2.3.5",
+    "pandas": "3.0.2",
+    "scikit_learn": "1.8.0"
+  },
+  "all_final_estimates": 66,
+  "table_s10_comparison_rows": 33,
+  "main_plot_estimates": 24,
+  "point_estimates_changed": 0,
+  "intervals_changed": 64,
+  "group_counts_changed": 7,
+  "main_figure_rows_changed": 24,
+  "all_raw_bootstrap_intervals_reproduced": "PASS",
+  "all_exported_point_metrics_recompute": "PASS",
+  "all_canonical_publications_within_verified_test_folds": "PASS",
+  "protected_inputs_unchanged": "PASS",
+  "primary_modes_exclude_predicted_pce": "PASS",
+  "new_stability_model_fits": 0,
+  "main_pce_model_fits": 0,
+  "numeric_validation_tolerance": 1e-12,
+  "new_or_merged_missing_identity_groups": 0,
+  "source_identity_policy": "DOI syntax normalized; opaque source identities retained verbatim; missing/sentinel labels fail rather than being pooled",
+  "bootstrap_contract": "sorted canonical groups, 2000 rng.integers group draws; seed parts retain completion prefix only for the 44 completion refits",
+  "weighted_bootstrap_evaluation": "multiplicity-weighted R2 and tie-aware ROC AUC; prior raw-label helper intervals reproduced within 1e-12",
+  "fold_membership_basis": "reconstruction using the exact imported frozen make_cv, original ordered input groups and targets, verified against every stored fold metric for all66; no inferred fold claim from an unmatched reconstruction",
+  "canonical_doi_normalization": "Remove only leading U+FEFF from the already-recorded DOI; then strip DOI URL/doi: prefixes, casefold valid DOI strings, and remove terminal space/period/semicolon/comma. Opaque non-DOI identities remain verbatim.",
+  "bom_formatting_recovery": {
+    "status": "PASS",
+    "normalization_rule": "Remove only leading U+FEFF from the already-recorded DOI; then strip DOI URL/doi: prefixes, casefold valid DOI strings, and remove terminal space/period/semicolon/comma. Opaque non-DOI identities remain verbatim.",
+    "bom_source_records": 12,
+    "datasets": [
+      "baseline",
+      "integrated"
+    ],
+    "source_rows_with_unprefixed_duplicate": 0,
+    "raw_source_rows_with_unprefixed_duplicate": 0,
+    "oof_populations_with_bom": 48,
+    "new_missing_identity_assignments": 0,
+    "main_pce_model_fits": 0,
+    "stability_model_fits": 0
+  },
+  "all_display_labels_present": "PASS",
+  "recorded_reconstruction_environment_match": [
+    {
+      "source": "source_records/artifacts/literature_agent_pce_stability/source_data/model_results/stability_harmonized_submission_v2_predicted_pce_fix_2026-09-07/validation_manifest.json",
+      "sha256": "f6de430412eab77cd5464a43e395311fb1f2a7c38a4c89c1e6a3649f0a295f9e",
+      "software": {
+        "python": "3.11.9",
+        "numpy": "2.3.5",
+        "pandas": "3.0.2",
+        "scikit_learn": "1.8.0"
+      },
+      "status": "PASS"
+    },
+    {
+      "source": "source_records/deliverables/LiteratureAgent/manuscript_support_supplement/2026-10-28_controlled_repaired_completion/analysis/stability/validation_manifest.json",
+      "sha256": "2a13d5c5683daf97a6ab686a5e06fc0c26fc356012693dd5c9b4c12456dbb19a",
+      "software": {
+        "python": "3.11.9",
+        "numpy": "2.3.5",
+        "pandas": "3.0.2",
+        "scikit_learn": "1.8.0"
+      },
+      "status": "PASS"
+    }
+  ],
+  "chance_or_zero_reference_interval_classifications_changed": 0,
+  "independent_direct_row_duplication_bootstrap_checks": {
+    "status": "PASS",
+    "estimates": 5,
+    "maximum_absolute_difference": 5.870304242705515e-15
+  }
+}

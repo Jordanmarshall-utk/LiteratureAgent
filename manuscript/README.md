@@ -1,7 +1,8 @@
 # Manuscript figures and supporting data
 
 These materials combine the repaired analysis of 27 October 2026, the completed
-stability and PCE comparisons of 28 October, and the manuscript figure sources.
+stability and PCE comparisons of 28 October, the canonical identity and grouping
+checks of 29 October, and the manuscript figure sources.
 The 24 individual panels comprise 14 main and 10 supplementary panels.
 
 - `figures/`: PNG, SVG, PDF, and editable assets for each panel, plus legends.
@@ -20,9 +21,12 @@ The 24 individual panels comprise 14 main and 10 supplementary panels.
 figures from refitting models. [Analysis details](docs/ANALYSIS.md) describe the
 populations, uncertainty estimates, evidence scope, and current figure numbers.
 
-Figure 5a and 5b use the completed stability estimates. Eight of the 24 main
-figure estimates change relative to the earlier figure source, all in the
-Integrated series. Their editable assets are vector SVGs. The other Origin
+Figure 5a and 5b use the final canonical-publication bootstrap intervals. All
+24 plotted intervals are updated; the 28 October point estimates and verified
+historical folds are retained. Only seven Original publication counts merge
+case aliases, from 1,822 raw labels to 1,821 canonical identities. Their editable
+assets are vector SVGs. The two panels are supplied separately for manual
+manuscript assembly; no manuscript layout is assembled here. The other Origin
 panels retain the supplied OPJU projects. Dense SHAP SVG/PDF exports embed the
 complete raster rendering; the OPJU files retain editable plot data.
 The five-paper graph source PowerPoint is retained under
@@ -31,3 +35,10 @@ The five-paper graph source PowerPoint is retained under
 The validation report measures file integrity and scientific consistency. It
 does not certify journal acceptance, author approval, licensing, or a new
 independent validation study.
+
+The row-random PCE diagnostic excludes the same canonical test sample from
+all three training conditions and uses 17,267 expanded training records.
+The primary Figure 3 results remain unchanged. Data S2 distinguishes the
+278 retained predictors from excluded fields and records indirect descriptor
+lineage; direct exclusion is not a claim that a field cannot contribute through
+an engineered descriptor.

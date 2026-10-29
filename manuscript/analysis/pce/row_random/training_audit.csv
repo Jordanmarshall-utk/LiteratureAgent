@@ -1,0 +1,4 @@
+condition,eligible_rows,training_rows,matched_frozen_test_samples,canonical_test_rows_in_training,canonical_key_collisions,identified_test_publications_in_training,pooled_NO_GROUP_present_in_both,raw_publication_labels_in_test,canonical_bootstrap_groups_in_test,identified_publications_in_test,unresolved_identity_records_in_test,raw_key_exclusion_training_rows
+original,20793,16634,4159,0,0,2161,True,2248,2243,2242,48,16634
+curated,20900,16741,4159,0,0,2161,True,2248,2243,2242,48,16741
+expanded,21426,17267,4159,0,0,2161,True,2248,2243,2242,48,17269

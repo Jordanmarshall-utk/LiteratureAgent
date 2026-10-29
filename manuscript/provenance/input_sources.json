@@ -10,5 +10,23 @@
     "fig5a_stability_classification",
     "fig5b_stability_regression"
   ],
-  "license": "not designated by authors"
+  "license": "pending author designation; publication approved without a license grant",
+  "final_verified_analysis_version": "2026-10-29_identity_and_grouping",
+  "source_verification_model_fits": {
+    "affected_expanded_row_random_pce": 1,
+    "stability": 0,
+    "main_pce": 0
+  },
+  "row_random_training_records": 17267,
+  "row_random_test_records": 4159,
+  "stability_canonical_intervals_changed": 64,
+  "stability_points_changed": 0,
+  "stability_main_intervals_changed": 24,
+  "stability_group_counts_changed": 7,
+  "original_graph_input_mappings": 37663,
+  "current_graph_field_links": 37805,
+  "predictor_inventory_fields": 461,
+  "predictor_included": 278,
+  "predictor_directly_excluded": 183,
+  "citation": "repository URL and version; approved manuscript metadata pending"
 }

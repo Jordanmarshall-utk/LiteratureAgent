@@ -1,0 +1,21 @@
+{
+  "kind": "node_property_patch",
+  "node_id": "dataset_snapshot:e80cfc22b3855e2a7159",
+  "required_source_sha256": "d3554dfca1b809a5055cb735aad094d3b4db750b8fd11781ceee240e7a798b84",
+  "required_before_properties_sha256": "bb14485521758a2a13dc05e6556adf92770b3182562c48289c1aa1cef9d1ea5d",
+  "set_properties": {
+    "field_evidence_count": 37663,
+    "field_evidence_count_definition": "Historical builder-input subtotal: unique relevant field-evidence mappings deduplicated across the ten frozen long-form exports by (sample_id, normalized DOI, field, cleaned evidence text).",
+    "field_evidence_count_scope": "Original final-integrated graph build; excludes subsequently appended repair evidence.",
+    "source_input_field_evidence_mapping_count": 37663,
+    "current_field_evidence_link_count": 37805,
+    "current_field_evidence_link_count_definition": "Unique current StructuredObservation-to-Evidence SUPPORTED_BY edges plus Device/Paper-to-Evidence HAS_FIELD_EVIDENCE edges; excludes ScientificClaim-to-Evidence links.",
+    "current_observation_field_evidence_link_count": 31116,
+    "current_fallback_field_evidence_link_count": 6689,
+    "current_repair_field_evidence_link_count": 142,
+    "current_claim_evidence_link_count": 2694,
+    "field_evidence_metadata_reconciliation_id": "2026-10-29_identity_and_grouping"
+  },
+  "field_evidence_count_numeric_value_changed": false,
+  "topology_changes": []
+}

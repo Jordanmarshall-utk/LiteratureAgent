@@ -1,11 +1,12 @@
 {
   "status": "PASS",
-  "analysis": "2026-10-28_controlled_repaired_completion",
+  "analysis": "2026-10-29_identity_and_grouping",
   "panels": [
     {
       "panel": "fig5a_stability_classification",
       "source": "source/data/fig5a_stability_classification/plot_data.csv",
-      "source_sha256": "92d47bd0c073854fbbe364fcc9b5b15aff7b0f07c7c4557919a71d100cc75bdd",
+      "source_sha256": "ff712fd5448c0c9e7ba42dffaf8caf32d8b46efa1240906b01ccde9ec59a1871",
+      "analysis": "2026-10-29_identity_and_grouping",
       "estimates": 12,
       "endpoints": 6,
       "confidence_intervals": 12,
@@ -23,12 +24,135 @@
         "png_600dpi/fig5a_stability_classification.png",
         "editable/fig5a_stability_classification.svg"
       ],
-      "text_within_page": true
+      "text_within_page": true,
+      "plot_records": [
+        {
+          "target": "target_end_retention_ge80",
+          "dataset": "baseline",
+          "feature_mode": "design_plus_measured_initial_performance",
+          "estimate": 0.6372977270525941,
+          "ci_lower": 0.6195914734297367,
+          "ci_upper": 0.6550738221271145,
+          "record_count": 4986,
+          "canonical_group_count": 1821
+        },
+        {
+          "target": "target_end_retention_ge80",
+          "dataset": "integrated",
+          "feature_mode": "design_plus_measured_initial_performance",
+          "estimate": 0.6396297740259576,
+          "ci_lower": 0.6227757441690008,
+          "ci_upper": 0.6571649631392503,
+          "record_count": 5088,
+          "canonical_group_count": 1900
+        },
+        {
+          "target": "target_end_retention_ge80_after_100h",
+          "dataset": "baseline",
+          "feature_mode": "design_plus_measured_initial_performance",
+          "estimate": 0.6333393243460792,
+          "ci_lower": 0.6146549955812436,
+          "ci_upper": 0.6524807972250293,
+          "record_count": 4277,
+          "canonical_group_count": 1634
+        },
+        {
+          "target": "target_end_retention_ge80_after_100h",
+          "dataset": "integrated",
+          "feature_mode": "design_plus_measured_initial_performance",
+          "estimate": 0.6407668862032951,
+          "ci_lower": 0.6215772154105265,
+          "ci_upper": 0.6593729276444674,
+          "record_count": 4356,
+          "canonical_group_count": 1698
+        },
+        {
+          "target": "target_end_retention_ge80_after_500h",
+          "dataset": "baseline",
+          "feature_mode": "design_plus_measured_initial_performance",
+          "estimate": 0.6480669729779016,
+          "ci_lower": 0.6241724689434184,
+          "ci_upper": 0.6734175581098614,
+          "record_count": 2689,
+          "canonical_group_count": 1147
+        },
+        {
+          "target": "target_end_retention_ge80_after_500h",
+          "dataset": "integrated",
+          "feature_mode": "design_plus_measured_initial_performance",
+          "estimate": 0.6509155766944115,
+          "ci_lower": 0.6265397153681558,
+          "ci_upper": 0.6760965940310729,
+          "record_count": 2757,
+          "canonical_group_count": 1203
+        },
+        {
+          "target": "target_T80_ge100h",
+          "dataset": "baseline",
+          "feature_mode": "design_plus_measured_initial_performance",
+          "estimate": 0.6003809330605943,
+          "ci_lower": 0.5570646003979451,
+          "ci_upper": 0.6420771337296114,
+          "record_count": 1241,
+          "canonical_group_count": 655
+        },
+        {
+          "target": "target_T80_ge100h",
+          "dataset": "integrated",
+          "feature_mode": "design_plus_measured_initial_performance",
+          "estimate": 0.6162678605555743,
+          "ci_lower": 0.5722846034867107,
+          "ci_upper": 0.6597942672740683,
+          "record_count": 1243,
+          "canonical_group_count": 657
+        },
+        {
+          "target": "target_T80_ge500h",
+          "dataset": "baseline",
+          "feature_mode": "design_plus_measured_initial_performance",
+          "estimate": 0.6108957012264901,
+          "ci_lower": 0.5668380714320099,
+          "ci_upper": 0.6537032957850425,
+          "record_count": 1241,
+          "canonical_group_count": 655
+        },
+        {
+          "target": "target_T80_ge500h",
+          "dataset": "integrated",
+          "feature_mode": "design_plus_measured_initial_performance",
+          "estimate": 0.6012169584735501,
+          "ci_lower": 0.5547628907369883,
+          "ci_upper": 0.6464705665174849,
+          "record_count": 1243,
+          "canonical_group_count": 657
+        },
+        {
+          "target": "target_after_1000h_ge80",
+          "dataset": "baseline",
+          "feature_mode": "design_plus_measured_initial_performance",
+          "estimate": 0.611906278918066,
+          "ci_lower": 0.5609390541552943,
+          "ci_upper": 0.6604531760791547,
+          "record_count": 769,
+          "canonical_group_count": 327
+        },
+        {
+          "target": "target_after_1000h_ge80",
+          "dataset": "integrated",
+          "feature_mode": "design_plus_measured_initial_performance",
+          "estimate": 0.6297326633743792,
+          "ci_lower": 0.5752711294156008,
+          "ci_upper": 0.6859935042069757,
+          "record_count": 794,
+          "canonical_group_count": 346
+        }
+      ]
     },
     {
       "panel": "fig5b_stability_regression",
       "source": "source/data/fig5b_stability_regression/plot_data.csv",
-      "source_sha256": "bb0f78b1d70b0e0effbe10a188429cfe3d063368160cbb64e14c9aa31f675afd",
+      "source_sha256": "a8a141ae2a7d6f06b80b42e99f1fdd08ae6dca5c666e36fdb1797eacfd3205ae",
+      "analysis": "2026-10-29_identity_and_grouping",
       "estimates": 12,
       "endpoints": 6,
       "confidence_intervals": 12,
@@ -46,7 +170,129 @@
         "png_600dpi/fig5b_stability_regression.png",
         "editable/fig5b_stability_regression.svg"
       ],
-      "text_within_page": true
+      "text_within_page": true,
+      "plot_records": [
+        {
+          "target": "target_end_retention_pct",
+          "dataset": "baseline",
+          "feature_mode": "physical_condition_features",
+          "estimate": 0.049784658482386446,
+          "ci_lower": 0.02951754818707481,
+          "ci_upper": 0.06957215012132927,
+          "record_count": 4986,
+          "canonical_group_count": 1821
+        },
+        {
+          "target": "target_end_retention_pct",
+          "dataset": "integrated",
+          "feature_mode": "physical_condition_features",
+          "estimate": 0.04916819087719693,
+          "ci_lower": 0.027832036384086472,
+          "ci_upper": 0.06787783040149574,
+          "record_count": 5100,
+          "canonical_group_count": 1909
+        },
+        {
+          "target": "target_after_1000h_retention_pct",
+          "dataset": "baseline",
+          "feature_mode": "physical_condition_features",
+          "estimate": 0.024795996388517594,
+          "ci_lower": -0.042741261076091774,
+          "ci_upper": 0.08007865129660731,
+          "record_count": 769,
+          "canonical_group_count": 327
+        },
+        {
+          "target": "target_after_1000h_retention_pct",
+          "dataset": "integrated",
+          "feature_mode": "physical_condition_features",
+          "estimate": 0.03987769409032649,
+          "ci_lower": -0.009322521734089267,
+          "ci_upper": 0.07951595743665114,
+          "record_count": 796,
+          "canonical_group_count": 348
+        },
+        {
+          "target": "target_log1p_T80_hours",
+          "dataset": "baseline",
+          "feature_mode": "physical_condition_features",
+          "estimate": 0.09597669351853844,
+          "ci_lower": 0.04916690567488684,
+          "ci_upper": 0.14145551501999748,
+          "record_count": 1241,
+          "canonical_group_count": 655
+        },
+        {
+          "target": "target_log1p_T80_hours",
+          "dataset": "integrated",
+          "feature_mode": "physical_condition_features",
+          "estimate": 0.11125990782079032,
+          "ci_lower": 0.06390491772127926,
+          "ci_upper": 0.15825291302788957,
+          "record_count": 1245,
+          "canonical_group_count": 659
+        },
+        {
+          "target": "target_phys_log_k_obs",
+          "dataset": "baseline",
+          "feature_mode": "physical_condition_features",
+          "estimate": 0.13842252185085724,
+          "ci_lower": 0.11338939920337063,
+          "ci_upper": 0.16328776205090387,
+          "record_count": 4534,
+          "canonical_group_count": 1748
+        },
+        {
+          "target": "target_phys_log_k_obs",
+          "dataset": "integrated",
+          "feature_mode": "physical_condition_features",
+          "estimate": 0.1321457097606189,
+          "ci_lower": 0.10685891760452494,
+          "ci_upper": 0.15381038919918583,
+          "record_count": 4634,
+          "canonical_group_count": 1829
+        },
+        {
+          "target": "target_phys_log_k_ref",
+          "dataset": "baseline",
+          "feature_mode": "condition_normalized_hybrid",
+          "estimate": 0.034510168753282056,
+          "ci_lower": -0.06040462184822119,
+          "ci_upper": 0.10987567950967199,
+          "record_count": 675,
+          "canonical_group_count": 298
+        },
+        {
+          "target": "target_phys_log_k_ref",
+          "dataset": "integrated",
+          "feature_mode": "condition_normalized_hybrid",
+          "estimate": 0.027318068999693024,
+          "ci_lower": -0.057832290148507784,
+          "ci_upper": 0.09327349695567397,
+          "record_count": 675,
+          "canonical_group_count": 298
+        },
+        {
+          "target": "target_phys_log1p_T80_ref_hours",
+          "dataset": "baseline",
+          "feature_mode": "condition_normalized_hybrid",
+          "estimate": 0.050559603205073134,
+          "ci_lower": -0.05052508194679621,
+          "ci_upper": 0.13282025219414792,
+          "record_count": 675,
+          "canonical_group_count": 298
+        },
+        {
+          "target": "target_phys_log1p_T80_ref_hours",
+          "dataset": "integrated",
+          "feature_mode": "condition_normalized_hybrid",
+          "estimate": 0.05231336482689375,
+          "ci_lower": -0.02988649206801711,
+          "ci_upper": 0.12319202897634488,
+          "record_count": 675,
+          "canonical_group_count": 298
+        }
+      ]
     }
   ]
 }

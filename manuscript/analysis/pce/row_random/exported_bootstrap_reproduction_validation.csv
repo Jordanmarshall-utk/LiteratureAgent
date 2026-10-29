@@ -1,0 +1,37 @@
+check,condition,status,maximum_absolute_error
+frozen exported identities/order/targets,original,PASS,0.0
+frozen exported identities/order/targets,curated,PASS,0.0
+frozen exported identities/order/targets,expanded,PASS,0.0
+row-random marginal metrics/CIs,original/r2,PASS,0.0
+row-random marginal metrics/CIs,original/rmse,PASS,0.0
+row-random marginal metrics/CIs,original/mae,PASS,2.220446049250313e-16
+row-random marginal metrics/CIs,curated/r2,PASS,0.0
+row-random marginal metrics/CIs,curated/rmse,PASS,0.0
+row-random marginal metrics/CIs,curated/mae,PASS,0.0
+row-random marginal metrics/CIs,expanded/r2,PASS,1.1102230246251565e-16
+row-random marginal metrics/CIs,expanded/rmse,PASS,8.881784197001252e-16
+row-random marginal metrics/CIs,expanded/mae,PASS,4.440892098500626e-16
+row-random paired differences/CIs,curated minus original/r2,PASS,5.59990422088763e-17
+row-random paired differences/CIs,curated minus original/rmse,PASS,8.500145032286355e-17
+row-random paired differences/CIs,curated minus original/mae,PASS,2.1649145692283212e-16
+row-random paired differences/CIs,expanded minus original/r2,PASS,1.0907073855204175e-16
+row-random paired differences/CIs,expanded minus original/rmse,PASS,9.952975943416931e-17
+row-random paired differences/CIs,expanded minus original/mae,PASS,2.7712207528729493e-16
+canonical train/test identity separation from exported membership,original,PASS,0.0
+canonical train/test identity separation from exported membership,curated,PASS,0.0
+canonical train/test identity separation from exported membership,expanded,PASS,0.0
+historical741 paired differences from exported predictions,curated minus original/r2,PASS,9.020562075079397e-17
+historical741 paired differences from exported predictions,curated minus original/rmse,PASS,9.280770596475918e-17
+historical741 paired differences from exported predictions,curated minus original/mae,PASS,8.630249292984615e-17
+historical741 paired differences from exported predictions,expanded minus original/r2,PASS,9.71445146547012e-17
+historical741 paired differences from exported predictions,expanded minus original/rmse,PASS,9.540979117872439e-17
+historical741 paired differences from exported predictions,expanded minus original/mae,PASS,7.914675859144182e-17
+unchanged main Figure3/S6A intervals from exported predictions,original/r2,PASS,5.551115123125783e-17
+unchanged main Figure3/S6A intervals from exported predictions,original/rmse,PASS,4.440892098500626e-16
+unchanged main Figure3/S6A intervals from exported predictions,original/mae,PASS,0.0
+unchanged main Figure3/S6A intervals from exported predictions,curated/r2,PASS,5.551115123125783e-17
+unchanged main Figure3/S6A intervals from exported predictions,curated/rmse,PASS,4.440892098500626e-16
+unchanged main Figure3/S6A intervals from exported predictions,curated/mae,PASS,0.0
+unchanged main Figure3/S6A intervals from exported predictions,expanded/r2,PASS,5.551115123125783e-17
+unchanged main Figure3/S6A intervals from exported predictions,expanded/rmse,PASS,0.0
+unchanged main Figure3/S6A intervals from exported predictions,expanded/mae,PASS,0.0

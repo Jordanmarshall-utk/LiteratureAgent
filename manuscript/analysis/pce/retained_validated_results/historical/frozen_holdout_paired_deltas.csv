@@ -1,7 +1,7 @@
-dataset_version,split_strategy,metric,delta_vs_original,ci_low,ci_high
-02_after_google_drive,doi_grouped,r2,-0.0017113025019444006,-0.006824102071249593,0.0034423638484854064
-02_after_google_drive,doi_grouped,rmse,0.004138236854070332,-0.008206773443491388,0.016333667905038846
-02_after_google_drive,doi_grouped,mae,0.002809629513111478,-0.00828992568554674,0.014068340446027377
-03_after_google_drive_plus_expansion,doi_grouped,r2,-0.0028423313337950784,-0.0075203261561743815,0.001440172010975333
-03_after_google_drive_plus_expansion,doi_grouped,rmse,0.0068433177315789795,-0.00349390372645304,0.018144219861743763
-03_after_google_drive_plus_expansion,doi_grouped,mae,0.001514239870580969,-0.009264428565885075,0.012990214391917861
+dataset_version,split_strategy,metric,delta_vs_original,direct_metric_difference,median_bootstrap_difference,ci_low,ci_high,bootstrap_groups,iterations,seed,group_order,bootstrap_sampler
+02_after_google_drive,normalized publication groups,r2,-0.0016599292129542143,-0.001638928764669756,-0.0016599292129542143,-0.006666740078165953,0.00367909991330759,741,2000,42,first appearance,multinomial group multiplicities
+02_after_google_drive,normalized publication groups,rmse,0.004020401930590944,0.003950666986919593,0.004020401930590944,-0.008736883188401356,0.015912564349100877,741,2000,42,first appearance,multinomial group multiplicities
+02_after_google_drive,normalized publication groups,mae,0.0029618638596173863,0.0028019924201516666,0.0029618638596173863,-0.008602396740643604,0.013371279824393642,741,2000,42,first appearance,multinomial group multiplicities
+03_after_google_drive_plus_expansion,normalized publication groups,r2,-0.002849131739599997,-0.002892642774734111,-0.002849131739599997,-0.007570227658891771,0.0017459016427374347,741,2000,42,first appearance,multinomial group multiplicities
+03_after_google_drive_plus_expansion,normalized publication groups,rmse,0.0068630614349995955,0.006969581728202279,0.0068630614349995955,-0.004292041535763824,0.018301089591836843,741,2000,42,first appearance,multinomial group multiplicities
+03_after_google_drive_plus_expansion,normalized publication groups,mae,0.0016358627344896792,0.0017835374154384631,0.0016358627344896792,-0.009565591809218909,0.013090555692364263,741,2000,42,first appearance,multinomial group multiplicities

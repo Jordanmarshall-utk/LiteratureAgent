@@ -1,0 +1,15 @@
+{
+  "source_snapshot": "2026-10-29_identity_and_grouping",
+  "numerical_models_refitted_during_release_merge": 0,
+  "current_stability": "analysis/stability/all_stability_metrics_and_sensitivity.csv",
+  "current_row_random": "analysis/pce/row_random",
+  "historical_main_marginal_intervals": "unchanged; nine intervals independently reproduced",
+  "new_predictor_policy": false,
+  "predictor_documentation_limitation": "Six directly excluded metadata/location fields feed the frozen descriptor text; predictive effect is not established",
+  "graph_topology_changed": false,
+  "printed_graph_nodes": 91134,
+  "printed_graph_relationships": 173911,
+  "data_transform_policy": "Exact scientific numerical strings and identities retained;source paths converted to portable source_records identifiers with original and delivered SHA256 values",
+  "historical_fit_sources": "fits directories preserve original raw-label source exports;final canonical OOFs,fold memberships and metrics are explicit under analysis/stability/canonical",
+  "comparator_benchmark": "archived study unchanged;no updated comparator run or independent human-validation study"
+}

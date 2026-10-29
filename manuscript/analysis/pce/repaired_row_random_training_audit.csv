@@ -1,2 +1,4 @@
-dataset_version,train_rows,matched_frozen_row_keys,frozen_row_keys_in_training,test_rows,test_doi_groups,test_doi_groups_also_in_training,model_random_state,n_estimators,feature_count,numeric_feature_count,categorical_feature_count,fit_metadata
-03_repaired_after_google_drive_plus_expansion,17269,4157,0,4159,2248,2115,42,300,278,113,165,"{""added_training_rows"": 0, ""categorical_features"": 165, ""encoded_training_inputs"": 5291, ""numeric_features"": 113, ""original_training_rows"": 17269, ""training_rows"": 17269}"
+condition,eligible_rows,training_rows,matched_frozen_test_samples,canonical_test_rows_in_training,canonical_key_collisions,identified_test_publications_in_training,pooled_NO_GROUP_present_in_both,raw_publication_labels_in_test,canonical_bootstrap_groups_in_test,identified_publications_in_test,unresolved_identity_records_in_test,raw_key_exclusion_training_rows
+original,20793,16634,4159,0,0,2161,True,2248,2243,2242,48,16634
+curated,20900,16741,4159,0,0,2161,True,2248,2243,2242,48,16741
+expanded,21426,17267,4159,0,0,2161,True,2248,2243,2242,48,17269

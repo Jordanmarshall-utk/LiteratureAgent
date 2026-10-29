@@ -1,44 +1,108 @@
 {
-  "analysis": "bounded repaired secondary PCE sensitivities",
-  "created_utc": "2026-10-28T19:33:12.815775+00:00",
   "status": "PASS",
-  "canonical_files_modified": false,
-  "model_script": "../models/frozen/pce_then_stability_same_approach_sha256_19f58acd.py",
-  "model_script_sha256": "19f58acdfb6143a75df5d034be08f1de070d43713b716cba6c77d4b422898115",
-  "repaired_input": "source_records/repaired_modeling_database.csv",
-  "repaired_input_sha256": "438961d20d426152bd99d69d44af7057b448ffd9c692c2792c54791cd65c8b0f",
-  "target": "JV_default_PCE",
-  "group_column": "Ref_DOI_number",
-  "feature_contract": {
-    "total": 278,
-    "numeric": 113,
-    "categorical": 165
+  "checks": {
+    "frozen_4159_identity_order_and_targets": "PASS",
+    "no_canonical_test_sample_in_any_training_condition": "PASS",
+    "canonical_key_uniqueness_and_collision_check": "PASS",
+    "numeric_looking_sample_strings_preserved": "PASS",
+    "historical_original_and_curated_training_memberships_reconstructed": "PASS",
+    "only_expanded_model_refitted": "PASS",
+    "shared_multinomial_draws_for_marginal_and_paired": "PASS",
+    "NO_GROUP_48_records_retained_as_one_unresolved_cluster": "PASS",
+    "all_nine_main_Figure3_S6A_intervals_reproduced_and_retained": "PASS",
+    "canonical_inputs_unmodified": "PASS",
+    "point_metrics_recompute_from_exported_predictions": "PASS",
+    "marginal_and_paired_intervals_reproduce_from_exported_predictions": "PASS",
+    "first_seen_multinomial_draw_hashes_reproduce_from_exports": "PASS",
+    "format_marker_correction_preserves_group_partitions_and_memberships": "PASS"
   },
-  "model": {
-    "backend": "ExtraTreesRegressor",
-    "n_estimators": 300,
-    "min_samples_leaf": 2,
-    "max_features": "sqrt",
-    "random_state": 42
+  "preflight": {
+    "status": "PASS",
+    "expanded_eligible_rows": 21426,
+    "expanded_training_rows": 17267,
+    "previous_raw_key_training_rows": 17269,
+    "canonical_leaks_removed": 2,
+    "frozen_test_rows": 4159,
+    "raw_test_groups": 2248,
+    "normalized_bootstrap_groups": 2243,
+    "identified_test_publications": 2242,
+    "NO_GROUP_test_records": 48,
+    "frozen_target_order_exact": true,
+    "sample_numeric_strings_preserved": true,
+    "canonical_collisions": 0,
+    "model_script_sha256": "19f58acdfb6143a75df5d034be08f1de070d43713b716cba6c77d4b422898115",
+    "estimator_settings": {
+      "n_estimators": 300,
+      "min_samples_leaf": 2,
+      "max_features": "sqrt",
+      "random_state": 42
+    },
+    "scheduling_threads": 2,
+    "final_21426_unknown_publication_year_rows": 51
   },
-  "bootstrap": {
-    "iterations": 2000,
-    "seed": 42,
-    "unit": "publication / normalized DOI group"
-  },
-  "repeated_split_seeds": [
-    0,
-    1,
-    2,
-    3,
-    4
-  ],
-  "repeated_split_rule": "GroupShuffleSplit(n_splits=1, test_size=0.20, random_state=split_seed)",
-  "row_random_policy": "exact frozen 4,159-row historical row-random test membership; only affected repaired expansion fit recomputed",
   "software": {
     "python": "3.11.9",
     "numpy": "2.3.5",
     "pandas": "3.0.2",
     "scikit_learn": "1.8.0"
-  }
+  },
+  "counts": [
+    {
+      "condition": "original",
+      "eligible_rows": 20793,
+      "training_rows": 16634,
+      "matched_frozen_test_samples": 4159,
+      "canonical_test_rows_in_training": 0,
+      "canonical_key_collisions": 0,
+      "identified_test_publications_in_training": 2161,
+      "pooled_NO_GROUP_present_in_both": true,
+      "raw_publication_labels_in_test": 2248,
+      "canonical_bootstrap_groups_in_test": 2243,
+      "identified_publications_in_test": 2242,
+      "unresolved_identity_records_in_test": 48,
+      "raw_key_exclusion_training_rows": 16634
+    },
+    {
+      "condition": "curated",
+      "eligible_rows": 20900,
+      "training_rows": 16741,
+      "matched_frozen_test_samples": 4159,
+      "canonical_test_rows_in_training": 0,
+      "canonical_key_collisions": 0,
+      "identified_test_publications_in_training": 2161,
+      "pooled_NO_GROUP_present_in_both": true,
+      "raw_publication_labels_in_test": 2248,
+      "canonical_bootstrap_groups_in_test": 2243,
+      "identified_publications_in_test": 2242,
+      "unresolved_identity_records_in_test": 48,
+      "raw_key_exclusion_training_rows": 16741
+    },
+    {
+      "condition": "expanded",
+      "eligible_rows": 21426,
+      "training_rows": 17267,
+      "matched_frozen_test_samples": 4159,
+      "canonical_test_rows_in_training": 0,
+      "canonical_key_collisions": 0,
+      "identified_test_publications_in_training": 2161,
+      "pooled_NO_GROUP_present_in_both": true,
+      "raw_publication_labels_in_test": 2248,
+      "canonical_bootstrap_groups_in_test": 2243,
+      "identified_publications_in_test": 2242,
+      "unresolved_identity_records_in_test": 48,
+      "raw_key_exclusion_training_rows": 17269
+    }
+  ],
+  "historical_interval_max_error": 4.440892098500626e-16,
+  "additional_export_validation": "CI_REPRODUCTION_VALIDATION.json",
+  "analysis": "Final canonical-sample row-random PCE correction; other PCE sensitivities retained",
+  "target": "JV_default_PCE",
+  "feature_contract": {
+    "total": 278,
+    "numeric": 113,
+    "categorical": 165
+  },
+  "retained_analysis_scope": "125-record comparison,124-record unchanged-target comparison,five repeated DOI splits,and nine main historical marginal intervals are unchanged",
+  "bootstrap_contract": "row_random/row_random_bootstrap_contract.json",
+  "historical_bootstrap_contract": "row_random/historical_741_bootstrap_contract.json"
 }

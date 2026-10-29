@@ -1,0 +1,16 @@
+{
+  "legacy_metric": "DatasetSnapshot.field_evidence_count",
+  "legacy_definition": "Historical builder-input subtotal: unique relevant field-evidence mappings deduplicated across the ten frozen long-form exports by (sample_id, normalized DOI, field, cleaned evidence text).",
+  "unique_frozen_input_mappings": 37663,
+  "unique_frozen_field_evidence_ids": 37663,
+  "frozen_exact_sample_mapping_rows": 37282,
+  "frozen_doi_field_fallback_rows": 381,
+  "current_link_definition": "Unique current StructuredObservation-to-Evidence SUPPORTED_BY edges plus Device/Paper-to-Evidence HAS_FIELD_EVIDENCE edges; excludes ScientificClaim-to-Evidence links.",
+  "current_link_equation": "31,116 + 6,689 = 37,805 = 37,663 + 142",
+  "claim_link_exclusion": "2,694 claim-to-evidence links are part of 33,810 total SUPPORTED_BY links but are not field-evidence links.",
+  "meaning_limit": "Link counts describe retained provenance links, not independent validation events, distinct fields, or estimates of extraction accuracy.",
+  "earlier_21713_definition": "The retained submission_audit_v1 definition corroborates long-form export-row semantics for an earlier campaign snapshot; its 21,713 subtotal is not the final-integrated graph's 37,663 input subtotal.",
+  "input_mapping_rule_source": "source_records/scripts/build_final_integrated_literature_knowledge_graph.py:114-185",
+  "snapshot_assignment_source": "source_records/scripts/build_final_integrated_literature_knowledge_graph.py:481-491",
+  "field_edge_assignment_source": "source_records/scripts/build_final_integrated_literature_knowledge_graph.py:361-414"
+}

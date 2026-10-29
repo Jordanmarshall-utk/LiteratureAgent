@@ -1,0 +1,13 @@
+{
+  "iterations": 2000,
+  "seed": 42,
+  "sampler": "np.random.default_rng(42).multinomial(G, np.full(G, 1/G), size=2000)",
+  "group_order": "first appearance in frozen test CSV order",
+  "groups": 741,
+  "multiplicity_array_shape": [
+    2000,
+    741
+  ],
+  "multiplicity_sha256_int64_c": "4b570b2a16e7333387a91cc7c6515abe7195d76eb4b8e76a595558dbd6c03fae",
+  "missing_identity_convention": "All absent DOI identities retain the one pooled NO_GROUP unresolved-identity cluster; it is not a verified publication."
+}
