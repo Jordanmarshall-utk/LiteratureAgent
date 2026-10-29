@@ -68,7 +68,6 @@ PLOT_CONFIG: dict[str, dict[str, Any]] = {
         "family": "boxplot",
         "data": "data/figs4a_normalized_stability/plot_data.csv",
         "spec": "specifications/figs4a_normalized_stability.json",
-        "reference_dir": "references/current_individual_exports/figs4a_normalized_stability",
         "size_mm": (180.0, 85.0),
         "xlim": (-0.30, 5.60),
         "xstep": 1.0,
@@ -82,7 +81,6 @@ PLOT_CONFIG: dict[str, dict[str, Any]] = {
         "family": "paired",
         "data": "data/figs4b_normalization_sensitivity/plot_data.csv",
         "spec": "specifications/figs4b_normalization_sensitivity.json",
-        "reference_dir": "references/current_individual_exports/figs4b_normalization_sensitivity",
         # The controlled spec records the original 180 x 78 mm asset.  The
         # formatting-only export uses the same 85 mm height as S4a so both
         # panels assemble at the equal height shown in the manuscript deck.
@@ -356,17 +354,11 @@ def build_pair_helper(rows: Sequence[dict[str, str]]) -> tuple[list[str], list[d
 
 
 def collect_reference_assets(plot_id: str, config: dict[str, Any]) -> list[dict[str, Any]]:
-    reference_dir = PACKAGE_ROOT / config["reference_dir"]
-    if not reference_dir.is_dir():
-        raise FileNotFoundError(reference_dir)
     references: list[dict[str, Any]] = []
-    for suffix in (".png", ".svg", ".pdf"):
-        matches = sorted(reference_dir.glob(f"*{suffix}"))
-        if len(matches) != 1:
-            raise RuntimeError(
-                f"{plot_id}: expected one retained {suffix} reference, found {matches}"
-            )
-        path = matches[0]
+    for suffix, folder in ((".png", "png_600dpi"), (".svg", "svg"), (".pdf", "pdf")):
+        path = ROOT / "figures" / "supplementary" / folder / f"{plot_id}{suffix}"
+        if not path.is_file():
+            raise FileNotFoundError(path)
         references.append(
             {
                 "name": path.name,

@@ -1,7 +1,7 @@
-"""Read-only reopen audit for all 20 numeric LiteratureAgent Origin projects.
+"""Read-only reopen audit for the 18 available numeric Origin build targets.
 
 The registry is assembled directly from the literal configuration dictionaries
-in the four Origin builders.  Reading those dictionaries with :mod:`ast`
+in the three Origin builders. Reading those dictionaries with :mod:`ast`
 avoids importing ``originpro`` during ``--static-check`` while still keeping
 the auditor synchronized with each builder's graph name, project stem, source
 CSV, and expected source-row count.
@@ -34,8 +34,6 @@ PACKAGE_ROOT = PUBLIC_SOURCE_ROOT
 DEFAULT_OUTPUT_ROOT = ROOT / "build"
 
 EXPECTED_PLOT_IDS = (
-    "fig2a_campaign_accounting",
-    "fig2b_campaign_readiness",
     "fig3a_historical_r2",
     "fig3b_historical_rmse",
     "fig3c_historical_mae",
@@ -67,28 +65,22 @@ class RegistrySource:
 
 REGISTRY_SOURCES = (
     RegistrySource(
-        builder="build_fig2_campaign_origin",
-        path=ROOT / "scripts" / "build_fig2_campaign_origin.py",
-        symbol="CONFIG",
-        plot_ids=EXPECTED_PLOT_IDS[0:2],
-    ),
-    RegistrySource(
         builder="build_manuscript_plot",
         path=ROOT / "scripts" / "build_manuscript_plot.py",
         symbol="PLOT_CONFIG",
-        plot_ids=EXPECTED_PLOT_IDS[2:14],
+        plot_ids=EXPECTED_PLOT_IDS[0:12],
     ),
     RegistrySource(
         builder="build_figs4_origin_no_grid",
         path=ROOT / "scripts" / "build_figs4_origin_no_grid.py",
         symbol="PLOT_CONFIG",
-        plot_ids=EXPECTED_PLOT_IDS[14:16],
+        plot_ids=EXPECTED_PLOT_IDS[12:14],
     ),
     RegistrySource(
         builder="build_figs6_benchmark_origin",
         path=ROOT / "scripts" / "build_figs6_benchmark_origin.py",
         symbol="CONFIG",
-        plot_ids=EXPECTED_PLOT_IDS[16:20],
+        plot_ids=EXPECTED_PLOT_IDS[14:18],
     ),
 )
 
@@ -245,33 +237,6 @@ def sheet_roles_for(
         ),
     )
 
-    if registry_source.builder == "build_fig2_campaign_origin":
-        raw_sources = config.get("sources")
-        if not isinstance(raw_sources, list) or len(raw_sources) != 3:
-            raise RuntimeError(f"{plot_id}: Figure 2 builder must define three sources")
-        source_paths = tuple(Path(str(value)) for value in raw_sources)
-        return (
-            (
-                "Display",
-                unique_aliases(
-                    "Display",
-                    "origin_display_helper",
-                    "origin_display_helper.csv",
-                    "Linked publication display data",
-                ),
-            ),
-            (
-                "Source",
-                source_role_aliases(
-                    "Source",
-                    source_paths[0],
-                    "Exact authoritative plotting table",
-                ),
-            ),
-            ("Source2", source_role_aliases("Source2", source_paths[1])),
-            ("Source3", source_role_aliases("Source3", source_paths[2])),
-            validation,
-        )
     if registry_source.builder == "build_figs4_origin_no_grid":
         helper_name = str(config.get("helper_name", ""))
         if not helper_name:
@@ -428,9 +393,9 @@ def load_registry() -> tuple[ProjectSpec, ...]:
 
     missing = [plot_id for plot_id in EXPECTED_PLOT_IDS if plot_id not in normalized]
     unexpected = [plot_id for plot_id in normalized if plot_id not in EXPECTED_PLOT_IDS]
-    if missing or unexpected or len(normalized) != 20:
+    if missing or unexpected or len(normalized) != len(EXPECTED_PLOT_IDS):
         raise RuntimeError(
-            f"Audit registry must contain exactly 20 projects; missing={missing}, "
+            f"Audit registry must contain exactly {len(EXPECTED_PLOT_IDS)} projects; missing={missing}, "
             f"unexpected={unexpected}, count={len(normalized)}"
         )
     return tuple(normalized[plot_id] for plot_id in EXPECTED_PLOT_IDS)
@@ -476,7 +441,7 @@ def static_check_report(
         "analysis_id": ANALYSIS_ID,
         "analysis_version": ANALYSIS_VERSION,
         "registry_projects": len(registry),
-        "expected_projects": 20,
+        "expected_projects": len(EXPECTED_PLOT_IDS),
         "project_files_present": len(registry) - len(missing_projects),
         "project_files_missing": missing_projects,
         "ready_for_reopen_audit": not missing_projects,
@@ -748,7 +713,7 @@ def run_origin_audit(
             "analysis_version": ANALYSIS_VERSION,
             "read_only": True,
             "checked_projects": len(results),
-            "expected_projects": 20,
+            "expected_projects": len(EXPECTED_PLOT_IDS),
             "checks": results,
         }
         write_json_atomic(report_path, report)
@@ -778,7 +743,7 @@ def make_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "--static-check",
         action="store_true",
-        help="Validate the 20-project registry and controlled inputs without importing Origin.",
+        help="Validate the retained Origin build registry and controlled inputs without importing Origin.",
     )
     return parser
 

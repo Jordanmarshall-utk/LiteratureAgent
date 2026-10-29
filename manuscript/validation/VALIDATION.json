@@ -5,8 +5,11 @@
       "check": "figure_assets",
       "status": "PASS",
       "details": {
-        "panels": 24,
-        "asset_references": 96
+        "panels": 19,
+        "asset_references": 76,
+        "author_created_graphics": 4,
+        "graphical_files": 92,
+        "unlisted_graphical_files": 0
       }
     },
     {
@@ -100,20 +103,21 @@
       "check": "file_size_and_source_text",
       "status": "PASS",
       "details": {
-        "files_checked": 1051,
-        "longest_relative_path_length": 132
+        "files_checked": 914,
+        "longest_relative_path_length": 131
       }
     }
   ],
   "errors": [],
   "visual_review_performed": false,
   "longest_relative_path": {
-    "path": "manuscript/source/references/current_individual_exports/figs4b_normalization_sensitivity/FigureS4B_normalization_rank_robustness.pdf",
-    "length": 132,
+    "path": "manuscript/analysis/pce/retained_validated_results/literatureagent/expanded_domain_original_plus_accepted_expansion_predictions.csv",
+    "length": 131,
     "limit": 180
   },
   "file_issues": [],
-  "validated_at_utc": "2026-10-29T21:32:11.348003+00:00",
+  "validated_at_utc": "2026-10-29T21:56:45.487888+00:00",
+  "post_validation_editorial_files_checked": 2,
   "visually_reviewed_current_panels": [
     "fig5a_stability_classification",
     "fig5b_stability_regression"

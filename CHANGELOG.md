@@ -1,5 +1,19 @@
 # Changes
 
+## 2.2.1 — 29 October 2026
+
+- Aligned the graphical-asset inventory with the supplied manuscript and SI.
+  Retained 19 used source panels and documented the four author-created
+  PowerPoint figure locations separately.
+- Excluded generated alternatives for Figures 1, 2, 4a and 6, the outdated
+  five-paper PowerPoint/preview, unindexed model-importance plots, redundant
+  parallel exports and the unused alternative-graph legend.
+- Retained the corrected individual Figure 5 panels, used numerical plots,
+  scientific data, predictions, folds, original source hashes and citations.
+- Updated figure builders and validation to enforce the included-asset scope.
+  No models were fitted, no current numerical results changed, and no manuscript
+  or author PowerPoint file was edited. Version 2.2.0 remains in release history.
+
 ## 2.2.0 — 29 October 2026
 
 - Added manuscript panels, editable assets, exact source tables, supplementary

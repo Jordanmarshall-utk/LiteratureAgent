@@ -20,6 +20,7 @@ import traceback
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Iterable
+from xml.etree import ElementTree
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -258,7 +259,7 @@ def auto_margin_limits(values: Iterable[float]) -> tuple[float, float]:
     return low - 0.05 * span, high + 0.05 * span
 
 
-def parse_reference_axis(svg: Path) -> ReferenceAxis:
+def parse_reference_axis(svg: Path, config: dict[str, Any] | None = None) -> ReferenceAxis:
     """Recover the retained panel's physical size and x-axis contract."""
 
     text = svg.read_text(encoding="utf-8")
@@ -268,7 +269,24 @@ def parse_reference_axis(svg: Path) -> ReferenceAxis:
         flags=re.IGNORECASE,
     )
     if root is None:
-        raise RuntimeError(f"Could not read physical SVG dimensions: {svg}")
+        element = ElementTree.fromstring(text)
+        def millimetres(value: str) -> float:
+            match = re.fullmatch(r"([0-9.]+)(mm|cm|in|pt)", value)
+            if match is None:
+                raise RuntimeError(f"Unsupported SVG dimension in {svg}")
+            return float(match[1]) * {"mm": 1.0, "cm": 10.0, "in": 25.4, "pt": 25.4 / 72}[match[2]]
+        if config is None:
+            raise RuntimeError("Canonical Origin SVG axis checks require the frozen plotting configuration")
+        # Origin uses path-encoded tick labels; the retained axis limits are
+        # taken explicitly from the same frozen configuration used to render.
+        lower, upper = map(float, config["xlim"])
+        step = float(config["xstep"])
+        first_tick = math.ceil(lower / step) * step
+        ticks = tuple(first_tick + step * index for index in range(int((upper - first_tick) / step) + 1))
+        return ReferenceAxis(width_mm=millimetres(element.attrib["width"]),
+                             height_mm=millimetres(element.attrib["height"]),
+                             xlim=(lower, upper), xstep=step, x_ticks=ticks,
+                             pale_band_count=text.lower().count(LEGACY_REFERENCE_PALE.lower()))
     width_mm = float(root.group(1)) * 25.4 / 72.0
     height_mm = float(root.group(2)) * 25.4 / 72.0
 
@@ -462,8 +480,8 @@ def build_plan(plot_id: str) -> PlotPlan:
     config = CONFIG[plot_id]
     source_path = PACKAGE / config["source"]
     spec_path = PACKAGE / config["spec"]
-    reference_dir = PACKAGE / "references" / "current_individual_exports" / plot_id
-    reference_paths = tuple(reference_dir / f"{config['reference_stem']}.{suffix}" for suffix in ("svg", "pdf", "png"))
+    reference_paths = tuple(ROOT / "figures" / "supplementary" / folder / f"{plot_id}.{suffix}"
+                            for folder, suffix in (("svg", "svg"), ("pdf", "pdf"), ("png_600dpi", "png")))
     for path in (source_path, spec_path, *reference_paths):
         if not path.is_file() or path.stat().st_size == 0:
             raise FileNotFoundError(path)
@@ -478,9 +496,9 @@ def build_plan(plot_id: str) -> PlotPlan:
     xlim = tuple(float(value) for value in config["xlim"])
     if min(values) < xlim[0] or max(values) > xlim[1]:
         raise RuntimeError(f"{plot_id}: PowerPoint-matched x limits would clip controlled data")
-    reference_axis = parse_reference_axis(reference_paths[0])
-    if not close(reference_axis.width_mm, 85.0, atol=0.002) or not close(reference_axis.height_mm, 60.0, atol=0.002):
-        raise RuntimeError(f"{plot_id}: retained reference is not 85 x 60 mm")
+    reference_axis = parse_reference_axis(reference_paths[0], config)
+    if not close(reference_axis.width_mm, OUTPUT_SIZE_MM[0], atol=0.002) or not close(reference_axis.height_mm, OUTPUT_SIZE_MM[1], atol=0.002):
+        raise RuntimeError(f"{plot_id}: canonical panel dimensions differ from the retained 85 x 64 mm rendering")
     source_margin_limits = auto_margin_limits(values)
     checks.update(
         {
@@ -489,6 +507,7 @@ def build_plan(plot_id: str) -> PlotPlan:
             "source_derived_x_limits_with_5pct_margin": list(source_margin_limits),
             "applied_powerpoint_slide3_x_limits": list(xlim),
             "all_controlled_values_inside_applied_x_limits": True,
+            "canonical_reference_axis_basis": "SVG physical dimensions; numeric limits from frozen plotting configuration",
             "y_limits": [-0.55, 7.55],
             "y_axis_reversed": True,
         }
@@ -1046,7 +1065,7 @@ def dry_run_report(plan: PlotPlan, output_root: Path) -> dict[str, Any]:
             "sha256": style_source_sha256(),
             "slide": STYLE_SOURCE_SLIDE,
         },
-        "legacy_source_reference_axis_contract": {
+        "canonical_reference_axis_contract": {
             "dimensions_mm": [plan.reference_axis.width_mm, plan.reference_axis.height_mm],
             "x_limits": list(plan.reference_axis.xlim),
             "x_ticks": list(plan.reference_axis.x_ticks),

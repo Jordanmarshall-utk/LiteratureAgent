@@ -9,7 +9,7 @@ without applying photovoltaic models to unrelated records.
 ## Manuscript materials
 
 The [manuscript directory](manuscript/README.md) contains the current figure
-panels, editable assets, exact plotting tables, supplementary data, repair
+source panels, editable assets, exact plotting tables, supplementary data, repair
 evidence, and publication-grouped evaluation results. See the
 [reproduction instructions](manuscript/docs/REPRODUCIBILITY.md) and
 [analysis description](manuscript/docs/ANALYSIS.md).
@@ -25,6 +25,12 @@ canonical stability intervals, predictor inclusion/exclusion documentation and
 graph evidence-count definitions. Figure 5a and Figure 5b are supplied as
 separate editable panels for manual manuscript assembly. Licensing and approved
 manuscript citation metadata remain explicitly pending in this public release.
+
+Only manuscript-used plot sources are included. The author-created PowerPoint
+graphics at Figures 1, 2, 4a and 6 are listed separately rather than represented
+by unused generated alternatives. Their scientific data and provenance remain;
+unverified final PowerPoint masters and reviewed manuscript documents are not
+bundled. See [figure scope](manuscript/figures/AUTHOR_GRAPHICS.csv).
 
 ## Run the application
 

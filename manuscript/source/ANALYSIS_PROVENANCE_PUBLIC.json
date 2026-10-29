@@ -142,5 +142,12 @@
     "approved_manuscript_citation": "pending",
     "journal_submission_or_acceptance_implied": false,
     "manuscript_assembly_performed": false
+  },
+  "figure_scope": {
+    "included_source_panels": 19,
+    "author_created_graphics_manifest": "figures/AUTHOR_GRAPHICS.csv",
+    "scope_validation": "provenance/figure_scope.json",
+    "statistical_values_changed": false,
+    "unverified_editable_diagram_masters_included": false
   }
 }

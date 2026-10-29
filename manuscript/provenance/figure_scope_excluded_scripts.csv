@@ -1,0 +1,5 @@
+path,source_sha256,reason,source_version,source_model_or_data_removed,history_retained
+manuscript/scripts/build_fig2_campaign_origin.py,0def4eee59e6be9dc560bf203dbc1546ee49d214e33f3bd3f6744a5a0ba82e79,Exclusive renderer for an unused generated manuscript illustration,2.2.0,False,True
+manuscript/scripts/build_fig4a_clean_graph.py,21611119103402d0c6acf1d682071b9b6eafbc33d1cd5780e240739814dc3aa9,Exclusive renderer for an unused generated manuscript illustration,2.2.0,False,True
+manuscript/scripts/build_fig6_integrated_graph_asset.py,b655e7e5c109222b8688ba49ab6b0ead2cd9080c11616c00e39c1ad6b3824aa3,Exclusive renderer for an unused generated manuscript illustration,2.2.0,False,True
+manuscript/scripts/build_knowledge_graph_figure.py,bfca8e4482a91fa2e5a0eea436c67cf1dc18f6c438d230f58d118578db546dbf,Exclusive renderer for an unused generated manuscript illustration,2.2.0,False,True

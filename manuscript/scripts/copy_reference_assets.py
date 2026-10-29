@@ -19,7 +19,7 @@ ROOT = Path(__file__).resolve().parents[1]
 PUBLIC_SOURCE_ROOT = ROOT / "source"
 DEFAULT_PACKAGE_ROOT = PUBLIC_SOURCE_ROOT
 DEFAULT_OUTPUT_ROOT = ROOT / "build"
-ALLOWED_SUFFIXES = {".pdf", ".png", ".pptx", ".svg"}
+ALLOWED_SUFFIXES = {".pdf", ".png", ".opju", ".svg"}
 
 
 def sha256_file(path: Path) -> str:
@@ -34,10 +34,13 @@ def resolve_within(root: Path, relative_path: str) -> Path:
     """Resolve a manifest path and reject paths that escape the package."""
 
     candidate = (root / Path(relative_path)).resolve()
+    # Source manifests may refer directly to canonical assets in the sibling
+    # figures directory; all paths must still remain in the manuscript tree.
+    allowed_root = root.parent if root.name == "source" and root.parent.name == "manuscript" else root
     try:
-        candidate.relative_to(root.resolve())
+        candidate.relative_to(allowed_root.resolve())
     except ValueError as exc:
-        raise ValueError(f"Manifest path escapes package root: {relative_path}") from exc
+        raise ValueError(f"Manifest path escapes manuscript root: {relative_path}") from exc
     return candidate
 
 
@@ -100,13 +103,15 @@ def copy_retained_assets(package_root: Path, output_root: Path) -> dict:
                     raise ValueError(
                         f"Unsupported retained asset type for {plot_id}: {source.name}"
                     )
-                if source.name in destination_names:
+                destination_name = (Path(source.parent.name) / source.name).as_posix()
+                if destination_name in destination_names:
                     raise ValueError(
                         f"Destination filename collision for {plot_id}: {source.name}"
                     )
-                destination_names.add(source.name)
+                destination_names.add(destination_name)
 
-                destination = destination_dir / source.name
+                destination = destination_dir / destination_name
+                destination.parent.mkdir(parents=True, exist_ok=True)
                 source_hash = sha256_file(source)
                 status = "copied"
                 if destination.is_file() and sha256_file(destination) == source_hash:
