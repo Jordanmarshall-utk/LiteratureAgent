@@ -1,0 +1,109 @@
+{
+  "plot_id": "figs6a_benchmark",
+  "current_figure": "Figure S6",
+  "panel": "a",
+  "status": "READY",
+  "required_action": "RETAIN",
+  "scientific_content": "Literature-system phrase recall",
+  "authoritative_analysis_version": "retained current release",
+  "portable_paths_only": true,
+  "style": {
+    "standalone_dimensions_mm": {
+      "width": 85,
+      "height": 60
+    },
+    "font_family": "Times New Roman",
+    "font_sizes_pt": {
+      "tick_and_category": 8,
+      "legend": 8,
+      "axis_label": 9,
+      "title": 9
+    },
+    "background": "white",
+    "outer_frame": "none",
+    "spines": {
+      "top": false,
+      "right": false,
+      "left": true,
+      "bottom": true
+    },
+    "grid_color": "#D9DEE5",
+    "export": {
+      "vector": [
+        "PDF",
+        "SVG or EMF"
+      ],
+      "raster": "PNG, 600 dpi at final physical dimensions",
+      "transparent_background": false
+    },
+    "palette": {
+      "blue": "#0072B2",
+      "sky": "#3C8DBC",
+      "teal": "#009E73",
+      "amber": "#E69F00",
+      "orange": "#D55E00",
+      "purple": "#7B61A8",
+      "neutral": "#4B5563",
+      "grid": "#D9DEE5",
+      "pale": "#F4F6F8",
+      "ink": "#202124",
+      "white": "#FFFFFF"
+    }
+  },
+  "output_filenames": [
+    "figs6a_benchmark.opju",
+    "figs6a_benchmark.pdf",
+    "figs6a_benchmark.svg",
+    "figs6a_benchmark.png"
+  ],
+  "assembly_instruction": "Standalone plot only. Do not assemble with another panel in OriginPro.",
+  "input": {
+    "file": "data/figs6a_benchmark/plot_data.csv",
+    "raw_value_column": "value",
+    "raw_y_coordinate_column": "y_display",
+    "category_column": "display_label",
+    "mean_column": "mean",
+    "origin_asymmetric_error_columns": [
+      "error_minus",
+      "error_plus"
+    ]
+  },
+  "plot_type": "paper-level dot plot with mean and asymmetric 95% confidence interval",
+  "axes": {
+    "x": {
+      "label": "GT Phrase Recall (%)",
+      "scale": "linear"
+    },
+    "y": {
+      "label": "",
+      "reverse_order": true
+    }
+  },
+  "category_order": [
+    "ChatGPT",
+    "LiteratureAgent (Qwen)",
+    "Perplexity",
+    "DeepSeek",
+    "Elicit",
+    "Edison KOSMOS",
+    "NotebookLM",
+    "Publication Analyzer"
+  ],
+  "style_overrides": {
+    "raw_points": {
+      "color": "#0072B2",
+      "size_pt": 12,
+      "opacity": 0.68
+    },
+    "mean_marker": "circle, 5.3 pt, white 0.6 pt edge",
+    "error_line_width_pt": 1.25,
+    "error_cap_size_pt": 2.8,
+    "literatureagent_summary_color": "#009E73",
+    "other_summary_color": "#202124"
+  },
+  "expected_plotted_counts": {
+    "models": 8,
+    "paper_level_points": 80,
+    "summary_estimates": 8
+  }
+}

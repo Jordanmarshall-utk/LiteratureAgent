@@ -2,7 +2,7 @@ import sys
 
 import pytest
 
-import literature_agent_full_end_to_end_v21_3_english_sanitizer as controller
+import literature_agent_pipeline as controller
 from literature_agent_platform.domain_profiles import DOMAIN_PROFILES, PROJECT_ROOT, command_option
 from literature_agent_platform.health import _model_present
 
@@ -68,7 +68,7 @@ def test_cross_domain_cli_rejects_legacy_inline_vision(monkeypatch, capsys) -> N
 
 def test_release_controller_contains_no_personal_retrieval_identity() -> None:
     source = (
-        PROJECT_ROOT / "literature_agent_full_end_to_end_v21_3_english_sanitizer.py"
+        PROJECT_ROOT / "literature_agent_pipeline.py"
     ).read_text(encoding="utf-8")
 
     assert "Jmarsh39" + "@vols.utk.edu" not in source

@@ -1,0 +1,6 @@
+evaluation,training_condition,holdout_rows,stored_holdout_group_labels,normalized_holdout_publication_identities,training_rows_after_exclusion,normalized_train_test_publication_overlap,train_test_row_key_overlap,note
+historical_fixed_holdout,01_original_database,4092,744,741,16699,0,0,known C8TA05444D capitalization alias removed separately from newly recovered DOI intersections
+historical_fixed_holdout,02_after_google_drive,4092,744,741,16805,0,0,known C8TA05444D capitalization alias removed separately from newly recovered DOI intersections
+historical_fixed_holdout,03_after_google_drive_plus_expansion,4092,744,741,17331,0,0,known C8TA05444D capitalization alias removed separately from newly recovered DOI intersections
+literatureagent_fixed_holdout,original_only,125,80,80,20755,0,0,all holdout DOI strings already canonical; normalized audit also zero
+literatureagent_fixed_holdout,original_plus_accepted_expansion,125,80,80,21263,0,0,all holdout DOI strings already canonical; normalized audit also zero

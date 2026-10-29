@@ -1,0 +1,10 @@
+display_id,node_type,count,x,y,width,height,fill_hex,text_hex
+Paper,Paper,1396,0.02,0.48,0.15,0.16,#0072B2,#FFFFFF
+Device,Device,1843,0.22,0.69,0.19,0.16,#009E73,#FFFFFF
+Observation,StructuredObservation,39813,0.48,0.69,0.22,0.16,#E69F00,#202124
+Ontology,OntologyConcept,266,0.79,0.69,0.19,0.16,#3C8DBC,#FFFFFF
+Entity,ScientificEntity,5208,0.02,0.2,0.19,0.16,#D55E00,#FFFFFF
+Claim,ScientificClaim,2694,0.25,0.2,0.21,0.16,#7B61A8,#FFFFFF
+Evidence,Evidence,39912,0.58,0.2,0.2,0.16,#4B5563,#FFFFFF
+Snapshot,DatasetSnapshot,1,0.82,0.3,0.16,0.09,#F4F6F8,#202124
+Run,ExtractionRun,1,0.82,0.17,0.16,0.09,#F4F6F8,#202124

@@ -1,0 +1,141 @@
+{
+  "analysis_version": "2026-10-27_controlled_repaired_historical_holdout",
+  "created_utc": "2026-10-27T20:54:26.198965+00:00",
+  "status": "PASS",
+  "purpose": "Three-condition historical normalized-DOI holdout comparison with one frozen 113-numeric/165-categorical raw-predictor contract.",
+  "target": "JV_default_PCE",
+  "group_column": "Ref_DOI_number",
+  "model_backend": "extra_trees",
+  "n_estimators": 300,
+  "random_state": 42,
+  "bootstrap_iterations": 2000,
+  "categorical_schema_harmonization": true,
+  "feature_typing_policy": "Exact assignments frozen from the authoritative production PCE interpretability inventory; no training-subset type inference.",
+  "reference_holdout_policy": "Exact row keys, order, targets, and stored DOI labels reused from frozen_holdout_harmonized_v3_final_typing; train/test exclusion uses 741 normalized DOI identities.",
+  "figure_4b_scope_note": "Current Figure 4b explains a separate post-evaluation full-cohort refit using this final frozen typing, categorical-schema harmonizer, and estimator contract; it is not a fitted estimator from the Figure 3 evaluation.",
+  "checks": {
+    "feature_count": 278,
+    "numeric_features_locked": 113,
+    "categorical_features_locked": 165,
+    "holdout_rows": 4092,
+    "holdout_doi_groups": 744,
+    "holdout_row_keys_exactly_reused": true,
+    "holdout_targets_exactly_matched": true,
+    "all_training_counts_match_reference": false,
+    "zero_test_doi_overlap_all_conditions": true,
+    "zero_test_row_overlap_all_conditions": true,
+    "all_metrics_and_intervals_finite": true,
+    "bootstrap_iterations": 2000,
+    "random_state": 42
+  },
+  "dynamic_typing_summary": [
+    {
+      "dataset_version": "01_original_database",
+      "dynamic_numeric_features": 117,
+      "dynamic_categorical_features": 161,
+      "mismatches_vs_final": 14
+    },
+    {
+      "dataset_version": "02_after_google_drive",
+      "dynamic_numeric_features": 116,
+      "dynamic_categorical_features": 162,
+      "mismatches_vs_final": 3
+    },
+    {
+      "dataset_version": "03_after_google_drive_plus_expansion",
+      "dynamic_numeric_features": 113,
+      "dynamic_categorical_features": 165,
+      "mismatches_vs_final": 0
+    }
+  ],
+  "fit_metadata": {
+    "01_original_database": {
+      "training_rows": 16699,
+      "original_training_rows": 16699,
+      "added_training_rows": 0,
+      "numeric_features": 113,
+      "categorical_features": 165,
+      "encoded_training_inputs": 5223
+    },
+    "02_after_google_drive": {
+      "training_rows": 16805,
+      "original_training_rows": 16805,
+      "added_training_rows": 0,
+      "numeric_features": 113,
+      "categorical_features": 165,
+      "encoded_training_inputs": 5259
+    },
+    "03_after_google_drive_plus_expansion": {
+      "training_rows": 17331,
+      "original_training_rows": 17331,
+      "added_training_rows": 0,
+      "numeric_features": 113,
+      "categorical_features": 165,
+      "encoded_training_inputs": 5439
+    }
+  },
+  "software": {
+    "python": "3.11.9",
+    "numpy": "2.3.5",
+    "pandas": "3.0.2",
+    "scikit_learn": "1.8.0"
+  },
+  "sources": [
+    {
+      "path": "source_records/rerun_repaired_historical_holdout.py",
+      "sha256": "3c2602a22e75a5c0d5fd082435dc1a138333898f5d8d9997dbfb4ddcde383113"
+    },
+    {
+      "path": "source_records/rerun_pce_literatureagent_domain_final_typing.py",
+      "sha256": "06b081ce7e66cd952621c6e1ca2b3a9eeea4f3e773fe4e944329bd52805e250a"
+    },
+    {
+      "path": "source_records/evaluate_pce_harmonized_expansion.py",
+      "sha256": "1c7373ed8a85448afc9ba7edb30c1f314347bc1168121dc9d539adb33386df60"
+    },
+    {
+      "path": "source_records/analyze_pce_expansion_utility.py",
+      "sha256": "98aa2b194e0260f368c8b80adfd665b9731ca9d5c5f056431ba6f898145e60c1"
+    },
+    {
+      "path": "source_records/compare_pce_frozen_production_extratrees.py",
+      "sha256": "a630e6f824c4dacb2db7f887e46ede5af300bf3a68dce9a3093e9afaa7357e9c"
+    },
+    {
+      "path": "source_records/original_perovskite_database.csv",
+      "sha256": "da66a634e9106e58ce4d012558d468bc2f19b95987f149fb9c5d208d363ea67a"
+    },
+    {
+      "path": "source_records/after_google_drive_integrated_database.csv",
+      "sha256": "5da89445e5de6033907d6e5cf0f95e5517921718aae0eb7a7607a8456d659260"
+    },
+    {
+      "path": "source_records/repaired_modeling_database.csv",
+      "sha256": "438961d20d426152bd99d69d44af7057b448ffd9c692c2792c54791cd65c8b0f"
+    },
+    {
+      "path": "../models/frozen/pce_then_stability_same_approach_sha256_19f58acd.py",
+      "sha256": "19f58acdfb6143a75df5d034be08f1de070d43713b716cba6c77d4b422898115"
+    },
+    {
+      "path": "source_records/pce_raw_predictor_inventory.csv",
+      "sha256": "c64030fd7bb3d017b3404cbd100f6a20e2b2d66b02c552aea4fa3e75107be747"
+    },
+    {
+      "path": "analysis/pce/retained_validated_results/historical/01_original_database_frozen_predictions.csv",
+      "sha256": "54b6b258377647afa3c487cc66e75d73898c9757a493f1185e661d067c02e5d6"
+    },
+    {
+      "path": "analysis/pce/retained_validated_results/historical/frozen_production_pce_comparison.csv",
+      "sha256": "3c55c86f51831632d96d3eecc3e2dcb8686f1c142cac2aca2ad7a9e11eb62d63"
+    },
+    {
+      "path": "analysis/pce/retained_validated_results/historical/frozen_holdout_metrics_with_ci.csv",
+      "sha256": "898633faa64a7505712ee8364f23fd4b0f54845372058d456b18514340c54b99"
+    },
+    {
+      "path": "analysis/pce/retained_validated_results/historical/frozen_holdout_paired_deltas.csv",
+      "sha256": "0480b620c92ed5043f87493a9f1ea359a9230933f054d7ae29624cf1dee57aff"
+    }
+  ]
+}

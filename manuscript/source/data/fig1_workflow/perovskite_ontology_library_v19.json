@@ -1,0 +1,1112 @@
+{
+  "version": "v19_external_perovskite_ontology",
+  "description": "Editable ontology/synonym library for halide perovskite literature mining. Add synonyms freely; keep top-level keys stable when possible.",
+  "a_site_cations": {
+    "small_organic": {
+      "FA": [
+        "formamidinium",
+        "formamidinium iodide",
+        "FAI",
+        "FA+",
+        "HC(NH2)2+",
+        "HC(NH2)2",
+        "HC(NH2)2I",
+        "HC(NH2)2PbI3-derived"
+      ],
+      "MA": [
+        "methylammonium",
+        "methylammonium iodide",
+        "MAI",
+        "MA+",
+        "CH3NH3+",
+        "CH3NH3",
+        "CH3NH3I",
+        "MAPbI3-derived"
+      ],
+      "GA": [
+        "guanidinium",
+        "guanidinium iodide",
+        "GAI",
+        "GA+",
+        "C(NH2)3+"
+      ],
+      "EA": [
+        "ethylammonium",
+        "ethylammonium iodide",
+        "EAI",
+        "EA+",
+        "ethylamine"
+      ],
+      "DMA": [
+        "dimethylammonium",
+        "dimethylammonium iodide",
+        "DMAI",
+        "DMA+"
+      ],
+      "AZ": [
+        "azetidinium",
+        "azetidinium iodide",
+        "AzI",
+        "AZI"
+      ]
+    },
+    "inorganic": {
+      "Cs": [
+        "cesium",
+        "caesium",
+        "Cs+",
+        "CsI",
+        "cesium iodide",
+        "caesium iodide",
+        "CsBr",
+        "cesium bromide"
+      ],
+      "Rb": [
+        "rubidium",
+        "Rb+",
+        "RbI",
+        "rubidium iodide",
+        "RbBr",
+        "rubidium bromide"
+      ],
+      "K": [
+        "potassium",
+        "K+",
+        "KI",
+        "potassium iodide",
+        "KBr",
+        "potassium bromide"
+      ],
+      "Na": [
+        "sodium",
+        "Na+",
+        "NaI",
+        "sodium iodide"
+      ]
+    },
+    "large_organic_spacers": {
+      "PEA": [
+        "phenethylammonium",
+        "phenylethylammonium",
+        "2-phenylethylammonium",
+        "PEA",
+        "PEA+",
+        "PEAI",
+        "PEA-I",
+        "phenethylammonium iodide",
+        "2-PEAI",
+        "PEA2PbI4",
+        "(PEA)2PbI4"
+      ],
+      "FPEA": [
+        "fluorophenethylammonium",
+        "4-fluorophenethylammonium",
+        "p-fluorophenethylammonium",
+        "FPEA",
+        "FPEAI",
+        "F-PEAI",
+        "4FPEAI",
+        "4-FPEAI"
+      ],
+      "ClPEA": [
+        "chlorophenethylammonium",
+        "4-chlorophenethylammonium",
+        "ClPEA",
+        "ClPEAI",
+        "Cl-PEAI",
+        "4ClPEAI",
+        "4-ClPEAI"
+      ],
+      "BrPEA": [
+        "bromophenethylammonium",
+        "4-bromophenethylammonium",
+        "BrPEA",
+        "BrPEAI",
+        "Br-PEAI",
+        "4BrPEAI",
+        "4-BrPEAI"
+      ],
+      "MeOPEA": [
+        "methoxyphenethylammonium",
+        "4-methoxyphenethylammonium",
+        "MeO-PEA",
+        "MeOPEA",
+        "MeOPEAI",
+        "MeO-PEAI"
+      ],
+      "BA": [
+        "butylammonium",
+        "n-butylammonium",
+        "butylammonium iodide",
+        "BA",
+        "BA+",
+        "BAI",
+        "n-BAI",
+        "BA2PbI4",
+        "(BA)2PbI4"
+      ],
+      "iBA": [
+        "isobutylammonium",
+        "iso-butylammonium",
+        "iBA",
+        "iBAI",
+        "iso-BAI"
+      ],
+      "PMA": [
+        "phenylmethylammonium",
+        "benzylammonium",
+        "benzylamine",
+        "PMA",
+        "PMAI",
+        "BzA",
+        "BzAI"
+      ],
+      "OAI": [
+        "octylammonium",
+        "n-octylammonium",
+        "octylammonium iodide",
+        "octylamine",
+        "OA",
+        "OA+",
+        "OAI",
+        "OAm",
+        "n-OAI"
+      ],
+      "HA": [
+        "hexylammonium",
+        "hexylammonium iodide",
+        "HA",
+        "HAI",
+        "n-HAI"
+      ],
+      "DA": [
+        "decylammonium",
+        "decylammonium iodide",
+        "DA",
+        "DAI",
+        "n-DAI"
+      ],
+      "BDA": [
+        "butane-1,4-diammonium",
+        "1,4-butanediammonium",
+        "butylenediammonium",
+        "BDA",
+        "BDA2+",
+        "BDAI2",
+        "BDAI",
+        "BDAPbI4",
+        "(BDA)PbI4"
+      ],
+      "PDA": [
+        "propane-1,3-diammonium",
+        "1,3-propanediammonium",
+        "PDA",
+        "PDAI2",
+        "PDAPbI4"
+      ],
+      "EDA": [
+        "ethylenediammonium",
+        "ethane-1,2-diammonium",
+        "EDA",
+        "EDAI2",
+        "EDAPbI4"
+      ],
+      "HDA": [
+        "hexane-1,6-diammonium",
+        "1,6-hexanediammonium",
+        "HDA",
+        "HDAI2"
+      ],
+      "AVA": [
+        "5-aminovaleric acid",
+        "5-ammoniumvaleric acid",
+        "5-AVA",
+        "AVA",
+        "AVAI",
+        "5-AVAI"
+      ],
+      "GABA": [
+        "gamma-aminobutyric acid",
+        "4-aminobutyric acid",
+        "GABA",
+        "GABAI"
+      ],
+      "TEA_thiophene": [
+        "thienylethylammonium",
+        "thiopheneethylammonium",
+        "2-thiopheneethylammonium",
+        "TEA",
+        "TEAI"
+      ],
+      "4Tm": [
+        "thiophenemethylammonium",
+        "thiophen-2-ylmethylammonium",
+        "4Tm",
+        "ThMA",
+        "thiophenylmethylammonium"
+      ]
+    }
+  },
+  "b_site_cations": {
+    "Pb": [
+      "lead",
+      "Pb",
+      "Pb2+",
+      "PbI2",
+      "PbBr2",
+      "PbCl2",
+      "lead iodide",
+      "lead bromide",
+      "lead chloride"
+    ],
+    "Sn": [
+      "tin",
+      "Sn",
+      "Sn2+",
+      "SnI2",
+      "SnBr2",
+      "SnCl2",
+      "tin iodide",
+      "tin bromide",
+      "tin chloride"
+    ],
+    "Ge": [
+      "germanium",
+      "Ge",
+      "GeI2",
+      "germanium iodide"
+    ],
+    "Bi": [
+      "bismuth",
+      "Bi",
+      "BiI3",
+      "bismuth iodide"
+    ],
+    "Sb": [
+      "antimony",
+      "Sb",
+      "SbI3",
+      "antimony iodide"
+    ],
+    "Cu": [
+      "copper",
+      "Cu",
+      "CuI",
+      "copper iodide"
+    ]
+  },
+  "x_site_anions": {
+    "I": [
+      "iodide",
+      "iodine",
+      "I",
+      "I-",
+      "PbI2",
+      "FAI",
+      "MAI",
+      "CsI",
+      "RbI",
+      "KI"
+    ],
+    "Br": [
+      "bromide",
+      "bromine",
+      "Br",
+      "Br-",
+      "PbBr2",
+      "FABr",
+      "MABr",
+      "CsBr",
+      "KBr"
+    ],
+    "Cl": [
+      "chloride",
+      "chlorine",
+      "Cl",
+      "Cl-",
+      "MACl",
+      "FACl",
+      "PbCl2",
+      "NH4Cl"
+    ],
+    "SCN": [
+      "thiocyanate",
+      "SCN",
+      "SCN-",
+      "MASCN",
+      "NH4SCN",
+      "Pb(SCN)2"
+    ]
+  },
+  "dimensionality": {
+    "3D": [
+      "3D",
+      "three-dimensional",
+      "APbX3",
+      "ABX3",
+      "FAPbI3",
+      "formamidinium lead iodide",
+      "MAPbI3",
+      "CsPbI3",
+      "FAPbBr3",
+      "black phase",
+      "alpha phase",
+      "α-phase",
+      "perovskite phase"
+    ],
+    "2D_RP": [
+      "Ruddlesden-Popper",
+      "Ruddlesden Popper",
+      "RP",
+      "RP perovskite",
+      "A'2An-1BnX3n+1",
+      "A2An-1BnX3n+1",
+      "PEA2PbI4",
+      "BA2PbI4",
+      "bilayer spacer"
+    ],
+    "2D_DJ": [
+      "Dion-Jacobson",
+      "Dion Jacobson",
+      "DJ",
+      "DJ perovskite",
+      "A'An-1BnX3n+1",
+      "AAn-1BnX3n+1",
+      "BDAPbI4",
+      "divalent spacer"
+    ],
+    "quasi_2D": [
+      "quasi-2D",
+      "quasi 2D",
+      "2D/3D",
+      "2D-3D",
+      "mixed-dimensional",
+      "mixed dimensional",
+      "low-dimensional",
+      "n=1",
+      "n = 1",
+      "n=2",
+      "n = 2",
+      "n=3",
+      "n = 3",
+      "n=4",
+      "n = 4",
+      "n ≥ 5",
+      "n>=5",
+      "phase distribution"
+    ],
+    "0D": [
+      "0D",
+      "zero-dimensional",
+      "zero dimensional",
+      "isolated octahedra"
+    ]
+  },
+  "additives_passivators": {
+    "alkylammonium_halides": [
+      "BAI",
+      "OAI",
+      "HAI",
+      "DAI",
+      "PEAI",
+      "FPEAI",
+      "AVAI",
+      "GABAI",
+      "surface ammonium halide"
+    ],
+    "alkali_halides": [
+      "KI",
+      "RbI",
+      "CsI",
+      "NaI",
+      "KBr",
+      "RbBr",
+      "CsBr",
+      "alkali metal halide"
+    ],
+    "chloride_additives": [
+      "MACl",
+      "FACl",
+      "NH4Cl",
+      "PbCl2",
+      "methylammonium chloride",
+      "formamidinium chloride",
+      "ammonium chloride"
+    ],
+    "pseudohalides": [
+      "SCN",
+      "MASCN",
+      "NH4SCN",
+      "Pb(SCN)2",
+      "thiocyanate",
+      "pseudohalide"
+    ],
+    "lewis_bases": [
+      "DMSO",
+      "thiourea",
+      "urea",
+      "pyridine",
+      "TPPO",
+      "trioctylphosphine oxide",
+      "caffeine",
+      "theophylline"
+    ],
+    "lewis_acids": [
+      "PbI2",
+      "PbBr2",
+      "ZnI2",
+      "ZnBr2",
+      "CdI2"
+    ],
+    "fullerene_passivation": [
+      "PCBM",
+      "C60",
+      "ICBA",
+      "fullerene",
+      "fullerene derivative"
+    ],
+    "surface_treatments": [
+      "surface passivation",
+      "defect passivation",
+      "post-treatment",
+      "post treatment",
+      "interface modification",
+      "surface treatment",
+      "grain boundary passivation"
+    ]
+  },
+  "processing": {
+    "solution_deposition": [
+      "spin coating",
+      "spin-coating",
+      "spin-coated",
+      "one-step",
+      "one step",
+      "two-step",
+      "two step",
+      "sequential deposition",
+      "blade coating",
+      "doctor blading",
+      "doctor blade",
+      "slot-die",
+      "slot die",
+      "spray coating",
+      "drop casting",
+      "drop-casting",
+      "inkjet printing"
+    ],
+    "vapor_deposition": [
+      "thermal evaporation",
+      "co-evaporation",
+      "dual-source evaporation",
+      "vapor deposition",
+      "vapour deposition",
+      "CVD",
+      "PVD",
+      "vacuum deposition"
+    ],
+    "quenching": [
+      "antisolvent",
+      "anti-solvent",
+      "solvent quenching",
+      "chlorobenzene",
+      "toluene",
+      "ethyl acetate",
+      "diethyl ether",
+      "anisole",
+      "trifluorotoluene",
+      "dripping",
+      "dripped"
+    ],
+    "annealing": [
+      "annealed",
+      "annealing",
+      "thermal annealing",
+      "hotplate",
+      "hot plate",
+      "thermal treatment",
+      "solvent annealing",
+      "post-annealing",
+      "post annealing",
+      "post-treatment"
+    ],
+    "atmosphere": [
+      "glovebox",
+      "glove box",
+      "nitrogen",
+      "N2",
+      "argon",
+      "Ar",
+      "air",
+      "ambient",
+      "relative humidity",
+      "RH",
+      "dry air",
+      "humid air"
+    ]
+  },
+  "solvents": {
+    "precursor_solvents": [
+      "DMF",
+      "DMSO",
+      "NMP",
+      "GBL",
+      "DMAc",
+      "ACN",
+      "DMI",
+      "2-ME",
+      "2ME",
+      "2-methoxyethanol",
+      "methoxyethanol",
+      "gamma-butyrolactone",
+      "dimethylformamide",
+      "dimethyl sulfoxide",
+      "dimethylacetamide",
+      "acetonitrile"
+    ],
+    "antisolvents": [
+      "chlorobenzene",
+      "CB",
+      "toluene",
+      "TL",
+      "ethyl acetate",
+      "EA",
+      "diethyl ether",
+      "DE",
+      "anisole",
+      "trifluorotoluene",
+      "TFT",
+      "benzene",
+      "xylene"
+    ],
+    "alcohols": [
+      "IPA",
+      "isopropanol",
+      "2-propanol",
+      "ethanol",
+      "EtOH",
+      "methanol",
+      "MeOH",
+      "butanol"
+    ],
+    "transport_layer_solvents": [
+      "chlorobenzene",
+      "toluene",
+      "acetonitrile",
+      "isopropanol",
+      "water",
+      "ethanol"
+    ]
+  },
+  "device_layers": {
+    "substrates": [
+      "ITO",
+      "FTO",
+      "glass/ITO",
+      "ITO glass",
+      "glass/FTO",
+      "FTO glass",
+      "PET/ITO",
+      "PEN/ITO",
+      "flexible ITO",
+      "flexible substrate"
+    ],
+    "etl": [
+      "SnO2",
+      "tin oxide",
+      "c-SnO2",
+      "compact SnO2",
+      "TiO2",
+      "c-TiO2",
+      "mp-TiO2",
+      "mesoporous TiO2",
+      "C60",
+      "PCBM",
+      "phenyl-C61-butyric acid methyl ester",
+      "ICBA",
+      "ZnO",
+      "Zn2SnO4",
+      "Nb2O5",
+      "WOx",
+      "electron transport layer",
+      "ETL"
+    ],
+    "htl": [
+      "Spiro-OMeTAD",
+      "spiro",
+      "spiro-MeOTAD",
+      "PTAA",
+      "NiOx",
+      "NiO",
+      "PEDOT:PSS",
+      "PEDOT",
+      "PSS",
+      "MeO-2PACz",
+      "2PACz",
+      "Me-4PACz",
+      "SAM",
+      "self-assembled monolayer",
+      "CuSCN",
+      "CuI",
+      "P3HT",
+      "hole transport layer",
+      "HTL",
+      "HTM"
+    ],
+    "back_contact": [
+      "Au",
+      "Ag",
+      "Al",
+      "Cu",
+      "carbon",
+      "graphite",
+      "metal electrode",
+      "back contact",
+      "top electrode",
+      "counter electrode"
+    ],
+    "architecture": [
+      "n-i-p",
+      "nip",
+      "regular",
+      "regular architecture",
+      "p-i-n",
+      "pin",
+      "inverted",
+      "inverted architecture",
+      "mesoscopic",
+      "planar",
+      "p–i–n",
+      "n–i–p"
+    ]
+  },
+  "performance_metrics": {
+    "jv": [
+      "PCE",
+      "power conversion efficiency",
+      "efficiency",
+      "η",
+      "Voc",
+      "V_OC",
+      "open-circuit voltage",
+      "Jsc",
+      "J_SC",
+      "short-circuit current",
+      "short-circuit current density",
+      "FF",
+      "fill factor",
+      "hysteresis",
+      "hysteresis index",
+      "reverse scan",
+      "forward scan",
+      "J-V",
+      "JV",
+      "current density-voltage",
+      "photovoltaic parameters",
+      "champion device"
+    ],
+    "eqe": [
+      "EQE",
+      "IPCE",
+      "external quantum efficiency",
+      "incident photon-to-current efficiency",
+      "integrated Jsc",
+      "integrated current",
+      "integrated photocurrent"
+    ],
+    "stabilized": [
+      "MPP",
+      "maximum power point",
+      "MPP tracking",
+      "stabilized PCE",
+      "stabilised PCE",
+      "steady-state",
+      "steady state",
+      "SPO",
+      "stabilized power output"
+    ],
+    "stability": [
+      "T80",
+      "T90",
+      "T95",
+      "Ts80",
+      "Te80",
+      "ISOS",
+      "ISOS-L",
+      "ISOS-D",
+      "ISOS-O",
+      "operational stability",
+      "shelf stability",
+      "thermal stability",
+      "humidity stability",
+      "light soaking",
+      "aging",
+      "ageing",
+      "retention",
+      "retained",
+      "after 1000 h",
+      "continuous illumination"
+    ]
+  },
+  "characterization": {
+    "structural": [
+      "XRD",
+      "PXRD",
+      "GIWAXS",
+      "GIXRD",
+      "diffraction",
+      "2θ",
+      "2 theta",
+      "PbI2 peak",
+      "δ-phase",
+      "delta phase",
+      "SEM",
+      "FESEM",
+      "TEM",
+      "HRTEM",
+      "AFM",
+      "roughness",
+      "grain size"
+    ],
+    "optical": [
+      "PL",
+      "photoluminescence",
+      "steady-state PL",
+      "TRPL",
+      "time-resolved PL",
+      "UV-vis",
+      "UV–vis",
+      "absorption",
+      "Tauc",
+      "band gap",
+      "bandgap",
+      "Eg",
+      "Urbach energy"
+    ],
+    "surface": [
+      "XPS",
+      "UPS",
+      "FTIR",
+      "Raman",
+      "contact angle",
+      "Kelvin probe",
+      "KPFM",
+      "work function"
+    ],
+    "electrical": [
+      "SCLC",
+      "trap density",
+      "EIS",
+      "impedance",
+      "Mott-Schottky",
+      "TPV",
+      "TPC",
+      "transient photovoltage",
+      "transient photocurrent"
+    ]
+  },
+  "figure_types": {
+    "jv_curve": [
+      "J-V",
+      "JV",
+      "current density-voltage",
+      "reverse scan",
+      "forward scan",
+      "Voc",
+      "Jsc",
+      "PCE",
+      "FF"
+    ],
+    "eqe_spectrum": [
+      "EQE",
+      "IPCE",
+      "external quantum efficiency",
+      "integrated Jsc",
+      "wavelength"
+    ],
+    "stability_curve": [
+      "stability",
+      "normalized PCE",
+      "MPP",
+      "T80",
+      "aging",
+      "retained",
+      "hours"
+    ],
+    "device_schematic": [
+      "device architecture",
+      "device structure",
+      "ITO",
+      "FTO",
+      "ETL",
+      "HTL",
+      "back contact"
+    ],
+    "xrd_pattern": [
+      "XRD",
+      "diffraction",
+      "2θ",
+      "PbI2",
+      "peak"
+    ],
+    "pl_uvvis": [
+      "PL",
+      "UV-vis",
+      "absorption",
+      "Tauc",
+      "band gap",
+      "photoluminescence"
+    ],
+    "microscopy": [
+      "SEM",
+      "TEM",
+      "AFM",
+      "morphology",
+      "grain",
+      "roughness"
+    ],
+    "energy_level": [
+      "energy level",
+      "band alignment",
+      "HOMO",
+      "LUMO",
+      "work function"
+    ]
+  },
+  "family_ontology_map": {
+    "reference_device": [
+      "device_layers",
+      "performance_metrics"
+    ],
+    "perovskite_chemistry": [
+      "a_site_cations",
+      "b_site_cations",
+      "x_site_anions",
+      "dimensionality",
+      "additives_passivators",
+      "characterization"
+    ],
+    "etl": [
+      "device_layers",
+      "processing",
+      "solvents",
+      "additives_passivators"
+    ],
+    "perovskite_processing": [
+      "a_site_cations",
+      "b_site_cations",
+      "x_site_anions",
+      "dimensionality",
+      "additives_passivators",
+      "processing",
+      "solvents"
+    ],
+    "htl_backcontact_additional": [
+      "device_layers",
+      "processing",
+      "solvents",
+      "additives_passivators"
+    ],
+    "performance": [
+      "performance_metrics",
+      "device_layers",
+      "figure_types"
+    ],
+    "stability_outdoor": [
+      "performance_metrics",
+      "device_layers",
+      "figure_types"
+    ]
+  },
+  "family_gate_terms": {
+    "reference_device": [
+      "device",
+      "architecture",
+      "stack",
+      "ITO",
+      "FTO",
+      "substrate",
+      "cell",
+      "n-i-p",
+      "p-i-n"
+    ],
+    "perovskite_chemistry": [
+      "perovskite",
+      "composition",
+      "FA",
+      "MA",
+      "Cs",
+      "PbI2",
+      "PbBr2",
+      "band gap",
+      "PL",
+      "2D",
+      "3D",
+      "quasi-2D"
+    ],
+    "etl": [
+      "ETL",
+      "electron transport",
+      "SnO2",
+      "TiO2",
+      "C60",
+      "PCBM",
+      "ZnO"
+    ],
+    "perovskite_processing": [
+      "spin",
+      "anneal",
+      "antisolvent",
+      "precursor",
+      "DMF",
+      "DMSO",
+      "deposition",
+      "solution",
+      "glovebox"
+    ],
+    "htl_backcontact_additional": [
+      "HTL",
+      "hole transport",
+      "spiro",
+      "PTAA",
+      "NiOx",
+      "PEDOT",
+      "Au",
+      "Ag",
+      "electrode",
+      "encapsulation"
+    ],
+    "performance": [
+      "PCE",
+      "Voc",
+      "Jsc",
+      "FF",
+      "J-V",
+      "JV",
+      "EQE",
+      "MPP",
+      "efficiency",
+      "champion"
+    ],
+    "stability_outdoor": [
+      "stability",
+      "stable",
+      "T80",
+      "T95",
+      "aging",
+      "ageing",
+      "ISOS",
+      "operational",
+      "outdoor",
+      "1000 h",
+      "retention",
+      "retained"
+    ]
+  },
+  "search_concepts": {
+    "FAPbI3": [
+      "FAPbI3",
+      "formamidinium lead iodide",
+      "alpha-FAPbI3",
+      "alpha FAPbI3",
+      "α-FAPbI3",
+      "black-phase FAPbI3"
+    ]
+  },
+  "figure_task_ontology": {
+    "jv_curve": {
+      "terms": [
+        "J-V",
+        "JV",
+        "current density-voltage",
+        "Voc",
+        "Jsc",
+        "PCE",
+        "FF",
+        "reverse scan",
+        "forward scan"
+      ],
+      "priority": "high"
+    },
+    "eqe_spectrum": {
+      "terms": [
+        "EQE",
+        "IPCE",
+        "external quantum efficiency",
+        "integrated Jsc",
+        "wavelength"
+      ],
+      "priority": "high"
+    },
+    "stability_curve": {
+      "terms": [
+        "stability",
+        "T80",
+        "T95",
+        "aging",
+        "retained",
+        "normalized PCE",
+        "MPP",
+        "hours"
+      ],
+      "priority": "high"
+    },
+    "device_schematic": {
+      "terms": [
+        "device architecture",
+        "device structure",
+        "schematic",
+        "ITO",
+        "FTO",
+        "ETL",
+        "HTL",
+        "back contact"
+      ],
+      "priority": "high"
+    },
+    "xrd_pattern": {
+      "terms": [
+        "XRD",
+        "diffraction",
+        "2theta",
+        "2 theta",
+        "2θ",
+        "PbI2",
+        "peak"
+      ],
+      "priority": "medium"
+    },
+    "pl_uvvis": {
+      "terms": [
+        "PL",
+        "photoluminescence",
+        "UV-vis",
+        "absorption",
+        "Tauc",
+        "band gap"
+      ],
+      "priority": "medium"
+    },
+    "sem_tem_afm": {
+      "terms": [
+        "SEM",
+        "TEM",
+        "AFM",
+        "morphology",
+        "grain",
+        "roughness"
+      ],
+      "priority": "low"
+    },
+    "energy_level": {
+      "terms": [
+        "energy level",
+        "band alignment",
+        "HOMO",
+        "LUMO",
+        "work function"
+      ],
+      "priority": "medium"
+    }
+  }
+}

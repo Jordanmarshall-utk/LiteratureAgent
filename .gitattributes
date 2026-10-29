@@ -1,0 +1,13 @@
+* text=auto eol=lf
+*.csv text eol=lf
+*.json text eol=lf
+*.jsonl text eol=lf
+*.svg text eol=lf
+*.py text eol=lf
+*.cmd -text
+*.ps1 text eol=lf
+*.png -text
+*.pdf -text
+*.opju -text
+*.xlsx -text
+*.gz -text

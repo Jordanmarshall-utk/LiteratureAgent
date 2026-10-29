@@ -1,0 +1,6 @@
+split_seed,source_pool_rows,source_pool_recorded_doi_rows,source_pool_recorded_doi_groups,source_pool_missing_doi_rows_training_only,test_rows,test_normalized_doi_groups,original_training_rows,accepted_training_rows,test_vs_training_row_overlap,test_vs_training_normalized_doi_overlap,split_rule,model_random_state,n_estimators,feature_count,numeric_feature_count,categorical_feature_count
+0,633,633,400,0,127,80,20766,506,0,0,"GroupShuffleSplit(n_splits=1, test_size=0.20, random_state=split_seed)",42,300,278,113,165
+1,633,633,400,0,133,80,20782,500,0,0,"GroupShuffleSplit(n_splits=1, test_size=0.20, random_state=split_seed)",42,300,278,113,165
+2,633,633,400,0,129,80,20746,504,0,0,"GroupShuffleSplit(n_splits=1, test_size=0.20, random_state=split_seed)",42,300,278,113,165
+3,633,633,400,0,132,80,20781,501,0,0,"GroupShuffleSplit(n_splits=1, test_size=0.20, random_state=split_seed)",42,300,278,113,165
+4,633,633,400,0,127,80,20701,506,0,0,"GroupShuffleSplit(n_splits=1, test_size=0.20, random_state=split_seed)",42,300,278,113,165

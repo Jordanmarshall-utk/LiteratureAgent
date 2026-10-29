@@ -1,0 +1,103 @@
+{
+  "plot_id": "figs4b_normalization_sensitivity",
+  "current_figure": "Figure S4",
+  "panel": "b",
+  "status": "READY",
+  "required_action": "RETAIN",
+  "scientific_content": "Condition-normalization parameter sensitivity",
+  "authoritative_analysis_version": "retained current release",
+  "portable_paths_only": true,
+  "style": {
+    "standalone_dimensions_mm": {
+      "width": 180,
+      "height": 78
+    },
+    "font_family": "Times New Roman",
+    "font_sizes_pt": {
+      "tick_and_category": 8,
+      "legend": 8,
+      "axis_label": 9,
+      "title": 9
+    },
+    "background": "white",
+    "outer_frame": "none",
+    "spines": {
+      "top": false,
+      "right": false,
+      "left": true,
+      "bottom": true
+    },
+    "grid_color": "#D9DEE5",
+    "export": {
+      "vector": [
+        "PDF",
+        "SVG or EMF"
+      ],
+      "raster": "PNG, 600 dpi at final physical dimensions",
+      "transparent_background": false
+    },
+    "palette": {
+      "blue": "#0072B2",
+      "sky": "#3C8DBC",
+      "teal": "#009E73",
+      "amber": "#E69F00",
+      "orange": "#D55E00",
+      "purple": "#7B61A8",
+      "neutral": "#4B5563",
+      "grid": "#D9DEE5",
+      "pale": "#F4F6F8",
+      "ink": "#202124",
+      "white": "#FFFFFF"
+    }
+  },
+  "output_filenames": [
+    "figs4b_normalization_sensitivity.opju",
+    "figs4b_normalization_sensitivity.pdf",
+    "figs4b_normalization_sensitivity.svg",
+    "figs4b_normalization_sensitivity.png"
+  ],
+  "assembly_instruction": "Standalone plot only. Do not assemble with another panel in OriginPro.",
+  "input": {
+    "file": "data/figs4b_normalization_sensitivity/plot_data.csv",
+    "category_column": "scenario",
+    "series_columns": [
+      "spearman_vs_baseline",
+      "top_quartile_overlap_vs_baseline"
+    ]
+  },
+  "plot_type": "paired horizontal agreement estimates connected by a line",
+  "axes": {
+    "x": {
+      "label": "Agreement with baseline scenario",
+      "scale": "linear",
+      "limits": [
+        0.87,
+        1.01
+      ],
+      "reference_line": 1.0
+    },
+    "y": {
+      "label": "",
+      "reverse_order": true
+    }
+  },
+  "category_order": [
+    "Ea 0.30 eV",
+    "Ea 0.45 eV",
+    "Baseline",
+    "Ea 0.75 eV",
+    "Ea 0.90 eV",
+    "RH exponent 0.5",
+    "RH exponent 2.0",
+    "Light exponent 0.5",
+    "Light exponent 1.0"
+  ],
+  "series_order": [
+    "Spearman rank correlation",
+    "Top-quartile overlap"
+  ],
+  "expected_plotted_counts": {
+    "scenarios": 9,
+    "point_estimates": 18
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "before": 253,
+  "after": 221,
+  "threshold": 0.15,
+  "min_column_coverage": 0.005,
+  "source_aware_row_completeness": true,
+  "candidate_columns": 248,
+  "counted_columns": 105,
+  "literature_agent_rows_before": 0,
+  "literature_agent_rows_after": 0,
+  "literature_agent_counted_columns": 0
+}

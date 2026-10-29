@@ -176,7 +176,7 @@ def main() -> None:
     parser.add_argument("--extracted-csv", required=True, type=Path)
     parser.add_argument("--integrated-csv", required=True, type=Path)
     parser.add_argument("--out-root", required=True, type=Path)
-    parser.add_argument("--model-script", default="models/pce_then_stability_same_approach.py", type=Path)
+    parser.add_argument("--model-script", default="models/pce_stability.py", type=Path)
     parser.add_argument("--min-publication-year", type=int, default=2018)
     parser.add_argument("--n-estimators", type=int, default=300)
     parser.add_argument(

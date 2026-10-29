@@ -1,0 +1,35 @@
+TY  - JOUR
+ID  - 10.1063/5.0333166
+AU  - Marshall, Jordan
+AU  - Alexander, Marlena
+AU  - Garcia, Vincent Joseph
+AU  - Safin, Joshua
+AU  - Sanchez, Sheryl L.
+AU  - Foadian, Elham
+AU  - Rawn, Claudia
+AU  - Page, Katharine
+AU  - Kalinin, Sergei V.
+AU  - Ahmadi, Mahshid
+TI  - Uncertainty-aware prediction of thermal expansion in complex oxides via LLM-curated literature data
+JO  - APL Machine Learning
+PY  - 2026
+VL  - 4
+IS  - 3
+SP  - 036104
+DO  - 10.1063/5.0333166
+UR  - https://doi.org/10.1063/5.0333166
+ER  -
+
+TY  - CPAPER
+ID  - NIPS2017_8a20a862
+AU  - Lundberg, Scott M.
+AU  - Lee, Su-In
+TI  - A Unified Approach to Interpreting Model Predictions
+T2  - Advances in Neural Information Processing Systems 30
+PY  - 2017
+VL  - 30
+SP  - 4765
+EP  - 4774
+PB  - Curran Associates, Inc.
+UR  - https://proceedings.neurips.cc/paper_files/paper/2017/hash/8a20a8621978632d76c43dfd28b67767-Abstract.html
+ER  -

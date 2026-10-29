@@ -1,0 +1,112 @@
+{
+  "plot_id": "fig3a_historical_r2",
+  "current_figure": "Figure 3",
+  "panel": "a",
+  "status": "READY",
+  "required_action": "REGENERATE",
+  "scientific_content": "Historical-test PCE R-squared",
+  "authoritative_analysis_version": "2026-10-27_controlled_repaired_rerun_v1",
+  "portable_paths_only": true,
+  "style": {
+    "standalone_dimensions_mm": {
+      "width": 85,
+      "height": 50
+    },
+    "font_family": "Times New Roman",
+    "font_sizes_pt": {
+      "tick_and_category": 8,
+      "legend": 8,
+      "axis_label": 9,
+      "title": 9
+    },
+    "background": "white",
+    "outer_frame": "none",
+    "spines": {
+      "top": false,
+      "right": false,
+      "left": true,
+      "bottom": true
+    },
+    "grid_color": "#D9DEE5",
+    "export": {
+      "vector": [
+        "PDF",
+        "SVG or EMF"
+      ],
+      "raster": "PNG, 600 dpi at final physical dimensions",
+      "transparent_background": false
+    },
+    "palette": {
+      "blue": "#0072B2",
+      "sky": "#3C8DBC",
+      "teal": "#009E73",
+      "amber": "#E69F00",
+      "orange": "#D55E00",
+      "purple": "#7B61A8",
+      "neutral": "#4B5563",
+      "grid": "#D9DEE5",
+      "pale": "#F4F6F8",
+      "ink": "#202124",
+      "white": "#FFFFFF"
+    }
+  },
+  "output_filenames": [
+    "fig3a_historical_r2.opju",
+    "fig3a_historical_r2.pdf",
+    "fig3a_historical_r2.svg",
+    "fig3a_historical_r2.png"
+  ],
+  "assembly_instruction": "Standalone plot only. Do not assemble with another panel in OriginPro.",
+  "input": {
+    "file": "data/fig3a_historical_r2/plot_data.csv",
+    "category_column": "display_label",
+    "category_order_column": "category_order",
+    "estimate_column": "estimate",
+    "lower_bound_column": "ci_lower",
+    "upper_bound_column": "ci_upper",
+    "origin_asymmetric_error_columns": [
+      "error_minus",
+      "error_plus"
+    ]
+  },
+  "plot_type": "horizontal categorical point estimate with asymmetric confidence interval",
+  "axes": {
+    "x": {
+      "label": "R²",
+      "scale": "linear",
+      "reference_line": 0.0,
+      "number_format": ".2f"
+    },
+    "y": {
+      "label": "",
+      "reverse_order": true
+    }
+  },
+  "series_order": [
+    "Original",
+    "Curated expansion",
+    "Full expansion"
+  ],
+  "uncertainty": {
+    "confidence_level": 0.95,
+    "method": "2,000-iteration normalized-DOI/publication-cluster bootstrap",
+    "bounds_are_not_clipped": true
+  },
+  "style_overrides": {
+    "marker": "circle",
+    "marker_size_pt": 5.5,
+    "marker_edge": "white, 0.6 pt",
+    "error_line_width_pt": 1.25,
+    "error_cap_size_pt": 3,
+    "series_colors_in_order": [
+      "#0072B2",
+      "#E69F00",
+      "#009E73"
+    ]
+  },
+  "expected_plotted_counts": {
+    "categories": 3,
+    "point_estimates": 3,
+    "confidence_intervals": 3
+  }
+}

@@ -1,0 +1,8 @@
+final_adjudicated_status,fields,evidence_category
+Correct value with newly reconstructed sample-specific evidence,55,reconstructed evidence
+Correct value with valid sample-specific historical evidence,55,retained historical evidence
+Wrong field or layer role,24,corrected field/layer role
+Incorrect value or sample assignment,20,corrected assignment/value
+Unsupported or ambiguous value,9,unsupported value
+Missing metadata completed from the source,5,metadata completion
+Source evidence unavailable,5,

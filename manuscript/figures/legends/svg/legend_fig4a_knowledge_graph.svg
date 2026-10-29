@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="170mm" height="26mm" viewBox="0 0 1700 260">
+  <rect width="1700" height="260" fill="#FFFFFF"/>
+  <defs>
+    <marker id="n" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#33546E"/></marker>
+    <marker id="o" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#F28A00"/></marker>
+    <marker id="g" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#6B7280"/></marker>
+  </defs>
+  <path d="M55 65 l18 -18 18 18 -18 18 z" fill="#FFFFFF" stroke="#33546E" stroke-width="5"/>
+  <text x="110" y="78" font-family="Times New Roman" font-size="42.3333" fill="#202124">evidence node</text>
+  <line x1="430" y1="65" x2="535" y2="65" stroke="#33546E" stroke-width="4" stroke-dasharray="9 7" marker-end="url(#n)"/>
+  <text x="565" y="78" font-family="Times New Roman" font-size="42.3333" fill="#202124">evidence supports claim</text>
+  <line x1="1120" y1="65" x2="1235" y2="65" stroke="#33546E" stroke-width="5" marker-end="url(#n)"/>
+  <text x="1270" y="78" font-family="Times New Roman" font-size="42.3333" fill="#202124">graph link</text>
+  <line x1="250" y1="190" x2="385" y2="190" stroke="#F28A00" stroke-width="6" marker-end="url(#o)"/>
+  <text x="420" y="203" font-family="Times New Roman" font-size="42.3333" fill="#202124">reported relation</text>
+  <line x1="960" y1="190" x2="1095" y2="190" stroke="#6B7280" stroke-width="5" marker-end="url(#g)"/>
+  <text x="1130" y="203" font-family="Times New Roman" font-size="42.3333" fill="#202124">claim-to-object link</text>
+</svg>

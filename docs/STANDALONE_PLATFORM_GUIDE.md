@@ -125,7 +125,7 @@ ship a personal Unpaywall identity; set `UNPAYWALL_EMAIL` (or pass
 From the project root:
 
 ```powershell
-python .\scripts\build_literatureagent_coworker_package.py
+python .\scripts\build_windows_release.py
 ```
 
 The builder requires the local portable runtime at

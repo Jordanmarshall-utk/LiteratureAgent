@@ -1,0 +1,94 @@
+{
+  "plot_id": "fig2b_campaign_readiness",
+  "current_figure": "Figure 2",
+  "panel": "b",
+  "status": "READY",
+  "required_action": "RETAIN",
+  "scientific_content": "Task-specific support and completeness filtering",
+  "authoritative_analysis_version": "retained current release",
+  "portable_paths_only": true,
+  "style": {
+    "standalone_dimensions_mm": {
+      "width": 85,
+      "height": 72
+    },
+    "font_family": "Times New Roman",
+    "font_sizes_pt": {
+      "tick_and_category": 8,
+      "legend": 8,
+      "axis_label": 9,
+      "title": 9
+    },
+    "background": "white",
+    "outer_frame": "none",
+    "spines": {
+      "top": false,
+      "right": false,
+      "left": true,
+      "bottom": true
+    },
+    "grid_color": "#D9DEE5",
+    "export": {
+      "vector": [
+        "PDF",
+        "SVG or EMF"
+      ],
+      "raster": "PNG, 600 dpi at final physical dimensions",
+      "transparent_background": false
+    },
+    "palette": {
+      "blue": "#0072B2",
+      "sky": "#3C8DBC",
+      "teal": "#009E73",
+      "amber": "#E69F00",
+      "orange": "#D55E00",
+      "purple": "#7B61A8",
+      "neutral": "#4B5563",
+      "grid": "#D9DEE5",
+      "pale": "#F4F6F8",
+      "ink": "#202124",
+      "white": "#FFFFFF"
+    }
+  },
+  "output_filenames": [
+    "fig2b_campaign_readiness.opju",
+    "fig2b_campaign_readiness.pdf",
+    "fig2b_campaign_readiness.svg",
+    "fig2b_campaign_readiness.png"
+  ],
+  "assembly_instruction": "Standalone plot only. Do not assemble with another panel in OriginPro.",
+  "input": {
+    "file": "data/fig2b_campaign_readiness/plot_data.csv",
+    "category_column": "display_label",
+    "value_column": "value"
+  },
+  "plot_type": "horizontal readiness and completeness-gate bar chart",
+  "axes": {
+    "x": {
+      "label": "Record representations passing screen",
+      "scale": "linear"
+    },
+    "y": {
+      "label": "",
+      "reverse_order": true
+    }
+  },
+  "category_order": [
+    "PCE minimal",
+    "PCE strict",
+    "Stability minimal",
+    "Stability strict",
+    "Physical stability",
+    "PCE completeness gate"
+  ],
+  "shortcut_scope_check": {
+    "minimal_pce_ready": 75,
+    "strict_pce_ready": 18,
+    "minimal_stability_ready": 4,
+    "strict_stability_ready": 0
+  },
+  "expected_plotted_counts": {
+    "categories": 6,
+    "completeness_gate": "641/1096"
+  }
+}

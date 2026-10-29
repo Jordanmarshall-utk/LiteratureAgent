@@ -61,7 +61,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--model-script",
         type=Path,
-        default=ROOT / "models" / "pce_then_stability_same_approach.py",
+        default=ROOT / "models" / "pce_stability.py",
     )
     parser.add_argument("--frozen-dir", type=Path, default=FROZEN_DIR)
     parser.add_argument("--utility-dir", type=Path, default=UTILITY_DIR)

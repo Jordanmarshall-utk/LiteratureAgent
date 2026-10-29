@@ -9,7 +9,7 @@ import pandas as pd
 MODEL_PATH = (
     Path(__file__).resolve().parents[1]
     / "models"
-    / "pce_then_stability_same_approach.py"
+    / "pce_stability.py"
 )
 
 

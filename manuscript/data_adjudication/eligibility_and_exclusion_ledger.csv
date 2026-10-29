@@ -1,0 +1,7 @@
+record_identifier,scope,decision,reason,source_decision_basis
+2020_adv_energy_mater_high_electron_affinity_ena_794d0e3ce1_device_1,all PCE training/evaluation fits,exclude,duplicate_same_sample_and_test,DOI/sample-duplication/review adjudication
+2020_adv_energy_mater_scalable_fabrication_of_ef_511e155469_device_1,all PCE training/evaluation fits,exclude,duplicate_same_sample_measurement_entity,DOI/sample-duplication/review adjudication
+2020_adv_mater_efficient_bifacial_passivation_wi_82c507e997_device_1,all PCE training/evaluation fits,exclude,duplicate_same_sample_and_test,DOI/sample-duplication/review adjudication
+2020_adv_mater_tailoring_c_60_for_efficient_inor_271f2ddabc_device_1,all PCE training/evaluation fits,exclude,duplicate_same_sample_and_test,DOI/sample-duplication/review adjudication
+dimensional_tailoring_of_hybrid_perovskites_for_5843e9bc0f_device_1,all PCE training/evaluation fits,exclude,review_without_unique_primary_sample,DOI/sample-duplication/review adjudication
+Ref_ID=28; DOI=10.1039/c9ta01893j,six Ref_ID 28 stability-derived endpoints only,exclude targets; retain source row and unrelated fields,Retained source context does not resolve the internal 5 h/75%/T80=200 h contradiction; no replacement value is defensible.,"2026-10-27 stability context check, decided before inspecting sensitivity direction"

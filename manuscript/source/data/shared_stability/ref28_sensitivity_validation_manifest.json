@@ -1,0 +1,41 @@
+{
+  "analysis": "dependency-driven repaired stability completion",
+  "created_utc": "2026-10-28T19:56:32.952755+00:00",
+  "status": "PASS",
+  "model_script_sha256": "19f58acdfb6143a75df5d034be08f1de070d43713b716cba6c77d4b422898115",
+  "ref28_identity_guard": {
+    "Ref_ID": 28,
+    "doi": "10.1039/c9ta01893j",
+    "composition": "Cs0.05FA0.788MA0.162PbBr0.51I2.49"
+  },
+  "ref28_quarantine_targets": [
+    "target_end_retention_pct",
+    "target_end_retention_ge80",
+    "target_T80_ge100h",
+    "target_T80_ge500h",
+    "target_log1p_T80_hours",
+    "target_phys_log_k_obs"
+  ],
+  "requested_estimates": 24,
+  "dependency_rows": 66,
+  "refitted_endpoint_estimates": 44,
+  "bootstrap_iterations": 2000,
+  "bootstrap_unit": "normalized Ref_DOI_number publication group",
+  "bootstrap_seed": "stable SHA256-derived seed prefixed by ref28_exclusion",
+  "fold_policy": "five-fold deterministic DOI GroupKFold; repaired DOI groups propagated before split",
+  "main_figure_predicted_pce_excluded": true,
+  "display_label_correction": {
+    "internal_key": "target_phys_log_k_obs",
+    "display": "Calculated ln(k), k in h^-1"
+  },
+  "software": {
+    "python": "3.11.9",
+    "numpy": "2.3.5",
+    "pandas": "3.0.2",
+    "scikit_learn": "1.8.0"
+  },
+  "source_table": "all_stability_metrics_and_sensitivity.csv",
+  "refitted_prediction_sources": "refitted_endpoint_provenance.csv",
+  "main_figure_meaningful_value_changes": 8,
+  "source_path_correction": "Refitted OOF references are joined from the endpoint provenance table."
+}

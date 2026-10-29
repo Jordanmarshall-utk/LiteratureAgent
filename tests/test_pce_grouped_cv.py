@@ -9,7 +9,7 @@ import pandas as pd
 from sklearn.ensemble import ExtraTreesRegressor
 
 
-MODEL_PATH = Path(__file__).resolve().parents[1] / "models" / "pce_then_stability_same_approach.py"
+MODEL_PATH = Path(__file__).resolve().parents[1] / "models" / "pce_stability.py"
 
 
 def load_model_module():

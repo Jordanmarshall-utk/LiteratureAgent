@@ -1,0 +1,2 @@
+dataset_version,train_rows,matched_frozen_row_keys,frozen_row_keys_in_training,test_rows,test_doi_groups,test_doi_groups_also_in_training,model_random_state,n_estimators,feature_count,numeric_feature_count,categorical_feature_count,fit_metadata
+03_repaired_after_google_drive_plus_expansion,17269,4157,0,4159,2248,2115,42,300,278,113,165,"{""added_training_rows"": 0, ""categorical_features"": 165, ""encoded_training_inputs"": 5291, ""numeric_features"": 113, ""original_training_rows"": 17269, ""training_rows"": 17269}"

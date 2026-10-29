@@ -1,0 +1,111 @@
+{
+  "plot_id": "figs3_local_shap",
+  "current_figure": "Figure S3",
+  "panel": "",
+  "status": "READY",
+  "required_action": "REGENERATE",
+  "scientific_content": "Individual-record grouped SHAP explanation",
+  "authoritative_analysis_version": "2026-10-27_controlled_repaired_rerun_v1",
+  "portable_paths_only": true,
+  "style": {
+    "standalone_dimensions_mm": {
+      "width": 180,
+      "height": 125
+    },
+    "font_family": "Times New Roman",
+    "font_sizes_pt": {
+      "tick_and_category": 8,
+      "legend": 8,
+      "axis_label": 9,
+      "title": 9
+    },
+    "background": "white",
+    "outer_frame": "none",
+    "spines": {
+      "top": false,
+      "right": false,
+      "left": true,
+      "bottom": true
+    },
+    "grid_color": "#D9DEE5",
+    "export": {
+      "vector": [
+        "PDF",
+        "SVG or EMF"
+      ],
+      "raster": "PNG, 600 dpi at final physical dimensions",
+      "transparent_background": false
+    },
+    "palette": {
+      "blue": "#0072B2",
+      "sky": "#3C8DBC",
+      "teal": "#009E73",
+      "amber": "#E69F00",
+      "orange": "#D55E00",
+      "purple": "#7B61A8",
+      "neutral": "#4B5563",
+      "grid": "#D9DEE5",
+      "pale": "#F4F6F8",
+      "ink": "#202124",
+      "white": "#FFFFFF"
+    }
+  },
+  "output_filenames": [
+    "figs3_local_shap.opju",
+    "figs3_local_shap.pdf",
+    "figs3_local_shap.svg",
+    "figs3_local_shap.png"
+  ],
+  "assembly_instruction": "Standalone plot only. Do not assemble with another panel in OriginPro.",
+  "input": {
+    "contributions_file": "data/figs3_local_shap/display_contributions.csv",
+    "selection_file": "data/figs3_local_shap/selection_and_reconstruction.json",
+    "category_column": "scientific_group",
+    "category_order_column": "display_order",
+    "value_column": "grouped_shap_pce_points",
+    "color_column": "color_hex"
+  },
+  "plot_type": "horizontal signed contribution bar chart",
+  "axes": {
+    "x": {
+      "label": "Grouped SHAP contribution to predicted PCE (percentage points)",
+      "scale": "linear",
+      "reference_line": 0
+    },
+    "y": {
+      "label": "",
+      "reverse_order": true
+    }
+  },
+  "selection_rule": "uniform random draw from ordered 21426-row fitted-training-cohort explanation table; NumPy default_rng(42).integers(0, row_count).",
+  "reconstruction": {
+    "selection_method": "uniform random draw from ordered 21426-row fitted-training-cohort explanation table",
+    "random_seed": 42,
+    "selected_position_zero_based": 1912,
+    "production_row_index": 3942,
+    "publication_group_id": "10.1021/acsami.9b06933",
+    "publication_group_device_count": 4,
+    "base_value_pce_points": 14.27738543215957,
+    "base_value_semantics": "SHAP expected value for the repaired fitted model",
+    "predicted_pce": 13.973887435918554,
+    "observed_pce": 5.63,
+    "full_contribution_sum_pce_points": -0.30349804614564074,
+    "reconstructed_prediction": 13.973887386013928,
+    "prediction_reconstruction_difference": -4.990462620924063e-08,
+    "top_group_count": 10,
+    "other_group_count": 208,
+    "other_group_signed_net_remainder_pce_points": -0.18778529998884583,
+    "explanation_scope": "Final repaired fitted-model in-sample attribution table; not out-of-fold"
+  },
+  "style_overrides": {
+    "negative_bar_color": "#0072B2",
+    "positive_bar_color": "#D55E00",
+    "bar_height": 0.68,
+    "bar_outline": "none"
+  },
+  "expected_plotted_counts": {
+    "displayed_bars": 11,
+    "explicit_top_groups": 10,
+    "aggregated_other_groups": 208
+  }
+}

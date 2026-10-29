@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "checks": {
+    "feature_count": 278,
+    "numeric_features_locked": 113,
+    "categorical_features_locked": 165,
+    "holdout_rows": 4092,
+    "holdout_doi_groups": 744,
+    "holdout_row_keys_exactly_reused": true,
+    "holdout_targets_exactly_matched": true,
+    "all_training_counts_match_reference": false,
+    "zero_test_doi_overlap_all_conditions": true,
+    "zero_test_row_overlap_all_conditions": true,
+    "all_metrics_and_intervals_finite": true,
+    "bootstrap_iterations": 2000,
+    "random_state": 42
+  }
+}

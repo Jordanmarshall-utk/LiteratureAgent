@@ -1,0 +1,10 @@
+section,quantity,value
+paper,Unique structured papers,910
+audit,Raw extracted rows,1349
+audit,Audited after coalescing,1223
+audit,Accepted and appended,1137
+readiness,PCE minimal,663
+readiness,PCE strict,400
+readiness,Stability minimal,81
+readiness,Stability strict,18
+readiness,Physical stability,0

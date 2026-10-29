@@ -1,0 +1,25 @@
+current_figure,current_panel,current_label,legacy_name_or_number,content
+Figure 1,,Figure 1,Figure1_DIRECT_INSERT.*,unchanged
+Figure 2,a,Figure 2a,Figure2A_campaign_accounting.*,unchanged
+Figure 2,b,Figure 2b,Figure2B_task_specific_support_and_filtering.*,unchanged
+Figure 3,a,Figure 3a,old Figure 4A,historical R²
+Figure 3,b,Figure 3b,old Figure 4B,historical RMSE
+Figure 3,c,Figure 3c,old Figure 4C,historical MAE
+Figure 3,d,Figure 3d,old Figure 4D,LiteratureAgent R²
+Figure 3,e,Figure 3e,old Figure 4E,LiteratureAgent RMSE
+Figure 3,f,Figure 3f,old Figure 4F,LiteratureAgent MAE
+Figure 4,a,Figure 4a,PanelA_five_paper_knowledge_graph,five-paper graph
+Figure 4,b,Figure 4b,old Figure 5,choice-stratified SHAP
+Figure 5,a,Figure 5a,old Figure 6A,stability classification
+Figure 5,b,Figure 5b,old Figure 6B,stability regression
+Figure 6,,Figure 6,old Figure 7,integrated graph
+Figure S1,,Figure S1,FigureS1,global grouped SHAP
+Figure S2,,Figure S2,FigureS2,solvent SHAP
+Figure S3,,Figure S3,FigureS3,local SHAP
+Figure S4,a,Figure S4a,FigureS4A,normalized stability
+Figure S4,b,Figure S4b,FigureS4B,normalization sensitivity
+Figure S5,,Figure S5,FigureS5,reasoning graph
+Figure S6,a,Figure S6a,old Figure 3A,phrase recall benchmark
+Figure S6,b,Figure S6b,old Figure 3B,cosine similarity benchmark
+Figure S6,c,Figure S6c,old Figure 3C,token F1 benchmark
+Figure S6,d,Figure S6d,old Figure 3D,verbosity benchmark

@@ -168,7 +168,7 @@ def replay_enrichment(df: pd.DataFrame, controller) -> pd.DataFrame:
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--lit-csv", required=True)
-    parser.add_argument("--controller", default="literature_agent_full_end_to_end_v21_3_english_sanitizer.py")
+    parser.add_argument("--controller", default="literature_agent_pipeline.py")
     parser.add_argument("--out-dir", required=True)
     args = parser.parse_args()
 

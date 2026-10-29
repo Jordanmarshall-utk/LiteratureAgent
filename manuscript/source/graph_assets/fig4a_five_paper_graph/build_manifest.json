@@ -1,0 +1,33 @@
+{
+  "builder": "source_records/build_editable_five_paper_panel_powerpoint.py",
+  "builder_sha256": "2369408266f3f80fc76ffc1fbde08bfd01d5b1da6658fc42c6960766db8e0a29",
+  "source_table": "source_records/PanelB_source_paths.csv",
+  "source_table_sha256": "1b7be8596c72520a2080c579f5ee6e22bbba9a3902af57999c66552746f03885",
+  "source_validation_manifest": "source/graph_assets/fig4a_five_paper_graph/build_manifest.json",
+  "source_validation_manifest_sha256": "d89f297bab3ccc78d6fd779cbb6b4c0ea25816c7f6dfa46572c0d1ab8956a49a",
+  "standalone_dimensions_in": [
+    2.88,
+    4.62
+  ],
+  "template_dimensions_in": [
+    8.18,
+    4.62
+  ],
+  "panel_dimensions_in": [
+    2.8,
+    4.48
+  ],
+  "source_path_count": 5,
+  "validation_status": "PASS",
+  "editability": {
+    "standalone_slide_shape_count": 81,
+    "template_slide_shape_count": 85,
+    "raster_images_in_standalone": 0,
+    "raster_images_in_template": 0,
+    "all_visible_panel_elements_native_powerpoint_objects": true
+  },
+  "outputs": {
+    "PanelA_five_paper_knowledge_graph_EDITABLE.pptx": "370c03a13c997deb424ce3f6430429210bee77166388d1e3c8a559dfd422b3dc",
+    "Figure4_KG_A_SHAP_B_EDITABLE_TEMPLATE.pptx": "f5cdffc0b71b034f46ef467a448da72525f77a20ab0a9372910979ec6bfab139"
+  }
+}

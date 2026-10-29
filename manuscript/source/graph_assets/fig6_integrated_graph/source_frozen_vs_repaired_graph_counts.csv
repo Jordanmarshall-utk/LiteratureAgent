@@ -1,0 +1,15 @@
+kind,type,frozen_count,repaired_count,delta
+node,Evidence,0,142,142
+node,,91023,90992,-31
+relationship,DERIVED_FROM,39770,39770,0
+relationship,DIRECTIONAL_RELATION,2694,2694,0
+relationship,GENERATED_BY,1,1,0
+relationship,HAS_DEVICE,1843,1843,0
+relationship,HAS_FIELD_EVIDENCE,6689,6689,0
+relationship,HAS_OBJECT,2694,2694,0
+relationship,HAS_OBSERVATION,39844,39813,-31
+relationship,HAS_SUBJECT,2694,2694,0
+relationship,IN_SNAPSHOT,1396,1396,0
+relationship,MEASURES_PROPERTY,39844,39813,-31
+relationship,REPORTS_CLAIM,2694,2694,0
+relationship,SUPPORTED_BY,33668,33810,142

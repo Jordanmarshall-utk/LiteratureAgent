@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "interpretation": "Shortcut-tagged rows are retained source-supported record representations; they are not asserted to be unique physical devices or original experiments.",
+  "current_campaign_rows": 1137,
+  "current_campaign_shortcut_rows": 221,
+  "current_campaign_shortcut_unique_dois": 221,
+  "current_campaign_shortcut_accepted": 83,
+  "current_campaign_shortcut_sparse_accepted": 138,
+  "current_campaign_shortcut_numeric_primary_pce": 82,
+  "current_campaign_shortcut_pce_target_available": 82,
+  "current_campaign_shortcut_minimal_pce_ready": 75,
+  "current_campaign_shortcut_strict_pce_ready": 18,
+  "current_campaign_shortcut_stability_target_available": 6,
+  "current_campaign_shortcut_usable_stability_target": 6,
+  "current_campaign_shortcut_minimal_stability_ready": 4,
+  "current_campaign_shortcut_strict_stability_ready": 0,
+  "current_campaign_shortcut_physical_stability_ready": 0,
+  "integrated_shortcut_rows": 302,
+  "integrated_shortcut_numeric_primary_pce": 116,
+  "shortcut_rows_in_precompleteness_pce_pool": 110,
+  "shortcut_rows_passing_0_15_completeness": 0
+}

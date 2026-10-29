@@ -1,0 +1,3 @@
+evaluation_domain,split_strategy,variant,original_train_rows,added_train_rows,test_rows,test_doi_groups,r2,rmse,mae
+accepted_literatureagent,doi_grouped,original_only,20755,0,125,80,-0.7985505637551704,6.858699802931916,5.915911245892705
+accepted_literatureagent,doi_grouped,original_plus_accepted_expansion,20755,508,125,80,0.17555722930933015,4.643663334268246,3.790040004766224

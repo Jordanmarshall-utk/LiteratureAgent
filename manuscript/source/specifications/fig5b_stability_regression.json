@@ -1,0 +1,125 @@
+{
+  "plot_id": "fig5b_stability_regression",
+  "current_figure": "Figure 5",
+  "panel": "b",
+  "status": "CURRENT",
+  "required_action": "REPRODUCE_FROM_SOURCE",
+  "scientific_content": "Stability regression R-squared",
+  "authoritative_analysis_version": "2026-10-28_controlled_repaired_completion",
+  "portable_paths_only": true,
+  "style": {
+    "standalone_dimensions_mm": {
+      "width": 85,
+      "height": 72
+    },
+    "font_family": "Times New Roman",
+    "font_sizes_pt": {
+      "tick_and_category": 12,
+      "legend": 12,
+      "axis_label": 13
+    },
+    "background": "white",
+    "outer_frame": "none",
+    "spines": {
+      "top": false,
+      "right": false,
+      "left": true,
+      "bottom": true
+    },
+    "grid_color": "#D9DEE5",
+    "export": {
+      "vector": [
+        "PDF",
+        "SVG or EMF"
+      ],
+      "raster": "PNG, 600 dpi at final physical dimensions",
+      "transparent_background": false
+    },
+    "palette": {
+      "blue": "#0072B2",
+      "sky": "#3C8DBC",
+      "teal": "#009E73",
+      "amber": "#E69F00",
+      "orange": "#D55E00",
+      "purple": "#7B61A8",
+      "neutral": "#4B5563",
+      "grid": "#D9DEE5",
+      "pale": "#F4F6F8",
+      "ink": "#202124",
+      "white": "#FFFFFF"
+    },
+    "grid": false
+  },
+  "output_filenames": [
+    "fig5b_stability_regression.pdf",
+    "fig5b_stability_regression.svg",
+    "fig5b_stability_regression.png"
+  ],
+  "assembly_instruction": "Standalone plot only. Do not assemble with another panel in OriginPro.",
+  "input": {
+    "file": "data/fig5b_stability_regression/plot_data.csv",
+    "endpoint_column": "display_endpoint_label",
+    "endpoint_order_column": "endpoint_order",
+    "series_column": "series_label",
+    "estimate_column": "estimate",
+    "origin_asymmetric_error_columns": [
+      "error_minus",
+      "error_plus"
+    ]
+  },
+  "plot_type": "paired horizontal categorical estimates with asymmetric confidence intervals",
+  "axes": {
+    "x": {
+      "label": "R²",
+      "scale": "linear",
+      "reference_line": 0.0,
+      "number_format": ".2f"
+    },
+    "y": {
+      "label": "",
+      "reverse_order": true
+    }
+  },
+  "series_order": [
+    "Original",
+    "Integrated"
+  ],
+  "feature_mode_rule": {
+    "target_end_retention_ge80": "design_plus_measured_initial_performance",
+    "target_end_retention_ge80_after_100h": "design_plus_measured_initial_performance",
+    "target_end_retention_ge80_after_500h": "design_plus_measured_initial_performance",
+    "target_T80_ge100h": "design_plus_measured_initial_performance",
+    "target_T80_ge500h": "design_plus_measured_initial_performance",
+    "target_after_1000h_ge80": "design_plus_measured_initial_performance",
+    "target_end_retention_pct": "physical_condition_features",
+    "target_after_1000h_retention_pct": "physical_condition_features",
+    "target_log1p_T80_hours": "physical_condition_features",
+    "target_phys_log_k_obs": "physical_condition_features",
+    "target_phys_log_k_ref": "condition_normalized_hybrid",
+    "target_phys_log1p_T80_ref_hours": "condition_normalized_hybrid"
+  },
+  "predicted_pce_exclusion": "Confirmed: current copied feature lists contain no predicted-PCE feature.",
+  "ref28_primary_status": "Ref_ID 28 is excluded from six incompatible stability targets; unaffected targets retain their existing eligibility.",
+  "style_overrides": {
+    "Original": {
+      "marker": "square",
+      "color": "#33546E"
+    },
+    "Integrated": {
+      "marker": "circle",
+      "color": "#F28A00"
+    },
+    "marker_size_pt": 4.5,
+    "marker_fill": "white",
+    "error_line_width_pt": 1.5,
+    "error_cap_size_pt": 2.3
+  },
+  "expected_plotted_counts": {
+    "endpoints": 6,
+    "series": 2,
+    "point_estimates": 12,
+    "confidence_intervals": 12
+  },
+  "editable_format": "SVG; text and marks retained as vector objects",
+  "builder": "scripts/plot_stability.py"
+}

@@ -1,0 +1,24 @@
+row_type,family_order,feature_family,display_label,y_base,prevalence_rank_within_family
+family_heading,1,Precursor solvent formulation,Solvent,0.0,
+state,1,Precursor solvent formulation,DMF/DMSO (4:1),0.85,1
+state,1,Precursor solvent formulation,DMF,1.85,2
+state,1,Precursor solvent formulation,DMF/DMSO (9:1),2.85,3
+family_heading,2,ETL stack and deposition,ETL,4.2,
+state,2,ETL stack and deposition,TiO2-c | TiO2-mp; Spin-coating | Spin-coating,5.05,1
+state,2,ETL stack and deposition,TiO2-c; Spin-coating,6.05,2
+state,2,ETL stack and deposition,TiO2-c | TiO2-mp; Spray-pyrolys | Spin-coating,7.05,3
+family_heading,3,HTL stack and deposition,HTL,8.4,
+state,3,HTL stack and deposition,Spiro-MeOTAD; Spin-coating,9.25,1
+state,3,HTL stack and deposition,PEDOT:PSS; Spin-coating,10.25,2
+state,3,HTL stack and deposition,PTAA; Spin-coating,11.25,3
+family_heading,4,Absorber composition identity,Absorber,12.6,
+state,4,Absorber composition identity,MAPbI3,13.45,1
+state,4,Absorber composition identity,Cs0.05FA0.79MA0.16PbBr0.51I2.49,14.45,2
+state,4,Absorber composition identity,FA0.85MA0.15PbBr0.45I2.55,15.45,3
+family_heading,5,Quenching-induced crystallization,Quenching,16.8,
+state,5,Quenching-induced crystallization,Yes,17.650000000000002,1
+state,5,Quenching-induced crystallization,No,18.650000000000002,2
+family_heading,6,Back-contact material,Back contact,20.000000000000004,
+state,6,Back-contact material,Au,20.850000000000005,1
+state,6,Back-contact material,Ag,21.850000000000005,2
+state,6,Back-contact material,Carbon,22.850000000000005,3

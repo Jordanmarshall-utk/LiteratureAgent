@@ -1,0 +1,8 @@
+{
+  "min_publication_year": 2018,
+  "input_rows": 45236,
+  "rows_with_detected_year": 45151,
+  "rows_without_detected_year_kept": 85,
+  "rows_removed_before_min_year": 19713,
+  "rows_kept": 25523
+}

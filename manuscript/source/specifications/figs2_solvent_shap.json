@@ -1,0 +1,104 @@
+{
+  "plot_id": "figs2_solvent_shap",
+  "current_figure": "Figure S2",
+  "panel": "",
+  "status": "READY",
+  "required_action": "REGENERATE",
+  "scientific_content": "Precursor-solvent SHAP distributions",
+  "authoritative_analysis_version": "2026-10-27_controlled_repaired_rerun_v1",
+  "portable_paths_only": true,
+  "style": {
+    "standalone_dimensions_mm": {
+      "width": 180,
+      "height": 130
+    },
+    "font_family": "Times New Roman",
+    "font_sizes_pt": {
+      "tick_and_category": 8,
+      "legend": 8,
+      "axis_label": 9,
+      "title": 9
+    },
+    "background": "white",
+    "outer_frame": "none",
+    "spines": {
+      "top": false,
+      "right": false,
+      "left": true,
+      "bottom": true
+    },
+    "grid_color": "#D9DEE5",
+    "export": {
+      "vector": [
+        "PDF",
+        "SVG or EMF"
+      ],
+      "raster": "PNG, 600 dpi at final physical dimensions",
+      "transparent_background": false
+    },
+    "palette": {
+      "blue": "#0072B2",
+      "sky": "#3C8DBC",
+      "teal": "#009E73",
+      "amber": "#E69F00",
+      "orange": "#D55E00",
+      "purple": "#7B61A8",
+      "neutral": "#4B5563",
+      "grid": "#D9DEE5",
+      "pale": "#F4F6F8",
+      "ink": "#202124",
+      "white": "#FFFFFF"
+    }
+  },
+  "output_filenames": [
+    "figs2_solvent_shap.opju",
+    "figs2_solvent_shap.pdf",
+    "figs2_solvent_shap.svg",
+    "figs2_solvent_shap.png"
+  ],
+  "assembly_instruction": "Standalone plot only. Do not assemble with another panel in OriginPro.",
+  "input": {
+    "points_file": "data/figs2_solvent_shap/display_points.csv",
+    "summary_file": "data/figs2_solvent_shap/selected_category_summary.csv",
+    "x_column": "grouped_shap_pce_points",
+    "y_column": "y_display",
+    "color_column": "color_hex",
+    "record_id_column": "production_row_index",
+    "publication_id_column": "publication_group_id",
+    "median_column": "median",
+    "iqr_columns": [
+      "q25",
+      "q75"
+    ]
+  },
+  "plot_type": "horizontal categorical deterministic beeswarm with median diamond and IQR line",
+  "axes": {
+    "x": {
+      "label": "Solvent-formulation SHAP contribution to predicted PCE (percentage points)",
+      "scale": "linear",
+      "reference_line": 0
+    },
+    "y": {
+      "label": "",
+      "reverse_order": false,
+      "coordinates_are_frozen": true
+    }
+  },
+  "selection_rule": "Categories with at least 5 records; first 10 by sample_count descending then state ascending; displayed by median ascending.",
+  "style_overrides": {
+    "negative_point_color": "#0072B2",
+    "positive_point_color": "#D55E00",
+    "point_size_pt": 4,
+    "point_opacity": 0.62,
+    "point_outline": "none",
+    "median_marker": "black diamond, size 17 pt^2, #202124",
+    "iqr_line": "2 pt, #202124",
+    "jitter_width": 0.28
+  },
+  "expected_plotted_counts": {
+    "categories": 10,
+    "displayed_point_appearances": 15182,
+    "displayed_unique_records": 15182,
+    "displayed_publication_groups": 2917
+  }
+}

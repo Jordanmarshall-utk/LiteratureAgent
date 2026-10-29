@@ -4,7 +4,7 @@ import sys
 
 import pandas as pd
 
-import literature_agent_full_end_to_end_v21_3_english_sanitizer as controller
+import literature_agent_pipeline as controller
 
 
 def _load_integration_module(tmp_path: Path):

@@ -1,0 +1,2026 @@
+feature,importance
+num__PCE_MODEL_oof_predicted_PCE,0.017983362924478555
+HTL_stack_sequence_infrequent_sklearn,0.015145282767637373
+Perovskite_additives_compounds_infrequent_sklearn,0.014462504480837092
+Cell_stack_sequence_infrequent_sklearn,0.013032850497240662
+Perovskite_additives_compounds_cl,0.012937891903806167
+num__ADD_DESC_text_length,0.010248305146482476
+ETL_stack_sequence_infrequent_sklearn,0.010205548387098107
+HTL_stack_sequence_pedot:pss,0.008922692305203882
+Perovskite_additives_concentrations_0.05,0.007361425302656461
+Perovskite_composition_a_ions_coefficients_1,0.006280414857602522
+HTL_additives_compounds_li-tfsi; tbp,0.006000920787498644
+Backcontact_thickness_list_100.0,0.005977573700170585
+HTL_stack_sequence_spiro-meotad,0.005955277453778313
+num__Cell_area_measured,0.005902785411584122
+ETL_thickness_40.0,0.0058955676313516845
+ETL_deposition_procedure_spin-coating,0.005880787659062003
+Perovskite_composition_a_ions_ma,0.005725479312020325
+ETL_stack_sequence_zno-c,0.005617920110264653
+Perovskite_deposition_solvents_dmf; dmso,0.005601262437945337
+Backcontact_deposition_procedure_evaporation,0.005548572279447374
+Backcontact_stack_sequence_carbon,0.005432216020688767
+Perovskite_deposition_thermal_annealing_time_10.0,0.005404781135829947
+num__Perovskite_band_gap,0.005289692008571105
+HTL_thickness_list_200.0,0.005289155983171814
+Backcontact_thickness_list_80.0,0.005096690303290921
+Perovskite_deposition_thermal_annealing_temperature_100.0,0.004978474626331677
+Perovskite_composition_c_ions_coefficients_3,0.0049759995705032575
+Perovskite_composition_long_form_fa0.85ma0.15pb1.0br0.45i2.55,0.004965844111799669
+ETL_deposition_procedure_spin-coating | spin-coating,0.0048516160154711534
+ETL_stack_sequence_tio2-c | tio2-mp,0.004786613117706084
+Perovskite_composition_short_form_mapbi,0.004761391448074983
+Perovskite_deposition_quenching_media_chlorobenzene,0.004715762315255053
+HTL_additives_compounds_undoped,0.004685460385002105
+num__Perovskite_thickness,0.004653333110250273
+Cell_stack_sequence_slg | fto | tio2-c | tio2-mp | perovskite | spiro-meotad | au,0.004638468489633837
+Perovskite_deposition_solvents_mixing_ratios_4; 1,0.004580645976134874
+HTL_deposition_procedure_spin-coating,0.004563937423084988
+Backcontact_stack_sequence_au,0.004549122564087316
+Perovskite_composition_c_ions_i,0.004547517446699225
+Perovskite_deposition_quenching_induced_crystallisation_true,0.004519267720576354
+ETL_thickness_infrequent_sklearn,0.004515839339234487
+Cell_stack_sequence_slg | ito | zno-c | perovskite | spiro-meotad | au,0.00446635954511744
+ETL_additives_compounds_undoped,0.004439000999665231
+num__Perovskite_pl_max,0.004424518043321276
+ETL_stack_sequence_pcbm-60,0.004413345523023029
+Perovskite_deposition_procedure_spin-coating,0.004390211763264379
+Perovskite_composition_long_form_mapbi3,0.0043667615516287785
+Perovskite_deposition_quenching_induced_crystallisation_false,0.004235347613155136
+Perovskite_composition_long_form_infrequent_sklearn,0.0042299337481248945
+Perovskite_deposition_synthesis_atmosphere_n2,0.004229756180248474
+Substrate_stack_sequence_slg | ito,0.004224123845026262
+Cell_architecture_pin,0.004212486756730726
+Substrate_stack_sequence_slg | fto,0.004110821238775455
+Perovskite_deposition_thermal_annealing_time_5.0,0.004089666625926919
+HTL_additives_compounds_fk209; li-tfsi; tbp,0.004039572020802409
+Backcontact_stack_sequence_ag,0.004036078033823289
+Cell_architecture_nip,0.004029351222484652
+Perovskite_composition_b_ions_sn,0.0037286768289418754
+Perovskite_deposition_solvents_mixing_ratios_9; 1,0.003668678651878614
+Perovskite_deposition_solvents_mixing_ratios_1,0.003665731371174494
+Perovskite_deposition_quenching_media_toluene,0.0036138984184779796
+Perovskite_composition_b_ions_coefficients_1,0.0035198844894896958
+Backcontact_thickness_list_60.0,0.0034951662860839344
+Perovskite_deposition_thermal_annealing_time_120.0,0.003465663523880962
+ETL_stack_sequence_tio2-c,0.0034442175700582613
+Perovskite_deposition_solvents_mixing_ratios_1000; 95,0.003440331379604683
+Perovskite_deposition_thermal_annealing_temperature_105,0.00343451378788586
+Perovskite_composition_short_form_masnbri,0.0034145018005424157
+Perovskite_deposition_thermal_annealing_time_60.0,0.0033011303205471906
+ETL_deposition_procedure_spray-pyrolys,0.0032987596635180444
+Perovskite_additives_compounds_undoped,0.003207949345024078
+Encapsulation_false,0.0031741588075836695
+Perovskite_additives_concentrations_infrequent_sklearn,0.0030956749840144876
+Perovskite_composition_c_ions_br; i,0.0030786281520302303
+Perovskite_deposition_quenching_media_diethyl ether,0.002996143323403943
+HTL_additives_compounds_infrequent_sklearn,0.0029700095412161323
+Perovskite_composition_inorganic_false,0.002951890804647938
+Backcontact_deposition_procedure_doctor blading,0.002941738430014014
+Encapsulation_true,0.002934953303078615
+Perovskite_deposition_synthesis_atmosphere_air,0.00292970571323232
+ETL_deposition_procedure_spray-pyrolys | spin-coating,0.0028876993041733984
+Perovskite_deposition_thermal_annealing_temperature_infrequent_sklearn,0.0028839536717480763
+HTL_stack_sequence_p3ht,0.0028357654387832403
+Perovskite_deposition_solvents_dmf,0.0027804627668751316
+Perovskite_composition_none_stoichiometry_components_in_excess_pbi2,0.0027309074112041674
+Perovskite_composition_b_ions_coefficients_1.0,0.0027214571461889395
+Perovskite_deposition_solvents_mixing_ratios_7; 3,0.0026792548122080984
+Perovskite_deposition_thermal_annealing_temperature_100,0.0026460293050092985
+Perovskite_deposition_thermal_annealing_time_30.0,0.0026399120601553407
+Perovskite_composition_short_form_infrequent_sklearn,0.0026396961519545977
+Perovskite_deposition_solvents_dmso,0.002586634606931796
+Perovskite_composition_a_ions_fa; ma,0.0025543629240768312
+ETL_stack_sequence_sno2-c,0.0025438357807035547
+ETL_deposition_procedure_infrequent_sklearn,0.0025417373678641546
+ETL_thickness_nan | 200.0,0.002538356303684111
+Perovskite_deposition_synthesis_atmosphere_air >> air,0.0025161113396964274
+Perovskite_composition_leadfree_false,0.0025087211230763675
+Perovskite_deposition_aggregation_state_of_reactants_liquid,0.002505046361941527
+Perovskite_deposition_procedure_infrequent_sklearn,0.0024397162823721888
+Perovskite_composition_leadfree_true,0.0024048042819053345
+Perovskite_deposition_aggregation_state_of_reactants_liquid >> liquid,0.0023783121043654057
+Perovskite_composition_short_form_famapbbri,0.0023774888026157643
+Perovskite_composition_inorganic_true,0.0023547871208062735
+Perovskite_deposition_solvents_dmso; gbl,0.0023325675607414843
+Perovskite_composition_c_ions_br,0.002299799516417655
+ETL_additives_compounds_infrequent_sklearn,0.002258110980793101
+ETL_stack_sequence_pcbm-60 | bcp,0.0022026588239688148
+Substrate_stack_sequence_pet | ito,0.0021854315575177575
+Perovskite_deposition_solvents_mixing_ratios_infrequent_sklearn,0.002179079263072265
+Backcontact_thickness_list_70.0,0.0021726393079980135
+Backcontact_thickness_list_90.0,0.002171527159173532
+Perovskite_composition_a_ions_fa,0.002156913896089043
+Perovskite_composition_long_form_cspbbr3,0.002156813517039289
+ETL_stack_sequence_sno2-np,0.00214138166709295
+ETL_deposition_procedure_cbd,0.0021381155262331255
+Cell_stack_sequence_slg | fto | tio2-c | perovskite | spiro-meotad | au,0.002135489853305988
+Perovskite_deposition_solvents_dmf >> methanol,0.002099122077791494
+Perovskite_composition_a_ions_cs; fa; ma,0.002092629000235215
+Perovskite_deposition_procedure_spin-coating >> spin-coating,0.0020524286236697584
+Perovskite_composition_a_ions_coefficients_0.85; 0.15,0.001983816452677601
+HTL_stack_sequence_nio-c,0.001967906486368193
+Perovskite_composition_short_form_csfamapbbri,0.0019545028098723613
+Perovskite_composition_none_stoichiometry_components_in_excess_infrequent_sklearn,0.0019368850265262824
+Perovskite_deposition_thermal_annealing_temperature_70.0 >> 150.0,0.0019305873963424876
+Cell_stack_sequence_slg | ito | sno2-np | perovskite | spiro-meotad | au,0.0019255123667133375
+Backcontact_deposition_procedure_evaporation | evaporation,0.0019237988750860676
+num__Perovskite_deposition_number_of_deposition_steps,0.0019046928843629417
+Perovskite_composition_b_ions_pb,0.0019036279753490684
+Perovskite_deposition_thermal_annealing_time_infrequent_sklearn,0.0019025689806589966
+Perovskite_composition_c_ions_coefficients_0.45; 2.55,0.0019014567919498485
+Perovskite_deposition_thermal_annealing_temperature_150.0,0.001877294673960379
+Perovskite_deposition_thermal_annealing_temperature_60.0,0.0018408634487909884
+Perovskite_composition_short_form_cspbbr,0.0018402107531241573
+Perovskite_composition_a_ions_ba; cs; fa,0.001830767645132869
+Perovskite_deposition_thermal_annealing_temperature_80,0.0018294165438342783
+Perovskite_deposition_solvents_mixing_ratios_3; 7,0.0018271703382166098
+Perovskite_composition_short_form_fapbi,0.0018159069079933705
+Perovskite_deposition_solvents_mixing_ratios_1 >> 1,0.0018127911399506802
+Cell_stack_sequence_slg | fto | zno-c | perovskite | spiro-meotad | au,0.0018085521292589054
+Perovskite_deposition_thermal_annealing_time_15.0,0.0018058899816125503
+Perovskite_deposition_thermal_annealing_time_45.0,0.0017858113536106987
+Cell_stack_sequence_slg | fto | tio2-c | perovskite | spiro-meotad | ag,0.001785759344428333
+ETL_deposition_procedure_spin-coating | evaporation,0.0017818859160382387
+ETL_stack_sequence_tio2-c | c60,0.0017577490112316396
+Perovskite_composition_a_ions_cs,0.0017377867956924165
+Backcontact_thickness_list_120.0,0.0017372424963753921
+ETL_thickness_50.0,0.0017291002032567848
+Perovskite_deposition_thermal_annealing_temperature_70; 100,0.0017009499497965097
+HTL_stack_sequence_ptaa,0.0016995461053530903
+ETL_stack_sequence_zno-np,0.0016871699789831004
+Perovskite_deposition_thermal_annealing_time_20.0,0.0016678727357777837
+Perovskite_composition_short_form_bacsfapbsni,0.0016658213880045615
+Perovskite_deposition_thermal_annealing_time_1.0; 2.0,0.0016492235538202616
+Perovskite_deposition_synthesis_atmosphere_dry air,0.0016203497253962815
+Perovskite_composition_a_ions_coefficients_infrequent_sklearn,0.001617986873541611
+Perovskite_deposition_quenching_media_additives_compounds_undoped,0.0015951128466967297
+Perovskite_deposition_synthesis_atmosphere_n2 >> n2,0.001594840734066215
+Perovskite_deposition_solvents_mixing_ratios_1; 1,0.0015939561495989056
+Cell_stack_sequence_slg | ito | tio2-c | perovskite | spiro-meotad | au,0.0015934886641545446
+Perovskite_deposition_solvents_mixing_ratios_12; 1,0.0015795888723637954
+Perovskite_deposition_solvents_dmf; dmso >> ipa,0.0015661494660820844
+Perovskite_additives_compounds_snf2,0.0015502557792922717
+ETL_additives_compounds_unknown | li-tfsi,0.0015351480338031951
+Backcontact_stack_sequence_infrequent_sklearn,0.0014881607997211427
+ETL_thickness_50.0 | 250.0,0.0014878918390219997
+Perovskite_composition_long_form_fapbi3,0.0014860343257476678
+Backcontact_thickness_list_75.0,0.0014802471797479054
+Perovskite_composition_c_ions_coefficients_0.51; 2.49,0.001472545603571495
+Perovskite_composition_a_ions_coefficients_3; 2,0.0014534822894141783
+Perovskite_composition_a_ions_coefficients_0.05; 0.79; 0.16,0.0014425843952853333
+Perovskite_additives_concentrations_20 mol%,0.0014422563233409558
+Perovskite_deposition_solvents_dmf >> ipa,0.001416913203103779
+ETL_deposition_procedure_spin-coating | dipp-coating,0.001411448882130936
+Perovskite_composition_a_ions_cs; fa,0.0013967190037704445
+HTL_deposition_procedure_spin-coating | spin-coating,0.0013944228481653
+Perovskite_deposition_solvent_annealing_true,0.0013896093978903285
+num__ADD_DESC_text_mentions_aromatic,0.001381995052147858
+Perovskite_dimension_3D_true,0.001380750829425251
+Perovskite_composition_b_ions_coefficients_40,0.0013671865920862772
+Perovskite_deposition_thermal_annealing_temperature_80.0,0.0013579602253681467
+Cell_flexible_false,0.0013489572423819839
+Perovskite_composition_a_ions_infrequent_sklearn,0.0013481401805317632
+Backcontact_thickness_list_20.0 | 80.0,0.00133361443413831
+Perovskite_deposition_solvents_infrequent_sklearn,0.0013301691307046836
+HTL_thickness_list_infrequent_sklearn,0.0013243776581926866
+HTL_stack_sequence_p3ct-n,0.0013218910531316074
+Backcontact_thickness_list_infrequent_sklearn,0.0013202707695514743
+Backcontact_stack_sequence_cu,0.0013188901030875707
+Perovskite_deposition_quenching_media_additives_compounds_infrequent_sklearn,0.0013181548706847465
+Cell_flexible_true,0.0013173584996148573
+Perovskite_composition_long_form_mapb1.0i3,0.001307931731111778
+Perovskite_deposition_solvents_mixing_ratios_1; 4,0.0012939853167140334
+Perovskite_deposition_thermal_annealing_atmosphere_n2,0.0012896764742908015
+Cell_stack_sequence_slg | ito | pedot:pss | perovskite | pcbm-60 | ag,0.0012866641011148895
+Perovskite_deposition_thermal_annealing_time_2.0; 3.0,0.0012799228883567358
+Cell_stack_sequence_slg | ito | tio2-np | perovskite | spiro-meotad | au,0.0012737172635750745
+Perovskite_deposition_thermal_annealing_temperature_65.0; 100.0,0.0012689864483682906
+HTL_deposition_procedure_infrequent_sklearn,0.0012592197332025072
+Perovskite_composition_none_stoichiometry_components_in_excess_mai,0.001255365785512383
+Perovskite_deposition_thermal_annealing_time_50.0,0.0012548301528831106
+Perovskite_deposition_solvent_annealing_false,0.0012434441473435484
+Backcontact_thickness_list_50.0,0.0012432718161258726
+Perovskite_composition_long_form_cs0.05fa0.79ma0.16pbbr0.51i2.49,0.001225316670526874
+Perovskite_dimension_3D_false,0.0012231796824221162
+Perovskite_deposition_thermal_annealing_temperature_70.0 >> 100.0,0.0012201951185979755
+Cell_stack_sequence_slg | ito | sno2-np | perovskite | p3ht | au,0.0011984302037644735
+Perovskite_deposition_thermal_annealing_temperature_65; 100,0.0011841041426853237
+Perovskite_deposition_quenching_media_ethyl acetate,0.0011795672287914032
+Perovskite_composition_long_form_cs0.05fa0.81ma0.14pbbr0.45i2.55,0.0011675029389913933
+Perovskite_composition_short_form_immapbi,0.00116324560810581
+ETL_deposition_procedure_evaporation | evaporation,0.0011604895748158716
+HTL_additives_concentrations_17.5 ul(520mg/mlacn); 28.8 ul,0.00115646026120785
+Perovskite_deposition_thermal_annealing_temperature_60; 100,0.0011555325199850463
+ETL_thickness_30.0,0.0011526685929778044
+Perovskite_deposition_thermal_annealing_time_5.0 >> 5.0,0.0011520334994012964
+Perovskite_composition_long_form_fa0.85ma0.15pbbr0.45i2.55,0.001150965367032476
+Perovskite_dimension_2D_false,0.0011395799480430201
+Cell_stack_sequence_slg | fto | nimglio | perovskite | pcbm-60 | bcp | ag,0.0011273066236127424
+Encapsulation_stack_sequence_slg,0.0011222444709718194
+Perovskite_composition_short_form_csfapbi,0.0011220228928099875
+Perovskite_composition_c_ions_coefficients_infrequent_sklearn,0.0011169185454475974
+ETL_additives_compounds_unknown | ticl4,0.0011156573881873045
+Cell_stack_sequence_slg | fto | tio2-c | tio2-mp | perovskite | spiro-meotad | ag,0.001115532212384805
+Perovskite_deposition_thermal_annealing_temperature_120.0 >> 100.0,0.001114692330677275
+Perovskite_composition_a_ions_coefficients_0.83; 0.17,0.0011098413951846269
+Perovskite_deposition_synthesis_atmosphere_ar,0.0010705824700978507
+ETL_deposition_procedure_spin-coating | spin-coating | spin-coating,0.0010693028403144136
+Backcontact_stack_sequence_moo3 | ag,0.0010682187572978786
+Perovskite_composition_a_ions_im; ma,0.001061354895809814
+ETL_stack_sequence_tio2-np,0.0010584770231570832
+Perovskite_additives_compounds_5-avai,0.001058265154544552
+Perovskite_deposition_solvents_mixing_ratios_4; 1 >> 1,0.0010455132768916698
+Cell_stack_sequence_slg | ito | pedot:pss | perovskite | pcbm-60 | bcp | ag,0.0010401755504790338
+Perovskite_composition_a_ions_coefficients_0.05; 0.81; 0.14,0.0010386733016365145
+Perovskite_dimension_2D_true,0.0010288576012275061
+Perovskite_composition_long_form_cspbi3,0.0010087398242949596
+HTL_stack_sequence_co-porphyrin,0.0010066952012977954
+Backcontact_deposition_procedure_screen printing,0.0010015625747853548
+Cell_stack_sequence_slg | fto | sno2-c | perovskite | spiro-meotad | au,0.0010013104035789485
+Perovskite_composition_none_stoichiometry_components_in_excess_stoichiometric,0.0009851141434130573
+HTL_thickness_list_100.0,0.0009815913026326685
+ETL_stack_sequence_sno2-c | pcbm-60,0.0009770404699280708
+Perovskite_deposition_thermal_annealing_time_1.0 >> 15.0,0.0009764620219831396
+ETL_stack_sequence_pcbm-60 | zno-np,0.0009701097128485741
+Backcontact_stack_sequence_al,0.0009642433009043797
+Perovskite_deposition_thermal_annealing_time_40.0,0.0009593731041429076
+Perovskite_additives_concentrations_0.35,0.0009556814704438963
+ETL_thickness_30.0 | nan,0.0009541319591491933
+Perovskite_deposition_thermal_annealing_time_10.0; 10.0,0.0009480749391770932
+Perovskite_composition_c_ions_coefficients_121,0.0009416678564778693
+ETL_stack_sequence_c60 | bcp,0.0009248353131640399
+Cell_semitransparent_true,0.0009186821119330785
+Perovskite_additives_concentrations_0.02,0.000917452542135459
+Perovskite_composition_a_ions_coefficients_0.05; 0.8075; 0.1425,0.0009166885745083441
+num__ADD_DESC_has_known_additive,0.0009137827655487848
+Perovskite_composition_short_form_famapbi,0.0009112105129853839
+Perovskite_deposition_thermal_annealing_time_1.0; 10.0,0.0009042272086248876
+Perovskite_deposition_solvent_annealing_solvent_atmosphere_dmf,0.0009041324656188884
+Cell_stack_sequence_slg | fto | nio-c | perovskite | pcbm-60 | bcp | ag,0.00090399687710509
+Perovskite_deposition_reaction_solutions_compounds_mai; pbi2,0.0008965359294568942
+Perovskite_composition_short_form_cspbbri,0.000894382682684192
+Perovskite_deposition_procedure_spin-coating >> cbd,0.000891722117584223
+Perovskite_deposition_thermal_annealing_temperature_110.0,0.0008892758070197036
+Perovskite_deposition_thermal_annealing_temperature_130.0,0.0008869012861900353
+Encapsulation_atmosphere_for_encapsulation_air,0.0008863921363130489
+Cell_stack_sequence_slg | fto | tio2-c | tio2-mp | perovskite | p3ht | au,0.0008854909234661662
+num__Perovskite_dimension_list_of_layers,0.0008826553621875135
+Cell_stack_sequence_slg | fto | sno2-c | perovskite | spiro-meotad | ag,0.0008824860516125425
+Perovskite_composition_short_form_csfapbbri,0.0008805715865130305
+Perovskite_deposition_thermal_annealing_temperature_50; 100,0.0008804327626048018
+Perovskite_deposition_thermal_annealing_temperature_90.0,0.0008753685295332799
+ETL_deposition_aggregation_state_of_reactants_liquid | liquid,0.000874808823404389
+Perovskite_deposition_thermal_annealing_time_1.0; 1.0,0.0008745140191182693
+Perovskite_composition_short_form_cspbi,0.0008729828188509413
+Perovskite_deposition_solvents_mixing_ratios_9; 1 >> 1,0.0008707347028148608
+Cell_stack_sequence_slg | fto | tio2-c | tio2-mp | perovskite | carbon,0.0008632427763318347
+HTL_thickness_list_40.0,0.0008567414231086003
+Perovskite_band_gap_estimation_basis_composition,0.0008551423503095369
+HTL_thickness_list_20.0,0.0008543379373421649
+Cell_stack_sequence_slg | fto | tio2-c | tio2-mp | perovskite | co-porphyrins | au,0.0008536056611759777
+Perovskite_deposition_thermal_annealing_temperature_70.0,0.0008476099308067597
+HTL_stack_sequence_nimglio,0.0008459751083593971
+ETL_deposition_procedure_hydrothermal,0.0008455714073385187
+Perovskite_deposition_solvents_mixing_ratios_8; 1,0.0008396550809115871
+Perovskite_deposition_thermal_annealing_time_90.0,0.0008287257063181778
+Perovskite_deposition_thermal_annealing_temperature_180.0,0.0008224693328550806
+ETL_deposition_thermal_annealing_time_30.0,0.0008129252055099574
+Perovskite_composition_b_ions_pb; sn,0.0008024074957461579
+HTL_additives_compounds_li-tfsi,0.0007996242026875152
+Encapsulation_atmosphere_for_encapsulation_n2,0.0007947290733031212
+ETL_deposition_thermal_annealing_temperature_150,0.0007887943145578235
+Cell_stack_sequence_slg | ito | sno2-c | perovskite | spiro-meotad | au,0.0007860303419967738
+Cell_stack_sequence_slg | fto | pedot:pss | perovskite | pcbm-60 | bcp | ag,0.0007842835586243577
+Perovskite_deposition_thermal_annealing_temperature_95.0,0.0007791585025096155
+HTL_additives_concentrations_infrequent_sklearn,0.0007771797526460522
+Perovskite_deposition_thermal_annealing_temperature_unknown >> 100.0,0.0007653490089520866
+Perovskite_deposition_after_treatment_of_formed_perovskite_infrequent_sklearn,0.0007621701625618922
+Cell_stack_sequence_slg | ito | pedot:pss | perovskite | pcbm-60 | zno-np | ag,0.0007606927377493591
+Perovskite_deposition_quenching_media_anisole,0.0007606896044165565
+Perovskite_deposition_thermal_annealing_temperature_105.0,0.0007592756562589768
+Encapsulation_stack_sequence_infrequent_sklearn,0.000753264974306927
+Cell_semitransparent_false,0.00075297631969109
+Perovskite_composition_a_ions_coefficients_0.1; 0.9,0.000750755772609559
+Perovskite_deposition_procedure_evaporation >> gas reaction,0.0007505062595111067
+Perovskite_composition_long_form_cs0.15fa0.85pbi3,0.0007494792060009011
+Perovskite_composition_c_ions_coefficients_3.0,0.0007384759632506243
+ETL_stack_sequence_tio2-c | tio2-mp | zro2-mp,0.0007384752471808598
+HTL_stack_sequence_nio-np,0.0007313895456904018
+Perovskite_deposition_thermal_annealing_time_unknown >> 5.0,0.0007303717559067723
+Perovskite_additives_concentrations_nan; 0.15 %,0.0007290552873398969
+Perovskite_composition_long_form_cspbbri2,0.0007234908668450039
+Backcontact_thickness_list_150.0,0.0007205528981774751
+ETL_stack_sequence_zno-c | znos | tio2-mp,0.0007192172573266789
+Perovskite_composition_a_ions_coefficients_0.9; 0.1,0.0007136848631096545
+Perovskite_deposition_thermal_annealing_temperature_140.0,0.0007126619834064622
+Cell_stack_sequence_slg | ito | sno2-np | perovskite | spiro-meotad | ag,0.0007046375097462559
+Perovskite_composition_none_stoichiometry_components_in_excess_ma,0.0007019810775910273
+Perovskite_composition_c_ions_coefficients_1; 2,0.0007017262371652342
+Perovskite_deposition_solvents_dmf; dmso; gbl,0.000696589065259491
+Perovskite_deposition_thermal_annealing_temperature_120.0,0.0006929423561667277
+Perovskite_composition_a_ions_coefficients_0.05; 0.8; 0.15,0.0006913275522966787
+ETL_deposition_procedure_spin-coating | dipp-coating | spin-coating,0.0006895407623559077
+Perovskite_deposition_thermal_annealing_time_30.0 >> 5.0,0.00068857118039205
+num__ADD_DESC_mean_mw,0.0006872146948216693
+Perovskite_deposition_quenching_media_infrequent_sklearn,0.0006862323351407608
+ETL_thickness_100.0,0.0006852160188019984
+Perovskite_deposition_solvents_gbl,0.0006850952243621504
+ETL_deposition_procedure_spin-coating | evaporation | evaporation,0.0006826800449782382
+ETL_thickness_60.0,0.0006801557851912335
+ETL_deposition_solvents_water,0.0006795999729547292
+Perovskite_composition_b_ions_coefficients_infrequent_sklearn,0.0006795058943049176
+Cell_stack_sequence_slg | fto | tio2-c | tio2-mp | zro2-mp | perovskite | carbon,0.0006788636016438026
+ETL_thickness_nan | 20.0 | 8.0,0.0006629306897967736
+Perovskite_deposition_thermal_annealing_time_10.0 >> 10.0,0.0006564620396579559
+Perovskite_composition_long_form_fa0.95ma0.05pbbr0.15i2.85,0.0006462472978905323
+Perovskite_deposition_reaction_solutions_compounds_infrequent_sklearn,0.0006454548802214584
+HTL_deposition_reaction_solutions_concentrations_10 mg/ml,0.0006432420747296303
+Perovskite_composition_b_ions_bi,0.0006419482035123981
+num__ADD_DESC_mean_iodide,0.0006402394548854557
+ETL_deposition_thermal_annealing_temperature_infrequent_sklearn,0.0006401025927335127
+Perovskite_deposition_thermal_annealing_time_unknown >> 10.0,0.0006388029949922354
+Perovskite_composition_c_ions_coefficients_0.15; 2.85,0.0006383884735221029
+num__ADD_DESC_sum_mw,0.0006381998018362896
+Perovskite_deposition_thermal_annealing_time_3.0,0.0006381094061170386
+Encapsulation_edge_sealing_materials_uv-curable epoxy,0.0006369920650545691
+Perovskite_deposition_aggregation_state_of_reactants_liquid | liquid,0.0006331229492108682
+Perovskite_deposition_quenching_media_vacuum,0.000631945000772986
+Perovskite_deposition_procedure_spin-coating | spin-coating,0.0006301044285918781
+Perovskite_composition_c_ions_coefficients_0.69; 2.31,0.0006288601355609944
+Perovskite_deposition_thermal_annealing_temperature_50.0,0.0006279349660277221
+Cell_stack_sequence_slg | fto | sno2-np | perovskite | spiro-meotad | au,0.0006269623260307096
+Perovskite_deposition_synthesis_atmosphere_infrequent_sklearn,0.0006259862134404513
+Cell_stack_sequence_slg | fto | tio2-c | perovskite | carbon,0.0006254656146109806
+ETL_additives_compounds_ticl4,0.0006252151488723906
+ETL_deposition_reaction_solutions_compounds_pcbm-60 | bcp,0.0006235463832537384
+Perovskite_composition_b_ions_coefficients_0.5; 0.5,0.000620786507371475
+Cell_stack_sequence_slg | ito | tio2-c | tio2-mp | perovskite | spiro-meotad | au,0.0006196729928473164
+Perovskite_composition_long_form_cs0.07fa0.7ma0.23pbbr0.69i2.31,0.0006163695461367711
+Perovskite_deposition_thermal_annealing_time_unknown >> 20.0,0.0006157719035192299
+Perovskite_composition_a_ions_ma; pa,0.0006151466208982738
+Perovskite_deposition_thermal_annealing_atmosphere_ambient,0.0006144193988081572
+HTL_thickness_list_150.0,0.00061431718082672
+Cell_stack_sequence_slg | fto | zno-np | perovskite | spiro-meotad | au,0.0006117563907191867
+Perovskite_dimension_3D_with_2D_capping_layer_true,0.0006109531122916758
+Perovskite_deposition_solvents_mixing_ratios_5; 1,0.0006099671303613692
+Perovskite_deposition_thermal_annealing_time_unknown >> 25.0,0.0006078637366482352
+ETL_deposition_reaction_solutions_concentrations_20 mg/ml | 0.5 mg/ml,0.0006058010144514488
+Perovskite_deposition_solvents_mixing_ratios_3; 1,0.0006046376545600028
+Perovskite_deposition_thermal_annealing_temperature_170.0,0.0006033859998884834
+ETL_thickness_50.0 | nan,0.0006007965485936716
+Perovskite_deposition_thermal_annealing_time_unknown >> 120.0,0.0005984235719973325
+Perovskite_dimension_3D_with_2D_capping_layer_false,0.0005974019060607382
+Perovskite_deposition_thermal_annealing_time_1.0; 30.0,0.0005916263008465168
+Perovskite_deposition_thermal_annealing_time_15.0; 60.0,0.0005907746420356086
+Cell_stack_sequence_slg | ito | ptaa | perovskite | c60 | bcp | cu,0.0005906557374878784
+Perovskite_deposition_thermal_annealing_temperature_350.0,0.0005896183865446278
+ETL_deposition_procedure_spin-coating | spin-coating | ald,0.0005868197404297454
+Perovskite_composition_long_form_cs0.05fa0.79ma0.16pbbr0.45i2.55,0.0005867607536973338
+Perovskite_composition_c_ions_coefficients_0.47; 2.53,0.0005860834855392344
+Perovskite_composition_short_form_fasni,0.0005844236757965453
+HTL_deposition_thermal_annealing_temperature_25,0.0005836163269837397
+Perovskite_deposition_after_treatment_of_formed_perovskite_washed with ipa,0.0005829017874439893
+ETL_thickness_nan | 150.0,0.0005827408176136476
+Cell_stack_sequence_slg | fto | tio2-c | pcbm-60 | perovskite | spiro-meotad | au,0.0005818249970288964
+num__ADD_DESC_known_match_count,0.0005783729273642873
+Perovskite_composition_long_form_cs0.05fa0.77ma0.16pbbr0.48i2.52,0.000576666144399967
+Backcontact_thickness_list_8.0 | 100.0,0.0005761390086935705
+ETL_deposition_procedure_spin-coating | spin-coating | evaporation,0.0005761076067396785
+Perovskite_deposition_thermal_annealing_temperature_unknown >> 110.0,0.0005700964947164426
+HTL_stack_sequence_graphene oxide,0.000568319529228367
+Perovskite_additives_compounds_eai,0.000565690451360327
+num__ADD_DESC_sum_iodide,0.0005615377579033261
+ETL_thickness_40.0 | 3.0,0.0005613320526234618
+Perovskite_composition_short_form_mapapbi,0.000554091204202394
+HTL_additives_compounds_cu,0.0005467995056429771
+ETL_thickness_nan | 15.0 | 150.0,0.0005460414117229783
+Cell_stack_sequence_slg | ito | nio-c | perovskite | pcbm-60 | bcp | ag,0.0005452551599744991
+Perovskite_deposition_thermal_annealing_temperature_160.0,0.0005413942775474106
+ETL_thickness_20.0,0.0005407165444011495
+num__Perovskite_deposition_quenching_media_volume,0.0005396916399344302
+Perovskite_composition_a_ions_coefficients_0.25; 0.75,0.0005396290478859932
+Perovskite_deposition_solvent_annealing_solvent_atmosphere_infrequent_sklearn,0.0005339470777642915
+ETL_thickness_20.0 | 6.0,0.0005335389266331811
+Perovskite_deposition_substrate_temperature_25,0.0005327816889078272
+ETL_deposition_solvents_chlorobenzene | none,0.0005319236813230168
+Perovskite_composition_long_form_fasni3,0.0005288354239109742
+Perovskite_deposition_thermal_annealing_time_unknown >> 30.0,0.000528514828511651
+Cell_stack_sequence_slg | ito | p3ct-n | perovskite | pcbm-60 | c60 | bcp | cu,0.0005284047880599893
+Perovskite_composition_a_ions_(pda); ma,0.0005264984541162944
+ETL_deposition_synthesis_atmosphere_infrequent_sklearn,0.0005258794467139002
+HTL_stack_sequence_cuscn,0.0005252954829667501
+Perovskite_deposition_thermal_annealing_time_unknown >> 15.0,0.0005249534365886849
+ETL_deposition_synthesis_atmosphere_air,0.0005244116479616196
+Perovskite_composition_a_ions_coefficients_0.07; 0.7; 0.23,0.0005230487963673069
+HTL_thickness_list_30.0,0.0005205865972655043
+Perovskite_deposition_solvent_annealing_solvent_atmosphere_dmso,0.0005161728306001027
+ETL_stack_sequence_pcbm-60 | bphen,0.0005155641344062225
+Backcontact_thickness_list_10.0 | 100.0,0.0005143829282149112
+Perovskite_composition_c_ions_coefficients_0.5; 2.5,0.0005121510580277587
+Perovskite_deposition_reaction_solutions_concentrations_infrequent_sklearn,0.0005102423213122179
+Perovskite_deposition_solvents_mixing_ratios_7; 1 >> 1,0.0005101244422440104
+Backcontact_thickness_list_nan | 100.0,0.0005062448194409376
+Cell_stack_sequence_slg | ito | pedot:pss | perovskite | c60 | bcp | ag,0.0005043639127130022
+ETL_deposition_procedure_spray-pyrolys | screen printing | screen printing,0.0005035606554143733
+HTL_deposition_solvents_ethanol,0.0005021410523102212
+ETL_deposition_reaction_solutions_concentrations_infrequent_sklearn,0.0005018551198481071
+Perovskite_deposition_aggregation_state_of_reactants_gas,0.0005010195581616144
+ETL_thickness_50.0 | 500.0,0.00050066651350159
+Perovskite_deposition_thermal_annealing_time_80.0,0.0005005653955690366
+HTL_deposition_thermal_annealing_time_10.0,0.0004967568237414605
+Perovskite_composition_a_ions_coefficients_0.05; 0.77; 0.16,0.0004949265804174724
+HTL_deposition_thermal_annealing_time_30.0,0.0004921982613225434
+Perovskite_deposition_thermal_annealing_temperature_25; 100,0.0004893259549890388
+Perovskite_deposition_quenching_media_trifluorotoluene,0.0004877002259208652
+Add_lay_front_true,0.00048717523317187456
+Perovskite_composition_c_ions_coefficients_0.48; 2.52,0.00048577458872485285
+Perovskite_composition_short_form_mapbsni,0.000485656812479148
+ETL_thickness_20.0 | 8.0,0.0004824316312790953
+Perovskite_composition_c_ions_coefficients_7,0.00048155960431001333
+Cell_stack_sequence_slg | fto | tio2-c | perovskite | spiro-meotad | moo3 | ag,0.00047336521327362766
+Substrate_stack_sequence_pet | graphene,0.00047186200901995127
+Perovskite_deposition_reaction_solutions_concentrations_1 m; 1 m,0.00047042352035313344
+ETL_thickness_25.0,0.00046981658874503684
+Backcontact_thickness_list_3.0 | 100.0,0.000469764631421094
+Substrate_cleaning_procedure_soap >> ultrasonic bath >> water >> ultrasonic bath >> acetone >> ultrasonic bath >> ipa >> ultrasonic bath >> plasma,0.00046914351130532034
+Backcontact_thickness_list_10000.0,0.00046784307667126733
+Perovskite_band_gap_estimation_basis_absorption,0.000464060764325035
+num__ADD_DESC_sum_aromatic,0.00046322109221158574
+Cell_stack_sequence_slg | fto | nio-c | perovskite | pcbm-60 | ag,0.00046050792392664946
+ETL_thickness_30.0 | 200.0,0.0004591752411096123
+Module_true,0.00045876024989110835
+ETL_stack_sequence_tio2-c | sno2-c,0.00045808806981990414
+ETL_deposition_procedure_sputtering,0.00045750772589401087
+Perovskite_deposition_synthesis_atmosphere_vacuum,0.000455847419877707
+Perovskite_deposition_thermal_annealing_time_10.0; 5.0,0.0004553000924296515
+Perovskite_composition_c_ions_coefficients_0.3; 2.7,0.00045505231168197445
+Perovskite_deposition_thermal_annealing_time_10.0; 10.0 >> 5.0,0.0004542175980282377
+Perovskite_deposition_synthesis_atmosphere_relative_humidity_50,0.0004536964651999658
+ETL_thickness_30.0 | 150.0,0.0004527704512847668
+HTL_additives_compounds_unknown | li-tfsi; tbp,0.0004526949121599929
+Perovskite_deposition_quenching_media_ethyl ether,0.00045082222158893804
+Perovskite_deposition_thermal_annealing_time_60.0; 10.0,0.00044953227036411656
+Cell_stack_sequence_slg | fto | zno-c | znos | tio2-mp | perovskite | spiro-meotad | au,0.00044865055568917874
+Perovskite_deposition_thermal_annealing_temperature_unknown >> 150.0,0.0004452243023344024
+num__Perovskite_deposition_solvent_annealing_time,0.00044456332066916183
+Perovskite_composition_a_ions_coefficients_0.6; 0.4,0.000443594486713001
+Encapsulation_stack_sequence_epoxy,0.0004429041820236227
+HTL_thickness_list_50.0,0.0004423823020698375
+ETL_additives_compounds_unknown | li-tsfi,0.0004423603997578531
+ETL_deposition_procedure_e-beam evaporation,0.0004417411122317994
+ETL_deposition_aggregation_state_of_reactants_liquid,0.00044146430606796343
+Perovskite_additives_concentrations_0.01,0.0004413561275873214
+Cell_stack_sequence_slg | fto | tio2-c | tio2-mp | perovskite | ptaa | au,0.000439464231975511
+Perovskite_composition_assumption_solution composition,0.0004349390239789357
+Substrate_stack_sequence_infrequent_sklearn,0.00043478854782981105
+num__ADD_DESC_mean_rp_like,0.00043351513218479993
+Perovskite_composition_c_ions_coefficients_0.43; 2.57,0.0004323190849539826
+ETL_thickness_35.0,0.00043214771551346794
+Perovskite_composition_c_ions_coefficients_0.1; 2.9,0.00043120329635768786
+Perovskite_deposition_solvents_mixing_ratios_1; 9,0.00042759651023371604
+Perovskite_deposition_thermal_annealing_time_25.0,0.00042551341427971587
+ETL_thickness_nan | 5.0,0.00042525492251079027
+Perovskite_composition_long_form_fa0.85ma0.15pbi3,0.00042448208444225165
+HTL_deposition_reaction_solutions_compounds_infrequent_sklearn,0.00042156276549839113
+ETL_stack_sequence_pcbm-60 | c60 | bcp,0.00042108025581157716
+HTL_deposition_procedure_spray-coating,0.00042014607526509487
+ETL_thickness_23.0 | 8.0,0.00041902080730539016
+Perovskite_additives_compounds_cl; nap 1-(3-aminopropylpyrrolidine),0.0004171344457304572
+Perovskite_deposition_quenching_media_hot air,0.00041674191278010566
+Module_false,0.00040853887659534006
+ETL_stack_sequence_pcbm-60 | phen-nadpo,0.0004076520974044435
+Perovskite_deposition_synthesis_atmosphere_n2 | n2,0.0004069739386033918
+Cell_stack_sequence_slg | ito | pedot:pss | perovskite | pcbm-60 | phen-nadpo | ag,0.00040534953550962357
+Add_lay_front_false,0.0004035651988332453
+Perovskite_composition_a_ions_coefficients_1.0,0.0004035008329295023
+HTL_deposition_reaction_solutions_compounds_li-tfsi; spiro-meotad; tbp,0.0004034329979687207
+Perovskite_deposition_thermal_annealing_temperature_100.0 >> 100.0,0.00040327565567210356
+Perovskite_composition_c_ions_coefficients_2; 1,0.00040267129373644956
+HTL_deposition_thermal_annealing_time_infrequent_sklearn,0.00040138336872655667
+ETL_deposition_thermal_annealing_time_infrequent_sklearn,0.0004005646737281161
+Perovskite_composition_a_ions_coefficients_1; 3,0.0003995543663581215
+Perovskite_composition_perovskite_inspired_structure_true,0.00039834921290269975
+Perovskite_deposition_thermal_annealing_temperature_100 >> 100,0.0003960837642768076
+Perovskite_composition_a_ions_coefficients_0.95; 0.05,0.00039566358155070395
+Perovskite_composition_long_form_ma2pa4pb5i16,0.00039429651765349514
+ETL_thickness_50.0 | 60.0,0.00039353920316812576
+HTL_stack_sequence_cupc,0.0003922799459220629
+Perovskite_deposition_substrate_temperature_70.0,0.0003922199003825955
+ETL_stack_sequence_tio2-c | sno2-np,0.000391481250287426
+Perovskite_composition_b_ions_coefficients_4,0.00038905117805301944
+Perovskite_deposition_thermal_annealing_temperature_90.0 >> 250.0,0.0003880754336491885
+Perovskite_composition_short_form_(pda)mapbi,0.0003871247044278574
+Perovskite_composition_a_ions_coefficients_0.15; 0.85,0.00038687661097468136
+Perovskite_deposition_synthesis_atmosphere_relative_humidity_infrequent_sklearn,0.00038556356517843385
+Perovskite_deposition_solvents_mixing_ratios_1; 1 >> 1,0.0003855413955239752
+ETL_stack_sequence_tio2-c | tio2-mp | sno2-c,0.00038462650987569657
+Perovskite_deposition_aggregation_state_of_reactants_infrequent_sklearn,0.0003831815284221872
+ETL_deposition_thermal_annealing_atmosphere_infrequent_sklearn,0.0003822784272639776
+ETL_stack_sequence_pcbm-60 | pei,0.00038099917519490993
+ETL_deposition_reaction_solutions_compounds_infrequent_sklearn,0.00038084535738172354
+Perovskite_composition_long_form_cs0.05fa0.8ma0.15pbbr0.47i2.53,0.00038080046054176183
+HTL_deposition_solvents_chlorobenzene,0.00038019471382259954
+Cell_stack_sequence_slg | fto | tio2-c | perovskite | ptaa | au,0.0003792098118944
+Backcontact_deposition_reaction_solutions_compounds_au,0.0003782917329348373
+Cell_stack_sequence_slg | ito | nio-c | perovskite | pcbm-60 | ag,0.00037805572250175544
+Cell_stack_sequence_slg | ito | pedot:pss | perovskite | pcbm-60 | al,0.0003775191793899943
+Backcontact_stack_sequence_mg | ag,0.0003752768509863789
+HTL_stack_sequence_asy-pbtbdt,0.00037282155081296627
+ETL_thickness_45.0,0.00037259470715241217
+Perovskite_deposition_aggregation_state_of_reactants_liquid >> gas,0.0003713929041470948
+Perovskite_composition_long_form_fa0.83ma0.17pbbr0.51i2.49,0.0003709870479989808
+Perovskite_deposition_solvents_mixing_ratios_9.5; 0.5 >> 1,0.000370760446281796
+Perovskite_deposition_procedure_doctor blading,0.000370756241270212
+ETL_thickness_30.0 | 250.0,0.0003698587748098148
+Backcontact_deposition_synthesis_atmosphere_pressure_total_0.000002 torr,0.00036903195431390375
+Perovskite_composition_long_form_mapb0.5sn0.5i3,0.0003689742880341533
+ETL_thickness_10.0 | nan,0.0003677681427322569
+HTL_deposition_procedure_evaporation,0.0003675274125871236
+Perovskite_deposition_thermal_annealing_time_unknown >> 2.0,0.00036733943579329745
+Perovskite_deposition_procedure_co-evaporation,0.00036715902479297815
+HTL_thickness_list_120.0,0.00036672101515382706
+ETL_thickness_80.0,0.00036554390458317813
+Perovskite_composition_c_ions_coefficients_0.6; 2.4,0.000364349581833709
+Perovskite_deposition_thermal_annealing_temperature_unknown >> 105.0,0.00036390363040334335
+Perovskite_dimension_2D3D_mixture_true,0.0003632667484454325
+Perovskite_composition_long_form_cs0.05fa0.8075ma0.1425pbbr0.45i2.55,0.0003632337942187346
+Perovskite_additives_compounds_hi,0.0003617326761690452
+Perovskite_deposition_thermal_annealing_temperature_80.0 >> 250.0,0.0003611964488341155
+Backcontact_deposition_procedure_infrequent_sklearn,0.0003606511700823394
+Perovskite_composition_a_ions_coefficients_0.05; 0.79; 0.16 | 2,0.00035756415306950064
+Perovskite_deposition_solvents_dmf; nmp,0.000357055432730707
+ETL_thickness_nan | 180.0,0.00035549363409538435
+ETL_stack_sequence_c60,0.0003537801876629234
+Perovskite_deposition_thermal_annealing_temperature_150; 100 >> 100,0.0003533936529425328
+Backcontact_thickness_list_200.0,0.000350995058905173
+Perovskite_deposition_aggregation_state_of_reactants_liquid >> liquid >> liquid,0.00034996253528644385
+Perovskite_deposition_quenching_media_methyl acetate,0.00034944804698097427
+Perovskite_deposition_solvents_mixing_ratios_8; 1 >> 1,0.0003486386057896097
+HTL_deposition_procedure_spray-pyrolys,0.0003468134496362359
+HTL_stack_sequence_nio,0.00034662949019190995
+ETL_additives_compounds_ticl4 | unknown,0.0003451173129472765
+ETL_stack_sequence_sno2-c | sno2-c,0.00034432684620124736
+Perovskite_deposition_thermal_annealing_time_2.0; 5.0,0.0003430451063067796
+Perovskite_composition_perovskite_inspired_structure_false,0.0003421148641101749
+Perovskite_composition_long_form_fa0.9ma0.1pbbr0.1i2.9,0.0003415529835861853
+ETL_deposition_solvents_mixing_ratios_1 | 1,0.00033966977222042646
+Module_JV_data_recalculated_per_cell_false,0.00033929434037551127
+HTL_additives_compounds_unknown | fk209; li-tfsi; tbp,0.00033834558048562765
+Cell_stack_sequence_slg | ito | pedot:pss | perovskite | c60 | bcp | au,0.0003382780878919382
+num__ADD_DESC_mean_aromatic,0.00033741622103391263
+Perovskite_deposition_procedure_drop-infiltration,0.00033671635843781576
+Perovskite_deposition_solvents_mixing_ratios_8.94; 1,0.00033642615977709435
+Perovskite_deposition_substrate_temperature_70,0.0003359559701214404
+ETL_deposition_procedure_spin-coating | cbd,0.00033384673783317347
+ETL_deposition_synthesis_atmosphere_pressure_total_1 atm | 1 atm,0.0003331931702098042
+HTL_thickness_list_300.0,0.00033314097125281233
+Backcontact_deposition_synthesis_atmosphere_pressure_partial_0.0001 mbar,0.0003324405714150697
+HTL_thickness_list_80.0,0.0003316043192869003
+HTL_deposition_thermal_annealing_temperature_infrequent_sklearn,0.00033153858964078025
+Perovskite_deposition_quenching_media_2-butanol,0.00033087775321758654
+Perovskite_deposition_thermal_annealing_time_3.0; 10.0,0.0003296152637745211
+Perovskite_deposition_thermal_annealing_temperature_150; 100,0.0003292566650434968
+HTL_deposition_procedure_dropcasting,0.00032919735786185873
+Perovskite_deposition_solvents_acetonitrile,0.00032650847810464467
+num__ADD_DESC_sum_rp_like,0.00032509165753828083
+Cell_stack_sequence_slg | fto | tio2-c | tio2-mp | perovskite | asy-pbtbdt | au,0.0003246826463532852
+Perovskite_deposition_solvents_mixing_ratios_1 >> 1 >> 1,0.0003244706778610221
+ETL_thickness_70.0,0.00032415746020776826
+HTL_additives_compounds_f4-tcnq,0.0003238013696327098
+Perovskite_deposition_reaction_solutions_compounds_pbi2 >> fai; mai; macl,0.0003228372387997808
+Perovskite_deposition_thermal_annealing_atmosphere_infrequent_sklearn,0.0003221528444975909
+ETL_deposition_procedure_evaporation,0.00032042030074675354
+Perovskite_deposition_solvents_mixing_ratios_85; 15,0.0003202208515916163
+Cell_stack_sequence_slg | ito | sno2-c | perovskite | spiro-meotad | ag,0.00031791060729321417
+Perovskite_deposition_solvents_dmf >> none,0.00031785457802741647
+Perovskite_composition_a_ions_coefficients_0.02; 0.83; 0.17,0.00031640131380515494
+HTL_deposition_thermal_annealing_temperature_150,0.0003152848070203715
+Perovskite_deposition_thermal_annealing_temperature_110,0.000314975465179048
+Perovskite_composition_a_ions_coefficients_0.01; 0.76; 0.14,0.0003148248458185137
+Perovskite_composition_short_form_csfamapbsnbri,0.00031366675631014753
+Perovskite_composition_long_form_cspbbr2i,0.00031302125293128667
+HTL_deposition_solvents_mixing_ratios_1,0.000312989182953359
+ETL_thickness_50.0 | 200.0,0.0003126771477475014
+Perovskite_deposition_thermal_annealing_time_1.0; 5.0,0.0003124863155451114
+Perovskite_deposition_thermal_annealing_pressure_infrequent_sklearn,0.00031140656516896417
+Perovskite_composition_long_form_fa0.9ma0.1pbi3,0.0003105592463999628
+Perovskite_deposition_solvents_mixing_ratios_4; 6,0.000310117368693917
+ETL_thickness_20.0 | 5.0,0.000309678758301982
+Perovskite_composition_perovskite_ABC3_structure_true,0.0003091207994825772
+Perovskite_composition_short_form_agbii,0.00030840562209569916
+Perovskite_deposition_thermal_annealing_pressure_1 atm,0.0003081336782165534
+Perovskite_composition_short_form_(pea)csfapbi,0.0003078608928972904
+Perovskite_composition_long_form_fa0.3ma0.7pbi3,0.0003059688601565745
+Perovskite_deposition_thermal_annealing_time_10.0 >> 60.0,0.00030568247056320417
+Module_JV_data_recalculated_per_cell_true,0.0003047027158015894
+Cell_stack_sequence_slg | ito | pedot:pss | perovskite | pcbm-60 | c60 | bcp | ag,0.0003036723188787805
+Cell_stack_sequence_slg | fto | tio2-c | sno2-np | perovskite | spiro-meotad | ag,0.00030296550510708776
+Substrate_cleaning_procedure_infrequent_sklearn,0.00030063429151473437
+num__ADD_DESC_has_peai,0.00029958761493446514
+HTL_deposition_reaction_solutions_concentrations_infrequent_sklearn,0.000299345632925649
+ETL_deposition_procedure_spray-pyrolys | spin-coating | spin-coating,0.00029847140622643793
+Perovskite_deposition_thermal_annealing_time_1.0,0.00029650590878165894
+Perovskite_composition_b_ions_coefficients_1 | 1,0.00029618631783041155
+Cell_stack_sequence_slg | fto | tio2-c | sno2-c | perovskite | spiro-meotad | au,0.00029426089550481816
+Perovskite_deposition_quenching_media_additives_concentrations_10 mg/ml,0.00029348484798767064
+num__ADD_DESC_mean_chain_length,0.00029203089955578835
+Perovskite_composition_c_ions_coefficients_0.39; 2.61,0.00029160836153105054
+Perovskite_deposition_thermal_annealing_time_15.0; 30.0,0.00029025050419314365
+ETL_deposition_procedure_cbd | spin-coating,0.0002901185417392592
+ETL_stack_sequence_pcbm-60 | zr(acac)4,0.00028894443733311267
+Perovskite_composition_c_ions_coefficients_13,0.00028887152760794464
+Perovskite_composition_b_ions_coefficients_2,0.0002882599923815602
+HTL_deposition_solvents_mixing_ratios_1 | 1,0.00028757534143030545
+Cell_stack_sequence_slg | fto | ptaa | perovskite | pcbm-60 | bcp | ag,0.00028743433511167565
+Perovskite_dimension_2D3D_mixture_false,0.00028657052125390635
+Perovskite_deposition_thermal_annealing_temperature_60; 80,0.00028413752158322193
+Perovskite_composition_b_ions_infrequent_sklearn,0.0002828811569311487
+Substrate_cleaning_procedure_diwater >> ultrasonic bath >> ethanol >> ultrasonic bath >> acetone >> ultrasonic bath >> oven drying >> uv-ozone,0.00028247153261981025
+Perovskite_composition_a_ions_coefficients_0.8; 0.2,0.00028232141595143474
+Perovskite_deposition_thermal_annealing_temperature_70,0.00028194998726061634
+Perovskite_composition_b_ions_pb | pb,0.00028150733723690877
+Perovskite_composition_c_ions_coefficients_0.35; 2.65,0.0002805901075388437
+Perovskite_composition_a_ions_(pea); cs; fa,0.0002789676503185085
+Perovskite_deposition_quenching_media_additives_concentrations_infrequent_sklearn,0.0002781399692710792
+Substrate_cleaning_procedure_soap >> water >> ultrasonic bath >> acetone >> ultrasonic bath >> ipa >> o2-plasma,0.00027807842687438053
+HTL_thickness_list_15.0,0.00027798668638963326
+Substrate_stack_sequence_pen | ito,0.00027796038102939586
+HTL_thickness_list_160.0,0.00027745902804043415
+ETL_thickness_30.0 | 10.0,0.000277297442580197
+num__Module_number_of_cells_in_module,0.0002769749695619605
+ETL_stack_sequence_nb2o5,0.00027585028293578977
+Perovskite_composition_assumption_xrd,0.0002758460556374557
+Perovskite_composition_perovskite_ABC3_structure_false,0.00027576449670644964
+ETL_stack_sequence_tio2-c | pcbm-60,0.0002756693444443638
+Perovskite_deposition_quenching_media_antisolvent,0.0002754581399035508
+Perovskite_dimension_0D_true,0.0002753417855278847
+Perovskite_deposition_thermal_annealing_time_30.0 >> 20.0,0.00027517779461530675
+Perovskite_deposition_solvents_mixing_ratios_1; 5,0.00027333277037176106
+Perovskite_deposition_solvents_mixing_ratios_7; 3 >> 1,0.0002716415211007673
+ETL_thickness_nan | 3.0,0.00027110665214527747
+Backcontact_deposition_thermal_annealing_time_10.0,0.0002704790587312337
+num__ADD_DESC_sum_chain_length,0.00026880895929481756
+ETL_thickness_40.0 | 8.0,0.0002669334251778528
+ETL_deposition_thermal_annealing_atmosphere_air | air,0.0002652526958610802
+Perovskite_deposition_thermal_annealing_temperature_60; 85,0.00026350672594204757
+HTL_deposition_procedure_electrodeposition,0.00026329514208609
+ETL_stack_sequence_c60; pcbm-60 | zr(acac)4,0.000262824472952251
+Perovskite_deposition_thermal_annealing_temperature_125.0,0.0002627362354945598
+Perovskite_composition_long_form_fa0.8ma0.2pbbr0.6i2.4,0.000260557698415741
+Substrate_thickness_nan | nan,0.00025918794674701853
+Perovskite_composition_c_ions_coefficients_0.3; 2.9,0.0002589535651886693
+Perovskite_deposition_quenching_media_gas,0.00025784165687120356
+Backcontact_deposition_thermal_annealing_temperature_25,0.0002575890299468266
+Perovskite_composition_short_form_fapbbri,0.00025683578498602997
+HTL_deposition_aggregation_state_of_reactants_liquid | liquid,0.00025612877421992493
+Perovskite_composition_a_ions_coefficients_0.3; 0.7,0.00025603885609566494
+Cell_stack_sequence_slg | ito | bv-fnpd | perovskite | pcbm-60 | ag,0.00025371725881876783
+ETL_thickness_nan | 8.0,0.0002533368770589638
+Backcontact_deposition_reaction_solutions_compounds_ag,0.0002527835359934674
+Perovskite_composition_long_form_cs0.1fa0.9pbi3,0.00025274640251524545
+ETL_thickness_50.0 | 400.0,0.0002516126550514037
+Perovskite_composition_long_form_fa0.83ma0.17pbbr0.03i2.97,0.00025095485953681077
+Perovskite_deposition_synthesis_atmosphere_air >> n2,0.0002507341118641276
+ETL_additives_concentrations_nan | nan,0.00025032167245350235
+Perovskite_composition_a_ions_coefficients_0.08; 0.78; 0.14,0.0002501030710687734
+Cell_stack_sequence_slg | fto | tio2-c | perovskite | cuscn | au,0.0002500781554142161
+Perovskite_composition_a_ions_coefficients_0.2; 0.8,0.00024974385665558715
+ETL_deposition_substrate_temperature_25,0.00024905624381476286
+HTL_deposition_thermal_annealing_atmosphere_air,0.0002484635734567475
+Perovskite_deposition_solvents_dmf; gbl,0.00024775925967217993
+Perovskite_deposition_thermal_annealing_time_3.0 >> 10.0,0.00024758727837127445
+Perovskite_deposition_solvents_mixing_ratios_6; 4,0.000247482190315366
+Backcontact_deposition_synthesis_atmosphere_pressure_total_infrequent_sklearn,0.0002471860121316963
+Perovskite_additives_concentrations_0.1,0.0002471384077729554
+ETL_deposition_reaction_solutions_volumes_infrequent_sklearn,0.0002462674348795238
+Perovskite_deposition_aggregation_state_of_reactants_gas >> gas,0.00024588263617210913
+Perovskite_deposition_thermal_annealing_temperature_unknown >> 100,0.00024494567582038343
+ETL_deposition_solvents_mixing_ratios_infrequent_sklearn,0.00024182875426238918
+Perovskite_deposition_thermal_annealing_temperature_unknown >> 150,0.00024032582725519092
+Perovskite_deposition_thermal_annealing_temperature_150,0.00023941914332206178
+Perovskite_deposition_quenching_media_additives_compounds_pcbm-60,0.0002371981077728351
+ETL_deposition_thermal_annealing_time_60.0,0.00023699530426541561
+ETL_stack_sequence_pcbm-60 | zno,0.0002358864173821848
+Perovskite_deposition_thermal_annealing_temperature_120,0.00023377788361421796
+Encapsulation_edge_sealing_materials_infrequent_sklearn,0.0002336354815459018
+ETL_deposition_substrate_temperature_25 | 25,0.00023343215946317728
+ETL_additives_compounds_undoped | undoped,0.00023307915076681016
+HTL_deposition_thermal_annealing_temperature_100,0.0002326854894659435
+HTL_thickness_list_250.0,0.00023258616194870194
+Perovskite_deposition_thermal_annealing_time_30.0 >> 10.0,0.00023239322116771872
+ETL_deposition_procedure_ald | spin-coating,0.00023225906648719375
+Cell_stack_sequence_slg | ito | pedot:pss | perovskite | pcbm-60 | bphen | ag,0.00023186500241140277
+Perovskite_composition_long_form_cs0.01fa0.76ma0.14pbbr0.45i2.55,0.00023112316987684858
+ETL_stack_sequence_pcbm-60 | rhodamine 101 | lif,0.00023083077419377429
+ETL_deposition_solvents_chlorobenzene | ipa,0.00023080159773281936
+Perovskite_composition_a_ions_coefficients_2; 4,0.00022995585069265697
+HTL_deposition_synthesis_atmosphere_n2,0.00022947252316515314
+ETL_additives_compounds_nb,0.00022894595371919166
+HTL_stack_sequence_phpt-py,0.00022853075491004613
+HTL_additives_compounds_f4-tcnq | unknown,0.0002283799866181289
+HTL_deposition_solvents_water,0.00022831111615245279
+Perovskite_composition_long_form_cs0.017fa0.83ma0.15pbbr0.51i2.49,0.00022830730787747083
+Perovskite_composition_long_form_fa0.7ma0.3pbi3,0.00022793489626436985
+HTL_thickness_list_10.0,0.00022755638713054142
+Backcontact_thickness_list_8.0 | 80.0,0.00022692835856727726
+ETL_stack_sequence_c60 | rhodamine 101,0.00022660074641234592
+Perovskite_additives_concentrations_0.005,0.0002258228898856325
+Perovskite_dimension_0D_false,0.00022545709075784208
+Perovskite_deposition_thermal_annealing_time_2.0,0.0002250928179024699
+Perovskite_composition_c_ions_coefficients_0.05; 2.95,0.0002248146161149036
+Perovskite_deposition_solvents_gbl; nmp,0.0002240693418848265
+ETL_deposition_thermal_annealing_time_30.0 | 30.0,0.00022392114239343767
+Perovskite_deposition_thermal_annealing_time_2.0; 10.0,0.00022377206453194436
+Perovskite_deposition_thermal_annealing_temperature_40; 160,0.00022322529982747198
+ETL_thickness_20.0 | nan,0.00022201524539152505
+Perovskite_composition_a_ions_coefficients_0.05; 0.95,0.00022179611924575229
+ETL_additives_concentrations_infrequent_sklearn,0.00022083962096147236
+Backcontact_deposition_aggregation_state_of_reactants_gas,0.00021932970819657372
+Cell_stack_sequence_slg | ito | nio-np | perovskite | pcbm-60 | bcp | ag,0.00021892955801168054
+Perovskite_composition_a_ions_coefficients_0.017; 0.83; 0.15,0.00021847892309539185
+HTL_additives_compounds_tpfb,0.000217736231048205
+Perovskite_composition_c_ions_coefficients_10,0.0002175736232892572
+Perovskite_composition_long_form_fa0.9ma0.1pbbr0.3i2.7,0.00021732153489122612
+Perovskite_composition_a_ions_coefficients_2; 2,0.00021693863031226775
+Backcontact_deposition_synthesis_atmosphere_pressure_partial_infrequent_sklearn,0.0002156139371876388
+Cell_stack_sequence_slg | ito | pedot:pss | perovskite | pcbm-60 | rhodamin 101 | au,0.00021432108955682995
+Perovskite_composition_long_form_(pea)2cs1.77fa57.23pb60i181,0.00021281379724147204
+Perovskite_deposition_solvents_mixing_ratios_nan >> 1,0.00021273171721416213
+HTL_deposition_solvents_toluene,0.00021260519160051986
+Perovskite_composition_long_form_cs0.05fa0.79ma0.16pbbr0.48i2.52,0.0002118397495448612
+Perovskite_deposition_thermal_annealing_time_60.0 >> 5.0,0.0002113702072587349
+Perovskite_composition_a_ions_coefficients_1; 1,0.00021132478261296926
+Cell_stack_sequence_slg | fto | perovskite | spiro-meotad | ag,0.00021064532669433237
+Backcontact_deposition_aggregation_state_of_reactants_liquid,0.000210529666286866
+Cell_stack_sequence_slg | ito | ptaa | perovskite | c60 | bcp | ag,0.00021047646783588605
+HTL_deposition_aggregation_state_of_reactants_liquid,0.00020995071575417103
+num__Module_area_total,0.00020968274136264135
+ETL_deposition_aggregation_state_of_reactants_liquid | gas,0.00020943984522025954
+Perovskite_composition_b_ions_coefficients_5,0.00020938565631988467
+Cell_stack_sequence_slg | ito | sno2-np | perovskite | ptaa | ag,0.00020896218185688552
+Perovskite_band_gap_estimation_basis_eqe,0.00020850415671378988
+ETL_deposition_reaction_solutions_compounds_supplier_alfa aesar,0.00020772009942866612
+ETL_deposition_aggregation_state_of_reactants_infrequent_sklearn,0.00020753293042734497
+Perovskite_deposition_aggregation_state_of_reactants_gas >> gas >> gas,0.00020702933501716574
+ETL_deposition_synthesis_atmosphere_pressure_partial_1 atm | 1 atm,0.00020541751511006268
+ETL_stack_sequence_pcbm-60 | lif,0.00020526074195097535
+Perovskite_deposition_thermal_annealing_time_1.0; 25.0,0.00020420460440569318
+Perovskite_additives_concentrations_5.0,0.00020392571190483042
+Perovskite_deposition_procedure_spin-coating >> gas reaction,0.00020389050874756637
+num__Cell_area_total,0.00020314662159338483
+ETL_deposition_solvents_supplier_sigma aldrich | sigma aldrich,0.00020303809936122162
+ETL_deposition_synthesis_atmosphere_pressure_total_1 atm >> 1 atm | 1 atm,0.0002024046712693058
+HTL_additives_compounds_li-tfsi; tbp; fk209,0.00020156238959605783
+HTL_deposition_synthesis_atmosphere_air,0.00020150723333397532
+Perovskite_composition_c_ions_coefficients_0.17; 0.83,0.00020148795645228616
+Perovskite_deposition_quenching_media_ipa,0.00020106651015483983
+ETL_deposition_synthesis_atmosphere_n2 | n2,0.0001998860096534681
+Perovskite_composition_a_ions_cs; ma,0.00019980696827487553
+Perovskite_composition_a_ions_coefficients_2; 1.77; 57.23,0.00019884882560762532
+Perovskite_deposition_synthesis_atmosphere_ambient,0.0001970661572967002
+Perovskite_composition_a_ions_coefficients_0.1; 0.85; 0.05,0.00019653353200014916
+HTL_deposition_reaction_solutions_concentrations_72.3 mg/ml,0.00019519165726954009
+ETL_deposition_procedure_dipp-coating,0.0001945225902449158
+HTL_deposition_thermal_annealing_temperature_400,0.00019420842360700502
+Perovskite_composition_long_form_cs0.05fa0.54ma0.41pbbr0.06i2.94,0.00019408849027441157
+ETL_deposition_solvents_infrequent_sklearn,0.00019378544632204297
+Cell_stack_sequence_slg | fto | tio2-c | perovskite | phpt-py | au,0.00019336875193942945
+Perovskite_composition_c_ions_coefficients_16,0.00019332208322008689
+ETL_thickness_50.0 | 180.0,0.0001900654560066689
+Cell_stack_sequence_slg | ito | ptaa | perovskite | pcbm-60 | bcp | ag,0.00018971955965189552
+Perovskite_deposition_quenching_media_ether,0.00018964403176790346
+HTL_deposition_solvents_infrequent_sklearn,0.00018862928128981406
+Cell_stack_sequence_slg | fto | tio2-c | tio2-mp | sno2-c | perovskite | spiro-meotad | au,0.00018638746311544458
+Perovskite_composition_c_ions_coefficients_0.03; 2.97,0.00018471095373443308
+ETL_stack_sequence_pcbm-60 | bis-c60,0.00018391331452118174
+ETL_thickness_10.0 | 40.0,0.00018195372006641052
+Backcontact_additives_compounds_infrequent_sklearn,0.00018116956001477334
+Perovskite_composition_a_ions_coefficients_1; 0.83; 0.17,0.00018069543787074067
+Perovskite_deposition_thermal_annealing_time_30.0 >> 15.0,0.0001806340419305574
+Perovskite_composition_long_form_cs0.05fa0.95pbi3,0.0001806019921720837
+ETL_deposition_procedure_doctor blading,0.00018053378783970526
+Perovskite_composition_a_ions_coefficients_0.87; 0.13,0.0001801865744656785
+Perovskite_composition_a_ions_coefficients_0.7; 0.3,0.00017860749925112303
+Cell_stack_sequence_slg | ito | sno2-np | perovskite | spiro-meotad | moo3 | ag,0.00017846507395793046
+Perovskite_composition_long_form_cs0.02fa0.83ma0.17pbbr0.51i2.49,0.0001784225975609817
+ETL_deposition_synthesis_atmosphere_relative_humidity_30 | 30,0.0001783454437376222
+Cell_stack_sequence_slg | fto | tio2-c | tio2-mp | perovskite | au,0.00017790008921171255
+Perovskite_band_gap_estimation_basis_infrequent_sklearn,0.00017745592228892522
+Perovskite_composition_a_ions_coefficients_0.02; 0.84; 0.14,0.00017742986615597626
+Perovskite_deposition_thermal_annealing_temperature_52; 105,0.00017726541420291946
+Perovskite_additives_compounds_pani,0.00017723798411299374
+Perovskite_composition_short_form_bamapbi,0.00017711551300161654
+ETL_deposition_reaction_solutions_compounds_supplier_sigma aldrich | dyesol,0.0001770230242427717
+Perovskite_deposition_solvents_mixing_ratios_10; 1,0.00017682790805662794
+Perovskite_deposition_reaction_solutions_compounds_supplier_infrequent_sklearn,0.00017648891019340245
+Perovskite_composition_long_form_agbi2i7,0.000176331464267854
+Perovskite_additives_compounds_peai,0.00017518860735822334
+Perovskite_composition_c_ions_coefficients_181,0.00017421350972803132
+Encapsulation_stack_sequence_cover glass-qds,0.00017397395503976446
+Perovskite_deposition_thermal_annealing_time_10.0 >> 20.0,0.00017357046372431744
+Perovskite_deposition_solvents_dimethylacetamide; nmp,0.00017284288150982134
+HTL_stack_sequence_cucro2,0.00017248015928373898
+HTL_deposition_reaction_solutions_compounds_ptaa,0.00017165184870460775
+Perovskite_additives_concentrations_0.03,0.00017141971857793185
+Perovskite_deposition_thermal_annealing_temperature_260.0,0.00017127662031224348
+Perovskite_deposition_thermal_annealing_temperature_100.0 >> 150.0,0.00017114364670323088
+ETL_deposition_reaction_solutions_compounds_purity_98%; 99.8%,0.00017100980942550567
+HTL_thickness_list_8.0,0.00017097974041118823
+ETL_deposition_thermal_annealing_temperature_25 | 25,0.00017078990127682657
+Cell_stack_sequence_slg | ito | sno2-np | perovskite | ptaa | au,0.00017060199392413908
+Perovskite_deposition_thermal_annealing_time_1.5; 2.0,0.0001693908052022176
+HTL_thickness_list_60.0,0.00016936637515313951
+Perovskite_deposition_thermal_annealing_temperature_280.0,0.00016917909739218632
+Cell_stack_sequence_slg | fto | tio2-c | perovskite | p3ht | au,0.0001685209305156378
+HTL_thickness_list_nan | 10.0,0.00016821033795037248
+Cell_stack_sequence_slg | fto | nio-c | perovskite | zno-np | c60 | ag,0.00016785639456836529
+Perovskite_deposition_thermal_annealing_relative_humidity_infrequent_sklearn,0.0001672861438682417
+Perovskite_composition_b_ions_coefficients_0.6; 0.4,0.00016707141519249912
+ETL_deposition_synthesis_atmosphere_relative_humidity_30 >> 30 | 30,0.00016632771469943383
+Perovskite_deposition_thermal_annealing_time_35.0,0.00016623739705966308
+Perovskite_composition_c_ions_coefficients_0.36; 2.64,0.00016534442909635894
+ETL_deposition_reaction_solutions_concentrations_0.15 m >> 0.3 m | 60 mg/ml,0.00016465900724110469
+Perovskite_composition_assumption_literature,0.0001635154930609261
+ETL_deposition_synthesis_atmosphere_pressure_partial_1 atm >> 1 atm | 1 atm,0.00016343515442494833
+HTL_deposition_reaction_solutions_compounds_pedot:pss,0.0001631096580843798
+Perovskite_composition_a_ions_ba; ma,0.00016296106176653995
+num__Perovskite_deposition_reaction_solutions_temperature,0.00016291066611491675
+Perovskite_composition_long_form_cs0.17fa0.83pbbr0.51i2.49,0.00016274178705877733
+Perovskite_deposition_solvents_none >> none >> none,0.00016258575138741215
+Perovskite_additives_compounds_nh4cl,0.00016172855285688238
+HTL_thickness_list_20.0 | 15.0,0.00016144935054014835
+Perovskite_composition_a_ions_ag,0.0001614431868232088
+Backcontact_deposition_procedure_sputtering | evaporation,0.0001614008530612777
+Backcontact_stack_sequence_ito | ag,0.0001613778044337131
+Perovskite_composition_none_stoichiometry_components_in_excess_csi,0.00016091603827462933
+ETL_deposition_reaction_solutions_compounds_titanium diisopropoxide bis(acetylacetonate),0.00016029041716889746
+Perovskite_composition_a_ions_coefficients_0.1; 0.75; 0.15,0.00015906678366841691
+Perovskite_composition_b_ions_coefficients_60,0.00015814496142429725
+ETL_stack_sequence_zno-np | c60,0.0001577855475199553
+Perovskite_deposition_thermal_annealing_relative_humidity_50,0.00015712737193060745
+HTL_deposition_thermal_annealing_time_15.0,0.00015609254132772064
+ETL_stack_sequence_lif | c60 | sno2-c | znsno2-c,0.00015600782864604078
+Perovskite_deposition_procedure_evaporation >> evaporation >> gas reaction,0.00015457663122238967
+Perovskite_deposition_thermal_annealing_atmosphere_ar,0.00015420690456007284
+Perovskite_additives_concentrations_10 mol%,0.00015342005562253466
+Perovskite_deposition_solvents_mixing_ratios_7; 1,0.00015312271808064318
+HTL_thickness_list_70.0,0.00015301782646317115
+Perovskite_deposition_thermal_annealing_temperature_unknown >> 130.0,0.00015280613898657972
+Substrate_brand_name_tec8,0.00015203019046498606
+ETL_deposition_substrate_temperature_infrequent_sklearn,0.0001515222727987155
+Perovskite_composition_a_ions_coefficients_0.15; 0.75; 0.1,0.00015057504540822112
+ETL_deposition_procedure_evaporation | evaporation | cvd | cvd,0.00015052541544896965
+Perovskite_deposition_thermal_annealing_time_20.0 >> unknown,0.0001501027810420371
+ETL_deposition_synthesis_atmosphere_air >> air | air,0.00014963418345408824
+Perovskite_deposition_thermal_annealing_temperature_130,0.00014919922836175768
+ETL_deposition_reaction_solutions_compounds_titanium diisopropoxide bis(acetylacetonate) >> titanium diisopropoxide bis(acetylacetonate) | tio2-np,0.00014917202148253452
+HTL_thickness_list_170.0,0.00014893359214479258
+Perovskite_composition_long_form_cs0.02fa0.84ma0.14pbbr0.05i2.95,0.00014889265628670957
+Perovskite_composition_none_stoichiometry_components_in_excess_pbi2; pbbr2,0.00014848778307338325
+Perovskite_composition_short_form_mapbbri,0.00014841026929272971
+Perovskite_deposition_aggregation_state_of_reactants_liquid >> liquid >> gas,0.00014773320606335775
+Perovskite_composition_c_ions_coefficients_0.51; 2.49 | 4,0.00014765559967028284
+ETL_deposition_thermal_annealing_atmosphere_air,0.00014758130218499286
+Perovskite_composition_c_ions_coefficients_0.06; 2.94,0.00014719627542740781
+ETL_deposition_reaction_solutions_temperature_25,0.00014569054078798608
+Perovskite_composition_long_form_fa0.6ma0.4pbi3,0.0001456159651860006
+Perovskite_additives_compounds_acetate; h2o,0.00014528712913147298
+Perovskite_deposition_thermal_annealing_time_1.0 >> 70.0,0.00014508355208164744
+Perovskite_deposition_solvents_dmf; dmso >> methanol,0.0001434862034740514
+Perovskite_deposition_reaction_solutions_compounds_supplier_sigma aldrich; lab made; sigma aldrich,0.00014225564517975488
+Backcontact_thickness_list_10.0 | 80.0,0.00014205124289946627
+ETL_thickness_60.0 | nan,0.00014201450697821864
+Perovskite_composition_a_ions_coefficients_0.05; 0.54; 0.41,0.0001418432478295742
+Perovskite_composition_long_form_csfa0.83ma0.17pbbr0.5i2.5,0.00014158948305605898
+Perovskite_additives_compounds_rb,0.000141107277987838
+Perovskite_composition_c_ions_coefficients_28,0.00014107587050536026
+Perovskite_deposition_solvents_supplier_sigma aldrich; sigma aldrich,0.00014056240252285663
+HTL_deposition_reaction_solutions_compounds_spiro-meotad; li-tfsi; tbp,0.0001402267531911183
+ETL_deposition_reaction_solutions_volumes_10.0,0.00014019754246459367
+Substrate_supplier_nippon sheet glass co.,0.00013908908005217513
+ETL_deposition_solvents_mixing_ratios_1,0.00013900784196755212
+ETL_deposition_synthesis_atmosphere_air | air,0.00013833423707756252
+Perovskite_deposition_thermal_annealing_time_10.0 >> 15.0,0.00013797562953498006
+Perovskite_composition_a_ions_coefficients_0.05; 0.7885; 0.1615,0.00013751404975407232
+ETL_deposition_thermal_annealing_time_0.0 | 0.0,0.00013742175094619098
+ETL_deposition_solvents_ipa,0.00013723310857530763
+Perovskite_deposition_reaction_solutions_compounds_agbr; bibr3; csbr,0.0001372321967997266
+Backcontact_thickness_list_13000.0,0.00013703430499777952
+Perovskite_deposition_thermal_annealing_temperature_60.0; 85.0,0.000135986726378586
+Perovskite_deposition_substrate_temperature_infrequent_sklearn,0.00013581316006680165
+Perovskite_deposition_solvents_none >> none,0.00013579921560554444
+Perovskite_deposition_thermal_annealing_time_0.5; 5.0,0.00013565493630312973
+Perovskite_deposition_procedure_spin-coating >> recrystallization,0.00013542533867281914
+Perovskite_composition_b_ions_coefficients_0.75; 0.25,0.00013448919807215395
+Perovskite_deposition_thermal_annealing_temperature_105.0 >> 105.0,0.0001338441172707377
+HTL_stack_sequence_ptb7,0.0001337504145022683
+Cell_stack_sequence_slg | ito | ptaa | perovskite | pcbm-60 | al,0.00013357920942562372
+Perovskite_deposition_thermal_annealing_temperature_100.0 >> 100,0.00013352720964235777
+ETL_deposition_reaction_solutions_compounds_titanium diisopropoxide bis(acetylacetonate) | tio2-np,0.00013342233992007083
+Backcontact_stack_sequence_ag | ito,0.00013323310459773327
+HTL_stack_sequence_bv-fnpd,0.00013313910888960878
+Perovskite_deposition_thermal_annealing_time_10.0; 40.0,0.0001317405824263466
+Cell_stack_sequence_slg | ito | zno-c | perovskite | spiro-meotad | ag,0.00013173954036049153
+Backcontact_thickness_list_20000.0,0.0001317041335785466
+Perovskite_deposition_reaction_solutions_compounds_purity_99.99%; unknown; 99.99%; 99.9985%,0.00013133349088006844
+ETL_stack_sequence_sno2,0.000130678149424075
+Perovskite_composition_a_ions_coefficients_2; 3,0.00012902398905894114
+ETL_deposition_reaction_solutions_compounds_purity_infrequent_sklearn,0.00012901379788288927
+Perovskite_composition_c_ions_coefficients_4,0.00012890822527450202
+ETL_deposition_solvents_water | chlorobenzene,0.00012889867596102176
+Perovskite_deposition_thermal_annealing_temperature_90 >> 250,0.00012889055571697208
+ETL_deposition_reaction_solutions_compounds_sno2-np,0.00012885734322391185
+Perovskite_composition_c_ions_br; i | i,0.00012845007182891644
+ETL_additives_compounds_agins2-qd,0.0001282142646652289
+Cell_stack_sequence_slg | ito | nio-c | perovskite | lif | c60 | sno2-c | znsno2-c | ito | ag,0.00012796788637944726
+ETL_deposition_aggregation_state_of_reactants_liquid >> liquid | liquid,0.00012793688148623843
+ETL_deposition_solvents_mixing_ratios_1 >> 1 | 1,0.00012760655396515397
+Perovskite_composition_long_form_famapbi3,0.00012760157897321852
+Perovskite_composition_a_ions_coefficients_0.5; 0.5,0.00012705297421956448
+Perovskite_deposition_procedure_evaporation,0.0001268589544545343
+Perovskite_deposition_synthesis_atmosphere_dry air >> dry air,0.0001268457014475486
+Perovskite_composition_short_form_csmapbi,0.00012656173588288408
+HTL_deposition_reaction_solutions_compounds_supplier_heraeus,0.00012622845968750007
+Perovskite_composition_b_ions_coefficients_3,0.00012622716071024695
+Perovskite_composition_long_form_mapbbr3,0.00012617762536568588
+ETL_deposition_solvents_1-butanol >> 1-butanol | ethanol,0.00012555725328299182
+HTL_deposition_thermal_annealing_atmosphere_ar,0.0001253259859592341
+Encapsulation_edge_sealing_materials_epoxy,0.00012531497930948947
+Perovskite_composition_short_form_csfamapbi,0.0001245887541829811
+Perovskite_deposition_aggregation_state_of_reactants_solution,0.00012367703686579074
+Perovskite_deposition_solvents_mixing_ratios_10; 1 >> 1,0.0001234568369760339
+ETL_deposition_solvents_ipa | ethanol,0.00012345613752724437
+ETL_stack_sequence_tio2-c | tio2-mp | al2o3-mp,0.00012328441174779575
+Perovskite_additives_compounds_ba,0.0001227769446747077
+Backcontact_deposition_thermal_annealing_temperature_100,0.00012260203719073376
+Perovskite_composition_b_ions_coefficients_9,0.00012252827671403374
+Perovskite_composition_short_form_mapbbr,0.00012252040141190316
+Perovskite_composition_long_form_cs0.1fa0.9pbbr0.3i2.7,0.0001223133334274546
+Backcontact_additives_compounds_undoped,0.00012212116437018838
+Perovskite_deposition_thermal_annealing_time_5.0 >> 20.0,0.00012079692138063744
+Perovskite_deposition_thermal_annealing_temperature_160; 100,0.0001207049756508236
+ETL_deposition_thermal_annealing_temperature_450 | 450,0.00012043024746376943
+ETL_deposition_solvents_chlorobenzene | ethanol,0.00012031731074472718
+Cell_stack_sequence_slg | ito | ptaa | perovskite | pcbm-60 | c60 | bcp | cu,0.00012017710364403187
+Perovskite_deposition_reaction_solutions_compounds_purity_infrequent_sklearn,0.00011993732570703529
+Perovskite_composition_long_form_fa0.1ma0.9pbi3,0.00011973722230490422
+Perovskite_band_gap_estimation_basis_literature,0.00011967903908579582
+Perovskite_deposition_synthesis_atmosphere_o2,0.00011964972405059546
+Perovskite_additives_compounds_tmta,0.00011809629208435842
+ETL_stack_sequence_sno2-qds,0.00011800740219239226
+Perovskite_deposition_thermal_annealing_temperature_unknown >> 90.0,0.00011776265616149732
+Backcontact_stack_sequence_moox | al,0.00011770738773177316
+HTL_deposition_reaction_solutions_concentrations_1.6 vol%mm; 2.1 vol%; 91 mg/ml; 3.6 vol%,0.0001162000274153893
+Perovskite_deposition_thermal_annealing_time_240.0,0.00011561081627000577
+Perovskite_deposition_reaction_solutions_compounds_nan >> pb(no3)2,0.00011557959949386321
+Perovskite_deposition_thermal_annealing_temperature_50; 160,0.00011556042624092569
+ETL_deposition_thermal_annealing_temperature_125 >> 450 | 500,0.00011550678830382593
+Perovskite_additives_compounds_pcbb-oeg,0.00011540503790291668
+ETL_deposition_procedure_spin-coating >> spin-coating | spin-coating,0.00011514696153558264
+Perovskite_composition_a_ions_coefficients_2; 8,0.00011357428558556086
+Perovskite_composition_long_form_cs0.05fa0.81ma0.14pbbr0.51i2.49,0.00011355289077452933
+Perovskite_deposition_thermal_annealing_time_5.0; 10.0,0.00011337260214222165
+num__ADD_DESC_text_mentions_chloride,0.00011324918306060109
+ETL_deposition_reaction_solutions_concentrations_0.42 m,0.00011322883462946132
+Perovskite_composition_long_form_ba2ma3pb4i13,0.00011256211939359035
+Backcontact_thickness_list_300.0 | 250.0,0.00011253330555400708
+Perovskite_deposition_solvents_dmf >> dmf; ipa,0.00011206082998145781
+ETL_deposition_thermal_annealing_time_5.0 >> 30.0 | 30.0,0.00011197168751962356
+Perovskite_composition_a_ions_coefficients_0.17; 0.83,0.00011142401672968011
+HTL_additives_concentrations_1.6 vol%; 2.1 vol%; 3.6 vol%,0.000111313070994686
+Perovskite_additives_compounds_incl2,0.00011110975057514542
+Cell_stack_sequence_slg | ito | pcbm-60 | perovskite | spiro-meotad | moo3 | ag | moo3,0.00011084371345433319
+Perovskite_deposition_thermal_annealing_time_8.0,0.00011072610782981857
+HTL_deposition_reaction_solutions_concentrations_2 mg/ml,0.00011043697827299921
+Cell_stack_sequence_slg | fto | pedot:pss | perovskite | pcbm-60 | ag,0.00011023101991411713
+Backcontact_thickness_list_1.0 | nan,0.00011013262484312236
+Perovskite_composition_a_ions_coefficients_0.2; 0.66; 0.14,0.00011009262513964682
+Backcontact_deposition_synthesis_atmosphere_vacuum,0.00010912701092682433
+Perovskite_composition_long_form_cs0.05fa0.79ma0.16pbbr0.5i2.5,0.00010903658899816767
+ETL_thickness_nan | 40.0 | 8.0,0.00010865414340187007
+Perovskite_deposition_thermal_annealing_atmosphere_air,0.00010859969135165323
+Perovskite_composition_a_ions_(pea); fa; ma,0.00010858499397903464
+ETL_thickness_nan | nan,0.00010761672104320326
+ETL_stack_sequence_tio2-c | tio2-np | zro2-mp,0.00010745746475257055
+Perovskite_deposition_thermal_annealing_time_3.0; 20.0,0.00010721000068933559
+num__Module_area_effective,0.00010704499882652518
+Perovskite_deposition_aggregation_state_of_reactants_gas >> liquid,0.00010695898774237197
+Perovskite_additives_compounds_imidazole,0.00010678091373762124
+Perovskite_composition_short_form_famapbsni,0.0001066548132938699
+Cell_stack_sequence_slg | fto | tio2-c | tio2-mp | perovskite | cuscn | au,0.00010658353710063105
+Encapsulation_stack_sequence_polyolefin,0.00010629059746303849
+Perovskite_composition_c_ions_coefficients_0.13; 2.87,0.0001059944131371141
+ETL_stack_sequence_sno2-np | pcbm-60,0.0001058626437191644
+Perovskite_deposition_thermal_annealing_time_30.0 >> 30.0,0.0001057731962514259
+Perovskite_deposition_thermal_annealing_time_2.0 >> 10.0,0.00010544369598914282
+Perovskite_deposition_thermal_annealing_temperature_200.0,0.00010539252465142396
+Perovskite_composition_c_ions_coefficients_9,0.00010496763872191786
+Perovskite_deposition_solvents_mixing_ratios_2; 1,0.00010460525265082586
+ETL_deposition_synthesis_atmosphere_air | n2,0.00010442242243032092
+Perovskite_composition_short_form_(pea)mapbi,0.00010433357731851891
+Perovskite_composition_long_form_fa0.83ma0.17pbi3,0.00010416669382669697
+Substrate_brand_name_nsg10,0.0001040749083321085
+Perovskite_composition_long_form_cs0.05fa0.76ma0.16pbbr0.48i2.52,0.00010380640321537583
+ETL_thickness_30.0 | 8.0,0.00010364498169127815
+Backcontact_stack_sequence_pedot:pss | ito | slg,0.00010341812159468376
+Perovskite_composition_a_ions_ba; cs; fa; ma,0.00010327917675960794
+Backcontact_deposition_aggregation_state_of_reactants_gas | gas,0.00010325650805810914
+Backcontact_deposition_thermal_annealing_time_infrequent_sklearn,0.00010305913970250253
+Cell_stack_sequence_slg | ito | zno-c | tio2-c | pcbm-60 | perovskite | spiro-meotad | ag,0.00010242276362869464
+Perovskite_deposition_thermal_annealing_time_10.0 >> 10.0 >> 10.0 >> 10.0,0.0001023543273880459
+Substrate_deposition_procedure_infrequent_sklearn,0.0001020364222858866
+Backcontact_deposition_procedure_dropcasting,0.00010199828209278486
+Encapsulation_edge_sealing_materials_butyl rubber,0.00010190128931066407
+Encapsulation_edge_sealing_materials_surlyn,0.00010156916169441791
+Perovskite_composition_long_form_fa0.25ma0.75pbi3,0.00010029698756463348
+ETL_thickness_1.2 | 10.0 | 8.0 | 2.0,0.00010012790512107784
+Cell_stack_sequence_slg | ito | graphene oxide | pedot:pss | perovskite | pcbm-60 | zno-np | ag,9.991953117393863e-05
+Perovskite_additives_concentrations_0.001,9.974485057339549e-05
+Perovskite_deposition_thermal_annealing_temperature_285,9.973414075514447e-05
+Substrate_cleaning_procedure_unknown >> uv-ozone,9.96868378592899e-05
+Encapsulation_stack_sequence_al2o3,9.889154211869774e-05
+ETL_thickness_60.0 | 10.0,9.886363849211186e-05
+Perovskite_deposition_thermal_annealing_temperature_100.0 >> unknown,9.829765504748678e-05
+Perovskite_deposition_thermal_annealing_temperature_60.0 >> 60.0 >> 60.0 >> 60.0,9.822272243866814e-05
+ETL_stack_sequence_tio2-c | tio2-nw,9.809582211158916e-05
+Perovskite_composition_long_form_fa0.81ma0.19pbbr0.5i2.5,9.789983532128491e-05
+Perovskite_additives_concentrations_5 mg/ml,9.786568115993782e-05
+Perovskite_composition_short_form_csagbibr,9.761930266968534e-05
+HTL_stack_sequence_p3ct-na,9.755909266801896e-05
+Perovskite_deposition_thermal_annealing_time_0.3; 50.0,9.741210774126445e-05
+Perovskite_composition_c_ions_coefficients_0.24; 2.76,9.73767910262866e-05
+ETL_thickness_100.0 | nan,9.727240794730575e-05
+ETL_stack_sequence_tio2-nw,9.725029060665916e-05
+Perovskite_composition_a_ions_coefficients_0.81; 0.19,9.709229269015582e-05
+Perovskite_composition_a_ions_coefficients_0.75; 0.25,9.698209467070835e-05
+Perovskite_additives_concentrations_5 mol%,9.6826735478334e-05
+HTL_additives_compounds_co-tfsi; tbp,9.66499799502529e-05
+ETL_deposition_procedure_spin-coating >> cbd | spin-coating,9.633611405647343e-05
+Cell_stack_sequence_slg | fto | tio2-np | perovskite | spiro-meotad | au,9.605146089598595e-05
+Perovskite_composition_a_ions_coefficients_0.03; 0.97,9.565712933395772e-05
+Perovskite_deposition_thermal_annealing_time_10.0; 30.0,9.508515528120547e-05
+Perovskite_composition_a_ions_coefficients_0.06; 0.79; 0.15,9.495071157646594e-05
+ETL_stack_sequence_wox,9.451350410701126e-05
+ETL_deposition_procedure_evaporation | spin-coating,9.429988335967421e-05
+ETL_thickness_40.0 | nan,9.403674599440463e-05
+HTL_thickness_list_35.0,9.400482908742574e-05
+Perovskite_deposition_procedure_spin-coating >> dipp-coating,9.398291810251996e-05
+Perovskite_deposition_reaction_solutions_concentrations_0.3 m; 0.3 m; 0.6 m,9.390901947433772e-05
+Perovskite_composition_a_ions_coefficients_0.1; 0.7; 0.2,9.364434730660486e-05
+Perovskite_additives_compounds_plmf,9.336171176823988e-05
+Perovskite_composition_a_ions_coefficients_0.05; 0.85; 0.15,9.280561982661721e-05
+Perovskite_deposition_procedure_spin-coating >> cbd >> spin-coating,9.257512074837767e-05
+Substrate_deposition_procedure_commercial | commercial,9.245826795718799e-05
+Perovskite_composition_long_form_cs0.05fa0.85ma0.15pbbr0.45i2.55,9.19130872624599e-05
+Backcontact_thickness_list_15.0 | 80.0,9.18237654934199e-05
+Substrate_thickness_nan | 0.6,9.16715415250511e-05
+Backcontact_deposition_procedure_evaporation | sputtering,9.106108942303587e-05
+ETL_deposition_reaction_solutions_compounds_pcbm | bcp,9.074680368076751e-05
+ETL_deposition_thermal_annealing_temperature_500,9.05860019370932e-05
+ETL_surface_treatment_before_next_deposition_step_infrequent_sklearn,9.056383837317411e-05
+Perovskite_composition_b_ions_coefficients_1; 1,9.033693114692315e-05
+HTL_deposition_thermal_annealing_temperature_120,9.008988637406239e-05
+Backcontact_deposition_reaction_solutions_compounds_carbon,9.004852149926218e-05
+Backcontact_stack_sequence_moo3 | ag | moo3,8.992114075335401e-05
+Cell_stack_sequence_slg | fto | sno2-c | c60-sam | perovskite | spiro-meotad | au,8.972537572082503e-05
+Perovskite_deposition_procedure_evaporation >> spin-coating,8.95945483513581e-05
+Perovskite_additives_compounds_tbp,8.93100798945644e-05
+Perovskite_deposition_solvents_dmf >> ipa >> ipa,8.865922132828859e-05
+ETL_stack_sequence_pcbm-60 | peie,8.850323751145408e-05
+Perovskite_composition_a_ions_(pea); ma,8.84601203269472e-05
+Encapsulation_edge_sealing_materials_uv-glue,8.814127676550683e-05
+Perovskite_deposition_procedure_drop-infiltration >> cbd,8.785583954596251e-05
+HTL_stack_sequence_p3ct,8.778823239517296e-05
+Perovskite_deposition_solvents_dmf >> ethanol,8.761678321150109e-05
+Backcontact_thickness_list_9.0 | 100.0,8.73072757808461e-05
+Perovskite_composition_long_form_fapbbr0.45i2.55,8.714224182888896e-05
+Perovskite_deposition_thermal_annealing_temperature_unknown >> 80.0,8.702197035656748e-05
+Perovskite_deposition_substrate_temperature_150,8.679978256937213e-05
+ETL_thickness_nan | 1000.0 | 1500.0,8.679182096082153e-05
+Substrate_thickness_infrequent_sklearn,8.676212037663145e-05
+num__Perovskite_deposition_quenching_media_mixing_ratios,8.666907326770808e-05
+num__Substrate_area,8.650185556833432e-05
+Perovskite_deposition_procedure_spin-coating >> spin-coating >> spin-coating,8.642403985299227e-05
+Backcontact_deposition_synthesis_atmosphere_pressure_partial_0.000001 torr,8.625773709877535e-05
+ETL_deposition_reaction_solutions_compounds_ticl4,8.608716890289989e-05
+ETL_deposition_reaction_solutions_compounds_supplier_infrequent_sklearn,8.532441337776222e-05
+HTL_thickness_list_190.0,8.525545517422315e-05
+Perovskite_composition_long_form_cs0.05fa0.7885ma0.1615pbbr0.51i2.49,8.510356131626004e-05
+ETL_thickness_45.0 | nan,8.479340573737141e-05
+Perovskite_deposition_thermal_annealing_time_unknown >> unknown >> 30.0,8.471221047581317e-05
+Perovskite_deposition_substrate_temperature_90,8.365409419209868e-05
+Perovskite_deposition_thermal_annealing_temperature_80; 120,8.349372879870286e-05
+Perovskite_composition_long_form_cs0.05fa0.83ma0.12pbbr0.39i2.61,8.339143360361996e-05
+Backcontact_deposition_procedure_evaporation | evaporation | evaporation,8.321412445660032e-05
+Perovskite_composition_a_ions_coefficients_0.05; 0.83; 0.12,8.313659026531457e-05
+Perovskite_deposition_solvents_mixing_ratios_6; 4 >> 1,8.295253434870493e-05
+Perovskite_deposition_solvents_mixing_ratios_1 >> 1; 99,8.260852179666403e-05
+Backcontact_thickness_list_15000.0,8.227399186490135e-05
+Perovskite_composition_b_ions_ag; bi,8.177469645542729e-05
+Backcontact_deposition_synthesis_atmosphere_pressure_total_0.000001 torr,8.176282153644406e-05
+Encapsulation_stack_sequence_uv-curable epoxy,8.175311208806294e-05
+Perovskite_deposition_thermal_annealing_temperature_unknown >> 70,8.156859477256455e-05
+ETL_stack_sequence_tio2-c | swcnts; tio2-mp,8.144102776207498e-05
+Cell_stack_sequence_slg | fto | tio2-c | c60 | perovskite | spiro-meotad | au,8.131504087666353e-05
+Cell_stack_sequence_slg | ito | sno2-np | pcbm-60 | perovskite | spiro-meotad | ag,8.09056323838647e-05
+Backcontact_thickness_list_55.0,8.088325365422838e-05
+ETL_stack_sequence_pcbm-60 | c60 | lif,8.078617331914871e-05
+Backcontact_thickness_list_6.0 | 10.0 | 35.0,8.018425151246877e-05
+Perovskite_deposition_solvents_dmf >> methyl acetate,7.944934135687838e-05
+Perovskite_composition_c_ions_coefficients_3 | 4,7.878758772087422e-05
+Perovskite_composition_c_ions_coefficients_0.2; 2.8,7.873407141266682e-05
+Add_lay_front_stack_sequence_infrequent_sklearn,7.856910541054408e-05
+Perovskite_deposition_thermal_annealing_atmosphere_air; ambient,7.768683696957653e-05
+Perovskite_deposition_quenching_media_n2,7.751785788025376e-05
+Backcontact_stack_sequence_carbon-nt,7.74183798007904e-05
+Perovskite_deposition_quenching_media_additives_compounds_swcnts,7.648971978844008e-05
+Cell_stack_sequence_slg | fto | tio2-c | swcnts; tio2-mp | perovskite | spiro-meotad | au,7.647640152717322e-05
+Perovskite_composition_a_ions_coefficients_2; 39,7.637446095915951e-05
+Perovskite_additives_compounds_pb(scn)2,7.621078244092381e-05
+ETL_stack_sequence_pcbm-60 | tio2-c,7.618000362305516e-05
+HTL_thickness_list_140.0,7.591712940166165e-05
+Perovskite_deposition_reaction_solutions_compounds_csi; pbbr2; pbi2,7.584903411803594e-05
+Perovskite_additives_concentrations_0.15,7.572492017296112e-05
+Backcontact_deposition_synthesis_atmosphere_vacuum | vacuum,7.568935582611494e-05
+Perovskite_deposition_reaction_solutions_compounds_csi; fai; pbi2,7.523857673776211e-05
+Perovskite_deposition_thermal_annealing_time_14.0,7.508711416398426e-05
+Perovskite_additives_concentrations_0.025,7.499240199430428e-05
+Perovskite_deposition_solvents_mixing_ratios_4.5; 1; 4,7.497926902112551e-05
+Cell_stack_sequence_slg | fto | tio2-nw | perovskite | spiro-meotad | au,7.457752080403255e-05
+Perovskite_composition_a_ions_coefficients_2,7.434133905983633e-05
+Perovskite_deposition_after_treatment_of_formed_perovskite_met_infrequent_sklearn,7.419942893680166e-05
+Perovskite_band_gap_graded_false,7.347177434255174e-05
+HTL_deposition_reaction_solutions_compounds_clevios pvp al 4083,7.346912511146707e-05
+Perovskite_additives_compounds_rbi,7.335290453256968e-05
+Perovskite_additives_compounds_acetate,7.304143731842856e-05
+Cell_stack_sequence_slg | ito | sno2-np | perovskite | carbon,7.301998664393741e-05
+Perovskite_additives_compounds_thiourea,7.243307251275802e-05
+Backcontact_deposition_procedure_sandwiching,7.228524404395574e-05
+Perovskite_composition_long_form_cs0.05fa0.75ma0.1pbbr0.3i2.9,7.199450195856087e-05
+Backcontact_thickness_list_65.0,7.193774370263078e-05
+ETL_thickness_nan | 250.0,7.193610198532098e-05
+Substrate_supplier_infrequent_sklearn,7.178807966095275e-05
+Perovskite_storage_atmosphere_n2,7.170646213834962e-05
+Perovskite_deposition_thermal_annealing_time_2.0; 2.0,7.157754636315948e-05
+HTL_deposition_procedure_evaporation | evaporation,7.138974272250386e-05
+Perovskite_composition_c_ions_coefficients_6,7.111184448964929e-05
+Perovskite_composition_c_ions_coefficients_0.15; 0.85,7.105623406957052e-05
+Perovskite_composition_long_form_csagbibr6,7.084692321230849e-05
+Perovskite_deposition_solvents_mixing_ratios_19; 1 >> 1,7.06276139563802e-05
+Perovskite_composition_short_form_mabii,7.045685570846918e-05
+Perovskite_deposition_thermal_annealing_temperature_85.0,7.032642988204587e-05
+ETL_stack_sequence_sno2-c | c60-sam,7.02814918110931e-05
+num__Cell_number_of_cells_per_substrate,7.009840986843524e-05
+Perovskite_additives_concentrations_1 mg/ml,6.991571460837882e-05
+ETL_stack_sequence_zno-c | tio2-mp,6.97776416554953e-05
+Cell_stack_sequence_slg | ito | zno-np | pcbm-60 | perovskite | p3ht | au,6.95173985236295e-05
+ETL_deposition_reaction_solutions_concentrations_20 mg/ml; 0.5 mg/ml,6.943158404336534e-05
+Perovskite_deposition_reaction_solutions_volumes_0.045,6.932503723021647e-05
+Perovskite_deposition_solvents_mixing_ratios_2; 3,6.892271085548323e-05
+Perovskite_additives_compounds_ki,6.890925371418184e-05
+ETL_stack_sequence_zno-np | pcbm-60,6.890100871185166e-05
+HTL_deposition_reaction_solutions_compounds_supplier_infrequent_sklearn,6.830930996733866e-05
+Cell_stack_sequence_slg | fto | zno-c | tio2-mp | perovskite | spiro-meotad | au,6.82825517457866e-05
+HTL_thickness_list_110.0,6.823633122665506e-05
+Perovskite_deposition_reaction_solutions_volumes_0.05,6.795239851787319e-05
+ETL_deposition_solvents_purity_anhydrous 99.8%,6.766277176163529e-05
+ETL_thickness_10.0,6.761286536113983e-05
+ETL_deposition_procedure_spin-coating | ald,6.761228118852855e-05
+ETL_stack_sequence_zno-c | tio2-c | pcbm-60,6.7531723551131e-05
+Perovskite_deposition_thermal_annealing_temperature_280,6.735058281450625e-05
+Perovskite_composition_short_form_fapbi3,6.732721653080208e-05
+HTL_deposition_synthesis_atmosphere_infrequent_sklearn,6.725866845871294e-05
+Perovskite_composition_c_ions_i | i,6.723604537726976e-05
+Perovskite_composition_long_form_cs0.1fa0.9pbbr0.1i2.9,6.71473721579342e-05
+HTL_thickness_list_220.0,6.681381714120039e-05
+HTL_deposition_thermal_annealing_atmosphere_n2,6.647035209316675e-05
+Backcontact_deposition_synthesis_atmosphere_pressure_partial_0.000002 torr,6.636413848627994e-05
+HTL_deposition_synthesis_atmosphere_relative_humidity_50.0,6.622673035176522e-05
+Perovskite_deposition_thermal_annealing_time_1.0; 9.0,6.602421318870004e-05
+HTL_deposition_procedure_spin-coating | evaporation,6.5849690252169e-05
+HTL_additives_compounds_fk102; li-tfsi; tbp,6.583679923152583e-05
+Perovskite_composition_c_ions_coefficients_1.5; 1.5,6.562217755642584e-05
+Perovskite_band_gap_estimation_basis_absorption tauc-plot,6.545381798001406e-05
+Perovskite_deposition_thermal_annealing_temperature_300.0,6.545312594466992e-05
+Perovskite_deposition_solvents_none >> ipa,6.516715581207343e-05
+Perovskite_deposition_synthesis_atmosphere_vacuum >> n2,6.515501095551661e-05
+ETL_thickness_nan | 30.0 | 8.0,6.511073779009146e-05
+Substrate_brand_name_fto22-7,6.50914138679515e-05
+Perovskite_composition_a_ions_coefficients_0.125; 0.875,6.462801500451429e-05
+ETL_deposition_procedure_evaporation | ald,6.451478227916716e-05
+Perovskite_additives_compounds_k,6.434827656702544e-05
+Perovskite_additives_concentrations_0.1 mol%,6.42493311271834e-05
+HTL_stack_sequence_p3ct-k,6.404649880701223e-05
+Perovskite_composition_long_form_fa0.75ma0.25pbbr0.24i2.76,6.372199845646419e-05
+Substrate_supplier_yingkou opv tech new energy co.,6.362269593754844e-05
+Perovskite_deposition_thermal_annealing_temperature_300.0 >> 150,6.357984122351391e-05
+Cell_stack_sequence_slg | fto | tio2-c | sno2-np | perovskite | spiro-meotad | au,6.337170598418103e-05
+Perovskite_additives_concentrations_1,6.325688903271339e-05
+ETL_deposition_solvents_ethanol | ethanol,6.315104371372447e-05
+Perovskite_additives_compounds_ag; cl; rgo,6.314127952950441e-05
+ETL_thickness_50.0 | 10.0,6.303677395383713e-05
+Perovskite_composition_a_ions_coefficients_0.05; 0.75; 0.1,6.282243124200602e-05
+Perovskite_composition_long_form_fapbbr0.3i2.7,6.269374290490547e-05
+Perovskite_deposition_synthesis_atmosphere_air >> air >> air,6.263391201610921e-05
+ETL_deposition_thermal_annealing_temperature_500 | 500,6.230950816967004e-05
+Perovskite_deposition_synthesis_atmosphere_vacuum >> vacuum,6.208148369158344e-05
+Perovskite_deposition_thermal_annealing_temperature_unknown >> 140.0,6.206077078161215e-05
+Perovskite_composition_a_ions_coefficients_0.05; 0.85; 0.1,6.203377061617266e-05
+Perovskite_composition_long_form_(pea)2ma4pb5i16,6.198256505832633e-05
+Perovskite_composition_long_form_cs0.25fa0.75pb0.5sn0.5i3,6.188862073147366e-05
+Backcontact_deposition_reaction_solutions_compounds_cu,6.161971492699851e-05
+Perovskite_composition_a_ions_coefficients_0.05; 0.76; 0.16,6.133500415659767e-05
+Perovskite_deposition_solvents_dmso; gbl >> none,6.11291662726461e-05
+num__ADD_DESC_mean_chloride,6.080186139646674e-05
+ETL_deposition_reaction_solutions_compounds_titanium isopropoxide | tio2 paste,6.056716605775437e-05
+Perovskite_deposition_solvents_dmf; dmso >> none,6.014896047438176e-05
+ETL_surface_treatment_before_next_deposition_step_uv-ozone,6.005727235442045e-05
+ETL_thickness_25.0 | 8.0,5.933251881424514e-05
+Perovskite_additives_concentrations_0.0175,5.912922380093737e-05
+Perovskite_composition_long_form_fa0.5ma0.5pb0.5sn0.5i3,5.9108900246183695e-05
+Backcontact_deposition_thermal_annealing_time_20.0,5.907128812524459e-05
+ETL_thickness_27.0,5.8833573291954616e-05
+HTL_deposition_synthesis_atmosphere_relative_humidity_0 | 0,5.866639407083985e-05
+Backcontact_deposition_procedure_dc sputtering | evaporation,5.8656816547009806e-05
+ETL_deposition_procedure_cbd | cbd,5.8591076953112504e-05
+Perovskite_deposition_thermal_annealing_time_0.08; 20.0,5.8585460419690596e-05
+Perovskite_composition_long_form_cs0.125fa0.875pbbr0.375i2.625,5.832462636440346e-05
+num__ADD_DESC_has_macl,5.822456629646488e-05
+Perovskite_deposition_procedure_spin coating,5.773286502553024e-05
+Perovskite_deposition_solvents_supplier_infrequent_sklearn,5.732938077410092e-05
+ETL_deposition_procedure_spray-pyrolys | doctor blading,5.713428402397364e-05
+Perovskite_composition_c_ions_coefficients_0.375; 2.625,5.7032386545276214e-05
+ETL_deposition_reaction_solutions_concentrations_20 mg/ml | 2.5 wt%,5.6730678318182975e-05
+ETL_deposition_solvents_supplier_alfa aesar,5.667781047210874e-05
+Cell_stack_sequence_slg | fto | tio2-c | tio2-mp | perovskite | spiro-meotad | moo3 | ag,5.656056609859603e-05
+Perovskite_deposition_thermal_annealing_time_10.0 >> 30.0,5.633381472649032e-05
+Perovskite_deposition_thermal_annealing_temperature_unknown >> 350.0,5.6289210067719556e-05
+Perovskite_deposition_solvents_mixing_ratios_25; 4 >> 1,5.620032099312791e-05
+Perovskite_deposition_solvents_mixing_ratios_6; 1,5.613847988927169e-05
+Backcontact_thickness_list_110.0,5.596488178579891e-05
+HTL_deposition_reaction_solutions_compounds_fk209; li-tfsi; spiro-meotad; tbp,5.586631048718259e-05
+HTL_stack_sequence_nio-mp,5.584790900617118e-05
+Perovskite_composition_c_ions_coefficients_19,5.541720641337246e-05
+Perovskite_deposition_reaction_solutions_compounds_csi; fai; mabr; pbbr2; pbi2,5.510532154472082e-05
+Perovskite_composition_c_ions_coefficients_0.09; 2.91,5.5087456932356775e-05
+Perovskite_deposition_after_treatment_of_formed_perovskite_met_l-egt film was fabricated through a soaking technique.,5.498878160033267e-05
+ETL_deposition_reaction_solutions_temperature_infrequent_sklearn,5.484253023206706e-05
+Perovskite_deposition_reaction_solutions_age_2.0,5.47057707837796e-05
+ETL_deposition_synthesis_atmosphere_pressure_total_infrequent_sklearn,5.435816541646668e-05
+Perovskite_additives_concentrations_1 wt%,5.4348266942373244e-05
+Substrate_cleaning_procedure_soap >> water >> ultrasonic bath >> acetone >> ethanol >> ultrasonic bath >> ipa >> uv-ozone,5.4325449654023074e-05
+Add_lay_front_stack_sequence_mgf2,5.410786906365155e-05
+ETL_deposition_reaction_solutions_compounds_pcbm-60,5.401946314515957e-05
+Backcontact_thickness_list_140.0,5.396452987699124e-05
+Perovskite_composition_b_ions_coefficients_0.25; 0.75,5.39573633049273e-05
+Perovskite_deposition_procedure_evaporation >> evaporation,5.391488441850445e-05
+Perovskite_deposition_thermal_annealing_temperature_70; 120,5.388765992954087e-05
+ETL_thickness_25.0 | 200.0,5.338219313396196e-05
+HTL_additives_compounds_emic,5.3318169845212825e-05
+HTL_deposition_aggregation_state_of_reactants_liquid | gas,5.3298016587856695e-05
+Backcontact_deposition_synthesis_atmosphere_pressure_total_0.00005 mbar,5.296281263262226e-05
+HTL_deposition_reaction_solutions_concentrations_5.2 mg/ml; 52.8 mg/ml; 0.02 ml/ml,5.260535065864655e-05
+ETL_thickness_50.0 | 150.0,5.259213119706859e-05
+Substrate_supplier_pilkington,5.2524125204361365e-05
+ETL_deposition_thermal_annealing_temperature_200,5.2512847826109585e-05
+Cell_stack_sequence_slg | ito | p3ct-n | perovskite | pcbm-60 | c60 | bcp | ag,5.245425617602382e-05
+Perovskite_deposition_synthesis_atmosphere_n2 >> air,5.234074686386563e-05
+Perovskite_deposition_solvents_supplier_sigma aldrich,5.2125927230536316e-05
+HTL_deposition_procedure_drop-infiltration,5.204135109892327e-05
+ETL_deposition_reaction_solutions_concentrations_164 mg/ml; 50 mg/ml | 0.7 mg/ml,5.195134710086174e-05
+HTL_deposition_synthesis_atmosphere_pressure_total_1 atm,5.179811293814993e-05
+HTL_additives_compounds_tbp,5.1774353597341344e-05
+Perovskite_deposition_thermal_annealing_time_5.0 >> 40.0,5.16419369960072e-05
+Cell_architecture_infrequent_sklearn,5.153721622729343e-05
+Perovskite_composition_a_ions_coefficients_0.8; 0.15,5.151115958935693e-05
+Perovskite_composition_long_form_fa0.9ma0.1pbbr0.03i2.97,5.148256780582858e-05
+Perovskite_deposition_synthesis_atmosphere_n2 >> methylamin; n2,5.1469670909939785e-05
+Perovskite_composition_a_ions_coefficients_0.97; 0.03,5.133778011383092e-05
+Cell_stack_sequence_slg | ito | pedot:pss | perovskite | c60 | bcp | al,5.126599685745153e-05
+Perovskite_deposition_procedure_thermal annealing,5.099624341649946e-05
+Perovskite_composition_long_form_ba2ma4pb5i16,5.089321131023337e-05
+Perovskite_composition_a_ions_coefficients_3,5.08335803164097e-05
+Perovskite_composition_long_form_fa0.2ma0.8pbbr0.6i2.4,5.0510795771426025e-05
+HTL_deposition_thermal_annealing_temperature_140,5.02640477991008e-05
+Perovskite_deposition_solvents_dmso >> ipa,5.022669887219381e-05
+Perovskite_deposition_synthesis_atmosphere_relative_humidity_20,5.0211094937285014e-05
+Encapsulation_atmosphere_for_encapsulation_dry air,5.013820585150158e-05
+Perovskite_deposition_thermal_annealing_time_60.0 >> 10.0,4.994812459031927e-05
+HTL_deposition_reaction_solutions_concentrations_63 mg/ml; 170 mg/ml; 2 vol%,4.98548371711192e-05
+ETL_additives_compounds_nacl,4.9850734513623866e-05
+Perovskite_deposition_thermal_annealing_temperature_70 >> 100,4.9838944628701527e-05
+Cell_stack_sequence_slg | fto | tio2-c | tio2-mp | perovskite | cuscn | carbon,4.98260033177482e-05
+Perovskite_composition_a_ions_coefficients_0.4; 0.6,4.881662359353568e-05
+Perovskite_deposition_thermal_annealing_temperature_unknown >> 70.0,4.8783944699357346e-05
+ETL_deposition_solvents_ethanol,4.8655365187268935e-05
+Perovskite_deposition_thermal_annealing_time_1.0; 1.0; 10.0,4.843695030693393e-05
+Perovskite_deposition_thermal_annealing_time_10.0 >> 40.0,4.8268297262987574e-05
+HTL_thickness_list_25.0,4.81025488883999e-05
+HTL_deposition_reaction_solutions_temperature_25,4.809225947957741e-05
+num__ADD_DESC_text_mentions_iodide,4.786415416651457e-05
+HTL_additives_concentrations_45 ul(2mg/mlacn); 10.2 ul,4.780350734701289e-05
+Perovskite_deposition_thermal_annealing_temperature_100; 150,4.77791274701303e-05
+HTL_thickness_list_210.0,4.771936123599373e-05
+HTL_stack_sequence_p3ht | spiro-meotad,4.7716350142678925e-05
+ETL_thickness_nan | 500.0,4.7503007681708225e-05
+ETL_deposition_reaction_solutions_temperature_70,4.745943551579609e-05
+ETL_deposition_aggregation_state_of_reactants_liquid | liquid | liquid,4.7431970834512805e-05
+HTL_deposition_reaction_solutions_age_4.0 | 0.0,4.728731029785816e-05
+Cell_stack_sequence_slg | ito | sno2-c | pcbm-60 | perovskite | spiro-meotad | au,4.720489658542978e-05
+Perovskite_deposition_thermal_annealing_temperature_60.0; 80.0,4.7158808868563286e-05
+HTL_deposition_synthesis_atmosphere_pressure_partial_1 atm,4.7157832665740715e-05
+Perovskite_deposition_thermal_annealing_temperature_75.0,4.713432185013907e-05
+Perovskite_deposition_solvents_octane,4.7064622187764894e-05
+Perovskite_composition_long_form_cs0.06fa0.79ma0.15pbbr0.45i2.55,4.702534153588695e-05
+Perovskite_composition_a_ions_coefficients_0.08; 0.8; 0.12,4.673954561893721e-05
+Perovskite_composition_short_form_(pea)cspbi,4.673718771141062e-05
+Perovskite_deposition_reaction_solutions_concentrations_50 wt%,4.671993916859338e-05
+HTL_stack_sequence_xy1,4.6632422061504503e-05
+Perovskite_deposition_quenching_media_air,4.650543824044461e-05
+HTL_stack_sequence_pcpd2fbt:bcf,4.648876052839696e-05
+HTL_thickness_list_280.0,4.644710822445527e-05
+Perovskite_deposition_thermal_annealing_time_12.0,4.619488560363361e-05
+HTL_stack_sequence_pta,4.615349699332856e-05
+Perovskite_deposition_solvents_mixing_ratios_600; 78,4.614532356948029e-05
+ETL_thickness_20.0 | 7.0,4.613484158127675e-05
+Cell_stack_sequence_slg | fto | tio2-c | perovskite | cupc | carbon,4.5905017136557705e-05
+ETL_thickness_50.0 | 6.0,4.5392931325492836e-05
+ETL_deposition_solvents_ethanol; hcl | ethanol,4.5390825249303034e-05
+Perovskite_deposition_solvents_acetonitrile; methylamine,4.5313175792667645e-05
+ETL_deposition_aggregation_state_of_reactants_gas | gas,4.526372458390139e-05
+Perovskite_composition_c_ions_infrequent_sklearn,4.5092821114989534e-05
+Perovskite_composition_short_form_csfapbsni,4.5059953021863076e-05
+Perovskite_deposition_thermal_annealing_time_10.0; 50.0,4.499212658087588e-05
+ETL_deposition_solvents_supplier_sigma aldrich,4.4919272476175535e-05
+ETL_thickness_nan | 400.0,4.4830576691571215e-05
+Perovskite_deposition_aggregation_state_of_reactants_liquid >> liquid | liquid,4.4713313845376835e-05
+Perovskite_deposition_thermal_annealing_time_unknown >> 8.0,4.450369022372291e-05
+ETL_deposition_synthesis_atmosphere_pressure_partial_1 atm,4.4296218272532275e-05
+Perovskite_deposition_synthesis_atmosphere_relative_humidity_25,4.429133619880403e-05
+Backcontact_deposition_thermal_annealing_time_30.0,4.425573326047192e-05
+ETL_thickness_15.0,4.423160495677268e-05
+Substrate_supplier_kintec,4.411233020431137e-05
+ETL_thickness_60.0 | 5.0,4.4060069017242586e-05
+Perovskite_deposition_thermal_annealing_temperature_90,4.405250670943731e-05
+Perovskite_deposition_thermal_annealing_time_2.0 | 20.0,4.4046216669884465e-05
+ETL_deposition_procedure_spin-coating | hydrothermal,4.3912777523493054e-05
+Perovskite_deposition_synthesis_atmosphere_ar >> ar,4.38294782707573e-05
+Perovskite_additives_compounds_nh4scn,4.3258665877371246e-05
+HTL_additives_concentrations_5.2 mg/ml; 0.02 ml/ml,4.321196543782047e-05
+Perovskite_composition_long_form_fa0.97ma0.03pbbr0.09i2.91,4.318849346761593e-05
+HTL_deposition_procedure_doctor blading,4.3067411878427075e-05
+ETL_deposition_procedure_dipp-coating | spin-coating | spin-coating,4.2840630203471734e-05
+Perovskite_composition_c_ions_coefficients_0.13; 2.83,4.27859431956851e-05
+Perovskite_composition_a_ions_coefficients_0.81; 0.15,4.260300896509728e-05
+Substrate_brand_name_tec15,4.242707263385862e-05
+Substrate_brand_name_infrequent_sklearn,4.225048865477366e-05
+HTL_stack_sequence_spiro-meotad | moo3,4.224997926913594e-05
+Perovskite_deposition_procedure_spray-coating,4.208994312293227e-05
+HTL_stack_sequence_polytpd,4.202683325849643e-05
+ETL_deposition_thermal_annealing_atmosphere_n2 | n2,4.189329953109853e-05
+HTL_deposition_procedure_evaporation | spin-coating,4.182413442855037e-05
+Perovskite_composition_short_form_famasni,4.171148242229057e-05
+Perovskite_composition_long_form_cs0.08fa0.8ma0.12pbbr0.36i2.64,4.162932056169004e-05
+Perovskite_composition_short_form_mapbi3,4.1462183931138295e-05
+Perovskite_deposition_thermal_annealing_temperature_50; 100; 160,4.139181194593937e-05
+Perovskite_deposition_thermal_annealing_time_0.5; 2.0,4.137412634976794e-05
+ETL_deposition_reaction_solutions_age_0.0 | 6.0,4.102795195396996e-05
+Perovskite_deposition_thermal_annealing_time_unknown; unknown; unknown; 30.0,4.091916649935566e-05
+Perovskite_deposition_thermal_annealing_time_10.0; 60.0,4.052847878842222e-05
+HTL_thickness_list_90.0,4.047221310576687e-05
+Cell_stack_sequence_slg | ito | sno2-np | pcba-60 | perovskite | pta | moo3 | ag,4.02868570507716e-05
+Perovskite_deposition_solvents_dmf; dmso; nmp,4.0039140626018806e-05
+Perovskite_deposition_solvents_mixing_ratios_9; 1 >> 1; 100,3.997788395492389e-05
+ETL_thickness_40.0 | 100.0,3.99507425287154e-05
+Backcontact_deposition_synthesis_atmosphere_air,3.9737204025537366e-05
+Substrate_cleaning_procedure_soap >> water >> ultrasonic bath >> ethanol >> o2-plasma,3.9491359116612104e-05
+Perovskite_composition_long_form_ma3bi2i9,3.944623750085157e-05
+Perovskite_composition_long_form_fa0.81ma0.15pbbr0.45i2.55,3.9434008837546704e-05
+Perovskite_composition_b_ions_coefficients_7.8,3.9429237300957785e-05
+ETL_thickness_nan | 40.0 | 6.0,3.919054473714622e-05
+Substrate_cleaning_procedure_soap >> water >> toluene >> ultrasonic bath >> acetone >> ultrasonic bath >> ipa >> o2-plasma,3.915062689648542e-05
+Backcontact_thickness_list_30.0 | 120.0 | nan,3.914161080278096e-05
+Backcontact_stack_sequence_moo3 | al,3.907154950392819e-05
+Perovskite_additives_concentrations_0.5,3.901313473573158e-05
+ETL_additives_compounds_unknown | graphene,3.8997985368013814e-05
+Perovskite_composition_c_ions_coefficients_0.42; 2.58,3.886635607802296e-05
+ETL_deposition_synthesis_atmosphere_pressure_total_1 atm,3.872158800704687e-05
+Cell_stack_sequence_slg | ito | pedot:pss | perovskite | pcbm-60 | lif | al,3.861882790565249e-05
+Perovskite_deposition_thermal_annealing_temperature_25 >> 100,3.817524935357615e-05
+ETL_deposition_solvents_water | ethanol,3.805620482612171e-05
+ETL_deposition_solvents_chlorobenzene,3.804637300847751e-05
+ETL_deposition_synthesis_atmosphere_relative_humidity_infrequent_sklearn,3.79890577047171e-05
+Perovskite_composition_short_form_bacsfamapbi,3.791912898480618e-05
+Perovskite_composition_a_ions_coefficients_1; 4,3.791088075396371e-05
+num__ADD_DESC_sum_chloride,3.7725566827900035e-05
+Perovskite_composition_long_form_cs0.05fa0.8ma0.15pbbr0.45i2.55,3.764234029178571e-05
+Perovskite_deposition_thermal_annealing_temperature_70.0 | 140.0,3.7621928795362667e-05
+HTL_thickness_list_75.0,3.7619418660656714e-05
+HTL_deposition_solvents_supplier_sigma aldrich,3.761097100967478e-05
+Perovskite_deposition_synthesis_atmosphere_n2 >> n2 >> n2,3.756929791235037e-05
+Perovskite_deposition_thermal_annealing_temperature_60; 120,3.747450121465528e-05
+ETL_deposition_substrate_temperature_450 | 25,3.736862996549987e-05
+ETL_deposition_solvents_supplier_infrequent_sklearn,3.721903986274549e-05
+ETL_deposition_substrate_temperature_450,3.7195862469488296e-05
+Perovskite_band_gap_graded_true,3.711053860976181e-05
+Perovskite_deposition_solvents_dmf; dmso >> dmf; ipa,3.710820147176934e-05
+ETL_deposition_synthesis_atmosphere_pressure_partial_1 atm | 1 atm >> 1 atm,3.7092764947372206e-05
+ETL_thickness_80.0 | nan,3.6969518641056654e-05
+Cell_stack_sequence_slg | fto | tio2-c | perovskite | pcpd2fbt:bcf | pedot:pss | ito | slg,3.6759735465452596e-05
+Perovskite_storage_atmosphere_air,3.64675101788615e-05
+Perovskite_deposition_thermal_annealing_temperature_70.0 | 150.0,3.623079309829153e-05
+Perovskite_deposition_synthesis_atmosphere_air >> air; mai,3.6015416062569746e-05
+Perovskite_deposition_thermal_annealing_temperature_80.0 >> 100.0,3.591454470984324e-05
+ETL_deposition_solvents_2-methoxyethanol | methanol,3.562880164608687e-05
+Substrate_cleaning_procedure_soap >> ultrasonic bath >> water >> ultrasonic bath >> acetone >> ultrasonic bath >> ipa >> ultrasonic bath,3.551897627134865e-05
+HTL_deposition_solvents_ipa; water,3.5081526393978365e-05
+Perovskite_additives_compounds_gai,3.4916528721919025e-05
+ETL_deposition_substrate_temperature_60,3.464996898999869e-05
+ETL_deposition_solvents_purity_infrequent_sklearn,3.4536137590154333e-05
+ETL_deposition_thermal_annealing_temperature_200 | 25,3.449925165650002e-05
+Perovskite_composition_a_ions_coefficients_1 | 2,3.437422043150935e-05
+ETL_deposition_reaction_solutions_temperature_unknown | 200,3.430284831271632e-05
+Perovskite_deposition_synthesis_atmosphere_pressure_partial_1 atm >> 1 atm | 1 atm,3.425086544236782e-05
+Perovskite_composition_long_form_fa0.8ma0.15pbbr0.45i2.55,3.3831797105178936e-05
+ETL_thickness_50.0 | 5.0,3.3801869742357186e-05
+Backcontact_additives_concentrations_infrequent_sklearn,3.378455069763099e-05
+Backcontact_stack_sequence_moo3 | au,3.376916998156382e-05
+Perovskite_deposition_thermal_annealing_time_10.0 >> 120.0,3.365547461261761e-05
+Perovskite_deposition_thermal_annealing_temperature_250.0,3.3581134518231815e-05
+Perovskite_composition_a_ions_coefficients_0.1; 0.15; 0.75,3.353272043850347e-05
+HTL_deposition_procedure_screen printing,3.347279758448207e-05
+Substrate_stack_sequence_slg | azo,3.341462464520359e-05
+Perovskite_deposition_solvents_dmf; nnp,3.339951082116113e-05
+ETL_thickness_50.0 | 8.0,3.330151247426728e-05
+Perovskite_deposition_thermal_annealing_time_3.0 | 10.0,3.313609442435395e-05
+HTL_additives_compounds_li-tfsi; tpb,3.3102432693911783e-05
+Cell_stack_sequence_slg | fto | tio2-c | tio2-nw | perovskite | spiro-meotad | au,3.3054886277681194e-05
+Perovskite_additives_compounds_cl; snf2,3.30491557381637e-05
+ETL_deposition_thermal_annealing_time_30.0 | 0.0,3.3046667093729765e-05
+Perovskite_composition_long_form_fa0.75ma0.25sni3,3.3043492646251927e-05
+HTL_deposition_synthesis_atmosphere_ambient,3.300153081294071e-05
+HTL_stack_sequence_pcbm-60,3.284284342402317e-05
+Backcontact_deposition_synthesis_atmosphere_pressure_total_0.0001 mbar,3.2771275774286994e-05
+Perovskite_composition_a_ions_(pea); cs,3.275851219215033e-05
+Perovskite_deposition_thermal_annealing_pressure_1 atm >> 1 atm | 1 atm,3.266975625160247e-05
+Perovskite_composition_b_ions_coefficients_6,3.266388777265782e-05
+Perovskite_deposition_reaction_solutions_age_infrequent_sklearn,3.262835867258118e-05
+Backcontact_thickness_list_600.0,3.257993694340255e-05
+Perovskite_deposition_reaction_solutions_age_0.0 | 0.0,3.256031851140035e-05
+Perovskite_deposition_solvents_dmf; dmso | ipa,3.249264957779878e-05
+Perovskite_additives_compounds_pvp,3.245210649041896e-05
+ETL_deposition_synthesis_atmosphere_ar,3.244665488918976e-05
+ETL_thickness_300.0,3.2333931419086854e-05
+Perovskite_composition_a_ions_ea; ma,3.223265657640222e-05
+ETL_deposition_synthesis_atmosphere_air; o2 | air,3.217538622860361e-05
+ETL_deposition_thermal_annealing_temperature_120,3.201857849582923e-05
+ETL_deposition_reaction_solutions_age_infrequent_sklearn,3.197938930168009e-05
+Add_lay_back_false,3.188972958140784e-05
+ETL_stack_sequence_sno2-np | pcba-60,3.185477689380837e-05
+Perovskite_deposition_thermal_annealing_time_65.0,3.180172920423461e-05
+Perovskite_deposition_thermal_annealing_temperature_65.0,3.158151214239785e-05
+Perovskite_composition_a_ions_fa; cs,3.1554146921032316e-05
+Perovskite_composition_a_ions_coefficients_2; 5,3.154003303251766e-05
+Cell_stack_sequence_slg | ito | moo3 | pedot:pss | perovskite | pcbm-60 | bcp | ag,3.1244727696471116e-05
+HTL_storage_atmosphere_n2,3.118045992903236e-05
+Perovskite_deposition_thermal_annealing_time_15.0; 60.0 >> 5.0,3.106289790260833e-05
+HTL_deposition_thermal_annealing_atmosphere_infrequent_sklearn,3.0932851314155714e-05
+Perovskite_deposition_solvents_dmf; dmso >> ipa >> ipa,3.0801093480659545e-05
+Perovskite_composition_a_ions_coefficients_0.05; 0.79; 0.16 | 1,3.065369187000915e-05
+Perovskite_deposition_reaction_solutions_age_12.0,3.0570799980922963e-05
+Perovskite_composition_b_ions_coefficients_0.9; 0.1,3.0548135098381503e-05
+Perovskite_deposition_thermal_annealing_time_4.0; 10.0,3.05313251242126e-05
+num__ADD_DESC_has_bai,3.0513648185711296e-05
+Perovskite_deposition_solvents_methylammonium acetate,3.04101655106562e-05
+Backcontact_deposition_substrate_temperature_25,3.03680524210758e-05
+Perovskite_deposition_thermal_annealing_time_unknown >> 60.0,3.029641138583782e-05
+Substrate_etching_procedure_infrequent_sklearn,3.0189993463578372e-05
+Perovskite_composition_long_form_fa0.15ma0.85pbi3,3.0007065334149307e-05
+Perovskite_deposition_quenching_media_methanol,2.9928361466340057e-05
+ETL_thickness_nan | 1.0,2.9926622331218708e-05
+Perovskite_additives_concentrations_12 mg/ml,2.9551967267771225e-05
+ETL_thickness_20.0 | 3.0,2.949189158365084e-05
+Perovskite_deposition_procedure_spin coating; thermal annealing,2.948015521613253e-05
+Perovskite_deposition_substrate_temperature_90 | 25,2.943049343969012e-05
+HTL_deposition_solvents_chlorobenzene | none,2.9344495475765267e-05
+ETL_deposition_thermal_annealing_temperature_25,2.920993055245183e-05
+HTL_thickness_list_nan | 200.0,2.9003209514754728e-05
+Perovskite_deposition_thermal_annealing_temperature_43 >> 160,2.8988879779878094e-05
+Cell_stack_sequence_slg | ito | c60 | perovskite | spiro-meotad | au,2.898347120880617e-05
+Perovskite_deposition_thermal_annealing_time_4.0,2.8892088133285003e-05
+HTL_deposition_reaction_solutions_concentrations_70 mm,2.8474011682486378e-05
+Perovskite_deposition_thermal_annealing_temperature_unknown >> 95.0,2.838815745122981e-05
+Perovskite_deposition_thermal_annealing_time_5.0 >> 10.0,2.822732121208366e-05
+ETL_deposition_synthesis_atmosphere_vacuum | vacuum,2.8057523976138658e-05
+ETL_deposition_reaction_solutions_compounds_titanium isopropoxide; diethanolamine | titanium tetrabutanolate,2.7949552857003978e-05
+Perovskite_deposition_solvents_mixing_ratios_78; 22,2.7777631521243792e-05
+HTL_deposition_thermal_annealing_time_60.0,2.7692944340670015e-05
+Perovskite_deposition_solvents_dmso; acetonitrile >> ipa,2.7686582913504336e-05
+Substrate_etching_procedure_zn-powder; hcl >> mecanical scrubbing,2.7660995389868654e-05
+Perovskite_additives_compounds_bai,2.7637438578948125e-05
+ETL_deposition_reaction_solutions_concentrations_30 mg/ml,2.7547119439289848e-05
+Perovskite_additives_compounds_pcbm-60,2.7466562815531292e-05
+ETL_deposition_synthesis_atmosphere_air | air | air,2.7450856819227723e-05
+ETL_deposition_thermal_annealing_time_20.0,2.7268266055074514e-05
+Perovskite_deposition_solvents_mixing_ratios_14; 1 >> 1,2.7248048773799795e-05
+ETL_stack_sequence_tio2-c | pcba,2.7194865110410752e-05
+Backcontact_deposition_reaction_solutions_compounds_infrequent_sklearn,2.7170963314529297e-05
+Backcontact_additives_concentrations_10 wt%,2.710124598972632e-05
+ETL_thickness_20.0 | 10.0,2.6945967225493658e-05
+ETL_deposition_thermal_annealing_temperature_500 | 450,2.6913268269674017e-05
+Perovskite_composition_long_form_fa0.87ma0.13pbbr0.13i2.83,2.6845999673582315e-05
+ETL_deposition_reaction_solutions_concentrations_0.5 m; 0.5 m | nan,2.6766838413137515e-05
+Perovskite_deposition_solvent_annealing_timing_infrequent_sklearn,2.6712208965703957e-05
+ETL_thickness_40.0 | 150.0,2.6399768134197158e-05
+HTL_deposition_procedure_sputtering,2.631306446883381e-05
+ETL_stack_sequence_pcbm-60 | azo-np,2.628063217742029e-05
+ETL_deposition_synthesis_atmosphere_pressure_partial_infrequent_sklearn,2.6209941402748053e-05
+Perovskite_deposition_reaction_solutions_compounds_csbr >> pbbr | pqd,2.6182160890815032e-05
+Backcontact_deposition_reaction_solutions_compounds_mg | ag,2.617908216577426e-05
+ETL_deposition_thermal_annealing_temperature_180,2.6131612036985763e-05
+Substrate_cleaning_procedure_soap >> ultrasonic bath >> water >> ultrasonic bath >> acetone >> ultrasonic bath >> ethanol >> ultrasonic bath >> plasma,2.5991157477392392e-05
+HTL_stack_sequence_moo3 | pedot:pss,2.5966601113867292e-05
+HTL_deposition_thermal_annealing_atmosphere_ambient,2.5939513305526736e-05
+Perovskite_deposition_thermal_annealing_temperature_120; 100,2.5928770636852082e-05
+Perovskite_deposition_thermal_annealing_temperature_unknown >> 250.0,2.58305274258317e-05
+Perovskite_deposition_solvent_annealing_timing_after,2.579856780827727e-05
+Perovskite_deposition_thermal_annealing_temperature_55; 240,2.5798328651812483e-05
+ETL_deposition_reaction_solutions_compounds_supplier_unknown | dyesole,2.5656524829736182e-05
+Cell_stack_sequence_slg | fto | tio2-c | tio2-mp | pervskite | p3taa-co-p3ht | ag,2.5464038715620586e-05
+ETL_deposition_solvents_mixing_ratios_1; 0.25 | nan,2.5380323441619256e-05
+Perovskite_deposition_synthesis_atmosphere_pressure_partial_1 atm,2.531754404485395e-05
+Perovskite_composition_long_form_fa0.4ma0.6pbbr0.2i2.8,2.5169166343566887e-05
+ETL_thickness_70.0 | 180.0,2.514247537884368e-05
+HTL_stack_sequence_ptaa | spiro-meotad,2.5137150056437508e-05
+ETL_thickness_40.0 | 200.0,2.5100236709232944e-05
+Perovskite_deposition_thermal_annealing_pressure_1 atm | 1 atm,2.5043014153557955e-05
+Perovskite_composition_a_ions_(nh4); fa; ma,2.5023931293468802e-05
+Perovskite_deposition_thermal_annealing_temperature_70.0 >> 70.0,2.4960709433602936e-05
+Perovskite_deposition_thermal_annealing_time_20.0; 5.0,2.4852378432654047e-05
+Perovskite_composition_c_ions_coefficients_0.65; 2.35,2.4802998356493756e-05
+Perovskite_composition_long_form_cs0.09fa0.58ma0.33pbbr0.65i2.35,2.479099008847484e-05
+ETL_deposition_solvents_mixing_ratios_1 | 1 | 1,2.4790234083693226e-05
+HTL_deposition_reaction_solutions_age_infrequent_sklearn,2.474223623135311e-05
+Perovskite_composition_long_form_cs0.05fa0.95pbbr0.15i2.85,2.4736961150214063e-05
+Perovskite_composition_a_ions_coefficients_1 | 1,2.458177441434612e-05
+ETL_thickness_35.0 | nan,2.441509913544598e-05
+Backcontact_deposition_synthesis_atmosphere_pressure_total_0.0004 pa,2.440742489222475e-05
+ETL_deposition_reaction_solutions_temperature_25 | 25,2.4370631166827206e-05
+ETL_stack_sequence_pcbm-60 | pfn,2.4370300566094168e-05
+ETL_deposition_thermal_annealing_time_10.0 >> 30.0 | 30.0,2.4259282796813123e-05
+Perovskite_deposition_solvents_mixing_ratios_1000; 71,2.4223765333081565e-05
+Perovskite_composition_c_ions_coefficients_0.12; 2.88,2.4170311037763024e-05
+Perovskite_additives_compounds_pbcl2,2.3975452413089982e-05
+Perovskite_deposition_thermal_annealing_temperature_25; 50; 75; 100,2.380417464834328e-05
+Cell_stack_sequence_slg | fto | tio2-c | perovskite | p3ht | ag,2.377239259089916e-05
+HTL_deposition_solvents_mixing_ratios_1 | nan,2.3721394835334877e-05
+HTL_deposition_reaction_solutions_compounds_ptaa | pfn,2.3666105564660102e-05
+Perovskite_composition_c_ions_coefficients_0.51; 2.49 | 3,2.358586064316726e-05
+Substrate_cleaning_procedure_soap >> water >> ultrasonic bath >> acetone >> ultrasonic bath >> ipa >> uv-ozone,2.3422858679726228e-05
+Perovskite_composition_a_ions_(bda); ma,2.3338703931671836e-05
+ETL_thickness_30.0 | 120.0,2.323976667008693e-05
+Perovskite_composition_long_form_fa0.3ma0.7pbbr0.15i2.85,2.3148363737286784e-05
+Perovskite_deposition_solvents_dmf >> methanol | cyclohexane,2.2999414871598746e-05
+ETL_deposition_thermal_annealing_temperature_140,2.2994949356331968e-05
+Add_lay_front_function_infrequent_sklearn,2.2891871850431055e-05
+Perovskite_deposition_thermal_annealing_temperature_350,2.27778024714884e-05
+ETL_thickness_80.0 | 1.0,2.2744425757226828e-05
+Perovskite_deposition_synthesis_atmosphere_pressure_total_1 atm >> 1 atm | 1 atm,2.271303958211705e-05
+ETL_storage_atmosphere_infrequent_sklearn,2.25526437590434e-05
+ETL_deposition_reaction_solutions_compounds_pcbm-60 | zno-np,2.250527147972253e-05
+Perovskite_composition_c_ions_coefficients_0.49; 2.51,2.2501102659989654e-05
+Perovskite_composition_long_form_cs0.1fa0.75ma0.15pbbr0.35i2.65,2.223862360808232e-05
+ETL_deposition_solvents_butanol | ethanol,2.2237427356298028e-05
+Perovskite_composition_long_form_fa0.2ma0.8pbi3,2.2228084451296784e-05
+ETL_deposition_thermal_annealing_time_120.0 | 30.0,2.2214892344898848e-05
+Perovskite_composition_long_form_mapb0.9sr0.1i3,2.2169507628935754e-05
+Backcontact_thickness_list_12.0 | 100.0,2.2141818391719055e-05
+Perovskite_composition_long_form_cs0.05fa0.46ma0.49pbbr0.12i2.88,2.206807662173426e-05
+Perovskite_composition_long_form_fa0.83ma0.17pbbr0.5i2.5,2.2037229684821024e-05
+HTL_deposition_synthesis_atmosphere_pressure_partial_infrequent_sklearn,2.2030637656138623e-05
+Perovskite_deposition_solvents_purity_infrequent_sklearn,2.197200772841964e-05
+Perovskite_deposition_reaction_solutions_concentrations_1.5 m; 1.5 m,2.196996045205123e-05
+Perovskite_composition_c_ions_coefficients_0.54; 2.46,2.1894339164428226e-05
+ETL_deposition_synthesis_atmosphere_n2 | n2 | n2,2.1730353933009403e-05
+ETL_deposition_reaction_solutions_compounds_supplier_sigma aldrich,2.1700359529183557e-05
+Backcontact_deposition_procedure_lamination,2.156886178341804e-05
+HTL_deposition_reaction_solutions_concentrations_80 mg/ml,2.144312121817591e-05
+HTL_deposition_solvents_supplier_sigma aldrich; sigma aldrich,2.1286653177746173e-05
+Perovskite_deposition_thermal_annealing_temperature_60; 250,2.1267525656868783e-05
+Perovskite_deposition_reaction_solutions_compounds_mabr; pbbr2; pbi2; fai,2.118591847553381e-05
+Perovskite_deposition_solvents_mixing_ratios_4; 1 | 1,2.115458006792303e-05
+Perovskite_band_gap_estimation_basis_ups,2.1151176474794685e-05
+ETL_deposition_solvents_mixing_ratios_1 | nan,2.1002330249167016e-05
+Backcontact_deposition_procedure_e-beam evaporation,2.0813156278307758e-05
+Perovskite_composition_long_form_ba2ma2pb3i10,2.081280092247953e-05
+Perovskite_deposition_reaction_solutions_volumes_infrequent_sklearn,2.0780857201748447e-05
+Perovskite_composition_short_form_mapbsri,2.07083978861855e-05
+Backcontact_deposition_reaction_solutions_compounds_al,2.0683859643095032e-05
+HTL_stack_sequence_ptaa | pfn,2.0652133340594057e-05
+Perovskite_deposition_reaction_solutions_concentrations_0.05 m; 1 m; 0.2 m; 0.2 m; 1.1 m,2.053491854963987e-05
+Perovskite_additives_concentrations_20 ul,2.0433511956397505e-05
+Perovskite_composition_c_ions_br; i | br; i,2.031630975284363e-05
+Substrate_etching_procedure_laser etching,2.024401941674194e-05
+Perovskite_additives_compounds_pvdf,2.0235035560586145e-05
+Perovskite_deposition_thermal_annealing_relative_humidity_0 | 0,2.0059156530749438e-05
+Backcontact_stack_sequence_metal,2.0018876826610414e-05
+Perovskite_composition_a_ions_coefficients_0.09; 0.58; 0.33,1.997186211037157e-05
+Perovskite_composition_short_form_(bda)mapbi,1.9947633532254324e-05
+Perovskite_additives_concentrations_9 mol%,1.9839609470710466e-05
+Perovskite_deposition_synthesis_atmosphere_relative_humidity_35,1.9776556098942768e-05
+HTL_deposition_reaction_solutions_temperature_60,1.9773217761664466e-05
+Perovskite_deposition_reaction_solutions_compounds_mai; pbcl2; pb(oac)2.3h2o,1.9716919059980584e-05
+ETL_deposition_reaction_solutions_compounds_titanium diisopropoxide bis(acetylacetonate) | al2o3-np | cu:nio-np,1.9710260038942517e-05
+Cell_stack_sequence_slg | ito | ptaa | perovskite | pcbm-60 | pei | ag,1.967602600066238e-05
+Perovskite_composition_short_form_(nh4)famapbbri,1.9633823427847032e-05
+Perovskite_deposition_synthesis_atmosphere_pressure_total_1 atm,1.962313316999294e-05
+HTL_additives_compounds_lad,1.9469360086769412e-05
+Substrate_cleaning_procedure_soap >> ultrasonic bath >> ethanol >> ultrasonic bath >> acetone >> uv-ozone,1.9442158323282603e-05
+Perovskite_deposition_thermal_annealing_time_0.0; 20.0,1.9260090791689815e-05
+ETL_deposition_solvents_purity_unknown | unknown,1.9147023018856835e-05
+Cell_stack_sequence_slg | ito | c60 | perovskite | spiro-meotad | moo3 | ag,1.9031765190795134e-05
+Perovskite_composition_long_form_cs0.05fa0.79ma0.16pbbr0.3i2.7,1.8997503213938917e-05
+Perovskite_composition_none_stoichiometry_components_in_excess_fai,1.8910329488623695e-05
+HTL_deposition_reaction_solutions_concentrations_70 mg/ml,1.8834252959875106e-05
+Perovskite_deposition_thermal_annealing_atmosphere_n2 >> n2,1.874103378942929e-05
+Perovskite_deposition_procedure_spin-coating >> closed space sublimation,1.869455667242359e-05
+Backcontact_deposition_thermal_annealing_temperature_infrequent_sklearn,1.8612757725503348e-05
+Backcontact_thickness_list_40.0,1.850772262887072e-05
+HTL_deposition_thermal_annealing_time_20.0,1.850064049195772e-05
+Perovskite_composition_c_ions_coefficients_0.4; 2.6,1.8317848365398908e-05
+Perovskite_composition_long_form_cs0.085fa0.915pbbr0.45i2.55,1.8281869440695715e-05
+Backcontact_deposition_reaction_solutions_compounds_supplier_infrequent_sklearn,1.8157861493397154e-05
+Cell_stack_sequence_slg | ito | c60 | perovskite | carbon,1.8143075688135944e-05
+Perovskite_deposition_thermal_annealing_temperature_40 | 105,1.8064636811912286e-05
+HTL_additives_concentrations_35 ul(520mg/mlacn); 60 ul,1.8032910604012136e-05
+Perovskite_deposition_solvents_dmf >> cyclohexane; ipa,1.7933342247984218e-05
+ETL_stack_sequence_tio2-c | tio2-mp | carbon-qds,1.7902900755474928e-05
+Perovskite_additives_compounds_cl; eu(acac)3,1.781387751640139e-05
+Perovskite_composition_c_ions_coefficients_1.7; 0.83,1.7809893852098402e-05
+HTL_additives_compounds_li-tfsi; ptaa; tbp,1.7791818387094298e-05
+HTL_storage_atmosphere_air,1.7682479425603913e-05
+Perovskite_composition_c_ions_coefficients_0.25; 2.75,1.7650241795024905e-05
+Perovskite_composition_short_form_eamapbi,1.7558826405541262e-05
+Cell_stack_sequence_slg | fto | tio2-c | perovskite | spiro-metad | au,1.746349541326678e-05
+ETL_deposition_synthesis_atmosphere_relative_humidity_0 | 0,1.7453520213948176e-05
+Perovskite_deposition_solvents_mixing_ratios_1 >> 9; 1,1.7400375752673364e-05
+Backcontact_deposition_reaction_solutions_compounds_supplier_sigma aldrich,1.7277715565817606e-05
+Perovskite_deposition_solvents_mixing_ratios_1 >> 1 | 1,1.725177885212442e-05
+ETL_storage_atmosphere_n2,1.721154792731065e-05
+Backcontact_thickness_list_25000.0,1.7193637094479754e-05
+Perovskite_deposition_solvents_supplier_aladdin; aladdin,1.717369117701244e-05
+ETL_deposition_procedure_spin-coating | hydrothermal >> spin-coating,1.7148446377076147e-05
+HTL_deposition_reaction_solutions_temperature_infrequent_sklearn,1.7107992182008032e-05
+ETL_deposition_synthesis_atmosphere_air | air >> air,1.7038435669484205e-05
+Perovskite_deposition_thermal_annealing_atmosphere_air >> air | air,1.698739254645683e-05
+HTL_deposition_thermal_annealing_temperature_130,1.6975391794758785e-05
+Perovskite_deposition_thermal_annealing_time_1.0 >> 10.0,1.6909026903624412e-05
+ETL_stack_sequence_pcbm; bcp,1.6890951519660846e-05
+HTL_deposition_synthesis_atmosphere_relative_humidity_infrequent_sklearn,1.683282168375717e-05
+Perovskite_deposition_quenching_media_additives_compounds_ptaa,1.679183249280326e-05
+Perovskite_composition_long_form_cs0.06fa0.8ma0.14pbbr0.45i2.55,1.6764086243136006e-05
+Perovskite_deposition_thermal_annealing_temperature_unknown >> 250,1.6727266496935835e-05
+ETL_deposition_reaction_solutions_compounds_c60 | bcp,1.6667291776586848e-05
+Perovskite_additives_compounds_side-chain liquid crystalline polymer (sclcp),1.659768674242909e-05
+ETL_deposition_thermal_annealing_temperature_120 | 450,1.649115799140251e-05
+HTL_deposition_procedure_e-beam evaporation | spin-coating,1.641821776291404e-05
+Perovskite_deposition_thermal_annealing_atmosphere_n2 | n2,1.6374576834867587e-05
+ETL_additives_compounds_nan | ticl4,1.6362106644485814e-05
+Perovskite_additives_compounds_csi,1.6299640572233936e-05
+ETL_storage_time_until_next_deposition_step_infrequent_sklearn,1.612484957071426e-05
+Perovskite_deposition_thermal_annealing_temperature_60.0; 100.0,1.611427703138637e-05
+Backcontact_deposition_thermal_annealing_atmosphere_air,1.6010888301377213e-05
+Add_lay_back_true,1.5970367105806933e-05
+ETL_deposition_synthesis_atmosphere_n2,1.5902942167539076e-05
+Perovskite_deposition_thermal_annealing_temperature_25; 150,1.5857764132945854e-05
+Perovskite_composition_long_form_cs0.05fa0.79ma0.16pbbr0.54i2.46,1.5619334198736617e-05
+Perovskite_deposition_thermal_annealing_temperature_80.0 >> 140.0,1.5424179303567596e-05
+ETL_deposition_solvents_1-butanol; ipa | 1-butanol; ethylcellulose; llauric acid; terpineol,1.536838061340591e-05
+Perovskite_composition_a_ions_coefficients_0.05; 0.46; 0.49,1.5334764583780473e-05
+Perovskite_composition_c_ions_coefficients_3 | 3,1.527622100539794e-05
+Backcontact_deposition_thermal_annealing_atmosphere_n2,1.5067287384056836e-05
+Perovskite_deposition_after_treatment_of_formed_perovskite_intense pulsed light annealing,1.4935100577427824e-05
+ETL_stack_sequence_tio2,1.4930727562358358e-05
+HTL_deposition_solvents_mixing_ratios_1; 0.012,1.4925829764355677e-05
+HTL_thickness_list_180.0,1.4852029888766229e-05
+ETL_stack_sequence_tio2; sno2,1.4851800669281156e-05
+Perovskite_additives_concentrations_0.0207,1.4848992491361046e-05
+Perovskite_deposition_solvents_purity_99.9%; 99.5%,1.4787078566854646e-05
+HTL_deposition_reaction_solutions_concentrations_2 mg/ml | nan,1.4685948554699494e-05
+Perovskite_deposition_reaction_solutions_concentrations_1 m >> 0.07 m | nan,1.4641723653669419e-05
+ETL_storage_time_until_next_deposition_step_0.25,1.4602987548518525e-05
+Perovskite_deposition_solvents_gbl; dmso,1.4522875156277465e-05
+Perovskite_composition_a_ions_coefficients_0.085; 0.915,1.4502621370089044e-05
+Perovskite_additives_compounds_nh4i,1.4490552471891012e-05
+HTL_deposition_reaction_solutions_compounds_supplier_sigma aldrich,1.4426559669604022e-05
+Backcontact_thickness_list_70000.0,1.4354531534348886e-05
+Perovskite_deposition_thermal_annealing_time_10.0 >> unknown,1.4328833799831846e-05
+HTL_additives_compounds_ag-tfsi; tbp,1.4254043238359817e-05
+Perovskite_deposition_thermal_annealing_time_10.0; 2.0,1.4229574513482156e-05
+Cell_stack_sequence_slg | ito | polytpd | perovskite | pcbm-60 | bphen | ag,1.4170337170635827e-05
+Perovskite_composition_a_ions_ma; fa; cs,1.4136180659515283e-05
+ETL_deposition_aggregation_state_of_reactants_liquid | liquid >> liquid,1.4051945602218284e-05
+Perovskite_deposition_synthesis_atmosphere_relative_humidity_15,1.396152895907948e-05
+Backcontact_deposition_procedure_sputtering,1.3954354079892274e-05
+Perovskite_composition_c_ions_coefficients_0.9; 2.1,1.3924015078303527e-05
+ETL_stack_sequence_zno-np | sno2-np,1.3717449419330893e-05
+Encapsulation_stack_sequence_pmma,1.3608248438290718e-05
+Add_lay_back_function_infrequent_sklearn,1.3605285316841557e-05
+HTL_deposition_reaction_solutions_compounds_supplier_clevious,1.3539092538751739e-05
+Perovskite_deposition_solvents_mixing_ratios_3; 2,1.3513573219418408e-05
+Perovskite_composition_a_ions_coefficients_0.05; 0.82; 0.13,1.3493311041270859e-05
+HTL_thickness_list_15.0 | 10.0,1.3459623946887458e-05
+ETL_deposition_aggregation_state_of_reactants_liquid | gas | gas,1.3439972464956327e-05
+Perovskite_additives_compounds_ma3bi2br9,1.3272929821274734e-05
+Perovskite_deposition_thermal_annealing_temperature_25; 300,1.3240362888951983e-05
+ETL_deposition_reaction_solutions_concentrations_30 mg/ml | 0.5 mg/ml,1.3174869600811444e-05
+ETL_deposition_thermal_annealing_temperature_120 >> 500 | 500,1.3152113033713468e-05
+Backcontact_deposition_thermal_annealing_atmosphere_vacuum,1.3084533079370782e-05
+Perovskite_additives_compounds_acetic acid,1.3079096220537725e-05
+Perovskite_composition_b_ions_pb; sr,1.3076607135396286e-05
+Perovskite_deposition_thermal_annealing_time_unknown >> 3.0,1.3031576804346991e-05
+Cell_stack_sequence_slg | fto | sno2-np | perovskite | spiro-meotad | ag,1.2921115787647976e-05
+Perovskite_storage_atmosphere_infrequent_sklearn,1.2916208317557548e-05
+Perovskite_deposition_thermal_annealing_atmosphere_n2; ambient,1.285992771039255e-05
+Perovskite_composition_short_form_fasni3,1.2811537219634897e-05
+ETL_deposition_thermal_annealing_temperature_80,1.2728719800762732e-05
+ETL_deposition_synthesis_atmosphere_relative_humidity_30,1.2636317774690529e-05
+ETL_deposition_thermal_annealing_time_5.0 | 5.0; 60.0 >> unknown; 30.0,1.2428964392723433e-05
+ETL_stack_sequence_bcp,1.2366690622003795e-05
+Perovskite_composition_a_ions_cs | fa,1.2366146543898884e-05
+ETL_deposition_reaction_solutions_compounds_titanium isopropoxide | pcbm-60,1.2291794606954779e-05
+Cell_stack_sequence_slg | ito | p3ct | perovskite | pcbm-60 | c60 | bcp | au,1.2224555159546718e-05
+Perovskite_additives_compounds_macl,1.2216496998615864e-05
+ETL_deposition_reaction_solutions_concentrations_16 wt% | 6.67 wt% | 0.5 wt%,1.2077143826296912e-05
+Perovskite_deposition_substrate_temperature_100,1.2035998505357796e-05
+num__ADD_DESC_has_pmai,1.2022672921928321e-05
+HTL_deposition_solvents_supplier_infrequent_sklearn,1.1989523167695987e-05
+HTL_deposition_reaction_solutions_concentrations_9.1 mg/ml; 72.3 mg/ml; 0.029 ml/ml,1.1919196425751787e-05
+Cell_stack_sequence_slg | fto | tio2-c | pcbm-60 | perovskite | spiro-meotad | ag,1.1915130446776396e-05
+ETL_deposition_thermal_annealing_atmosphere_ambient | ambient,1.1887918269170773e-05
+ETL_deposition_thermal_annealing_temperature_250 | 250 | 250,1.1762218741241363e-05
+ETL_additives_compounds_kcl,1.1707375000164555e-05
+Backcontact_deposition_reaction_solutions_temperature_infrequent_sklearn,1.161840877181008e-05
+HTL_deposition_solvents_2-methoxyethanol; ethanolamine,1.1603334172873476e-05
+Perovskite_deposition_solvents_mixing_ratios_8; 2,1.157452510438647e-05
+Perovskite_additives_concentrations_1.5 wt%,1.1568564945817194e-05
+Cell_stack_sequence_slg | ito | p3ht | perovskite | pcbm-60 | ag,1.1483360601602737e-05
+HTL_deposition_reaction_solutions_concentrations_15 mg/ml,1.1453607325114405e-05
+Perovskite_composition_long_form_cs0.05fa0.81ma0.14pbbr0.42i2.58,1.1387973175659996e-05
+Backcontact_deposition_substrate_temperature_infrequent_sklearn,1.1324168777036079e-05
+Perovskite_composition_c_ions_i; br,1.1298379531902475e-05
+ETL_deposition_solvents_ethanol | p25; polyethylenglycol; op; water,1.1295514455199338e-05
+Perovskite_deposition_thermal_annealing_time_360.0,1.1294739845984546e-05
+HTL_additives_compounds_zn,1.1236570749306112e-05
+Perovskite_deposition_thermal_annealing_temperature_120; 200,1.1220232516362674e-05
+HTL_deposition_synthesis_atmosphere_pressure_total_infrequent_sklearn,1.1190809780346646e-05
+HTL_stack_sequence_p3taa-co-p3ht,1.1012487516852043e-05
+Add_lay_front_function_antireflection,1.0958589977723655e-05
+Perovskite_additives_compounds_be2pbi4,1.0871437768105523e-05
+Backcontact_deposition_thermal_annealing_temperature_85,1.0837634152603513e-05
+Perovskite_composition_a_ions_coefficients_0.1; 0.81; 0.09,1.0740107753324084e-05
+Backcontact_stack_sequence_ito,1.0636160046058577e-05
+ETL_stack_sequence_tio2-c | sno2,1.0635852510291236e-05
+Cell_stack_sequence_slg | ito | pedot:pss | perovskite | pcbm-60 | lif | ag,1.0456178312818976e-05
+ETL_additives_compounds_undoped | ticl4,1.0109866163890589e-05
+ETL_deposition_thermal_annealing_temperature_400,1.006529874186277e-05
+ETL_deposition_thermal_annealing_time_unknown | 30.0,1.0050957586771501e-05
+Perovskite_composition_a_ions_coefficients_0.06; 0.8; 0.14,9.926745809198964e-06
+num__HTL_storage_time_until_next_deposition_step,9.854520153095183e-06
+HTL_additives_compounds_undoped | undoped,9.841885447963846e-06
+Perovskite_deposition_thermal_annealing_atmosphere_air >> air,9.809530970375661e-06
+HTL_additives_compounds_li-tfsi; tba,9.742521997405583e-06
+HTL_deposition_thermal_annealing_time_5.0,9.73643019651935e-06
+HTL_additives_concentrations_9.1 mg/ml; 28.8 μl/ml,9.590862565844986e-06
+Substrate_thickness_nan | 140.0,9.48517563337649e-06
+ETL_deposition_reaction_solutions_concentrations_0.15 m | 15.15 mg/ml >> 0.02 m,9.344462241825519e-06
+Perovskite_band_gap_estimation_basis_tauc plot,9.330278250990009e-06
+Add_lay_front_thickness_list_50.0,9.26111758897632e-06
+HTL_stack_sequence_eh44,9.18044234956745e-06
+HTL_deposition_synthesis_atmosphere_pressure_total_1 atm | 1 atm,9.02273720869066e-06
+Perovskite_deposition_thermal_annealing_temperature_35; 120 >> 120,8.899564612453371e-06
+HTL_deposition_reaction_solutions_volumes_infrequent_sklearn,8.858375751574196e-06
+ETL_deposition_thermal_annealing_time_10.0 | 10.0 | 10.0,8.628437672533445e-06
+HTL_thickness_list_350.0,8.615918332547972e-06
+Perovskite_deposition_solvent_annealing_timing_under,8.510536890525364e-06
+ETL_stack_sequence_tio2-c | al2o3-mp | nio-np,8.50634911098437e-06
+ETL_deposition_synthesis_atmosphere_pressure_total_1 atm | 1 atm >> 1 atm,8.403110745568825e-06
+HTL_additives_concentrations_9.1 mg/ml; 0.029 ml/ml,8.33929943630557e-06
+HTL_deposition_synthesis_atmosphere_pressure_partial_1 atm | 1 atm,8.327375140625117e-06
+ETL_deposition_thermal_annealing_temperature_125 | 125; 550 >> 25; 500,8.32321806148929e-06
+HTL_deposition_aggregation_state_of_reactants_infrequent_sklearn,8.279203972818357e-06
+ETL_deposition_substrate_temperature_70,8.261547545161048e-06
+HTL_deposition_solvents_chlorobenzene | chlorobenzene,8.207898985843808e-06
+HTL_deposition_procedure_cvd,8.192463419331437e-06
+Perovskite_deposition_reaction_solutions_concentrations_1.2 m; 1.2 m,8.116887292522697e-06
+Perovskite_deposition_thermal_annealing_time_0.5 >> 5.0 | 5.0,8.000165402770574e-06
+ETL_thickness_nan | 90.0,7.9712498136068e-06
+HTL_deposition_reaction_solutions_volumes_0.0175; 0.9537; 0.0288,7.96597409092369e-06
+HTL_stack_sequence_sam,7.935336370529616e-06
+ETL_deposition_reaction_solutions_compounds_supplier_sigma aldrich | unknown >> sigma aldrich,7.920848392340877e-06
+ETL_deposition_substrate_temperature_25 | 25 >> 90,7.838576460328699e-06
+ETL_deposition_thermal_annealing_time_10.0,7.737722450246135e-06
+Perovskite_deposition_synthesis_atmosphere_pressure_total_1 atm >> 1 atm,7.731354343072361e-06
+Cell_stack_sequence_slg | ito | nio-c | perovskite | c60 | bcp | ag,7.709322328701372e-06
+Perovskite_composition_a_ions_coefficients_1; 2,7.700289668705539e-06
+ETL_additives_compounds_cl,7.662212480978054e-06
+Backcontact_storage_atmosphere_air,7.614526506536033e-06
+Cell_stack_sequence_slg | fto | tio2-c | perovskite | spiro-meotad | moo3 | au,7.5363834361160605e-06
+Backcontact_deposition_thermal_annealing_time_60.0,7.470468282254268e-06
+ETL_deposition_thermal_annealing_atmosphere_air | n2,7.3857333606355984e-06
+ETL_deposition_reaction_solutions_age_unknown | unknown,7.342089152706232e-06
+Perovskite_deposition_thermal_annealing_temperature_70.0 >> unknown,7.289670975374212e-06
+ETL_stack_sequence_c60; bcp,7.067168316085449e-06
+Perovskite_composition_assumption_infrequent_sklearn,6.997314923998945e-06
+HTL_deposition_solvents_chlorobenzene | unknown,6.9944349449785814e-06
+Perovskite_deposition_synthesis_atmosphere_pressure_partial_1 atm >> 1 atm,6.8789144078437005e-06
+ETL_deposition_solvents_none | none,6.838704640868527e-06
+HTL_deposition_reaction_solutions_compounds_purity_0.98,6.80559300985846e-06
+Add_lay_back_function_antireflection,6.679945883822084e-06
+Perovskite_deposition_thermal_annealing_time_15.0 >> unknown,6.615795448635636e-06
+Perovskite_deposition_solvents_mixing_ratios_8.9; 1.1,6.588041834376018e-06
+Perovskite_composition_long_form_cs0.05ma0.95pbi3,6.456708974819145e-06
+ETL_deposition_reaction_solutions_compounds_titanium diisopropoxide bis(acetylacetonate) | tio2-np >> ticl4,6.435321678742847e-06
+Perovskite_deposition_thermal_annealing_time_4.0; 60.0,6.349105260519725e-06
+ETL_deposition_solvents_mixing_ratios_1 | 0.02; 0.8; 1; 120,6.339698362171694e-06
+Perovskite_deposition_thermal_annealing_temperature_50; 150,6.3235945489898165e-06
+ETL_deposition_synthesis_atmosphere_relative_humidity_50 | 50 | 50,6.287403936854235e-06
+Substrate_supplier_advanced election technology,6.274463240491863e-06
+Perovskite_deposition_thermal_annealing_time_5.0 >> 15.0,6.256560923574779e-06
+Backcontact_deposition_reaction_solutions_temperature_25,6.245210543279827e-06
+Substrate_cleaning_procedure_uv-ozone,6.242152254440566e-06
+ETL_additives_compounds_undoped | undoped | cu,6.171064966786521e-06
+Backcontact_storage_atmosphere_infrequent_sklearn,6.152550307858871e-06
+num__ADD_DESC_has_mai,6.130739931565251e-06
+HTL_stack_sequence_carbon,6.037641008876184e-06
+Perovskite_deposition_reaction_solutions_volumes_0.06,5.923122019701988e-06
+Perovskite_deposition_thermal_annealing_time_40.0 >> unknown,5.7283110395437805e-06
+ETL_deposition_thermal_annealing_temperature_100,5.62452550692981e-06
+Perovskite_deposition_reaction_solutions_compounds_pbi2 >> mai,5.535942433514004e-06
+Perovskite_deposition_synthesis_atmosphere_relative_humidity_30,5.517907145110935e-06
+num__Perovskite_storage_time_until_next_deposition_step,5.503372874372396e-06
+Perovskite_composition_a_ions_coefficients_0.05; 0.83; 0.17,5.466805341299117e-06
+ETL_deposition_reaction_solutions_concentrations_2.5 wt%,5.384627149160915e-06
+Perovskite_deposition_solvent_annealing_infrequent_sklearn,5.383395446426608e-06
+Perovskite_composition_long_form_fa0.4ma0.6pbi3,5.3714307696310625e-06
+ETL_deposition_solvents_butanol | ipa | water,5.306048383888454e-06
+ETL_deposition_reaction_solutions_temperature_25 | 25 >> 90,5.303909199367793e-06
+Cell_stack_sequence_slg | fto | tio2-c | al2o3-mp | nio-np | perovskite | spiro-meotad | au,5.284829640323584e-06
+Perovskite_composition_a_ions_coefficients_0.05; 0.80; 0.15,5.278334917688654e-06
+Backcontact_stack_sequence_cr | au,5.235512140679224e-06
+Perovskite_composition_long_form_(bda)ma4pb5i16,5.222434140143922e-06
+Encapsulation_atmosphere_for_encapsulation_infrequent_sklearn,5.2102340772870565e-06
+Perovskite_deposition_reaction_solutions_compounds_csac; hpbi3; peai,4.970730851046546e-06
+Perovskite_composition_long_form_mapbbr0.75i2.25,4.8880615377420385e-06
+Perovskite_composition_a_ions_coefficients_0.02; 0.98,4.743368268877499e-06
+Perovskite_composition_a_ions_coefficients_2; 59,4.7138999723618755e-06
+ETL_thickness_40.0 | 10.0,4.703095198894465e-06
+ETL_deposition_reaction_solutions_compounds_pcbm-60 | bphen,4.61563743554079e-06
+Perovskite_deposition_thermal_annealing_temperature_90 >> 250 | 85,4.494693994306609e-06
+HTL_surface_treatment_before_next_deposition_step_washed with methanol,4.486197053799914e-06
+ETL_stack_sequence_c60 | sno2-c,4.456794861324488e-06
+Substrate_cleaning_procedure_soap >> water >> ultrasonic bath >> acetone >> ultrasonic bath >> ethanol >> ipa >> uv-ozone,4.455514382098276e-06
+HTL_deposition_reaction_solutions_compounds_spiro-meotad,4.44297345370236e-06
+Perovskite_composition_c_ions_coefficients_0.75; 2.25,4.430345921087372e-06
+HTL_deposition_synthesis_atmosphere_n2 | n2,4.414253543796689e-06
+Backcontact_stack_sequence_au; al,4.278824672932945e-06
+Add_lay_front_thickness_list_infrequent_sklearn,4.269165675901052e-06
+Perovskite_deposition_procedure_spin-coating >> evaporation,4.2332058482167875e-06
+Backcontact_thickness_list_1500.0,3.9875837395844935e-06
+HTL_deposition_synthesis_atmosphere_relative_humidity_30,3.961128114559763e-06
+Perovskite_additives_concentrations_0.2,3.901927321236592e-06
+HTL_storage_atmosphere_dry air,3.834836661657254e-06
+ETL_thickness_100.0 | 10.0,3.701536765353872e-06
+Substrate_cleaning_procedure_water >> ultrasonic bath >> ethanol >> ultrasonic bath >> uv-ozone,3.4617515947587543e-06
+Substrate_cleaning_procedure_soap >> ultrasonic bath >> water >> ultrasonic bath >> ethano >> ultrasonic bath >> uv-ozone,3.393042107936033e-06
+Perovskite_composition_long_form_cs0.05fa0.80ma0.15pbbr0.45i2.55,3.3791924691396485e-06
+Perovskite_additives_compounds_h2o,3.3098514560715603e-06
+HTL_deposition_reaction_solutions_concentrations_9.1 mg/ml; 72.3 mg/ml; 28.8 μl/ml,3.3003449371911735e-06
+Perovskite_deposition_thermal_annealing_relative_humidity_30,3.2744821489608214e-06
+ETL_thickness_30.0 | 6.0,3.216614093203033e-06
+ETL_deposition_reaction_solutions_concentrations_20 mg/ml | 0.6 mg/ml,3.1544053731604583e-06
+Perovskite_deposition_substrate_temperature_100.0,3.0845160171988302e-06
+HTL_deposition_reaction_solutions_compounds_purity_infrequent_sklearn,3.011026996470985e-06
+Perovskite_deposition_procedure_spin-coating >> spin-coating | spin-coating,2.937544835808011e-06
+Perovskite_composition_assumption_solution composition | xrd,2.8886630399001807e-06
+Perovskite_additives_compounds_pai,2.855697701700284e-06
+Perovskite_deposition_synthesis_atmosphere_air >> air | air,2.659664286522736e-06
+HTL_deposition_substrate_temperature_infrequent_sklearn,2.6514994352992386e-06
+Cell_stack_sequence_pet | ito | sno2-np | perovskite | spiro-meotad | au,2.6141169484339745e-06
+ETL_thickness_200.0,2.5758629421975508e-06
+ETL_deposition_reaction_solutions_compounds_tetra-nbutyl titanate; diethanolamine | tio2 paste nr30-d,2.5672710085120118e-06
+HTL_additives_compounds_undoped | li-tfsi; tbp,2.4520334352406745e-06
+HTL_surface_treatment_before_next_deposition_step_infrequent_sklearn,2.1433731615241097e-06
+Perovskite_storage_relative_humidity_50,2.0670806537469137e-06
+Substrate_stack_sequence_glass | fto,2.0200838608588963e-06
+HTL_deposition_solvents_mixing_ratios_infrequent_sklearn,1.894997009480745e-06
+Perovskite_composition_none_stoichiometry_components_in_excess_stoichiometric | nan,1.827941182716631e-06
+Perovskite_deposition_thermal_annealing_temperature_150 >> 100,1.7598800106509897e-06
+Substrate_cleaning_procedure_soap >> water >> ultrasonic bath >> acetone >> ultrasonic bath >> ethanol,1.7355392357541296e-06
+HTL_deposition_substrate_temperature_25,8.505608617141912e-07
+Perovskite_composition_none_stoichiometry_components_in_excess_macl,8.069109421437959e-07
+Perovskite_deposition_synthesis_atmosphere_pressure_partial_infrequent_sklearn,7.461281698289713e-07
+Add_lay_front_infrequent_sklearn,6.887524142897723e-07
+Perovskite_surface_treatment_before_next_deposition_step_ar plasma,6.55879181428936e-07
+Perovskite_storage_relative_humidity_infrequent_sklearn,4.684648270592382e-07
+Perovskite_deposition_synthesis_atmosphere_pressure_total_infrequent_sklearn,9.293641021252758e-08
+Backcontact_surface_treatment_before_next_deposition_step_infrequent_sklearn,1.0275585485050785e-09
+num__Add_lay_front_deposition_aggregation_state_of_reactants,0.0
+num__Add_lay_front_deposition_synthesis_atmosphere_pressure_total,0.0
+Cell_semitransparent_wavelength_range_nan; nan,0.0
+ETL_storage_relative_humidity_0,0.0
+Perovskite_single_crystal_infrequent_sklearn,0.0
+Perovskite_single_crystal_false,0.0
+HTL_deposition_solvents_purity_unknown | 99.5%,0.0
+HTL_deposition_solvents_purity_infrequent_sklearn,0.0
+Add_lay_front_additives_compounds_0,0.0
+Add_lay_front_deposition_procedure_evaporation,0.0
+num__Backcontact_deposition_reaction_solutions_compounds_purity,0.0
+num__Backcontact_deposition_reaction_solutions_volumes,0.0
+num__Backcontact_deposition_reaction_solutions_age,0.0
+num__Backcontact_storage_time_until_next_deposition_step,0.0
+num__Add_lay_front_additives_concentrations,0.0
+Perovskite_deposition_quenching_induced_crystallisation_infrequent_sklearn,0.0
+num__Perovskite_deposition_solvent_annealing_temperature,0.0
+num__Substrate_surface_roughness_rms,0.0
+num__Backcontact_deposition_solvents_purity,0.0
+num__Backcontact_deposition_synthesis_atmosphere_relative_humidity,0.0
+Backcontact_storage_relative_humidity_infrequent_sklearn,0.0
+Backcontact_surface_treatment_before_next_deposition_step_deda gas,0.0
+Backcontact_storage_relative_humidity_10.0,0.0
+Add_lay_back_infrequent_sklearn,0.0
+num__Add_lay_front_deposition_synthesis_atmosphere,0.0
+num__Add_lay_back_deposition_reaction_solutions_temperature,0.0
+num__Add_lay_back_storage_relative_humidity,0.0
+num__Add_lay_back_storage_atmosphere,0.0
+num__Add_lay_back_storage_time_until_next_deposition_step,0.0
+num__Add_lay_back_deposition_thermal_annealing_atmosphere,0.0
+num__Add_lay_back_deposition_thermal_annealing_time,0.0
+num__Add_lay_back_deposition_thermal_annealing_temperature,0.0
+num__Add_lay_back_deposition_substrate_temperature,0.0
+HTL_storage_relative_humidity_infrequent_sklearn,0.0
+num__Add_lay_back_deposition_reaction_solutions_compounds_supplier,0.0
+num__Add_lay_back_deposition_reaction_solutions_compounds,0.0
+num__Add_lay_back_deposition_solvents_purity,0.0
+num__Add_lay_back_deposition_solvents_supplier,0.0
+num__Add_lay_back_deposition_solvents_mixing_ratios,0.0
+num__Add_lay_back_deposition_solvents,0.0
+num__Add_lay_back_deposition_synthesis_atmosphere_relative_humidity,0.0
+num__Add_lay_back_deposition_synthesis_atmosphere_pressure_partial,0.0
+num__Add_lay_back_additives_concentrations,0.0
+num__Add_lay_back_deposition_synthesis_atmosphere_pressure_total,0.0
+num__Add_lay_back_deposition_synthesis_atmosphere,0.0
+num__Add_lay_back_deposition_aggregation_state_of_reactants,0.0
+num__Encapsulation_oxygen_transmission_rate,0.0
+num__ADD_DESC_has_oai,0.0
+num__Encapsulation_water_vapour_transmission_rate,0.0
+num__Add_lay_back_surface_treatment_before_next_deposition_step,0.0
+num__ADD_DESC_mean_long_chain,0.0
+HTL_storage_atmosphere_infrequent_sklearn,0.0
+HTL_storage_relative_humidity_10.0,0.0
+num__ADD_DESC_sum_long_chain,0.0
+num__ADD_DESC_text_mentions_bromide,0.0
+num__ADD_DESC_text_has_additive_info,0.0
+num__ADD_DESC_has_fai,0.0
+num__ADD_DESC_has_oami,0.0
+num__Add_lay_front_deposition_thermal_annealing_time,0.0
+num__Add_lay_front_deposition_thermal_annealing_temperature,0.0
+num__Add_lay_front_deposition_substrate_temperature,0.0
+num__Add_lay_back_deposition_reaction_solutions_compounds_purity,0.0
+Backcontact_deposition_aggregation_state_of_reactants_infrequent_sklearn,0.0
+num__Add_lay_back_deposition_reaction_solutions_concentrations,0.0
+num__Add_lay_back_deposition_reaction_solutions_volumes,0.0
+num__Add_lay_back_deposition_reaction_solutions_age,0.0
+num__Add_lay_front_surface_treatment_before_next_deposition_step,0.0
+num__Add_lay_front_storage_relative_humidity,0.0
+num__Add_lay_front_storage_atmosphere,0.0
+num__Add_lay_front_storage_time_until_next_deposition_step,0.0
+num__Add_lay_front_deposition_thermal_annealing_atmosphere,0.0
+Backcontact_deposition_synthesis_atmosphere_infrequent_sklearn,0.0
+num__Add_lay_front_deposition_reaction_solutions_compounds,0.0
+num__Add_lay_front_deposition_reaction_solutions_compounds_supplier,0.0
+num__Add_lay_front_deposition_reaction_solutions_compounds_purity,0.0
+num__Add_lay_front_deposition_reaction_solutions_concentrations,0.0
+num__Add_lay_front_deposition_reaction_solutions_volumes,0.0
+num__Add_lay_front_deposition_reaction_solutions_age,0.0
+num__Add_lay_front_deposition_reaction_solutions_temperature,0.0
+Backcontact_deposition_solvents_mixing_ratios_1,0.0
+Backcontact_deposition_solvents_infrequent_sklearn,0.0
+num__Add_lay_back_thickness_list,0.0
+num__Cell_semitransparent_AVT,0.0
+num__Cell_flexible_min_bending_radius,0.0
+Add_lay_back_additives_compounds_0,0.0
+Add_lay_back_deposition_procedure_evaporation,0.0
+Add_lay_back_stack_sequence_mgf2,0.0
+Backcontact_deposition_solvents_mixing_ratios_infrequent_sklearn,0.0
+Backcontact_deposition_solvents_supplier_guangzhou seaside technology,0.0
+Backcontact_deposition_reaction_solutions_concentrations_8 mg/ml | nan,0.0
+Backcontact_deposition_solvents_ethyl cellulose; terpineol,0.0
+Perovskite_surface_treatment_before_next_deposition_step_infrequent_sklearn,0.0
+num__Add_lay_front_deposition_synthesis_atmosphere_pressure_partial,0.0
+num__Add_lay_front_deposition_synthesis_atmosphere_relative_humidity,0.0
+num__Add_lay_front_deposition_solvents,0.0
+num__Add_lay_front_deposition_solvents_mixing_ratios,0.0
+num__Add_lay_front_deposition_solvents_supplier,0.0
+num__Add_lay_front_deposition_solvents_purity,0.0

@@ -1,0 +1,4 @@
+evaluation_domain,split_strategy,variant,metric,delta_vs_original,ci_low,ci_high
+accepted_literatureagent,doi_grouped,original_plus_accepted_expansion,r2,0.978549540621398,0.5884301686422793,1.6390822969612957
+accepted_literatureagent,doi_grouped,original_plus_accepted_expansion,rmse,-2.21255387819271,-2.830974311710216,-1.5577500859403817
+accepted_literatureagent,doi_grouped,original_plus_accepted_expansion,mae,-2.125639701160086,-2.753731509327863,-1.4458513888166105

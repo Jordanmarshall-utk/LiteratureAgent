@@ -1,0 +1,7 @@
+display_label,section,value,category_order,eligible_before_gate
+PCE minimal,readiness,663,1,
+PCE strict,readiness,400,2,
+Stability minimal,readiness,81,3,
+Stability strict,readiness,18,4,
+Physical stability,readiness,0,5,
+PCE completeness gate,completeness_gate,641,6,1096

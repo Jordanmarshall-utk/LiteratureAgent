@@ -3,7 +3,7 @@ import os
 import sys
 from types import SimpleNamespace
 
-import literature_agent_full_end_to_end_v21_3_english_sanitizer as controller
+import literature_agent_pipeline as controller
 
 
 def test_pce_profile_preserves_explicit_google_drive_options():

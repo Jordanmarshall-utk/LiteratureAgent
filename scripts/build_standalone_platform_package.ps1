@@ -18,7 +18,7 @@ $packageRoot = Join-Path $stage "LiteratureAgent"
 New-Item -ItemType Directory -Force -Path $packageRoot | Out-Null
 
 $files = @(
-    "literature_agent_full_end_to_end_v21_3_english_sanitizer.py",
+    "literature_agent_pipeline.py",
     "README.md",
     "requirements.txt",
     "requirements-platform.txt",

@@ -1,0 +1,35 @@
+{
+  "nodes": 91134,
+  "relationships": 173911,
+  "node_counts": {
+    "DatasetSnapshot": 1,
+    "Device": 1843,
+    "Evidence": 39912,
+    "ExtractionRun": 1,
+    "OntologyConcept": 266,
+    "Paper": 1396,
+    "ScientificClaim": 2694,
+    "ScientificEntity": 5208,
+    "StructuredObservation": 39813
+  },
+  "relationship_counts": {
+    "DERIVED_FROM": 39770,
+    "DIRECTIONAL_RELATION": 2694,
+    "GENERATED_BY": 1,
+    "HAS_DEVICE": 1843,
+    "HAS_FIELD_EVIDENCE": 6689,
+    "HAS_OBJECT": 2694,
+    "HAS_OBSERVATION": 39813,
+    "HAS_SUBJECT": 2694,
+    "IN_SNAPSHOT": 1396,
+    "MEASURES_PROPERTY": 39813,
+    "REPORTS_CLAIM": 2694,
+    "SUPPORTED_BY": 33810
+  },
+  "structured_observations_with_explicit_passage_links": 31116,
+  "schema_reconciliation": {
+    "rule": "effective node class = label when present, otherwise type",
+    "repair_evidence_nodes_missing_label_but_having_type": 142,
+    "reason": "The repaired append writer used `type` for newly added Evidence nodes while the frozen exporter used `label`."
+  }
+}

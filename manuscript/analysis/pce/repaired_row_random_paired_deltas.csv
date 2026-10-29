@@ -1,0 +1,4 @@
+dataset_version,split_strategy,metric,original_only_value,repaired_expansion_value,point_delta_repaired_expansion_minus_original,bootstrap_median_delta,ci_low,ci_high,favorable_direction,resampling_unit,bootstrap_iterations,seed
+03_repaired_after_google_drive_plus_expansion,row_random,r2,0.6275991608517537,0.6255761157508661,-0.002023045100887577,-0.002008023933905867,-0.0037755188826147923,-0.0002963538918802096,positive,DOI publication group,2000,42
+03_repaired_after_google_drive_plus_expansion,row_random,rmse,2.525808173281056,2.532659531277361,0.006851357996305207,0.006816503547402153,0.0009866945350012091,0.012792092840446865,negative,DOI publication group,2000,42
+03_repaired_after_google_drive_plus_expansion,row_random,mae,1.9132000757115193,1.9180800228056225,0.004879947094103221,0.004896484935324241,-0.00011315002881971955,0.009832977807180255,negative,DOI publication group,2000,42
