@@ -25,6 +25,8 @@ figure estimates change relative to the earlier figure source, all in the
 Integrated series. Their editable assets are vector SVGs. The other Origin
 panels retain the supplied OPJU projects. Dense SHAP SVG/PDF exports embed the
 complete raster rendering; the OPJU files retain editable plot data.
+The five-paper graph source PowerPoint is retained under
+`source/graph_assets/fig4a_five_paper_graph/`.
 
 The validation report measures file integrity and scientific consistency. It
 does not certify journal acceptance, author approval, licensing, or a new

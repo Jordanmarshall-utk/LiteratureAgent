@@ -4,7 +4,7 @@
 *.jsonl text eol=lf
 *.svg text eol=lf
 *.py text eol=lf
-*.cmd -text
+*.cmd -text whitespace=cr-at-eol
 *.ps1 text eol=lf
 *.png -text
 *.pdf -text

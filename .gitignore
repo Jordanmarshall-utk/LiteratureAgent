@@ -29,4 +29,6 @@ build/
 # Retained manuscript assets are versioned; local renders remain ignored.
 !manuscript/figures/**/*.pdf
 !manuscript/source/references/**/*.pdf
+!manuscript/source/graph_assets/**/*.pdf
+!manuscript/source/graph_assets/**/*.pptx
 manuscript/build/
