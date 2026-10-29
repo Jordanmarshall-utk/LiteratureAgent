@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "checks": 36,
+  "max_error": 8.881784197001252e-16,
+  "row_random_shared_multinomial_array_reproduced": "PASS",
+  "missing_identity_cluster_and_first_seen_order_reproduced": "PASS",
+  "historical741_shared_multinomial_array_reproduced": "PASS",
+  "all_point_estimates_intervals_and_paired_differences_reproduce_from_exports": "PASS",
+  "all_frozen_targets_and_canonical_samples_preserved": "PASS",
+  "same_canonical_test_sample_in_training": 0
+}

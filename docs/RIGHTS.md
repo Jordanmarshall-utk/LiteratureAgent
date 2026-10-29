@@ -5,6 +5,10 @@ Public availability alone does not grant a general permission to reuse or
 redistribute the code. A license may be added when the rights holders choose
 the terms.
 
+Version 2.2.0 is published with software licensing explicitly pending. Publication
+of this release does not designate an open-source license or change the rights
+of the underlying data and publications.
+
 Third-party notices under `third_party/licenses/` apply to the named
 dependencies only. Ollama, Qwen model weights, OriginPro, and other dependencies
 retain their own terms. OriginPro is a separate licensed application and is

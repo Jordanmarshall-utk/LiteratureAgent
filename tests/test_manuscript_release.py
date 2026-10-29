@@ -5,6 +5,8 @@ import csv
 import ast
 import importlib.util
 import os
+import hashlib
+import json
 from pathlib import Path
 from types import SimpleNamespace
 
@@ -144,3 +146,120 @@ def test_benchmark_root_is_portable_and_preserves_existing_override(tmp_path: Pa
     monkeypatch.setenv("BENCHMARK_ROOT", str(tmp_path / "existing"))
     exec(root_setup, namespace)
     assert instance.root == tmp_path / "existing"
+
+
+def test_publication_normalization_preserves_opaque_identities_and_missing_policy() -> None:
+    assert validator.canonical_publication("\ufeffDOI: 10.1039/C8SE00314A") == "10.1039/c8se00314a"
+    assert validator.canonical_publication("https://doi.org/10.1039/C8SE00314A") == "10.1039/c8se00314a"
+    assert validator.canonical_publication("RetainedSource:ABC-1") == "RetainedSource:ABC-1"
+    with pytest.raises(ValueError, match="missing publication identity"):
+        validator.canonical_publication("")
+    assert validator.canonical_publication("", pooled_missing=True) == "NO_GROUP"
+
+
+def test_canonical_sample_keys_preserve_numeric_looking_suffix_strings() -> None:
+    actual = validator.canonical_sample_key("doi: 10.1126/science.adm9474|0.0|01|")
+    assert actual == "10.1126/science.adm9474|0.0|01|"
+    assert actual != validator.canonical_sample_key("10.1126/science.adm9474|0|01|")
+    with pytest.raises(ValueError, match="separator"):
+        validator.canonical_sample_key("10.1126/science.adm9474")
+
+
+def sample_identity_fixture() -> tuple[list[dict[str, str]], list[dict[str, str]]]:
+    predictions = [{"raw_frozen_row_key": "doi: 10.1126/science.adm9474|0.0|01|", "canonical_row_key": "10.1126/science.adm9474|0.0|01|"}]
+    membership = [
+        {"raw_row_key": "10.1126/science.adm9474|0.0|01|", "canonical_row_key": predictions[0]["canonical_row_key"], "in_training": "False", "is_frozen_test_sample": "True"},
+        {"raw_row_key": "10.1126/science.adm9474|2|02|", "canonical_row_key": "10.1126/science.adm9474|2|02|", "in_training": "True", "is_frozen_test_sample": "False"},
+    ]
+    return predictions, membership
+
+
+def test_same_sample_overlap_is_not_hidden_by_a_doi_prefix() -> None:
+    predictions, membership = sample_identity_fixture()
+    assert validator.pce_identity_errors(predictions, membership) == []
+    membership[0]["in_training"] = "True"
+    assert "the same canonical sample appears in training and test" in validator.pce_identity_errors(predictions, membership)
+
+
+def test_pce_identity_gate_rejects_missing_test_matches_and_collisions() -> None:
+    predictions, membership = sample_identity_fixture()
+    membership[0]["is_frozen_test_sample"] = "False"
+    assert "training audit does not identify every frozen test sample" in validator.pce_identity_errors(predictions, membership)
+    assert "canonical test sample identities collide" in validator.pce_identity_errors(predictions * 2, membership)
+    membership.append(membership[1].copy())
+    assert "eligible canonical sample identities collide" in validator.pce_identity_errors(predictions, membership)
+
+
+def test_canonical_publication_fold_check_rejects_case_alias_crossing() -> None:
+    rows = [
+        {"raw_publication_label": "10.1039/C8SE00314A", "canonical_publication_identity": "10.1039/c8se00314a", "final_test_fold": "2"},
+        {"raw_publication_label": "10.1039/c8se00314a", "canonical_publication_identity": "10.1039/c8se00314a", "final_test_fold": "2"},
+    ]
+    assert validator.publication_fold_errors(rows) == []
+    rows[1]["final_test_fold"] = "3"
+    assert "a canonical publication crosses historical test folds" in validator.publication_fold_errors(rows)
+
+
+def test_canonical_publication_fold_check_rejects_inconsistent_labels() -> None:
+    rows = [{"raw_publication_label": "10.1039/C8SE00314A", "canonical_publication_identity": "10.1039/C8SE00314A", "final_test_fold": "2"}]
+    assert "stability canonical publication does not match its retained source label" in validator.publication_fold_errors(rows)
+
+
+def test_exported_regression_metrics_are_recomputed_without_estimators() -> None:
+    values = validator.regression_metrics([2.0, 4.0], [2.0, 3.0])
+    assert values == pytest.approx({"r2": 0.5, "rmse": 0.5 ** 0.5, "mae": 0.5})
+    assert validator.regression_metrics([1.0, 1.0], [1.0, 1.0])["r2"] == 1.0
+    assert validator.regression_metrics([1.0, 1.0], [1.0, 2.0])["r2"] == 0.0
+    with pytest.raises(ValueError):
+        validator.regression_metrics([], [])
+
+
+def test_exported_classification_metrics_use_tie_aware_auc() -> None:
+    rows = [
+        {"actual": "0", "prediction": "0.1", "predicted_class": "0"},
+        {"actual": "0", "prediction": "0.4", "predicted_class": "0"},
+        {"actual": "1", "prediction": "0.4", "predicted_class": "0"},
+        {"actual": "1", "prediction": "0.8", "predicted_class": "1"},
+    ]
+    assert validator.classification_metrics(rows) == pytest.approx({"roc_auc": 0.875, "accuracy": 0.75, "balanced_accuracy": 0.75, "f1": 2 / 3})
+    with pytest.raises(ValueError, match="both binary"):
+        validator.classification_metrics(rows[:2])
+
+
+def fingerprint_fixture() -> list[dict[str, str]]:
+    return [{"dataset": "baseline", "mode": "design_only", "target": "target_end_retention_pct", "metric": "r2",
+             "value": "0.05", "ci_low": "0.02", "ci_high": "0.08", "n": "4986", "canonical_group_count": "1821", "bootstrap_seed": "42",
+             "oof_source": "analysis/predictions.csv", "outcome_label": "Final retention"}]
+
+
+def test_verified_stability_value_fingerprint_excludes_portable_paths_and_labels() -> None:
+    rows = fingerprint_fixture()
+    digest = validator.stability_values_fingerprint(rows)
+    rows[0].update({"oof_source": "analysis/canonical/predictions.csv", "outcome_label": "Final retention (%)", "n": "4986.0"})
+    assert validator.stability_values_fingerprint(rows) == digest
+    rows[0]["ci_low"] = "0.021"
+    assert validator.stability_values_fingerprint(rows) != digest
+
+
+def test_first_seen_multinomial_bootstrap_matches_literal_row_resampling() -> None:
+    import numpy as np
+
+    actual = [1.0, 2.0, 4.0, 3.0]
+    predictions = {"original": [1.3, 2.1, 3.5, 2.9]}
+    groups = ["publication_b", "NO_GROUP", "publication_b", "NO_GROUP"]
+    multiplicity = np.random.default_rng(42).multinomial(2, np.full(2, 0.5), size=2000)
+    contract = {"groups": 2, "iterations": 2000, "seed": 42,
+                "sampler": "np.random.default_rng(42).multinomial(G, np.full(G, 1/G), size=2000)",
+                "group_order": "first appearance in frozen test CSV order",
+                "multiplicity_sha256_int64_c": hashlib.sha256(multiplicity.astype(np.int64).tobytes(order="C")).hexdigest()}
+    values, order = validator.bootstrap_regression(actual, predictions, groups, contract)
+    assert order == ["publication_b", "NO_GROUP"]
+    for draw_index in (0, 7, 42, 1999):
+        drawn = np.repeat(np.arange(2), multiplicity[draw_index])
+        rows = [index for group in drawn for index, name in enumerate(groups) if name == order[group]]
+        literal = validator.regression_metrics([actual[index] for index in rows], [predictions["original"][index] for index in rows])
+        assert {metric: bootstrap[draw_index] for metric, bootstrap in values["original"].items()} == pytest.approx(literal, abs=1e-12)
+    with pytest.raises(ValueError, match="seed changed"):
+        validator.bootstrap_regression(actual, predictions, groups, {**contract, "seed": 43})
+    with pytest.raises(ValueError, match="multiplicities differ"):
+        validator.bootstrap_regression(actual, predictions, groups, {**contract, "multiplicity_sha256_int64_c": "0" * 64})

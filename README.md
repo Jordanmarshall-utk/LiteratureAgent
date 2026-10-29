@@ -20,6 +20,12 @@ integrated graph. The repaired SHAP cohort contains 21,426 records from 4,080
 publication groups. SHAP explains the final fitted model; it does not measure
 held-out performance or establish causal effects.
 
+The final 29 October checks correct the secondary row-random sample exclusion,
+canonical stability intervals, predictor inclusion/exclusion documentation and
+graph evidence-count definitions. Figure 5a and Figure 5b are supplied as
+separate editable panels for manual manuscript assembly. Licensing and approved
+manuscript citation metadata remain explicitly pending in this public release.
+
 ## Run the application
 
 For the Windows distribution, run `Setup_LiteratureAgent.cmd` once, then

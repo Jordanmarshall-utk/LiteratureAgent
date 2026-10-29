@@ -1,169 +1,87 @@
 {
-  "analysis": "dependency-driven repaired stability completion",
-  "created_utc": "2026-10-28T19:56:32.952755+00:00",
   "status": "PASS",
-  "canonical_files_modified": false,
-  "model_script": "../models/frozen/pce_then_stability_same_approach_sha256_19f58acd.py",
+  "estimates_audited": 66,
+  "raw_alias_populations": 7,
+  "verified_historical_fold_reconstructions": 66,
+  "canonical_publications_crossing_verified_test_folds": 0,
+  "new_model_refits_required": 0,
+  "fold_metric_tolerance": 1e-12,
   "model_script_sha256": "19f58acdfb6143a75df5d034be08f1de070d43713b716cba6c77d4b422898115",
-  "source_corrected_v2": "source_records/stability_harmonized_submission_v2_predicted_pce_fix_2026-09-07",
-  "ref28_identity_guard": {
-    "Ref_ID": 28,
-    "doi": "10.1039/c9ta01893j",
-    "composition": "Cs0.05FA0.788MA0.162PbBr0.51I2.49"
-  },
-  "ref28_quarantine_targets": [
-    "target_end_retention_pct",
-    "target_end_retention_ge80",
-    "target_T80_ge100h",
-    "target_T80_ge500h",
-    "target_log1p_T80_hours",
-    "target_phys_log_k_obs"
-  ],
-  "requested_estimates": 24,
-  "dependency_rows": 66,
-  "refitted_endpoint_estimates": 44,
-  "bootstrap_iterations": 2000,
-  "bootstrap_unit": "normalized Ref_DOI_number publication group",
-  "bootstrap_seed": "stable SHA256-derived seed prefixed by ref28_exclusion",
-  "fold_policy": "five-fold deterministic DOI GroupKFold; repaired DOI groups propagated before split",
-  "predicted_pce": {
-    "repaired_database": "source_records/repaired_modeling_database.csv",
-    "repaired_database_sha256": "438961d20d426152bd99d69d44af7057b448ffd9c692c2792c54791cd65c8b0f",
-    "saved_oof": "source_records/pce_direct_oof_predictions.csv",
-    "saved_oof_sha256": "8caba13c477b8c0b082f9e440ce26ad6b86d97adc1d165979f53afbb3cfc914e",
-    "pce_training_rows": 21426,
-    "oof_rows": 21426,
-    "full_fit_fallback_rows": 4097,
-    "stable_join_columns": [
-      "Ref_ID",
-      "Ref_ID_temp",
-      "Ref_internal_sample_id",
-      "JV_default_PCE",
-      "Cell_stack_sequence",
-      "Perovskite_composition_long_form",
-      "Stability_time_total_exposure",
-      "Stability_PCE_initial_value",
-      "Stability_PCE_end_of_experiment",
-      "Stability_PCE_T80",
-      "Stability_PCE_after_1000_h"
-    ],
-    "stable_keys_unique": true
-  },
-  "main_figure_predicted_pce_excluded": true,
-  "display_label_correction": {
-    "internal_key": "target_phys_log_k_obs",
-    "display": "Calculated ln(k), k in h^-1"
-  },
   "software": {
     "python": "3.11.9",
     "numpy": "2.3.5",
     "pandas": "3.0.2",
     "scikit_learn": "1.8.0"
   },
-  "provenance": {
-    "baseline": {
-      "design_only": {
-        "preview_path": "source_records/dataset_with_pce_predictions_and_stability_targets_preview.csv",
-        "preview_sha256": "235f99b423b66f9b6e5ffb5bc0db61f78c8c4ddbb125b929fd76d90f86cc18a9",
-        "audit_path": "source_records/row_completeness_audit.csv",
-        "audit_sha256": "5587550214d55fee5cc2b5a3bd0b6e55685ba24c2c8ee13e1d6afdf6b152e1de",
-        "feature_path": "source_records/feature_columns.csv",
-        "feature_sha256": "56a7c34a370df4aee5cd83d2bea2e56dc3d3d5b4c1d46e7518dacd108afc9524",
-        "mask_source": "frozen_mask_keep",
-        "eligible_rows": 23712
+  "all_final_estimates": 66,
+  "table_s10_comparison_rows": 33,
+  "main_plot_estimates": 24,
+  "point_estimates_changed": 0,
+  "intervals_changed": 64,
+  "group_counts_changed": 7,
+  "main_figure_rows_changed": 24,
+  "all_raw_bootstrap_intervals_reproduced": "PASS",
+  "all_exported_point_metrics_recompute": "PASS",
+  "all_canonical_publications_within_verified_test_folds": "PASS",
+  "protected_inputs_unchanged": "PASS",
+  "primary_modes_exclude_predicted_pce": "PASS",
+  "new_stability_model_fits": 0,
+  "main_pce_model_fits": 0,
+  "numeric_validation_tolerance": 1e-12,
+  "new_or_merged_missing_identity_groups": 0,
+  "source_identity_policy": "DOI syntax normalized; opaque source identities retained verbatim; missing/sentinel labels fail rather than being pooled",
+  "bootstrap_contract": "sorted canonical groups, 2000 rng.integers group draws; seed parts retain completion prefix only for the 44 completion refits",
+  "weighted_bootstrap_evaluation": "multiplicity-weighted R2 and tie-aware ROC AUC; prior raw-label helper intervals reproduced within 1e-12",
+  "fold_membership_basis": "reconstruction using the exact imported frozen make_cv, original ordered input groups and targets, verified against every stored fold metric for all66; no inferred fold claim from an unmatched reconstruction",
+  "canonical_doi_normalization": "Remove only leading U+FEFF from the already-recorded DOI; then strip DOI URL/doi: prefixes, casefold valid DOI strings, and remove terminal space/period/semicolon/comma. Opaque non-DOI identities remain verbatim.",
+  "bom_formatting_recovery": {
+    "status": "PASS",
+    "normalization_rule": "Remove only leading U+FEFF from the already-recorded DOI; then strip DOI URL/doi: prefixes, casefold valid DOI strings, and remove terminal space/period/semicolon/comma. Opaque non-DOI identities remain verbatim.",
+    "bom_source_records": 12,
+    "datasets": [
+      "baseline",
+      "integrated"
+    ],
+    "source_rows_with_unprefixed_duplicate": 0,
+    "raw_source_rows_with_unprefixed_duplicate": 0,
+    "oof_populations_with_bom": 48,
+    "new_missing_identity_assignments": 0,
+    "main_pce_model_fits": 0,
+    "stability_model_fits": 0
+  },
+  "all_display_labels_present": "PASS",
+  "recorded_reconstruction_environment_match": [
+    {
+      "source": "source_records/artifacts/literature_agent_pce_stability/source_data/model_results/stability_harmonized_submission_v2_predicted_pce_fix_2026-09-07/validation_manifest.json",
+      "sha256": "f6de430412eab77cd5464a43e395311fb1f2a7c38a4c89c1e6a3649f0a295f9e",
+      "software": {
+        "python": "3.11.9",
+        "numpy": "2.3.5",
+        "pandas": "3.0.2",
+        "scikit_learn": "1.8.0"
       },
-      "design_plus_predicted_pce": {
-        "preview_path": "source_records/dataset_with_pce_predictions_and_stability_targets_preview.csv",
-        "preview_sha256": "235f99b423b66f9b6e5ffb5bc0db61f78c8c4ddbb125b929fd76d90f86cc18a9",
-        "audit_path": "source_records/row_completeness_audit.csv",
-        "audit_sha256": "9033670831540174e466165d6dc4d49a947feed73f455ad4e2bd21f831fda25e",
-        "feature_path": "source_records/feature_columns.csv",
-        "feature_sha256": "88e926ca27ab8093efc8521b4d76c8c59368f4ad80dada58ff64c00b36fcf25d",
-        "mask_source": "input_fill_ratio >= 0.15",
-        "eligible_rows": 23712
-      },
-      "design_plus_measured_initial_performance": {
-        "preview_path": "source_records/dataset_with_pce_predictions_and_stability_targets_preview.csv",
-        "preview_sha256": "235f99b423b66f9b6e5ffb5bc0db61f78c8c4ddbb125b929fd76d90f86cc18a9",
-        "audit_path": "source_records/row_completeness_audit.csv",
-        "audit_sha256": "613b40fe3651955876737d3e503890be5f2fa8570b98854d3eeddaccb59cc655",
-        "feature_path": "source_records/feature_columns.csv",
-        "feature_sha256": "80da85aa112946f261067539fe7f3eb258471a0584965716a11318a057386680",
-        "mask_source": "frozen_mask_keep",
-        "eligible_rows": 23712
-      },
-      "physical_condition_features": {
-        "preview_path": "source_records/dataset_with_pce_predictions_and_stability_targets_preview.csv",
-        "preview_sha256": "235f99b423b66f9b6e5ffb5bc0db61f78c8c4ddbb125b929fd76d90f86cc18a9",
-        "audit_path": "source_records/row_completeness_audit.csv",
-        "audit_sha256": "685461b034d43a40a57a7955e416e32d91fdedc1459af7f93598e085fcdac18e",
-        "feature_path": "source_records/feature_columns.csv",
-        "feature_sha256": "6a198611c11e23836a5172072ab2c095778e63264127f4344429eed75f42984d",
-        "mask_source": "frozen_mask_keep",
-        "eligible_rows": 23712
-      },
-      "condition_normalized_hybrid": {
-        "preview_path": "source_records/dataset_with_pce_predictions_and_stability_targets_preview.csv",
-        "preview_sha256": "235f99b423b66f9b6e5ffb5bc0db61f78c8c4ddbb125b929fd76d90f86cc18a9",
-        "audit_path": "source_records/row_completeness_audit.csv",
-        "audit_sha256": "5587550214d55fee5cc2b5a3bd0b6e55685ba24c2c8ee13e1d6afdf6b152e1de",
-        "feature_path": "source_records/feature_columns.csv",
-        "feature_sha256": "56a7c34a370df4aee5cd83d2bea2e56dc3d3d5b4c1d46e7518dacd108afc9524",
-        "mask_source": "frozen_mask_keep",
-        "eligible_rows": 23712
-      }
+      "status": "PASS"
     },
-    "integrated": {
-      "design_only": {
-        "preview_path": "source_records/dataset_with_pce_predictions_and_stability_targets_preview.csv",
-        "preview_sha256": "fdd6bcd3dfdc496a1abe54d3b28b0f7165ded11d28d1288779ee65e02d5e62b0",
-        "audit_path": "source_records/row_completeness_audit.csv",
-        "audit_sha256": "f1137ca4d87b506222b894c553abf909866493273b17f12ed0436e0b2c9def3e",
-        "feature_path": "source_records/feature_columns.csv",
-        "feature_sha256": "56a7c34a370df4aee5cd83d2bea2e56dc3d3d5b4c1d46e7518dacd108afc9524",
-        "mask_source": "frozen_mask_keep",
-        "eligible_rows": 24640
+    {
+      "source": "source_records/deliverables/LiteratureAgent/manuscript_support_supplement/2026-10-28_controlled_repaired_completion/analysis/stability/validation_manifest.json",
+      "sha256": "2a13d5c5683daf97a6ab686a5e06fc0c26fc356012693dd5c9b4c12456dbb19a",
+      "software": {
+        "python": "3.11.9",
+        "numpy": "2.3.5",
+        "pandas": "3.0.2",
+        "scikit_learn": "1.8.0"
       },
-      "design_plus_predicted_pce": {
-        "preview_path": "source_records/dataset_with_pce_predictions_and_stability_targets_preview.csv",
-        "preview_sha256": "fdd6bcd3dfdc496a1abe54d3b28b0f7165ded11d28d1288779ee65e02d5e62b0",
-        "audit_path": "source_records/row_completeness_audit.csv",
-        "audit_sha256": "4ff3b60e8262cbc608235a3cdf60981ef492a2144d5981d1edf00d66e125b3c4",
-        "feature_path": "source_records/feature_columns.csv",
-        "feature_sha256": "88e926ca27ab8093efc8521b4d76c8c59368f4ad80dada58ff64c00b36fcf25d",
-        "mask_source": "input_fill_ratio >= 0.15",
-        "eligible_rows": 24640
-      },
-      "design_plus_measured_initial_performance": {
-        "preview_path": "source_records/dataset_with_pce_predictions_and_stability_targets_preview.csv",
-        "preview_sha256": "fdd6bcd3dfdc496a1abe54d3b28b0f7165ded11d28d1288779ee65e02d5e62b0",
-        "audit_path": "source_records/row_completeness_audit.csv",
-        "audit_sha256": "edf354c7cb006ac8d649844fd9925ad3a87ddc7e6aaf2da22072ea1bd17b5498",
-        "feature_path": "source_records/feature_columns.csv",
-        "feature_sha256": "80da85aa112946f261067539fe7f3eb258471a0584965716a11318a057386680",
-        "mask_source": "frozen_mask_keep",
-        "eligible_rows": 24684
-      },
-      "physical_condition_features": {
-        "preview_path": "source_records/dataset_with_pce_predictions_and_stability_targets_preview.csv",
-        "preview_sha256": "fdd6bcd3dfdc496a1abe54d3b28b0f7165ded11d28d1288779ee65e02d5e62b0",
-        "audit_path": "source_records/row_completeness_audit.csv",
-        "audit_sha256": "498e7100f8a2f8413df297736fa664c96f0f6680af1478ba4c109ffd2db13e4f",
-        "feature_path": "source_records/feature_columns.csv",
-        "feature_sha256": "6a198611c11e23836a5172072ab2c095778e63264127f4344429eed75f42984d",
-        "mask_source": "frozen_mask_keep",
-        "eligible_rows": 25231
-      },
-      "condition_normalized_hybrid": {
-        "preview_path": "source_records/dataset_with_pce_predictions_and_stability_targets_preview.csv",
-        "preview_sha256": "fdd6bcd3dfdc496a1abe54d3b28b0f7165ded11d28d1288779ee65e02d5e62b0",
-        "audit_path": "source_records/row_completeness_audit.csv",
-        "audit_sha256": "f1137ca4d87b506222b894c553abf909866493273b17f12ed0436e0b2c9def3e",
-        "feature_path": "source_records/feature_columns.csv",
-        "feature_sha256": "56a7c34a370df4aee5cd83d2bea2e56dc3d3d5b4c1d46e7518dacd108afc9524",
-        "mask_source": "frozen_mask_keep",
-        "eligible_rows": 24640
-      }
+      "status": "PASS"
     }
-  }
+  ],
+  "chance_or_zero_reference_interval_classifications_changed": 0,
+  "independent_direct_row_duplication_bootstrap_checks": {
+    "status": "PASS",
+    "estimates": 5,
+    "maximum_absolute_difference": 5.870304242705515e-15
+  },
+  "authoritative_estimates": "analysis/stability/all_stability_metrics_and_sensitivity.csv",
+  "canonical_prediction_fold_directory": "analysis/stability/canonical",
+  "historical_raw_source_scope": "analysis/stability/fits retains the original raw-label OOF and fold-metric source exports; canonical is authoritative for final group counts,memberships and intervals",
+  "endpoint_quarantine": "Ref_ID28 is excluded only from six incompatible targets,not removed as a source record"
 }

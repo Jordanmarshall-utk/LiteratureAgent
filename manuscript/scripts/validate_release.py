@@ -9,6 +9,7 @@ import json
 import math
 import re
 import sys
+from collections import Counter, defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Iterable
@@ -49,6 +50,7 @@ SECRET_PATTERNS = (
     re.compile(r"sk-(?:proj-)?[A-Za-z0-9_-]{25,}"),
     re.compile(r"AKIA[0-9A-Z]{16}"),
 )
+STABILITY_VALUES_SHA256 = "97e3f238847336a3f7167f0886fc37868f2e763031e981ff0b5068488a0faffa"
 
 
 def sha256(path: Path) -> str:
@@ -134,6 +136,144 @@ def stability_key(row: dict[str, str]) -> tuple[str, str, str]:
     return row.get("dataset", ""), row.get("feature_mode", row.get("mode", "")), row.get("target", "")
 
 
+def truth(value: Any) -> bool:
+    return str(value).strip().lower() == "true"
+
+
+def canonical_publication(value: str, *, pooled_missing: bool = False) -> str:
+    raw = value.strip()
+    if raw.casefold() in {"", "nan", "none", "null", "na", "n/a", "no_group", "missing_group"}:
+        if pooled_missing:
+            return "NO_GROUP"
+        raise ValueError("missing publication identity cannot be merged into a stability group")
+    candidate = re.sub(r"^https?://(?:dx\.)?doi\.org/", "", raw.lstrip("\ufeff").casefold())
+    candidate = re.sub(r"^doi:\s*", "", candidate).rstrip(" .;,")
+    return candidate if re.fullmatch(r"10\.\d{4,9}/\S+", candidate) else raw
+
+
+def canonical_sample_key(value: str) -> str:
+    publication, separator, sample = value.partition("|")
+    if not separator:
+        raise ValueError("sample key lacks its publication separator")
+    return canonical_publication(publication, pooled_missing=True) + separator + sample
+
+
+def pce_identity_errors(predictions: list[dict[str, str]], membership: list[dict[str, str]]) -> list[str]:
+    errors = []
+    test_keys = [row["canonical_row_key"] for row in predictions]
+    if len(set(test_keys)) != len(test_keys):
+        errors.append("canonical test sample identities collide")
+    if any(canonical_sample_key(row["raw_frozen_row_key"]) != row["canonical_row_key"] for row in predictions):
+        errors.append("canonicalization changed a sample suffix or publication contract")
+    if any(canonical_sample_key(row["raw_row_key"]) != row["canonical_row_key"] for row in membership):
+        errors.append("training identity crosswalk does not follow the sample-key contract")
+    if len({row["canonical_row_key"] for row in membership}) != len(membership):
+        errors.append("eligible canonical sample identities collide")
+    training_keys = {row["canonical_row_key"] for row in membership if truth(row["in_training"])}
+    if set(test_keys) & training_keys:
+        errors.append("the same canonical sample appears in training and test")
+    matched = {row["canonical_row_key"] for row in membership if truth(row["is_frozen_test_sample"])}
+    if matched != set(test_keys):
+        errors.append("training audit does not identify every frozen test sample")
+    return errors
+
+
+def publication_fold_errors(rows: list[dict[str, str]]) -> list[str]:
+    folds: dict[str, set[str]] = defaultdict(set)
+    errors = []
+    for row in rows:
+        identity = row["canonical_publication_identity"]
+        if not identity:
+            errors.append("stability publication identity is missing")
+            continue
+        if canonical_publication(row["raw_publication_label"]) != identity:
+            errors.append("stability canonical publication does not match its retained source label")
+        folds[identity].add(row["final_test_fold"])
+    if any(len(values) != 1 for values in folds.values()):
+        errors.append("a canonical publication crosses historical test folds")
+    return errors
+
+
+def regression_metrics(actual: list[float], predicted: list[float]) -> dict[str, float]:
+    if not actual or len(actual) != len(predicted):
+        raise ValueError("invalid regression prediction alignment")
+    count = len(actual)
+    mean = math.fsum(actual) / count
+    residual = math.fsum((left - right) ** 2 for left, right in zip(actual, predicted))
+    total = math.fsum((value - mean) ** 2 for value in actual)
+    return {"r2": 1 - residual / total if total else float(residual == 0),
+            "rmse": math.sqrt(residual / count),
+            "mae": math.fsum(abs(left - right) for left, right in zip(actual, predicted)) / count}
+
+
+def classification_metrics(rows: list[dict[str, str]]) -> dict[str, float]:
+    ordered = sorted((float(row["prediction"]), int(float(row["actual"]))) for row in rows)
+    positives = sum(actual for _, actual in ordered)
+    negatives = len(ordered) - positives
+    if not positives or not negatives or any(actual not in {0, 1} for _, actual in ordered):
+        raise ValueError("ROC-AUC requires both binary outcome classes")
+    concordant, previous_negatives, start = 0.0, 0, 0
+    while start < len(ordered):
+        end = start + 1
+        while end < len(ordered) and ordered[end][0] == ordered[start][0]:
+            end += 1
+        tied_positive = sum(actual for _, actual in ordered[start:end])
+        tied_negative = end - start - tied_positive
+        concordant += tied_positive * (previous_negatives + 0.5 * tied_negative)
+        previous_negatives += tied_negative
+        start = end
+    pairs = [(int(float(row["actual"])), int(float(row["predicted_class"]))) for row in rows]
+    true_positive = sum(actual == predicted == 1 for actual, predicted in pairs)
+    true_negative = sum(actual == predicted == 0 for actual, predicted in pairs)
+    false_positive = sum(actual == 0 and predicted == 1 for actual, predicted in pairs)
+    false_negative = sum(actual == 1 and predicted == 0 for actual, predicted in pairs)
+    denominator = 2 * true_positive + false_positive + false_negative
+    return {"roc_auc": concordant / (positives * negatives), "accuracy": (true_positive + true_negative) / len(rows),
+            "balanced_accuracy": 0.5 * (true_positive / positives + true_negative / negatives),
+            "f1": 2 * true_positive / denominator if denominator else 0.0}
+
+
+def stability_values_fingerprint(rows: list[dict[str, str]]) -> str:
+    values = [
+        [row["dataset"], row["mode"], row["target"], row["metric"],
+         *(format(float(row[field]), ".12g") for field in ("value", "ci_low", "ci_high")),
+         str(int(float(row["n"]))), str(int(float(row["canonical_group_count"]))), str(int(float(row["bootstrap_seed"])))]
+        for row in sorted(rows, key=lambda item: (item["dataset"], item["mode"], item["target"]))
+    ]
+    return hashlib.sha256(json.dumps(values, separators=(",", ":")).encode("utf-8")).hexdigest()
+
+
+def bootstrap_regression(
+    actual: list[float], predictions: dict[str, list[float]], groups: list[str], contract: dict[str, Any],
+) -> tuple[dict[str, dict[str, Any]], list[str]]:
+    import numpy as np
+
+    ordered = list(dict.fromkeys(groups))
+    count = len(ordered)
+    if contract["groups"] != count or contract["iterations"] != 2000 or contract["seed"] != 42:
+        raise ValueError("PCE bootstrap count, iterations or seed changed")
+    if contract["sampler"] != "np.random.default_rng(42).multinomial(G, np.full(G, 1/G), size=2000)" or contract["group_order"] != "first appearance in frozen test CSV order":
+        raise ValueError("PCE bootstrap sampler or group-order declaration differs")
+    lookup = {group: index for index, group in enumerate(ordered)}
+    inverse = np.array([lookup[group] for group in groups])
+    draws = np.random.default_rng(42).multinomial(count, np.full(count, 1 / count), size=2000)
+    if hashlib.sha256(draws.astype(np.int64).tobytes(order="C")).hexdigest() != contract["multiplicity_sha256_int64_c"]:
+        raise ValueError("PCE first-seen multinomial group multiplicities differ")
+    actual_array = np.asarray(actual, dtype=float)
+    size = draws @ np.bincount(inverse)
+    total = draws @ np.bincount(inverse, weights=actual_array)
+    total_square = draws @ np.bincount(inverse, weights=actual_array ** 2)
+    total_variance = total_square - total ** 2 / size
+    results = {}
+    for condition, predicted in predictions.items():
+        error = actual_array - np.asarray(predicted, dtype=float)
+        square_error = draws @ np.bincount(inverse, weights=error ** 2)
+        absolute_error = draws @ np.bincount(inverse, weights=np.abs(error))
+        results[condition] = {"r2": 1 - square_error / total_variance,
+                              "rmse": np.sqrt(square_error / size), "mae": absolute_error / size}
+    return results, ordered
+
+
 def compare_stability_rows(
     plotted: list[dict[str, str]], reference: list[dict[str, str]],
 ) -> list[str]:
@@ -195,7 +335,7 @@ def validate_release(root: Path, *, verify_manifest: bool = True) -> dict[str, A
         try:
             details = action()
             report["checks"].append({"check": name, "status": "PASS", "details": details})
-        except (AssertionError, ValueError, KeyError, OSError, StopIteration, ElementTree.ParseError, csv.Error) as exc:
+        except (AssertionError, ValueError, KeyError, OSError, StopIteration, ElementTree.ParseError, csv.Error, ImportError) as exc:
             report["checks"].append({"check": name, "status": "FAIL"})
             report["errors"].append({"check": name, "message": str(exc)})
 
@@ -231,10 +371,64 @@ def validate_release(root: Path, *, verify_manifest: bool = True) -> dict[str, A
         all_rows = csv_rows(analysis / "all_stability_metrics_and_sensitivity.csv")
         require(len(all_rows) == 66, f"all stability table has {len(all_rows)} rows; expected 66")
         require(len({stability_key(row) for row in all_rows}) == 66, "all stability keys are not unique")
+        require(stability_values_fingerprint(all_rows) == STABILITY_VALUES_SHA256,
+                "stability numerical values differ from the verified canonical-publication export")
+        require(sum(truth(row["interval_changed"]) for row in all_rows) == 64, "canonical stability interval change count differs")
+        require(sum(truth(row["group_count_changed"]) for row in all_rows) == 7, "canonical stability group-count change count differs")
+        require(not any(truth(row["point_changed"]) or truth(row["new_model_fit"]) for row in all_rows),
+                "saved stability point estimates or model-fit scope changed")
+        seed_prefixes = Counter()
+        fold_metric_count = 0
         for row in all_rows:
             source = row.get("oof_source", "")
             require(bool(source), f"stability prediction source absent: {stability_key(row)}")
-            require(resolve_asset(root, source).is_file(), f"stability prediction source missing: {source}")
+            for source_field, hash_field in (("oof_source", "oof_sha256"), ("fold_source", "fold_sha256"), ("fold_metric_source", "fold_metric_sha256")):
+                path = resolve_asset(root, row[source_field])
+                require(path.is_file() and sha256(path) == row[hash_field], f"stability source or hash differs: {row[source_field]}")
+            predictions = csv_rows(resolve_asset(root, source))
+            folds = csv_rows(resolve_asset(root, row["fold_source"]))
+            require(len(predictions) == len(folds) == int(float(row["n"])), f"stability source population differs: {stability_key(row)}")
+            require(not publication_fold_errors(predictions), f"invalid canonical stability partition: {stability_key(row)}")
+            require(len({item["canonical_publication_identity"] for item in predictions}) == int(float(row["canonical_group_count"])),
+                    f"canonical stability publication count differs: {stability_key(row)}")
+            for predicted, fold in zip(predictions, folds):
+                require(all(predicted[field] == fold[field] for field in ("row_position", "source_row_index", "stable_sample_key", "canonical_publication_identity", "final_test_fold")),
+                        f"stability row-level fold alignment differs: {stability_key(row)}")
+            primary = classification_metrics(predictions) if row["metric"] == "roc_auc" else regression_metrics(
+                [float(item["actual"]) for item in predictions], [float(item["prediction"]) for item in predictions])
+            require(numeric_equal(primary[row["metric"]], row["value"]), f"stability point does not recompute: {stability_key(row)}")
+            by_fold: dict[str, list[dict[str, str]]] = defaultdict(list)
+            for item in predictions:
+                by_fold[item["final_test_fold"]].append(item)
+            saved_fold_metrics = csv_rows(resolve_asset(root, row["fold_metric_source"]))
+            require(len(saved_fold_metrics) == len(by_fold) == 5, "stability evaluation must retain five verified folds")
+            for fold in saved_fold_metrics:
+                held = by_fold[fold["fold"]]
+                values = classification_metrics(held) if row["metric"] == "roc_auc" else regression_metrics(
+                    [float(item["actual"]) for item in held], [float(item["prediction"]) for item in held])
+                for metric, value in values.items():
+                    require(numeric_equal(value, fold[metric]), f"saved stability fold metric does not recompute: {stability_key(row)}/{metric}")
+                    fold_metric_count += 1
+            seed_parts = row["bootstrap_seed_parts"]
+            seed = 42 + int(hashlib.sha256(seed_parts.encode("utf-8")).hexdigest()[:8], 16) % 1_000_000
+            require(seed == int(float(row["bootstrap_seed"])) and int(float(row["bootstrap_iterations"])) == 2000,
+                    "stability deterministic bootstrap seed or replicate count differs")
+            seed_prefixes["completion" if seed_parts.startswith("ref28_exclusion|") else "carried"] += 1
+            if truth(row["group_count_changed"]):
+                require(row["dataset"] == "baseline" and int(float(row["n"])) == 4986 and int(float(row["raw_group_count"])) == 1822 and int(float(row["canonical_group_count"])) == 1821,
+                        "case-alias stability population differs")
+                aliases = [item for item in predictions if item["canonical_publication_identity"] == "10.1039/c8se00314a"]
+                require(len(aliases) == 2 and {item["Ref_ID"] for item in aliases} == {"17636", "33875"}
+                        and {item["row_position"] for item in aliases} == {"2157", "3882"}
+                        and {item["final_test_fold"] for item in aliases} == {"2"}, "verified case-alias source identities or historical folds differ")
+        require(seed_prefixes == {"completion": 44, "carried": 22}, "stability completion/carried bootstrap seed scopes differ")
+        dependency = csv_rows(analysis / "stability_dependency_change_table.csv")
+        require(len(dependency) == 66 and {stability_key(row) for row in dependency} == {stability_key(row) for row in all_rows},
+                "stability retained-dependency decisions do not cover every final estimate")
+        require(all(truth(row["source_order_and_targets_match_saved"]) and row["historical_folds_reconstruction"] == "PASS"
+                    and int(float(row["canonical_groups_crossing_verified_folds"])) == 0 and not truth(row["requires_new_model_refit"]) for row in dependency),
+                "stability retained OOF lacks an unchanged-source/verified-partition basis")
+        require((analysis / "canonical/historical_fold_reconstruction_metrics.csv").is_file(), "historical fold reconstruction metric proof is absent")
         shared = csv_rows(root / "manuscript/source/data/shared_stability/primary_repaired_stability_metrics.csv")
         plotted = []
         for panel in ("fig5a_stability_classification", "fig5b_stability_regression"):
@@ -244,6 +438,8 @@ def validate_release(root: Path, *, verify_manifest: bool = True) -> dict[str, A
                 errors = compare_stability_rows(rows, reference)
                 require(not errors, "; ".join(errors))
             plotted.extend(rows)
+        require(all(truth(row["interval_changed"]) and not truth(row["point_changed"]) for row in plotted),
+                "all 24 main stability intervals must update without changing point estimates")
         selected = {stability_key(row) for row in all_rows if row.get("manuscript_selected", "").lower() == "true"}
         require(selected == {stability_key(row) for row in plotted}, "main stability selections disagree with plot inputs")
         requested = csv_rows(analysis / "requested_24_updated_stability_estimates.csv")
@@ -272,7 +468,23 @@ def validate_release(root: Path, *, verify_manifest: bool = True) -> dict[str, A
         require(bool(main_features), "main stability feature lists are absent")
         require(not any(row.get("predicted_pce_feature", "").lower() == "true" or "predicted_pce" in row.get("feature", "").lower() for row in main_features),
                 "predicted PCE feature appears in a main stability feature list")
-        return {"full_estimates": len(all_rows), "main_plot_rows": len(plotted), "requested_alternatives": len(requested)}
+        table = csv_rows(analysis / "TableS10_updated.csv")
+        require(len(table) == 33, "Table S10 must contain 33 Original/Integrated outcome/input-set comparisons")
+        lookup = {stability_key(row): row for row in all_rows}
+        for comparison in table:
+            values = {}
+            for dataset, prefix in (("baseline", "original"), ("integrated", "integrated")):
+                estimate = lookup[(dataset, comparison["model_mode"], comparison["endpoint_name"])]
+                for table_field, estimate_field in (("database_performance", "value"), ("ci_low", "ci_low"), ("ci_high", "ci_high"), ("eligible_rows", "n"), ("doi_groups", "canonical_group_count")):
+                    require(numeric_equal(comparison[f"{prefix}_{table_field}"], estimate[estimate_field]), "Table S10 value/population differs from its canonical estimate")
+                for field in ("oof_source", "oof_sha256", "fold_source", "fold_sha256", "fold_metric_source", "fold_metric_sha256"):
+                    require(comparison[f"{prefix}_{field}"] == estimate[field], "Table S10 source reference differs from its canonical estimate")
+                values[dataset] = float(estimate["value"])
+            require(numeric_equal(comparison["difference_integrated_minus_original"], values["integrated"] - values["baseline"]),
+                    "Table S10 descriptive point difference does not recompute")
+            require("not paired" in comparison["comparison_basis"], "Table S10 must identify the separately eligible population comparison")
+        return {"full_estimates": len(all_rows), "main_plot_rows": len(plotted), "requested_alternatives": len(requested),
+                "table_s10_rows": len(table), "recomputed_fold_metric_values": fold_metric_count, "canonical_publications_crossing_folds": 0}
 
     def adjudication() -> dict[str, int]:
         expected = {
@@ -333,7 +545,173 @@ def validate_release(root: Path, *, verify_manifest: bool = True) -> dict[str, A
         ):
             observed = {row[key_field]: int(row["count"]) for row in csv_rows(directory / filename)}
             require(observed == summary[counts_field], f"graph count table differs: {filename}")
-        return expected
+        reconciliation = root / "manuscript/source/data/shared_graph"
+        rule = json.loads((reconciliation / "counting_rule.json").read_text(encoding="utf-8-sig"))
+        patch = json.loads((reconciliation / "snapshot_metadata_patch.json").read_text(encoding="utf-8-sig"))
+        metadata = patch["set_properties"]
+        counts = {"field_evidence_count": 37663, "source_input_field_evidence_mapping_count": 37663,
+                  "current_field_evidence_link_count": 37805, "current_observation_field_evidence_link_count": 31116,
+                  "current_fallback_field_evidence_link_count": 6689, "current_repair_field_evidence_link_count": 142,
+                  "current_claim_evidence_link_count": 2694}
+        require(all(metadata.get(field) == count for field, count in counts.items()), "graph evidence subtotals differ from the traced builder definition")
+        require(rule["unique_frozen_input_mappings"] == rule["unique_frozen_field_evidence_ids"] == 37663
+                and rule["frozen_exact_sample_mapping_rows"] == 37282 and rule["frozen_doi_field_fallback_rows"] == 381,
+                "graph historical mapping inputs do not reconcile")
+        require(31116 + 6689 == 37663 + 142 == 37805 and 31116 + 2694 == 33810, "graph field/claim evidence arithmetic differs")
+        require(patch["topology_changes"] == [] and patch["field_evidence_count_numeric_value_changed"] is False,
+                "graph companion patch must preserve historical count and topology")
+        require(len(csv_rows(reconciliation / "metadata_enrichment_node_updates.csv")) == 21,
+                "preceding graph metadata-only enrichment count differs")
+        return {**expected, "historical_field_mappings": 37663, "current_field_links": 37805, "repair_field_links": 142}
+
+    def pce() -> dict[str, int]:
+        import numpy as np
+
+        directory = root / "manuscript/analysis/pce/row_random"
+        audits = {row["condition"]: row for row in csv_rows(directory / "training_audit.csv")}
+        require(set(audits) == {"original", "curated", "expanded"}, "row-random training conditions differ")
+        membership = csv_rows(directory / "training_membership.csv")
+        frozen = csv_rows(directory / "references/original_row_random_saved.csv")
+        require(len(frozen) == 4159, "saved frozen row-random reference must contain 4,159 records")
+        frames, point_values = {}, {}
+        expected_train = {"original": 16634, "curated": 16741, "expanded": 17267}
+        for condition, training_rows in expected_train.items():
+            predictions = csv_rows(directory / f"predictions_{condition}.csv")
+            frames[condition] = predictions
+            require(len(predictions) == 4159, "row-random test record count changed")
+            own_membership = [row for row in membership if row["condition"] == condition]
+            errors = pce_identity_errors(predictions, own_membership)
+            require(not errors, f"{condition}: " + "; ".join(errors))
+            require(sum(truth(row["in_training"]) for row in own_membership) == training_rows,
+                    f"row-random training membership differs: {condition}")
+            for index, (prediction, saved) in enumerate(zip(predictions, frozen)):
+                require(int(prediction["frozen_test_order"]) == index and prediction["raw_frozen_row_key"] == saved["row_key"]
+                        and numeric_equal(prediction["actual"], saved["actual"]), "frozen row-random identities, order or targets changed")
+                require(canonical_publication(prediction["raw_publication_label"], pooled_missing=True) == prediction["normalized_publication_identity"],
+                        "row-random publication crosswalk differs from canonical identity")
+            groups = [row["normalized_publication_identity"] for row in predictions]
+            require(len(set(groups)) == 2243 and groups.count("NO_GROUP") == 48, "row-random missing-identity cluster convention changed")
+            require(len({row["raw_publication_label"] for row in predictions}) == 2248, "raw row-random publication-label count changed")
+            training_groups = {row["normalized_publication_identity"] for row in own_membership if truth(row["in_training"])}
+            require(len((set(groups) & training_groups) - {"NO_GROUP"}) == 2161 and "NO_GROUP" in training_groups,
+                    "row-random publication overlap accounting differs")
+            audit = audits[condition]
+            expected = {"training_rows": training_rows, "matched_frozen_test_samples": 4159, "canonical_test_rows_in_training": 0,
+                        "canonical_key_collisions": 0, "identified_test_publications_in_training": 2161,
+                        "canonical_bootstrap_groups_in_test": 2243, "identified_publications_in_test": 2242, "unresolved_identity_records_in_test": 48}
+            require(all(int(float(audit[field])) == value for field, value in expected.items()), "row-random audit counts differ from verified identities")
+            point_values[condition] = regression_metrics([float(row["actual"]) for row in predictions], [float(row["predicted"]) for row in predictions])
+        require(int(audits["expanded"]["eligible_rows"]) == 21426 and int(audits["expanded"]["raw_key_exclusion_training_rows"]) == 17269,
+                "expanded repaired PCE cohort or two-row correction accounting differs")
+        for metric, expected in {"r2": 0.6257189513816943, "rmse": 2.5321764043399457, "mae": 1.9206519643601392}.items():
+            require(numeric_equal(point_values["expanded"][metric], expected), "expanded row-random point is not the corrected saved model")
+        contract = json.loads((directory / "row_random_bootstrap_contract.json").read_text(encoding="utf-8-sig"))
+        draws, ordered = bootstrap_regression([float(row["actual"]) for row in frames["original"]],
+                                              {condition: [float(row["predicted"]) for row in rows] for condition, rows in frames.items()},
+                                              [row["normalized_publication_identity"] for row in frames["original"]], contract)
+        saved_order = csv_rows(directory / "row_random_bootstrap_group_order.csv")
+        require([row["normalized_publication_identity"] for row in saved_order] == ordered, "row-random bootstrap groups are not in first-seen order")
+        marginal = csv_rows(directory / "row_random_metrics.csv")
+        require(len(marginal) == 9, "row-random marginal table must contain nine metrics")
+        for row in marginal:
+            condition, metric = row["condition"], row["metric"]
+            require(numeric_equal(row["value"], point_values[condition][metric]), "row-random point does not recompute from exported predictions")
+            low, high = np.percentile(draws[condition][metric], [2.5, 97.5])
+            require(numeric_equal(low, row["ci_low"]) and numeric_equal(high, row["ci_high"]), "row-random marginal interval does not reproduce")
+
+        def paired_checks(rows: list[dict[str, str]], bootstrap: dict[str, dict[str, Any]], points: dict[str, dict[str, float]], group_count: int, record_count: int) -> None:
+            require(len(rows) == 6 and len({(row["comparison"], row["metric"]) for row in rows}) == 6, "paired PCE table must contain six unique comparison metrics")
+            for row in rows:
+                condition = row["comparison"].split(" minus ")[0]
+                metric = row["metric"]
+                difference = bootstrap[condition][metric] - bootstrap["original"][metric]
+                low, high = np.percentile(difference, [2.5, 97.5])
+                expected = {"direct_metric_difference": points[condition][metric] - points["original"][metric],
+                            "median_bootstrap_difference": float(np.median(difference)), "ci_low": low, "ci_high": high}
+                require(all(numeric_equal(row[field], value) for field, value in expected.items()), "paired PCE direct/median difference or interval does not reproduce")
+                require(int(row["bootstrap_groups"]) == group_count and int(row["test_records"]) == record_count
+                        and int(row["bootstrap_iterations"]) == 2000 and int(row["seed"]) == 42, "paired PCE bootstrap population or seed differs")
+
+        paired_checks(csv_rows(directory / "row_random_paired_differences.csv"), draws, point_values, 2243, 4159)
+        historical = {condition: csv_rows(directory / f"historical_predictions_{condition}.csv") for condition in expected_train}
+        historical_original = historical["original"]
+        require(len(historical_original) == 4092, "historical main test membership count changed")
+        for rows in historical.values():
+            require(len(rows) == 4092 and all(row["canonical_row_key"] == baseline["canonical_row_key"] and numeric_equal(row["actual"], baseline["actual"])
+                    and row["normalized_publication_identity"] == baseline["normalized_publication_identity"] for row, baseline in zip(rows, historical_original)),
+                    "historical main test samples, targets or group alignment changed")
+        historical_contract = json.loads((directory / "historical_741_bootstrap_contract.json").read_text(encoding="utf-8-sig"))
+        historical_draws, historical_order = bootstrap_regression([float(row["actual"]) for row in historical_original],
+                                                                 {condition: [float(row["predicted"]) for row in rows] for condition, rows in historical.items()},
+                                                                 [row["normalized_publication_identity"] for row in historical_original], historical_contract)
+        require(len(historical_order) == 741, "historical main bootstrap must retain 741 canonical publication groups")
+        historical_points = {condition: regression_metrics([float(row["actual"]) for row in rows], [float(row["predicted"]) for row in rows]) for condition, rows in historical.items()}
+        paired_checks(csv_rows(directory / "historical_741_paired_differences.csv"), historical_draws, historical_points, 741, 4092)
+        main_intervals = csv_rows(directory / "main_Figure3_S6A_interval_validation.csv")
+        require(len(main_intervals) == 9, "main Figure 3/S6A validation must contain nine retained intervals")
+        condition_ids = {"original": "01_original_database", "curated": "02_after_google_drive", "expanded": "03_after_google_drive_plus_expansion"}
+        panel_names = {"r2": "fig3a_historical_r2", "rmse": "fig3b_historical_rmse", "mae": "fig3c_historical_mae"}
+        main_plots = {metric: {row["dataset_id"]: row for row in csv_rows(root / f"manuscript/source/data/{panel}/plot_data.csv")} for metric, panel in panel_names.items()}
+        for row in main_intervals:
+            condition, metric = row["condition"], row["metric"]
+            low, high = np.percentile(historical_draws[condition][metric], [2.5, 97.5])
+            require(row["status"] == "PASS" and numeric_equal(historical_points[condition][metric], row["retained_value"])
+                    and numeric_equal(low, row["retained_ci_low"]) and numeric_equal(high, row["retained_ci_high"]), "retained main Figure 3/S6A interval does not reproduce")
+            plotted = main_plots[metric][condition_ids[condition]]
+            require(all(numeric_equal(plotted[field], row[reference]) for field, reference in (("estimate", "retained_value"), ("ci_lower", "retained_ci_low"), ("ci_upper", "retained_ci_high"))),
+                    "validated main Figure 3 source values were changed")
+        return {"frozen_row_random_records": 4159, "corrected_expanded_training_records": 17267, "identified_publications": 2242,
+                "pooled_unresolved_records": 48, "row_random_clusters": 2243, "main_historical_records": 4092,
+                "main_historical_groups": 741, "retained_main_intervals": 9, "bootstrap_iterations": 2000}
+
+    def predictors() -> dict[str, int]:
+        directory = root / "manuscript/supplementary_data"
+        inventory = csv_rows(directory / "DataS2_PCE_predictor_inventory.csv")
+        require(len(inventory) == len({row["original_field_name"] for row in inventory}) == 461, "included/excluded predictor universe must contain 461 exact field names")
+        included = [row for row in inventory if row["inclusion_status"] == "included"]
+        excluded = [row for row in inventory if row["inclusion_status"] == "excluded"]
+        require(len(included) == 278 and len(excluded) == 183, "included/excluded predictor membership counts differ")
+        require(Counter(row["frozen_type"] for row in included) == {"numeric": 113, "categorical": 165}, "frozen 113/165 predictor typing changed")
+        boolean = [row for row in included if row["retained_inventory_type"].lower().startswith("boolean")]
+        require(len(boolean) == 16 and all(row["frozen_type"] == "categorical" for row in boolean), "Boolean predictor categorical encoding changed")
+        require(sum(truth(row["frozen_overrides_dynamic"]) for row in included) == 14, "frozen/dynamic typing overrides changed")
+        require(sum(row["original_field_name"].startswith("Stability_") for row in excluded) == 44
+                and sum(row["original_field_name"].startswith("Outdoor_") for row in excluded) == 40, "direct Stability_/Outdoor_ exclusion counts differ")
+        lineage = csv_rows(root / "manuscript/analysis/pce/predictor_lineage.csv")
+        indirect = {row["original_field_name"] for row in lineage if not truth(row["included_as_direct_frozen_predictor"])}
+        require(len(lineage) == 21 and indirect == {"Ref_publication_date", "JV_certification_institute", "Outdoor_location_country", "Outdoor_location_city", "Outdoor_location_coordinates", "Outdoor_location_climate_zone"},
+                "descriptor source lineage no longer identifies the six directly excluded fields")
+        require(indirect.issubset({row["original_field_name"] for row in excluded}), "descriptor source lineage contradicts direct predictor membership")
+        return {"inventory_fields": 461, "included": 278, "excluded": 183, "numeric": 113, "categorical": 165, "descriptor_source_fields": 21, "indirect_excluded_fields": 6}
+
+    def figure5_embedded_values() -> dict[str, int]:
+        from PIL import Image
+
+        index_path = root / "manuscript/figures/ALL_FIGURES.csv"
+        figures = {row["plot_id"]: row for row in csv_rows(index_path)}
+        for panel in ("fig5a_stability_classification", "fig5b_stability_regression"):
+            source = root / f"manuscript/source/data/{panel}/plot_data.csv"
+            expected = csv_rows(source)
+            svg = resolve_asset(root, figures[panel]["svg"])
+            document = ElementTree.parse(svg).getroot()
+            require(not any(node.tag.rsplit("}", 1)[-1] == "image" for node in document.iter()), "Figure 5 SVG must retain vector-editable data marks")
+            descriptions = [node.text for node in document.iter() if node.tag.rsplit("}", 1)[-1] == "description" and node.text]
+            require(len(descriptions) == 1, "Figure 5 SVG lacks a unique scientific source description")
+            metadata = json.loads(descriptions[0])
+            require(metadata["source_sha256"] == sha256(source), "Figure 5 source changed after rendering")
+            embedded = metadata["plot_records"]
+            require(len(embedded) == len(expected) == 12, "Figure 5 rendered record count differs")
+            lookup = {stability_key(row): row for row in expected}
+            require(len({stability_key(row) for row in embedded}) == 12, "Figure 5 embedded scientific keys collide")
+            for row in embedded:
+                plotted = lookup[stability_key(row)]
+                for embedded_field, source_field in (("estimate", "estimate"), ("ci_lower", "ci_lower"), ("ci_upper", "ci_upper"), ("record_count", "eligible_records"), ("canonical_group_count", "canonical_group_count")):
+                    require(numeric_equal(row[embedded_field], plotted[source_field]), "rendered Figure 5 estimate, interval or population differs from verified CSV")
+            with Image.open(resolve_asset(root, figures[panel]["png"])) as image:
+                require(json.loads(image.info["Description"]) == metadata, "Figure 5 PNG scientific metadata differs from its SVG")
+                require(min(image.size) >= 1500 and min(image.info.get("dpi", (0, 0))) >= 599, "Figure 5 PNG resolution is below the publication export contract")
+            require(metadata["source_sha256"].encode("ascii") in resolve_asset(root, figures[panel]["pdf"]).read_bytes(), "Figure 5 PDF omits the verified scientific source identity")
+        return {"individual_panels": 2, "rendered_estimates_reconciled": 24, "vector_svg_raster_images": 0}
 
     def files_and_text() -> dict[str, Any]:
         files = release_files(root)
@@ -356,6 +734,9 @@ def validate_release(root: Path, *, verify_manifest: bool = True) -> dict[str, A
 
     check("figure_assets", figure_assets)
     check("stability_data_dependencies", stability)
+    check("canonical_pce_holdout_and_bootstrap", pce)
+    check("frozen_predictor_inventory_and_lineage", predictors)
+    check("figure5_rendered_scientific_values", figure5_embedded_values)
     check("repair_evidence_counts", adjudication)
     check("supplementary_attachments", attachments)
     check("current_shap_contract", shap)

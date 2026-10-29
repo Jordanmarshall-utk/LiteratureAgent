@@ -19,7 +19,12 @@ python manuscript/scripts/plot_stability.py
 
 The figures contain six endpoints and two series each. Their plotting tables
 include estimates, asymmetric uncertainty bounds, feature modes, target keys,
-and eligible-record counts. SVG text and graphical elements remain editable.
+eligible-record counts, canonical publication counts and exact prediction/fold
+source hashes. SVG text and graphical elements remain editable. These are
+individual 85 by 72 mm panels, not an assembled manuscript figure. All 24
+intervals reflect the final canonical-publication bootstrap correction; point
+locations and the existing style are retained. The SVG/PDF metadata records
+the exact plotted values and input-table SHA-256.
 
 ## Origin panels
 

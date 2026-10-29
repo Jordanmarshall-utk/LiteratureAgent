@@ -5,7 +5,7 @@
   "status": "CURRENT",
   "required_action": "REPRODUCE_FROM_SOURCE",
   "scientific_content": "Stability classification ROC-AUC",
-  "authoritative_analysis_version": "2026-10-28_controlled_repaired_completion",
+  "authoritative_analysis_version": "2026-10-29_identity_and_grouping",
   "portable_paths_only": true,
   "style": {
     "standalone_dimensions_mm": {
@@ -121,5 +121,7 @@
     "confidence_intervals": 12
   },
   "editable_format": "SVG; text and marks retained as vector objects",
-  "builder": "scripts/plot_stability.py"
+  "builder": "scripts/plot_stability.py",
+  "canonical_group_count_column": "canonical_group_count",
+  "final_change_scope": "All12 intervals updated; every point estimate and verified historical fold retained; no new model fitting"
 }

@@ -6,6 +6,7 @@ import argparse
 import csv
 import hashlib
 import json
+import math
 from pathlib import Path
 
 import matplotlib
@@ -33,6 +34,7 @@ LABELS = {
     "target_phys_log_k_ref": "Normalized ln(k)\n(k in h⁻¹)",
     "target_phys_log1p_T80_ref_hours": "Norm. ln(1 + T80/h)",
 }
+ANALYSIS_VERSION = "2026-10-29_identity_and_grouping"
 
 
 def read_rows(path: Path) -> list[dict[str, str]]:
@@ -45,15 +47,28 @@ def read_rows(path: Path) -> list[dict[str, str]]:
         raise ValueError("Each endpoint requires one Original and one Integrated estimate.")
     for row in rows:
         value, low, high = (float(row[key]) for key in ("estimate", "ci_lower", "ci_upper"))
-        if not low <= value <= high:
+        if not all(math.isfinite(number) for number in (value, low, high)) or not low <= value <= high:
             raise ValueError(f"Invalid confidence interval for {row['target']}/{row['dataset']}")
+        for field, expected in (("error_minus", value - low), ("error_plus", high - value)):
+            if field in row and not math.isclose(float(row[field]), expected, abs_tol=1e-12):
+                raise ValueError(f"Asymmetric interval width differs for {row['target']}/{row['dataset']}/{field}")
         if "predicted" in row["feature_mode"]:
             raise ValueError("Predicted PCE is excluded from the main stability panels.")
+        if "canonical_group_count" in row and int(float(row["canonical_group_count"])) <= 0:
+            raise ValueError("Canonical publication-group counts must be positive.")
     return rows
 
 
-def render(panel: str, output: Path) -> dict[str, object]:
-    source = ROOT / "source/data" / panel / "plot_data.csv"
+def resolve_source(panel: str, source_dir: Path) -> Path:
+    source = source_dir / panel / "plot_data.csv"
+    if source.is_file():
+        return source
+    name = "Figure5a_plot_data.csv" if panel.startswith("fig5a") else "Figure5b_plot_data.csv"
+    return source_dir / name
+
+
+def render(panel: str, output: Path, source_dir: Path, analysis_version: str) -> dict[str, object]:
+    source = resolve_source(panel, source_dir)
     rows = read_rows(source)
     targets = sorted({row["target"] for row in rows}, key=lambda target: min(int(row["endpoint_order"]) for row in rows if row["target"] == target))
     if len(targets) != 6:
@@ -101,35 +116,54 @@ def render(panel: str, output: Path) -> dict[str, object]:
         plt.close(fig)
         raise ValueError(f"Text extends beyond the figure boundary: {clipped}")
     paths = []
+    source_label = source.relative_to(ROOT).as_posix() if source.is_relative_to(ROOT) else source.name
+    source_hash = hashlib.sha256(source.read_bytes()).hexdigest()
+    plot_records = [
+        {"target": row["target"], "dataset": row["dataset"], "feature_mode": row["feature_mode"],
+         "estimate": float(row["estimate"]), "ci_lower": float(row["ci_lower"]), "ci_upper": float(row["ci_upper"]),
+         "record_count": int(float(row["eligible_records"])),
+         "canonical_group_count": int(float(row.get("canonical_group_count", row.get("doi_groups", "0"))))}
+        for row in rows
+    ]
+    description = json.dumps({"analysis": analysis_version, "source": source_label, "source_sha256": source_hash,
+                              "plot_records": plot_records}, separators=(",", ":"))
     for kind, extension in (("svg", "svg"), ("pdf", "pdf"), ("png_600dpi", "png"), ("editable", "svg")):
         destination = output / kind / f"{panel}.{extension}"
         destination.parent.mkdir(parents=True, exist_ok=True)
         metadata = {"Creator": "LiteratureAgent"} if extension in {"svg", "pdf"} else {"Software": "LiteratureAgent"}
         if extension == "svg":
             metadata["Date"] = None
+            metadata["Description"] = description
         if extension == "pdf":
-            metadata.update({"CreationDate": None, "ModDate": None})
+            metadata.update({"CreationDate": None, "ModDate": None, "Subject": description})
+        if extension == "png":
+            metadata["Description"] = description
         fig.savefig(destination, dpi=600, facecolor="white", metadata=metadata)
+        if extension == "svg":
+            destination.write_bytes(destination.read_bytes().replace(b"\r\n", b"\n"))
         paths.append(destination.relative_to(output).as_posix())
     plt.close(fig)
-    return {"panel": panel, "source": source.relative_to(ROOT).as_posix(), "source_sha256": hashlib.sha256(source.read_bytes()).hexdigest(),
+    return {"panel": panel, "source": source_label, "source_sha256": source_hash, "analysis": analysis_version,
             "estimates": 12, "endpoints": 6, "confidence_intervals": 12, "dimensions_mm": [85, 72],
             "font_family": "Times New Roman", "body_size_pt": 12, "axis_label_size_pt": 13,
-            "editable_format": "SVG", "outputs": paths, "text_within_page": True}
+            "editable_format": "SVG", "outputs": paths, "text_within_page": True, "plot_records": plot_records}
 
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("panel", nargs="?", default="all", choices=("all", *PANELS))
     parser.add_argument("--out-dir", type=Path, default=ROOT / "build/stability")
+    parser.add_argument("--source-dir", type=Path, default=ROOT / "source/data")
+    parser.add_argument("--analysis-version", default=ANALYSIS_VERSION)
     args = parser.parse_args()
     font_manager.findfont("Times New Roman", fallback_to_default=False)
-    plt.rcParams.update({"font.family": "Times New Roman", "font.size": 12, "svg.fonttype": "none", "pdf.fonttype": 42})
+    plt.rcParams.update({"font.family": "Times New Roman", "font.size": 12, "svg.fonttype": "none", "pdf.fonttype": 42,
+                         "svg.hashsalt": "LiteratureAgent_stability_v2_2_0"})
     output = args.out_dir.resolve()
     output.mkdir(parents=True, exist_ok=True)
-    reports = [render(panel, output) for panel in (PANELS if args.panel == "all" else (args.panel,))]
-    report = {"status": "PASS", "analysis": "2026-10-28_controlled_repaired_completion", "panels": reports}
-    (output / "stability_render_validation.json").write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
+    reports = [render(panel, output, args.source_dir.resolve(), args.analysis_version) for panel in (PANELS if args.panel == "all" else (args.panel,))]
+    report = {"status": "PASS", "analysis": args.analysis_version, "panels": reports}
+    (output / "stability_render_validation.json").write_bytes((json.dumps(report, indent=2) + "\n").encode("utf-8"))
     print(json.dumps(report, indent=2))
 
 

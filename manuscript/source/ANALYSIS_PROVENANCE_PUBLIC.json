@@ -2,10 +2,10 @@
   "absolute_paths_are_provenance_only": false,
   "analysis_completed": true,
   "analysis_id": "2026-10-27_controlled_repaired_rerun",
-  "analysis_version": "2026-10-28_controlled_repaired_completion",
+  "analysis_version": "2026-10-29_identity_and_grouping",
   "authority_basis": {
     "affected_plots_use_one_analysis_version": false,
-    "completion_reason": "Repaired PCE/SHAP inputs with completed stability dependencies and paired PCE comparisons.",
+    "completion_reason": "Completed repaired analyses plus final same-sample exclusion, canonical bootstrap, graph-count definitions and frozen predictor lineage.",
     "controlled_rerun_manifest": {
       "analysis_version": "2026-10-27_controlled_repaired_rerun_v1",
       "created_utc": "2026-10-27T23:05:28.877005+00:00",
@@ -14,7 +14,8 @@
       "total_bytes_excluding_manifests": 394936426
     },
     "report": "data_adjudication/REPORT.md",
-    "stability_completion": "analysis/stability/validation_manifest.json"
+    "stability_completion": "analysis/stability/validation_manifest.json",
+    "canonical_verification": "analysis/stability/canonical/VALIDATION.json"
   },
   "cohorts": {
     "historical_fixed_holdout": {
@@ -62,7 +63,16 @@
         "repair_evidence_nodes_missing_label_but_having_type": 142,
         "rule": "effective node class = label when present, otherwise type"
       },
-      "structured_observations_with_explicit_passage_links": 31116
+      "structured_observations_with_explicit_passage_links": 31116,
+      "field_evidence_counts": {
+        "historical_input_mapping_subtotal": 37663,
+        "current_observation_links": 31116,
+        "current_fallback_links": 6689,
+        "current_total_field_links": 37805,
+        "appended_repair_links": 142,
+        "excluded_claim_links": 2694,
+        "topology_changed": false
+      }
     },
     "shap_fitted_training_table": {
       "choice_display_points": 79634,
@@ -74,6 +84,20 @@
       "scientific_groups": 218,
       "solvent_display_points": 15182,
       "source_rows": 21426
+    },
+    "row_random_fixed_holdout": {
+      "rows": 4159,
+      "raw_publication_labels": 2248,
+      "identified_publications": 2242,
+      "bootstrap_clusters": 2243,
+      "unresolved_NO_GROUP_records": 48,
+      "unresolved_identity_convention": "one pooled unresolved cluster, not a verified publication",
+      "training_rows": {
+        "original": 16634,
+        "curated": 16741,
+        "expanded": 17267
+      },
+      "canonical_test_sample_in_training": 0
     }
   },
   "created_utc": "2026-10-27T23:15:32.355582+00:00",
@@ -89,6 +113,34 @@
     "repaired_graph_jsonl": "3949c7d9b9768de38d3cee8b4585ced088e5d0ee07f457c7ce9357bd87149ab1",
     "shap_metadata": "5892d9f655859d4ff632fd176c7d1313522bcd826f4a33507a590e2a32fbb7d6",
     "shap_values": "eb5dbf9d7d6df88a74423346f68b59be39fec41f41469b16d98e03ce434c5d1a",
-    "stability_plot_source": "3ad726505e1776f6f5b0f131034202fe4e852e684ba7a9a05e630307a851eddc"
+    "stability_plot_source": "6815b79c238f0b90a3c2078c8daf5157fe08cc664d68dba5bf7cafb3714d9ff7"
+  },
+  "canonical_stability_check": {
+    "dataset_specific_estimates": 66,
+    "table_s10_rows": 33,
+    "points_changed_from_completed_snapshot": 0,
+    "intervals_changed": 64,
+    "main_intervals_changed": 24,
+    "case_alias_group_count_merges": 7,
+    "canonical_publications_crossing_verified_folds": 0,
+    "new_model_fits": 0
+  },
+  "predictor_inventory": {
+    "fields": 461,
+    "included": 278,
+    "directly_excluded": 183,
+    "numeric": 113,
+    "categorical": 165,
+    "engineered": 30,
+    "raw_included": 248,
+    "directly_excluded_fields_with_indirect_descriptor_lineage": 6,
+    "field_specific_scientific_rationale": "not established for every Stability_/Outdoor_ field",
+    "predictive_effect_of_indirect_lineage": "not established; no new feature experiment"
+  },
+  "publication_status": {
+    "software_license": "pending",
+    "approved_manuscript_citation": "pending",
+    "journal_submission_or_acceptance_implied": false,
+    "manuscript_assembly_performed": false
   }
 }

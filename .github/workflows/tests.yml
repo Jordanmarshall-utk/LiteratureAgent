@@ -17,7 +17,7 @@ jobs:
           python-version: '3.12'
           cache: pip
       - name: Install test dependencies
-        run: python -m pip install -r requirements-dev.txt
+        run: python -m pip install -r requirements-dev.txt -r manuscript/requirements.txt
       - name: Run tests
         run: python -m pytest tests -q
       - name: Validate manuscript release

@@ -1,0 +1,49 @@
+{
+  "status": "PASS",
+  "checked_at_utc": "2026-10-29T19:58:01.870136+00:00",
+  "checks": {
+    "exact_frozen_evidence_manifest_reproduced": "PASS",
+    "legacy_count_definition_recovered_from_code": "PASS",
+    "all_37663_frozen_evidence_ids_reproduced": "PASS",
+    "input_mappings_and_frozen_field_links_one_to_one": "PASS",
+    "exact_142_repair_links_reconcile_current_subtotal": "PASS",
+    "claim_links_excluded_from_field_count": "PASS",
+    "repaired_to_enriched_topology_and_relationship_properties_unchanged": "PASS",
+    "exact_21_prior_metadata_node_updates": "PASS",
+    "staged_metadata_patch_touches_one_node_only": "PASS",
+    "staged_metadata_patch_preserves_topology_and_printed_counts": "PASS",
+    "canonical_input_hashes_unchanged": "PASS",
+    "independent_scientific_validation_of_all_field_links": "not-established; outside this bounded counting task"
+  },
+  "authoritative_counts": {
+    "nodes": 91134,
+    "relationships": 173911,
+    "observation_to_evidence_supported_by": 31116,
+    "all_has_field_evidence": 6689,
+    "scientific_claim_supported_by": 2694,
+    "all_supported_by": 33810,
+    "active_unique_field_evidence_links": 37805,
+    "active_unique_field_evidence_targets": 37805
+  },
+  "topology_sha256": {
+    "frozen": "33062d45ad134784e043454aaaf467a94931356945da1fde2afb77844c1ae5f5",
+    "repaired": "2e2849b64912d480fdd33bfb9d1717400d4041987273899e45ded1f83e701e48",
+    "enriched": "2e2849b64912d480fdd33bfb9d1717400d4041987273899e45ded1f83e701e48",
+    "staged_metadata_reconciled": "2e2849b64912d480fdd33bfb9d1717400d4041987273899e45ded1f83e701e48"
+  },
+  "graph_sha256": {
+    "frozen": "282b8a22fb10320dc90ffbb8c51acdce65e7f6a3185f94758b160fb2f1836d46",
+    "repaired": "3949c7d9b9768de38d3cee8b4585ced088e5d0ee07f457c7ce9357bd87149ab1",
+    "enriched": "d3554dfca1b809a5055cb735aad094d3b4db750b8fd11781ceee240e7a798b84",
+    "staged_metadata_reconciled": "cb71be3fdeaff4040e0557403a5b48b5f4c215d7d2243ed134880adacfed22e3"
+  },
+  "staged_graph_path": "working\\graph\\metadata_reconciled_graph.jsonl",
+  "compact_deliverable": "snapshot_metadata_patch.json; staged full graph intentionally outside exports",
+  "source_files_modified": false,
+  "printed_figure_counts_modified": false,
+  "software": {
+    "python": "3.11.9",
+    "implementation": "CPython"
+  },
+  "command": "python -B reproducibility/graph_reconcile.py --project-root source_records/ --output-root source_records/deliverables/LiteratureAgent/final_verification/2026-10-29_identity_and_grouping"
+}

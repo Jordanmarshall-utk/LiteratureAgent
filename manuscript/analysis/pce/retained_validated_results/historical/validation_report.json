@@ -5,7 +5,7 @@
     "numeric_features_locked": 113,
     "categorical_features_locked": 165,
     "holdout_rows": 4092,
-    "holdout_doi_groups": 744,
+    "holdout_doi_groups": 741,
     "holdout_row_keys_exactly_reused": true,
     "holdout_targets_exactly_matched": true,
     "all_training_counts_match_reference": false,
@@ -13,6 +13,11 @@
     "zero_test_row_overlap_all_conditions": true,
     "all_metrics_and_intervals_finite": true,
     "bootstrap_iterations": 2000,
-    "random_state": 42
-  }
+    "random_state": 42,
+    "holdout_raw_publication_labels": 744,
+    "holdout_canonical_bootstrap_groups": 741
+  },
+  "count_scope_clarification": "744 is the retained raw publication-label count;741 is the canonical group-bootstrap population. The nine main marginal intervals are unchanged.",
+  "current_bootstrap_contract": "analysis/pce/row_random/historical_741_bootstrap_contract.json",
+  "current_paired_differences": "analysis/pce/row_random/historical_741_paired_differences.csv"
 }

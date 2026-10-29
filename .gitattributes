@@ -2,7 +2,7 @@
 *.csv text eol=lf
 *.json text eol=lf
 *.jsonl text eol=lf
-*.svg text eol=lf
+*.svg text eol=lf whitespace=-blank-at-eol
 *.py text eol=lf
 *.cmd -text whitespace=cr-at-eol
 *.ps1 text eol=lf

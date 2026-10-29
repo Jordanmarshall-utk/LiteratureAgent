@@ -1,0 +1,33 @@
+{
+  "status": "PASS",
+  "model_sha256": "19f58acdfb6143a75df5d034be08f1de070d43713b716cba6c77d4b422898115",
+  "universe_definition": "Union of original and repaired raw CSV header names plus frozen included engineered names.",
+  "original_header_fields": 410,
+  "repaired_header_fields": 431,
+  "inventory_fields": 461,
+  "included": 278,
+  "excluded": 183,
+  "raw_source_predictors": 248,
+  "engineered_predictors": 30,
+  "frozen_type_counts": {
+    "categorical": 165,
+    "numeric": 113
+  },
+  "boolean_inputs": 16,
+  "all_boolean_inputs_categorical": true,
+  "dynamic_type_overrides_preserved": 14,
+  "descriptor_source_fields": 21,
+  "directly_excluded_descriptor_source_fields": [
+    "Ref_publication_date",
+    "JV_certification_institute",
+    "Outdoor_location_country",
+    "Outdoor_location_city",
+    "Outdoor_location_coordinates",
+    "Outdoor_location_climate_zone"
+  ],
+  "descriptor_lineage_limitation": "Direct raw-field exclusion does not establish absence of indirect contribution through engineered descriptor text; no effect size or performance consequence was tested.",
+  "stability_fields_excluded": 44,
+  "outdoor_fields_excluded": 40,
+  "field_specific_rationale_status": "NOT_ESTABLISHED for the blanket Stability_/Outdoor_ exclusions; author input required.",
+  "model_or_feature_contract_modified": false
+}
