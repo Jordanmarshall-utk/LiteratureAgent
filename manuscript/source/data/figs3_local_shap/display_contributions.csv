@@ -1,0 +1,12 @@
+display_order,scientific_group,aggregation,grouped_shap_pce_points,color_hex
+1,A-site composition,individual scientific group,-0.3404346541362315,#0072B2
+2,Quenching-induced crystallization,individual scientific group,0.3249156353327418,#D55E00
+3,X-site/halide composition,individual scientific group,-0.1136491780082496,#0072B2
+4,ADD DESC text length,individual scientific group,-0.1067505552146747,#0072B2
+5,Cell architecture,individual scientific group,-0.1023141710315712,#0072B2
+6,Back-contact deposition method,individual scientific group,0.0771127469581188,#D55E00
+7,HTL material/stack and processing,individual scientific group,0.0767617675189148,#D55E00
+8,Fully inorganic absorber,individual scientific group,0.0755804119162371,#D55E00
+9,Perovskite deposition thermal annealing time,individual scientific group,-0.0523894938027649,#0072B2
+10,Back-contact material,individual scientific group,0.0454547443106844,#D55E00
+11,All other scientific groups,signed net sum of remaining 208 groups; cancellation possible,-0.18778529998884583,#0072B2

@@ -13,7 +13,7 @@ data/figure5/pce_grouped_shap_validation.json,final harmonized model contract fr
 data/figure5/pce_solvent_formulation_shap_values.csv,per-row formulation-only grouped contributions,figure-only reproduction,yes
 data/figure5/pce_solvent_formulation_shap_summary.csv,formulation sample counts and attribution summaries,figure-only reproduction,yes
 data/figure5/pce_grouped_shap_local_random_selection.json,fixed-seed local-record provenance and reconstruction,figure-only reproduction,yes
-models/pce_then_stability_same_approach.py,validated production preprocessing and model implementation,full source-level rebuild,yes
+models/pce_stability.py,validated production preprocessing and model implementation,full source-level rebuild,yes
 models/frozen/pce_then_stability_same_approach_sha256_19f58acd.py,exact hash-pinned final Figure 4 model snapshot,full source-level rebuild,yes
 data/figure5/final_feature_typing_inventory.csv,frozen 113 numeric and 165 categorical predictor typing contract,full source-level rebuild,yes
 final_integrated_database.csv,governed integrated production modeling population,full source-level rebuild,no

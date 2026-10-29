@@ -1,0 +1,132 @@
+{
+  "ok": true,
+  "mode": "benchmark",
+  "agent": "BenchmarkingAgent_v15_evidence_table_precision_gate",
+  "model_label": "LiteratureAgent_Qwen",
+  "hf_model": "Qwen/Qwen3-32B",
+  "benchmark_root": "external/paper benchmarking updated",
+  "runs_per_paper": 3,
+  "papers_processed": 10,
+  "results": [
+    {
+      "paper_number": 1,
+      "pdf_path": "external/1.pdf",
+      "context_chars_min": 22241,
+      "context_chars_max": 22280,
+      "output_paths": {
+        "txt": "external/paper 1 LiteratureAgent_Qwen.txt",
+        "jsonl": "external/paper 1 LiteratureAgent_Qwen.jsonl",
+        "docx": "external/paper 1 LiteratureAgent_Qwen chat.docx"
+      },
+      "num_rows": 9
+    },
+    {
+      "paper_number": 2,
+      "pdf_path": "external/2.pdf",
+      "context_chars_min": 44692,
+      "context_chars_max": 44796,
+      "output_paths": {
+        "txt": "external/paper 2 LiteratureAgent_Qwen.txt",
+        "jsonl": "external/paper 2 LiteratureAgent_Qwen.jsonl",
+        "docx": "external/paper 2 LiteratureAgent_Qwen chat.docx"
+      },
+      "num_rows": 9
+    },
+    {
+      "paper_number": 3,
+      "pdf_path": "external/3.pdf",
+      "context_chars_min": 7647,
+      "context_chars_max": 7647,
+      "output_paths": {
+        "txt": "external/paper 3 LiteratureAgent_Qwen.txt",
+        "jsonl": "external/paper 3 LiteratureAgent_Qwen.jsonl",
+        "docx": "external/paper 3 LiteratureAgent_Qwen chat.docx"
+      },
+      "num_rows": 9
+    },
+    {
+      "paper_number": 4,
+      "pdf_path": "external/4.pdf",
+      "context_chars_min": 19412,
+      "context_chars_max": 19412,
+      "output_paths": {
+        "txt": "external/paper 4 LiteratureAgent_Qwen.txt",
+        "jsonl": "external/paper 4 LiteratureAgent_Qwen.jsonl",
+        "docx": "external/paper 4 LiteratureAgent_Qwen chat.docx"
+      },
+      "num_rows": 9
+    },
+    {
+      "paper_number": 5,
+      "pdf_path": "external/5.pdf",
+      "context_chars_min": 22050,
+      "context_chars_max": 22491,
+      "output_paths": {
+        "txt": "external/paper 5 LiteratureAgent_Qwen.txt",
+        "jsonl": "external/paper 5 LiteratureAgent_Qwen.jsonl",
+        "docx": "external/paper 5 LiteratureAgent_Qwen chat.docx"
+      },
+      "num_rows": 9
+    },
+    {
+      "paper_number": 6,
+      "pdf_path": "external/6.pdf",
+      "context_chars_min": 46289,
+      "context_chars_max": 46740,
+      "output_paths": {
+        "txt": "external/paper 6 LiteratureAgent_Qwen.txt",
+        "jsonl": "external/paper 6 LiteratureAgent_Qwen.jsonl",
+        "docx": "external/paper 6 LiteratureAgent_Qwen chat.docx"
+      },
+      "num_rows": 9
+    },
+    {
+      "paper_number": 7,
+      "pdf_path": "external/7.pdf",
+      "context_chars_min": 37877,
+      "context_chars_max": 38551,
+      "output_paths": {
+        "txt": "external/paper 7 LiteratureAgent_Qwen.txt",
+        "jsonl": "external/paper 7 LiteratureAgent_Qwen.jsonl",
+        "docx": "external/paper 7 LiteratureAgent_Qwen chat.docx"
+      },
+      "num_rows": 9
+    },
+    {
+      "paper_number": 8,
+      "pdf_path": "external/8.pdf",
+      "context_chars_min": 64429,
+      "context_chars_max": 64916,
+      "output_paths": {
+        "txt": "external/paper 8 LiteratureAgent_Qwen.txt",
+        "jsonl": "external/paper 8 LiteratureAgent_Qwen.jsonl",
+        "docx": "external/paper 8 LiteratureAgent_Qwen chat.docx"
+      },
+      "num_rows": 9
+    },
+    {
+      "paper_number": 9,
+      "pdf_path": "external/9.pdf",
+      "context_chars_min": 26765,
+      "context_chars_max": 26892,
+      "output_paths": {
+        "txt": "external/paper 9 LiteratureAgent_Qwen.txt",
+        "jsonl": "external/paper 9 LiteratureAgent_Qwen.jsonl",
+        "docx": "external/paper 9 LiteratureAgent_Qwen chat.docx"
+      },
+      "num_rows": 9
+    },
+    {
+      "paper_number": 10,
+      "pdf_path": "external/10.pdf",
+      "context_chars_min": 9536,
+      "context_chars_max": 10046,
+      "output_paths": {
+        "txt": "external/paper 10 LiteratureAgent_Qwen.txt",
+        "jsonl": "external/paper 10 LiteratureAgent_Qwen.jsonl",
+        "docx": "external/paper 10 LiteratureAgent_Qwen chat.docx"
+      },
+      "num_rows": 9
+    }
+  ]
+}

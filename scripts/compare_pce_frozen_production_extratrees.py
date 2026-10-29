@@ -98,7 +98,7 @@ def main() -> None:
     parser.add_argument(
         "--model-script",
         type=Path,
-        default=PROJECT_ROOT / "models" / "pce_then_stability_same_approach.py",
+        default=PROJECT_ROOT / "models" / "pce_stability.py",
     )
     parser.add_argument("--out-dir", type=Path, required=True)
     parser.add_argument("--random-state", type=int, default=42)

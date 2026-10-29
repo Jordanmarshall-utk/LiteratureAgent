@@ -6,7 +6,7 @@ from pathlib import Path
 import pandas as pd
 import pytest
 
-import literature_agent_full_end_to_end_v21_3_english_sanitizer as controller
+import literature_agent_pipeline as controller
 from literature_agent.domain_pack import domain_column_name, load_structured_output_contract
 
 

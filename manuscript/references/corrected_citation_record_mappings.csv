@@ -1,0 +1,3 @@
+dependency,record_key,correct_title,container,year,volume,issue,article_or_pages,corrected_import_source
+AIP article,10.1063/5.0333166,Uncertainty-aware prediction of thermal expansion in complex oxides via LLM-curated literature data,APL Machine Learning,2026,4,3,036104,corrected_citation_records.ris / .bib
+official 2017 SHAP proceedings record,NIPS2017_8a20a862,A Unified Approach to Interpreting Model Predictions,Advances in Neural Information Processing Systems 30,2017,30,,4765-4774,corrected_citation_records.ris / .bib

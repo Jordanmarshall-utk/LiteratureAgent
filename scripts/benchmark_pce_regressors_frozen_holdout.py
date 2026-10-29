@@ -39,7 +39,7 @@ except Exception:
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_MODEL_SCRIPT = PROJECT_ROOT / "models" / "pce_then_stability_same_approach.py"
+DEFAULT_MODEL_SCRIPT = PROJECT_ROOT / "models" / "pce_stability.py"
 DEFAULT_ORIGINAL_CSV = PROJECT_ROOT / "data" / "Perovskite_database_content_all_data.csv"
 
 

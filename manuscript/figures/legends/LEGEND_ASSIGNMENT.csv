@@ -1,0 +1,16 @@
+﻿scope,figure,legend_id,png,svg,note
+Main,Figure_1,NONE,,,Workflow graphic is self-contained; no standalone legend is required.
+Main,Figure_2,NONE,,,Bar encodings are labeled directly; no standalone legend is required.
+Main,Figure_3,legend_fig3_historical_models,Main/Figure_3/PNG_600dpi/legend_fig3_historical_models.png,Main/Figure_3/SVG/legend_fig3_historical_models.svg,Use the historical-model key for panels a-c and the accepted-expansion key for panels d-f.
+Main,Figure_3,legend_fig3_literatureagent_expansion,Main/Figure_3/PNG_600dpi/legend_fig3_literatureagent_expansion.png,Main/Figure_3/SVG/legend_fig3_literatureagent_expansion.svg,Use the historical-model key for panels a-c and the accepted-expansion key for panels d-f.
+Main,Figure_4,legend_fig4a_knowledge_graph,Main/Figure_4/PNG_600dpi/legend_fig4a_knowledge_graph.png,Main/Figure_4/SVG/legend_fig4a_knowledge_graph.svg,Use the knowledge-graph link key for panel a and the SHAP direction/summary key for panel b.
+Main,Figure_4,legend_shap_direction,Main/Figure_4/PNG_600dpi/legend_shap_direction.png,Main/Figure_4/SVG/legend_shap_direction.svg,Use the knowledge-graph link key for panel a and the SHAP direction/summary key for panel b.
+Main,Figure_5,legend_fig5_stability_models,Main/Figure_5/PNG_600dpi/legend_fig5_stability_models.png,Main/Figure_5/SVG/legend_fig5_stability_models.svg,Shared by both stability panels.
+Main,Figure_6,NONE,,,Integrated knowledge-graph graphic is self-contained; no standalone legend is required.
+Supplementary,Figure_S1,legend_shap_direction,Supplementary/Figure_S1/PNG_600dpi/legend_shap_direction.png,Supplementary/Figure_S1/SVG/legend_shap_direction.svg,SHAP direction and median/IQR key.
+Supplementary,Figure_S2,legend_shap_direction,Supplementary/Figure_S2/PNG_600dpi/legend_shap_direction.png,Supplementary/Figure_S2/SVG/legend_shap_direction.svg,SHAP direction and median/IQR key.
+Supplementary,Figure_S3,NONE,,,Signed contribution axis is self-contained; no standalone legend is required.
+Supplementary,Figure_S4,legend_figs4a_normalized_stability,Supplementary/Figure_S4/PNG_600dpi/legend_figs4a_normalized_stability.png,Supplementary/Figure_S4/SVG/legend_figs4a_normalized_stability.svg,Use the normalized-stability key for panel a and the sensitivity-metric key for panel b.
+Supplementary,Figure_S4,legend_figs4b_normalization_sensitivity,Supplementary/Figure_S4/PNG_600dpi/legend_figs4b_normalization_sensitivity.png,Supplementary/Figure_S4/SVG/legend_figs4b_normalization_sensitivity.svg,Use the normalized-stability key for panel a and the sensitivity-metric key for panel b.
+Supplementary,Figure_S5,NONE,,,Reasoning graph is self-contained; no standalone legend is required.
+Supplementary,Figure_S6,legend_figs6_system_benchmark,Supplementary/Figure_S6/PNG_600dpi/legend_figs6_system_benchmark.png,Supplementary/Figure_S6/SVG/legend_figs6_system_benchmark.svg,Shared by all four benchmark panels.

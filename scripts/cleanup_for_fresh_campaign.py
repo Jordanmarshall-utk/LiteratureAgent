@@ -30,7 +30,7 @@ PROJECT_KEEP_NAMES = {
     "polaris_integration",
     "scripts",
     "secrets",
-    "literature_agent_full_end_to_end_v21_3_english_sanitizer.py",
+    "literature_agent_pipeline.py",
     "paper_materials_packet_full_20260716",
     "paper_materials_packet_full_20260716.zip",
 }
@@ -48,7 +48,7 @@ ARTIFACT_KEEP_CONTAINS = (
 
 OUTPUT_KEEP_NAMES = {
     "README_OUTPUTS.md",
-    "pce_then_stability_same_approach.py",
+    "pce_stability.py",
 }
 
 OUTPUT_KEEP_PREFIXES = (

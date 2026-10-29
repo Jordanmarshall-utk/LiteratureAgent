@@ -1,0 +1,14 @@
+{
+  "version": "2.2.0",
+  "source_base_commit": "3a393eedb37abe123dd7ac411b30902e792ab0fc",
+  "figure_source_archive_sha256": "835cc447e6319565be09fe64ffe6807b5ed0d7fc34b6817520023e16e7b36a81",
+  "completed_support_manifest_sha256": "3ef3db2fa2a021aa3562a645ee0b574fadb54b970949e5166092263ed2ee39b3",
+  "retained_frozen_model_sha256": "19f58acdfb6143a75df5d034be08f1de070d43713b716cba6c77d4b422898115",
+  "source_text_path_policy": "Relative included paths or source_records identifiers; original input checksums retained.",
+  "model_fits_recomputed_for_release": 0,
+  "stability_panels_refreshed": [
+    "fig5a_stability_classification",
+    "fig5b_stability_regression"
+  ],
+  "license": "not designated by authors"
+}

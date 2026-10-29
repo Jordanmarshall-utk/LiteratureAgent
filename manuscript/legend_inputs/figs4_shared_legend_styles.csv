@@ -1,0 +1,5 @@
+legend_id,series_order,label,color_hex,marker_shape,origin_symbol_kind,key_style,symbol_size_pt
+figs4a_normalized_stability,1,Sensitivity scenarios,#0072B2,box,1,filled_box,7.5
+figs4a_normalized_stability,2,Baseline,#009E73,box,1,filled_box,7.5
+figs4b_normalization_sensitivity,1,Spearman rank correlation,#0072B2,square,1,filled_marker,5.5
+figs4b_normalization_sensitivity,2,Top-quartile overlap,#009E73,circle,2,filled_marker,5.5

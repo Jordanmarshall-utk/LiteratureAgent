@@ -20,8 +20,8 @@ from typing import Any
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_CONTROLLER = PROJECT_ROOT / "literature_agent_full_end_to_end_v21_3_english_sanitizer.py"
-DEFAULT_MODEL_SCRIPT = PROJECT_ROOT / "models" / "pce_then_stability_same_approach.py"
+DEFAULT_CONTROLLER = PROJECT_ROOT / "literature_agent_pipeline.py"
+DEFAULT_MODEL_SCRIPT = PROJECT_ROOT / "models" / "pce_stability.py"
 DEFAULT_BASE_CSV = PROJECT_ROOT / "data" / "Perovskite_database_content_all_data.csv"
 DEFAULT_ONTOLOGY = PROJECT_ROOT / "config" / "perovskite_ontology_library_v19.json"
 

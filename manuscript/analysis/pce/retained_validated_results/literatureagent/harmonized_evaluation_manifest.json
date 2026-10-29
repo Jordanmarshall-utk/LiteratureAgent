@@ -1,0 +1,136 @@
+{
+  "analysis_version": "2026-10-27_controlled_repaired_literatureagent_holdout",
+  "created_utc": "2026-10-27T20:54:23.883196+00:00",
+  "status": "PASS",
+  "purpose": "Controlled repaired-data LiteratureAgent-domain PCE comparison with frozen 125-row identities and final 113/165 predictor typing.",
+  "target": "JV_default_PCE",
+  "group_column": "Ref_DOI_number",
+  "model_backend": "extra_trees",
+  "n_estimators": 300,
+  "random_state": 42,
+  "bootstrap_iterations": 2000,
+  "reference_holdout_policy": "Exact row keys, row order, and DOI groups reused from harmonized_expansion_v1; source-adjudicated target changes are allowed and listed in holdout_target_changes.csv.",
+  "feature_typing_policy": "Exact numeric/categorical assignments frozen from the authoritative production PCE interpretability inventory instead of being re-inferred from each training subset.",
+  "categorical_schema_harmonization": true,
+  "shap_scope_note": "This is the schema-harmonized Figure 4 evaluation path. Figure 5 uses a separate post-evaluation full-cohort refit with the same frozen typing, categorical-schema harmonizer, and estimator contract.",
+  "checks": {
+    "feature_count": 278,
+    "numeric_features": 113,
+    "categorical_features": 165,
+    "final_inventory_counts_match": true,
+    "dynamic_pipeline_numeric_features": 117,
+    "dynamic_pipeline_categorical_features": 161,
+    "dynamic_vs_final_mismatch_count": 14,
+    "dynamic_vs_final_mismatch_predictors": [
+      "ETL_storage_time_until_next_deposition_step",
+      "ETL_storage_relative_humidity",
+      "Perovskite_dimension_3D",
+      "Perovskite_band_gap_graded",
+      "Perovskite_deposition_solvent_annealing_time",
+      "Perovskite_deposition_solvent_annealing_temperature",
+      "HTL_storage_time_until_next_deposition_step",
+      "HTL_storage_relative_humidity",
+      "Backcontact_deposition_reaction_solutions_compounds_purity",
+      "Backcontact_storage_time_until_next_deposition_step",
+      "Backcontact_storage_relative_humidity",
+      "Add_lay_front_thickness_list",
+      "Add_lay_front_additives_compounds",
+      "Add_lay_back_additives_compounds"
+    ],
+    "holdout_rows": 125,
+    "holdout_doi_groups": 80,
+    "holdout_row_keys_exactly_reused": true,
+    "holdout_targets_exactly_matched": false,
+    "holdout_target_changes": 1,
+    "original_train_rows": 20755,
+    "accepted_expansion_train_rows": 508,
+    "zero_test_doi_overlap_original_training": true,
+    "zero_test_doi_overlap_expansion_training": true,
+    "v1_original_train_rows_matched": true,
+    "v1_added_train_rows_matched": false,
+    "bootstrap_iterations": 2000,
+    "random_state": 42
+  },
+  "fit_metadata": {
+    "original_only": {
+      "training_rows": 20755,
+      "original_training_rows": 20755,
+      "added_training_rows": 0,
+      "numeric_features": 113,
+      "categorical_features": 165,
+      "encoded_training_inputs": 6035
+    },
+    "original_plus_accepted_expansion": {
+      "training_rows": 21263,
+      "original_training_rows": 20755,
+      "added_training_rows": 508,
+      "numeric_features": 113,
+      "categorical_features": 165,
+      "encoded_training_inputs": 6211
+    }
+  },
+  "software": {
+    "python": "3.11.9",
+    "numpy": "2.3.5",
+    "pandas": "3.0.2",
+    "scikit_learn": "1.8.0"
+  },
+  "sources": [
+    {
+      "path": "source_records/rerun_repaired_literatureagent_holdout.py",
+      "sha256": "d45bb7294a93e0d8d1deb5abe88aebcbe10b5865ac6ad6a904a5b1427204f126"
+    },
+    {
+      "path": "source_records/evaluate_pce_harmonized_expansion.py",
+      "sha256": "1c7373ed8a85448afc9ba7edb30c1f314347bc1168121dc9d539adb33386df60"
+    },
+    {
+      "path": "source_records/analyze_pce_expansion_utility.py",
+      "sha256": "98aa2b194e0260f368c8b80adfd665b9731ca9d5c5f056431ba6f898145e60c1"
+    },
+    {
+      "path": "source_records/compare_pce_frozen_production_extratrees.py",
+      "sha256": "a630e6f824c4dacb2db7f887e46ede5af300bf3a68dce9a3093e9afaa7357e9c"
+    },
+    {
+      "path": "source_records/original_perovskite_database.csv",
+      "sha256": "da66a634e9106e58ce4d012558d468bc2f19b95987f149fb9c5d208d363ea67a"
+    },
+    {
+      "path": "source_records/google_drive_all_records.csv",
+      "sha256": "ef9957549f7869e127f433fe3ea381daac4003df5a147e042087e174ff339124"
+    },
+    {
+      "path": "source_records/repaired_modeling_database.csv",
+      "sha256": "438961d20d426152bd99d69d44af7057b448ffd9c692c2792c54791cd65c8b0f"
+    },
+    {
+      "path": "../models/frozen/pce_then_stability_same_approach_sha256_19f58acd.py",
+      "sha256": "19f58acdfb6143a75df5d034be08f1de070d43713b716cba6c77d4b422898115"
+    },
+    {
+      "path": "source_records/pce_raw_predictor_inventory.csv",
+      "sha256": "c64030fd7bb3d017b3404cbd100f6a20e2b2d66b02c552aea4fa3e75107be747"
+    },
+    {
+      "path": "analysis/pce/retained_validated_results/literatureagent/expanded_domain_original_only_predictions.csv",
+      "sha256": "65ff1169ecefc40cb38d0be44f6a20fb1d8c70330ec664d1210ea06303c29670"
+    },
+    {
+      "path": "analysis/pce/retained_validated_results/literatureagent/expanded_domain_original_plus_accepted_expansion_predictions.csv",
+      "sha256": "538e561d4856a26d864a85245edfe99281dfd0aaaec5649705ee930bac521452"
+    },
+    {
+      "path": "analysis/pce/retained_validated_results/literatureagent/harmonized_domain_metrics.csv",
+      "sha256": "0d2c4eb2791841cf0904707fa37561366de19eddf3ff763e6644fcb0598d6fe4"
+    },
+    {
+      "path": "analysis/pce/retained_validated_results/literatureagent/harmonized_domain_paired_deltas.csv",
+      "sha256": "71c243eed8b54159148aeb2a1ae997179ffad53fc0d126628a0e2c23e3617460"
+    },
+    {
+      "path": "source_records/accepted_literatureagent_metric_intervals.csv",
+      "sha256": "c68a8adff36eb1b374e0184807264cb4754d4eb07571ce4afe573105946e0c4a"
+    }
+  ]
+}

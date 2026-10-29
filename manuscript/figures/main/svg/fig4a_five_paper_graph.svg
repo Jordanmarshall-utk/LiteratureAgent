@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="115.6mm" height="184.7mm" viewBox="0 0 1156 1847">
+<title>Five representative evidence-linked knowledge-graph paths</title>
+<desc>Five exact paper-to-claim-to-entity paths with evidence links and literature-reported relations. Full source text and identifiers are preserved in the accompanying CSV.</desc>
+<rect width="1156" height="1847" fill="#FFFFFF"/>
+<defs>
+<marker id="arrow-navy" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#33546E"/></marker>
+<marker id="arrow-orange" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#F28A00"/></marker>
+<marker id="arrow-gray" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#6B7280"/></marker>
+<marker id="arrow-evidence" markerWidth="6" markerHeight="6" refX="5.4" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L6,3 z" fill="#33546E"/></marker>
+</defs>
+<text x="105" y="60" text-anchor="middle" font-family="Times New Roman" font-size="42.3333" font-weight="bold" fill="#202124"><tspan x="105" y="60">Paper</tspan></text>
+<text x="260" y="60" text-anchor="middle" font-family="Times New Roman" font-size="42.3333" font-weight="bold" fill="#202124"><tspan x="260" y="60">Claim</tspan></text>
+<text x="480" y="60" text-anchor="middle" font-family="Times New Roman" font-size="42.3333" font-weight="bold" fill="#202124"><tspan x="480" y="60">Subject</tspan></text>
+<text x="1005" y="60" text-anchor="middle" font-family="Times New Roman" font-size="42.3333" font-weight="bold" fill="#202124"><tspan x="1005" y="60">Object</tspan></text>
+<line x1="195" y1="230" x2="220" y2="230" stroke="#33546E" stroke-width="4" marker-end="url(#arrow-navy)"/>
+<line x1="300" y1="230" x2="330" y2="230" stroke="#33546E" stroke-width="4" marker-end="url(#arrow-navy)"/>
+<line x1="650" y1="230" x2="870" y2="230" stroke="#F28A00" stroke-width="5" marker-end="url(#arrow-orange)"/>
+<path d="M290 264 L340 342 L820 342 L870 286" fill="none" stroke="#6B7280" stroke-width="3" marker-end="url(#arrow-gray)"/>
+<line x1="260" y1="128" x2="260" y2="187" stroke="#33546E" stroke-width="3" stroke-dasharray="6 4" marker-end="url(#arrow-evidence)"/>
+<rect x="15" y="125" width="180" height="210" rx="18" fill="#FAF7F2" stroke="#33546E" stroke-width="4"/>
+<circle cx="260" cy="230" r="40" fill="#FAF7F2" stroke="#F28A00" stroke-width="5"/>
+<rect x="330" y="120" width="320" height="220" rx="18" fill="#FAF7F2" stroke="#33546E" stroke-width="4"/>
+<rect x="875" y="120" width="260" height="220" rx="18" fill="#FAF7F2" stroke="#33546E" stroke-width="4"/>
+<path d="M260 82 l24 24 -24 24 -24 -24 z" fill="#FFFFFF" stroke="#33546E" stroke-width="4"/>
+<text x="105" y="231" text-anchor="middle" font-family="Times New Roman" font-size="31.75" font-weight="bold" fill="#202124"><tspan x="105" y="197.662">P1</tspan><tspan x="105" y="231">2024</tspan><tspan x="105" y="264.337">L-EGT</tspan></text>
+<text x="260" y="239" text-anchor="middle" font-family="Times New Roman" font-size="35.2778" font-weight="bold" fill="#202124"><tspan x="260" y="239">C1</tspan></text>
+<text x="490" y="232" text-anchor="middle" font-family="Times New Roman" font-size="35.2778" font-weight="bold" fill="#202124"><tspan x="490" y="194.958">L-EGT</tspan><tspan x="490" y="232">passivation</tspan><tspan x="490" y="269.042">material</tspan></text>
+<text x="1005" y="232" text-anchor="middle" font-family="Times New Roman" font-size="35.2778" font-weight="bold" fill="#202124"><tspan x="1005" y="213.479">perovskite</tspan><tspan x="1005" y="250.521">film quality</tspan></text>
+<text x="760" y="204" text-anchor="middle" font-family="Times New Roman" font-size="35.2778" font-weight="bold" fill="#202124"><tspan x="760" y="204">IMPROVES</tspan></text>
+<line x1="25" y1="400" x2="1131" y2="400" stroke="#E5E7EB" stroke-width="2"/>
+<line x1="195" y1="570" x2="220" y2="570" stroke="#33546E" stroke-width="4" marker-end="url(#arrow-navy)"/>
+<line x1="300" y1="570" x2="330" y2="570" stroke="#33546E" stroke-width="4" marker-end="url(#arrow-navy)"/>
+<line x1="650" y1="570" x2="870" y2="570" stroke="#F28A00" stroke-width="5" marker-end="url(#arrow-orange)"/>
+<path d="M290 604 L340 682 L820 682 L870 626" fill="none" stroke="#6B7280" stroke-width="3" marker-end="url(#arrow-gray)"/>
+<line x1="260" y1="468" x2="260" y2="527" stroke="#33546E" stroke-width="3" stroke-dasharray="6 4" marker-end="url(#arrow-evidence)"/>
+<rect x="15" y="465" width="180" height="210" rx="18" fill="#FAF7F2" stroke="#33546E" stroke-width="4"/>
+<circle cx="260" cy="570" r="40" fill="#FAF7F2" stroke="#F28A00" stroke-width="5"/>
+<rect x="330" y="460" width="320" height="220" rx="18" fill="#FAF7F2" stroke="#33546E" stroke-width="4"/>
+<rect x="875" y="460" width="260" height="220" rx="18" fill="#FAF7F2" stroke="#33546E" stroke-width="4"/>
+<path d="M260 422 l24 24 -24 24 -24 -24 z" fill="#FFFFFF" stroke="#33546E" stroke-width="4"/>
+<text x="105" y="571" text-anchor="middle" font-family="Times New Roman" font-size="31.75" font-weight="bold" fill="#202124"><tspan x="105" y="537.663">P2</tspan><tspan x="105" y="571">2026</tspan><tspan x="105" y="604.337">Sn–Pb</tspan></text>
+<text x="260" y="579" text-anchor="middle" font-family="Times New Roman" font-size="35.2778" font-weight="bold" fill="#202124"><tspan x="260" y="579">C2</tspan></text>
+<text x="490" y="572" text-anchor="middle" font-family="Times New Roman" font-size="35.2778" font-weight="bold" fill="#202124"><tspan x="490" y="553.479">TLP surface</tspan><tspan x="490" y="590.521">polishing</tspan></text>
+<text x="1005" y="572" text-anchor="middle" font-family="Times New Roman" font-size="35.2778" font-weight="bold" fill="#202124"><tspan x="1005" y="553.479">charge</tspan><tspan x="1005" y="590.521">extraction</tspan></text>
+<text x="760" y="544" text-anchor="middle" font-family="Times New Roman" font-size="35.2778" font-weight="bold" fill="#202124"><tspan x="760" y="544">PROMOTES</tspan></text>
+<line x1="25" y1="740" x2="1131" y2="740" stroke="#E5E7EB" stroke-width="2"/>
+<line x1="195" y1="910" x2="220" y2="910" stroke="#33546E" stroke-width="4" marker-end="url(#arrow-navy)"/>
+<line x1="300" y1="910" x2="330" y2="910" stroke="#33546E" stroke-width="4" marker-end="url(#arrow-navy)"/>
+<line x1="650" y1="910" x2="870" y2="910" stroke="#F28A00" stroke-width="5" marker-end="url(#arrow-orange)"/>
+<path d="M290 944 L340 1022 L820 1022 L870 966" fill="none" stroke="#6B7280" stroke-width="3" marker-end="url(#arrow-gray)"/>
+<line x1="260" y1="808" x2="260" y2="867" stroke="#33546E" stroke-width="3" stroke-dasharray="6 4" marker-end="url(#arrow-evidence)"/>
+<rect x="15" y="805" width="180" height="210" rx="18" fill="#FAF7F2" stroke="#33546E" stroke-width="4"/>
+<circle cx="260" cy="910" r="40" fill="#FAF7F2" stroke="#F28A00" stroke-width="5"/>
+<rect x="330" y="800" width="320" height="220" rx="18" fill="#FAF7F2" stroke="#33546E" stroke-width="4"/>
+<rect x="875" y="800" width="260" height="220" rx="18" fill="#FAF7F2" stroke="#33546E" stroke-width="4"/>
+<path d="M260 762 l24 24 -24 24 -24 -24 z" fill="#FFFFFF" stroke="#33546E" stroke-width="4"/>
+<text x="105" y="911" text-anchor="middle" font-family="Times New Roman" font-size="31.75" font-weight="bold" fill="#202124"><tspan x="105" y="877.663">P3</tspan><tspan x="105" y="911">2021</tspan><tspan x="105" y="944.337">Al₂O₃</tspan></text>
+<text x="260" y="919" text-anchor="middle" font-family="Times New Roman" font-size="35.2778" font-weight="bold" fill="#202124"><tspan x="260" y="919">C3</tspan></text>
+<text x="490" y="912" text-anchor="middle" font-family="Times New Roman" font-size="31.75" font-weight="bold" fill="#202124"><tspan x="490" y="878.663">electrochemical</tspan><tspan x="490" y="912">Al₂O₃</tspan><tspan x="490" y="945.337">incorporation</tspan></text>
+<text x="1005" y="912" text-anchor="middle" font-family="Times New Roman" font-size="35.2778" font-weight="bold" fill="#202124"><tspan x="1005" y="874.958">cell</tspan><tspan x="1005" y="912">efficiency</tspan><tspan x="1005" y="949.042">12.1–14.3%</tspan></text>
+<text x="760" y="884" text-anchor="middle" font-family="Times New Roman" font-size="35.2778" font-weight="bold" fill="#202124"><tspan x="760" y="884">INCREASES</tspan></text>
+<line x1="25" y1="1080" x2="1131" y2="1080" stroke="#E5E7EB" stroke-width="2"/>
+<line x1="195" y1="1250" x2="220" y2="1250" stroke="#33546E" stroke-width="4" marker-end="url(#arrow-navy)"/>
+<line x1="300" y1="1250" x2="330" y2="1250" stroke="#33546E" stroke-width="4" marker-end="url(#arrow-navy)"/>
+<line x1="650" y1="1250" x2="870" y2="1250" stroke="#F28A00" stroke-width="5" marker-end="url(#arrow-orange)"/>
+<path d="M290 1284 L340 1362 L820 1362 L870 1306" fill="none" stroke="#6B7280" stroke-width="3" marker-end="url(#arrow-gray)"/>
+<line x1="260" y1="1148" x2="260" y2="1207" stroke="#33546E" stroke-width="3" stroke-dasharray="6 4" marker-end="url(#arrow-evidence)"/>
+<rect x="15" y="1145" width="180" height="210" rx="18" fill="#FAF7F2" stroke="#33546E" stroke-width="4"/>
+<circle cx="260" cy="1250" r="40" fill="#FAF7F2" stroke="#F28A00" stroke-width="5"/>
+<rect x="330" y="1140" width="320" height="220" rx="18" fill="#FAF7F2" stroke="#33546E" stroke-width="4"/>
+<rect x="875" y="1140" width="260" height="220" rx="18" fill="#FAF7F2" stroke="#33546E" stroke-width="4"/>
+<path d="M260 1102 l24 24 -24 24 -24 -24 z" fill="#FFFFFF" stroke="#33546E" stroke-width="4"/>
+<text x="105" y="1251" text-anchor="middle" font-family="Times New Roman" font-size="31.75" font-weight="bold" fill="#202124"><tspan x="105" y="1217.66">P4</tspan><tspan x="105" y="1251">2023</tspan><tspan x="105" y="1284.34">MDACl₂</tspan></text>
+<text x="260" y="1259" text-anchor="middle" font-family="Times New Roman" font-size="35.2778" font-weight="bold" fill="#202124"><tspan x="260" y="1259">C4</tspan></text>
+<text x="490" y="1252" text-anchor="middle" font-family="Times New Roman" font-size="31.75" font-weight="bold" fill="#202124"><tspan x="490" y="1218.66">MDACl₂-modified</tspan><tspan x="490" y="1252">high-quality</tspan><tspan x="490" y="1285.34">films</tspan></text>
+<text x="1005" y="1252" text-anchor="middle" font-family="Times New Roman" font-size="35.2778" font-weight="bold" fill="#202124"><tspan x="1005" y="1214.96">crystallinity</tspan><tspan x="1005" y="1252">and reduced</tspan><tspan x="1005" y="1289.04">defect density</tspan></text>
+<text x="760" y="1224" text-anchor="middle" font-family="Times New Roman" font-size="35.2778" font-weight="bold" fill="#202124"><tspan x="760" y="1224">IMPROVES</tspan></text>
+<line x1="25" y1="1420" x2="1131" y2="1420" stroke="#E5E7EB" stroke-width="2"/>
+<line x1="195" y1="1590" x2="220" y2="1590" stroke="#33546E" stroke-width="4" marker-end="url(#arrow-navy)"/>
+<line x1="300" y1="1590" x2="330" y2="1590" stroke="#33546E" stroke-width="4" marker-end="url(#arrow-navy)"/>
+<line x1="650" y1="1590" x2="870" y2="1590" stroke="#F28A00" stroke-width="5" marker-end="url(#arrow-orange)"/>
+<path d="M290 1624 L340 1702 L820 1702 L870 1646" fill="none" stroke="#6B7280" stroke-width="3" marker-end="url(#arrow-gray)"/>
+<line x1="260" y1="1488" x2="260" y2="1547" stroke="#33546E" stroke-width="3" stroke-dasharray="6 4" marker-end="url(#arrow-evidence)"/>
+<rect x="15" y="1485" width="180" height="210" rx="18" fill="#FAF7F2" stroke="#33546E" stroke-width="4"/>
+<circle cx="260" cy="1590" r="40" fill="#FAF7F2" stroke="#F28A00" stroke-width="5"/>
+<rect x="330" y="1480" width="320" height="220" rx="18" fill="#FAF7F2" stroke="#33546E" stroke-width="4"/>
+<rect x="875" y="1480" width="260" height="220" rx="18" fill="#FAF7F2" stroke="#33546E" stroke-width="4"/>
+<path d="M260 1442 l24 24 -24 24 -24 -24 z" fill="#FFFFFF" stroke="#33546E" stroke-width="4"/>
+<text x="105" y="1591" text-anchor="middle" font-family="Times New Roman" font-size="31.75" font-weight="bold" fill="#202124"><tspan x="105" y="1557.66">P5 · 2021</tspan><tspan x="105" y="1591">Nano-</tspan><tspan x="105" y="1624.34">conf.</tspan></text>
+<text x="260" y="1599" text-anchor="middle" font-family="Times New Roman" font-size="35.2778" font-weight="bold" fill="#202124"><tspan x="260" y="1599">C5</tspan></text>
+<text x="490" y="1592" text-anchor="middle" font-family="Times New Roman" font-size="31.75" font-weight="bold" fill="#202124"><tspan x="490" y="1575.33">crystallization</tspan><tspan x="490" y="1608.67">optimization</tspan></text>
+<text x="1005" y="1592" text-anchor="middle" font-family="Times New Roman" font-size="35.2778" font-weight="bold" fill="#202124"><tspan x="1005" y="1554.96">inorganic</tspan><tspan x="1005" y="1592">PSC</tspan><tspan x="1005" y="1629.04">performance</tspan></text>
+<text x="760" y="1564" text-anchor="middle" font-family="Times New Roman" font-size="35.2778" font-weight="bold" fill="#202124"><tspan x="760" y="1564">ENHANCES</tspan></text>
+</svg>

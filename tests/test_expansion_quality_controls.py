@@ -8,7 +8,7 @@ from types import ModuleType, SimpleNamespace
 
 import pandas as pd
 
-import literature_agent_full_end_to_end_v21_3_english_sanitizer as controller
+import literature_agent_pipeline as controller
 from scripts import audit_expansion_batch
 from scripts import run_expansion_campaign
 

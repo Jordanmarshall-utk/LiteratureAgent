@@ -1,7 +1,7 @@
 {
   "id": "custom_domain",
   "version": "1.0",
-  "description": "Copy this file, rename it, and replace the examples for the coworker's scientific domain.",
+  "description": "Template for a scientific domain: copy this file and replace the example terms and field definitions.",
   "customization_notes": [
     "Keep field names in lower-case snake_case; each becomes Domain_<field_name> in csv/domain_records.csv.",
     "Every populated field must have field_evidence, or an evidence item inside a list-of-objects field.",

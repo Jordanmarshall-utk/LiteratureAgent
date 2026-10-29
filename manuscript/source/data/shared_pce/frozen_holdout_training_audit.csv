@@ -1,0 +1,4 @@
+dataset_version,train_rows,frozen_reference_train_rows,training_row_delta_vs_frozen,matched_frozen_row_keys,test_doi_overlap,test_group_matching_policy,test_row_key_overlap
+01_original_database,16699,16701,-2,4092,0,normalized DOI; case/URL/prefix/trailing-punctuation insensitive,0
+02_after_google_drive,16805,16807,-2,4092,0,normalized DOI; case/URL/prefix/trailing-punctuation insensitive,0
+03_after_google_drive_plus_expansion,17331,17341,-10,4092,0,normalized DOI; case/URL/prefix/trailing-punctuation insensitive,0

@@ -1,0 +1,10 @@
+node_type,count
+DatasetSnapshot,1
+Device,1843
+Evidence,39912
+ExtractionRun,1
+OntologyConcept,266
+Paper,1396
+ScientificClaim,2694
+ScientificEntity,5208
+StructuredObservation,39813

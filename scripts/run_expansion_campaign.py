@@ -22,7 +22,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 RUNTIME_ROOT = Path(
     os.environ.get("LITERATURE_AGENT_RUNTIME_ROOT", PROJECT_ROOT.parent / "LiteratureAgent")
 ).expanduser()
-DEFAULT_MODEL_SCRIPT = PROJECT_ROOT / "models" / "pce_then_stability_same_approach.py"
+DEFAULT_MODEL_SCRIPT = PROJECT_ROOT / "models" / "pce_stability.py"
 VERIFIED_PROCESSED_REGISTRY = (
     PROJECT_ROOT
     / "data"
@@ -1082,7 +1082,7 @@ def main() -> None:
             "Enabled by default; use --no-resume-incomplete to deliberately start a new batch."
         ),
     )
-    parser.add_argument("--controller", type=Path, default=Path(__file__).parents[1] / "literature_agent_full_end_to_end_v21_3_english_sanitizer.py")
+    parser.add_argument("--controller", type=Path, default=Path(__file__).parents[1] / "literature_agent_pipeline.py")
     parser.add_argument("--base-csv", type=Path, default=DEFAULT_BASE_CSV)
     parser.add_argument(
         "--cumulative-original-base-csv",

@@ -720,6 +720,6 @@ elif page == "Settings":
     render_health()
     st.subheader("Distribution")
     st.code(
-        "python .\\scripts\\build_literatureagent_coworker_package.py",
+        "python .\\scripts\\build_windows_release.py",
         language="powershell",
     )

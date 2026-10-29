@@ -1,0 +1,4 @@
+dataset_version,split_strategy,train_rows,frozen_test_rows,frozen_test_doi_groups,r2,rmse,mae
+01_original_database,doi_grouped,16699,4092,744,0.31572821878185664,3.300872791771902,2.6249092782750423
+02_after_google_drive,doi_grouped,16805,4092,744,0.3140892900171869,3.3048234587588214,2.6277112706951944
+03_after_google_drive_plus_expansion,doi_grouped,17331,4092,744,0.31283557600712253,3.307842373500104,2.626692815690481

@@ -1,0 +1,6 @@
+evaluation,variant,frozen_rows,repaired_rows,common_rows,common_unchanged_target_rows,target_changed_rows,row_keys_exact,repaired_publication_groups
+literatureagent_holdout,original_only,125,125,125,124,1,True,80
+literatureagent_holdout,original_plus_accepted_expansion,125,125,125,124,1,True,80
+historical_holdout,01_original_database,4092,4092,4092,4092,0,True,744
+historical_holdout,02_after_google_drive,4092,4092,4092,4092,0,True,744
+historical_holdout,03_after_google_drive_plus_expansion,4092,4092,4092,4092,0,True,744

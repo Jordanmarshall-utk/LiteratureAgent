@@ -1,0 +1,52 @@
+{
+  "status": "PASS",
+  "analysis": "2026-10-28_controlled_repaired_completion",
+  "panels": [
+    {
+      "panel": "fig5a_stability_classification",
+      "source": "source/data/fig5a_stability_classification/plot_data.csv",
+      "source_sha256": "92d47bd0c073854fbbe364fcc9b5b15aff7b0f07c7c4557919a71d100cc75bdd",
+      "estimates": 12,
+      "endpoints": 6,
+      "confidence_intervals": 12,
+      "dimensions_mm": [
+        85,
+        72
+      ],
+      "font_family": "Times New Roman",
+      "body_size_pt": 12,
+      "axis_label_size_pt": 13,
+      "editable_format": "SVG",
+      "outputs": [
+        "svg/fig5a_stability_classification.svg",
+        "pdf/fig5a_stability_classification.pdf",
+        "png_600dpi/fig5a_stability_classification.png",
+        "editable/fig5a_stability_classification.svg"
+      ],
+      "text_within_page": true
+    },
+    {
+      "panel": "fig5b_stability_regression",
+      "source": "source/data/fig5b_stability_regression/plot_data.csv",
+      "source_sha256": "bb0f78b1d70b0e0effbe10a188429cfe3d063368160cbb64e14c9aa31f675afd",
+      "estimates": 12,
+      "endpoints": 6,
+      "confidence_intervals": 12,
+      "dimensions_mm": [
+        85,
+        72
+      ],
+      "font_family": "Times New Roman",
+      "body_size_pt": 12,
+      "axis_label_size_pt": 13,
+      "editable_format": "SVG",
+      "outputs": [
+        "svg/fig5b_stability_regression.svg",
+        "pdf/fig5b_stability_regression.pdf",
+        "png_600dpi/fig5b_stability_regression.png",
+        "editable/fig5b_stability_regression.svg"
+      ],
+      "text_within_page": true
+    }
+  ]
+}

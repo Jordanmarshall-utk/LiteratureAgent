@@ -1,0 +1,67 @@
+dataset,mode,target,old_training_rows,ref28_target_rows_quarantined,repaired_doi_group_rows_changed,predicted_pce_training_values_changed,direct_repair_sample_rows_in_training,model_exclusion_rows_in_training,new_training_rows,target_population_changed,doi_group_dependency_changed,predicted_pce_dependency_changed,requires_refit,action,requested_24_estimate_set,old_doi_groups,new_doi_groups
+baseline,design_only,target_end_retention_pct,4987,1,0,0,0,0,4986,True,False,False,True,refit: Ref_ID 28 target quarantine,True,1822,1822
+baseline,design_only,target_after_1000h_retention_pct,769,0,0,0,0,0,769,False,False,False,False,unchanged dependencies; carried forward,False,327,327
+baseline,design_only,target_log1p_T80_hours,1242,1,0,0,0,0,1241,True,False,False,True,refit: Ref_ID 28 target quarantine,True,656,655
+baseline,design_only,target_end_retention_ge80,4987,1,0,0,0,0,4986,True,False,False,True,refit: Ref_ID 28 target quarantine,True,1822,1822
+baseline,design_only,target_end_retention_ge80_after_100h,4277,0,0,0,0,0,4277,False,False,False,False,unchanged dependencies; carried forward,False,1634,1634
+baseline,design_only,target_end_retention_ge80_after_500h,2689,0,0,0,0,0,2689,False,False,False,False,unchanged dependencies; carried forward,False,1147,1147
+baseline,design_only,target_T80_ge100h,1242,1,0,0,0,0,1241,True,False,False,True,refit: Ref_ID 28 target quarantine,True,656,655
+baseline,design_only,target_T80_ge500h,1242,1,0,0,0,0,1241,True,False,False,True,refit: Ref_ID 28 target quarantine,True,656,655
+baseline,design_only,target_after_1000h_ge80,769,0,0,0,0,0,769,False,False,False,False,unchanged dependencies; carried forward,False,327,327
+baseline,design_plus_predicted_pce,target_end_retention_pct,4987,1,0,0,0,0,4986,True,False,False,True,refit: Ref_ID 28 target quarantine,True,1822,1822
+baseline,design_plus_predicted_pce,target_after_1000h_retention_pct,769,0,0,0,0,0,769,False,False,False,False,unchanged dependencies; carried forward,False,327,327
+baseline,design_plus_predicted_pce,target_log1p_T80_hours,1242,1,0,0,0,0,1241,True,False,False,True,refit: Ref_ID 28 target quarantine,True,656,655
+baseline,design_plus_predicted_pce,target_end_retention_ge80,4987,1,0,0,0,0,4986,True,False,False,True,refit: Ref_ID 28 target quarantine,True,1822,1822
+baseline,design_plus_predicted_pce,target_end_retention_ge80_after_100h,4277,0,0,0,0,0,4277,False,False,False,False,unchanged dependencies; carried forward,False,1634,1634
+baseline,design_plus_predicted_pce,target_end_retention_ge80_after_500h,2689,0,0,0,0,0,2689,False,False,False,False,unchanged dependencies; carried forward,False,1147,1147
+baseline,design_plus_predicted_pce,target_T80_ge100h,1242,1,0,0,0,0,1241,True,False,False,True,refit: Ref_ID 28 target quarantine,True,656,655
+baseline,design_plus_predicted_pce,target_T80_ge500h,1242,1,0,0,0,0,1241,True,False,False,True,refit: Ref_ID 28 target quarantine,True,656,655
+baseline,design_plus_predicted_pce,target_after_1000h_ge80,769,0,0,0,0,0,769,False,False,False,False,unchanged dependencies; carried forward,False,327,327
+baseline,design_plus_measured_initial_performance,target_end_retention_pct,4987,1,0,0,0,0,4986,True,False,False,True,refit: Ref_ID 28 target quarantine,True,1822,1822
+baseline,design_plus_measured_initial_performance,target_after_1000h_retention_pct,769,0,0,0,0,0,769,False,False,False,False,unchanged dependencies; carried forward,False,327,327
+baseline,design_plus_measured_initial_performance,target_log1p_T80_hours,1242,1,0,0,0,0,1241,True,False,False,True,refit: Ref_ID 28 target quarantine,True,656,655
+baseline,design_plus_measured_initial_performance,target_end_retention_ge80,4987,1,0,0,0,0,4986,True,False,False,True,refit: Ref_ID 28 target quarantine,False,1822,1822
+baseline,design_plus_measured_initial_performance,target_end_retention_ge80_after_100h,4277,0,0,0,0,0,4277,False,False,False,False,unchanged dependencies; carried forward,False,1634,1634
+baseline,design_plus_measured_initial_performance,target_end_retention_ge80_after_500h,2689,0,0,0,0,0,2689,False,False,False,False,unchanged dependencies; carried forward,False,1147,1147
+baseline,design_plus_measured_initial_performance,target_T80_ge100h,1242,1,0,0,0,0,1241,True,False,False,True,refit: Ref_ID 28 target quarantine,False,656,655
+baseline,design_plus_measured_initial_performance,target_T80_ge500h,1242,1,0,0,0,0,1241,True,False,False,True,refit: Ref_ID 28 target quarantine,False,656,655
+baseline,design_plus_measured_initial_performance,target_after_1000h_ge80,769,0,0,0,0,0,769,False,False,False,False,unchanged dependencies; carried forward,False,327,327
+baseline,physical_condition_features,target_end_retention_pct,4987,1,0,0,0,0,4986,True,False,False,True,refit: Ref_ID 28 target quarantine,False,1822,1822
+baseline,physical_condition_features,target_after_1000h_retention_pct,769,0,0,0,0,0,769,False,False,False,False,unchanged dependencies; carried forward,False,327,327
+baseline,physical_condition_features,target_log1p_T80_hours,1242,1,0,0,0,0,1241,True,False,False,True,refit: Ref_ID 28 target quarantine,False,656,655
+baseline,physical_condition_features,target_phys_log_k_obs,4535,1,0,0,0,0,4534,True,False,False,True,refit: Ref_ID 28 target quarantine,False,1748,1748
+baseline,condition_normalized_hybrid,target_phys_log_k_ref,675,0,0,0,0,0,675,False,False,False,False,unchanged dependencies; carried forward,False,298,298
+baseline,condition_normalized_hybrid,target_phys_log1p_T80_ref_hours,675,0,0,0,0,0,675,False,False,False,False,unchanged dependencies; carried forward,False,298,298
+integrated,design_only,target_end_retention_pct,5074,1,1,0,0,0,5073,True,True,False,True,refit: Ref_ID 28 target quarantine; repaired DOI grouping,True,1891,1890
+integrated,design_only,target_after_1000h_retention_pct,793,0,0,0,0,0,793,False,False,False,False,unchanged dependencies; carried forward,False,345,345
+integrated,design_only,target_log1p_T80_hours,1244,1,0,0,0,0,1243,True,False,False,True,refit: Ref_ID 28 target quarantine,True,658,657
+integrated,design_only,target_end_retention_ge80,5074,1,1,0,0,0,5073,True,True,False,True,refit: Ref_ID 28 target quarantine; repaired DOI grouping,True,1891,1890
+integrated,design_only,target_end_retention_ge80_after_100h,4346,0,1,0,0,0,4346,False,True,False,True,refit: repaired DOI grouping,False,1689,1689
+integrated,design_only,target_end_retention_ge80_after_500h,2747,0,1,0,0,0,2747,False,True,False,True,refit: repaired DOI grouping,False,1194,1194
+integrated,design_only,target_T80_ge100h,1244,1,0,0,0,0,1243,True,False,False,True,refit: Ref_ID 28 target quarantine,True,658,657
+integrated,design_only,target_T80_ge500h,1244,1,0,0,0,0,1243,True,False,False,True,refit: Ref_ID 28 target quarantine,True,658,657
+integrated,design_only,target_after_1000h_ge80,793,0,0,0,0,0,793,False,False,False,False,unchanged dependencies; carried forward,False,345,345
+integrated,design_plus_predicted_pce,target_end_retention_pct,5074,1,1,5073,0,0,5073,True,True,True,True,refit: Ref_ID 28 target quarantine; repaired DOI grouping; repaired predicted-PCE feature,True,1891,1890
+integrated,design_plus_predicted_pce,target_after_1000h_retention_pct,793,0,0,793,0,0,793,False,False,True,True,refit: repaired predicted-PCE feature,False,345,345
+integrated,design_plus_predicted_pce,target_log1p_T80_hours,1244,1,0,1243,0,0,1243,True,False,True,True,refit: Ref_ID 28 target quarantine; repaired predicted-PCE feature,True,658,657
+integrated,design_plus_predicted_pce,target_end_retention_ge80,5074,1,1,5073,0,0,5073,True,True,True,True,refit: Ref_ID 28 target quarantine; repaired DOI grouping; repaired predicted-PCE feature,True,1891,1890
+integrated,design_plus_predicted_pce,target_end_retention_ge80_after_100h,4346,0,1,4346,0,0,4346,False,True,True,True,refit: repaired DOI grouping; repaired predicted-PCE feature,False,1689,1689
+integrated,design_plus_predicted_pce,target_end_retention_ge80_after_500h,2747,0,1,2747,0,0,2747,False,True,True,True,refit: repaired DOI grouping; repaired predicted-PCE feature,False,1194,1194
+integrated,design_plus_predicted_pce,target_T80_ge100h,1244,1,0,1243,0,0,1243,True,False,True,True,refit: Ref_ID 28 target quarantine; repaired predicted-PCE feature,True,658,657
+integrated,design_plus_predicted_pce,target_T80_ge500h,1244,1,0,1243,0,0,1243,True,False,True,True,refit: Ref_ID 28 target quarantine; repaired predicted-PCE feature,True,658,657
+integrated,design_plus_predicted_pce,target_after_1000h_ge80,793,0,0,793,0,0,793,False,False,True,True,refit: repaired predicted-PCE feature,False,345,345
+integrated,design_plus_measured_initial_performance,target_end_retention_pct,5089,1,1,0,0,0,5088,True,True,False,True,refit: Ref_ID 28 target quarantine; repaired DOI grouping,True,1901,1900
+integrated,design_plus_measured_initial_performance,target_after_1000h_retention_pct,794,0,0,0,0,0,794,False,False,False,False,unchanged dependencies; carried forward,False,346,346
+integrated,design_plus_measured_initial_performance,target_log1p_T80_hours,1244,1,0,0,0,0,1243,True,False,False,True,refit: Ref_ID 28 target quarantine,True,658,657
+integrated,design_plus_measured_initial_performance,target_end_retention_ge80,5089,1,1,0,0,0,5088,True,True,False,True,refit: Ref_ID 28 target quarantine; repaired DOI grouping,False,1901,1900
+integrated,design_plus_measured_initial_performance,target_end_retention_ge80_after_100h,4356,0,1,0,0,0,4356,False,True,False,True,refit: repaired DOI grouping,False,1698,1698
+integrated,design_plus_measured_initial_performance,target_end_retention_ge80_after_500h,2757,0,1,0,0,0,2757,False,True,False,True,refit: repaired DOI grouping,False,1203,1203
+integrated,design_plus_measured_initial_performance,target_T80_ge100h,1244,1,0,0,0,0,1243,True,False,False,True,refit: Ref_ID 28 target quarantine,False,658,657
+integrated,design_plus_measured_initial_performance,target_T80_ge500h,1244,1,0,0,0,0,1243,True,False,False,True,refit: Ref_ID 28 target quarantine,False,658,657
+integrated,design_plus_measured_initial_performance,target_after_1000h_ge80,794,0,0,0,0,0,794,False,False,False,False,unchanged dependencies; carried forward,False,346,346
+integrated,physical_condition_features,target_end_retention_pct,5101,1,1,0,0,0,5100,True,True,False,True,refit: Ref_ID 28 target quarantine; repaired DOI grouping,False,1910,1909
+integrated,physical_condition_features,target_after_1000h_retention_pct,796,0,0,0,0,0,796,False,False,False,False,unchanged dependencies; carried forward,False,348,348
+integrated,physical_condition_features,target_log1p_T80_hours,1246,1,0,0,0,0,1245,True,False,False,True,refit: Ref_ID 28 target quarantine,False,660,659
+integrated,physical_condition_features,target_phys_log_k_obs,4635,1,1,0,0,0,4634,True,True,False,True,refit: Ref_ID 28 target quarantine; repaired DOI grouping,False,1829,1829
+integrated,condition_normalized_hybrid,target_phys_log_k_ref,675,0,0,0,0,0,675,False,False,False,False,unchanged dependencies; carried forward,False,298,298
+integrated,condition_normalized_hybrid,target_phys_log1p_T80_ref_hours,675,0,0,0,0,0,675,False,False,False,False,unchanged dependencies; carried forward,False,298,298

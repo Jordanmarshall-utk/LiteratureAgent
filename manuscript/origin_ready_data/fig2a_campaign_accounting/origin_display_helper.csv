@@ -1,0 +1,7 @@
+category_order,display_label,value,display_group,color_hex,value_label,label_inside_bar,y_position
+1,Raw extracted rows,1349,audit,#33546E,"1,349",0,6
+2,Audited/coalesced,1223,audit,#33546E,"1,223",0,5
+3,Retained representations,1137,retained,#F28A00,"1,137",0,4
+4,Accepted,720,status,#137321,720,0,3
+5,Sparse accepted,417,status,#AB4B00,417,0,2
+6,Rejected,86,status,#EC0611,86,0,1

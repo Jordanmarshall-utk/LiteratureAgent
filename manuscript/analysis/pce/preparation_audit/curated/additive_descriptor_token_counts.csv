@@ -1,0 +1,7 @@
+token,matched_rows,mw,chain_length,aromatic,iodide,chloride,long_chain,rp_like
+macl,24,67.52,1,0,0,1,0,0
+mai,21,158.97,1,0,1,0,0,0
+peai,7,249.09,2,1,1,0,0,1
+bai,3,201.09,4,0,1,0,0,1
+fai,3,171.97,0,0,1,0,0,0
+oai,1,257.16,8,0,1,0,1,1

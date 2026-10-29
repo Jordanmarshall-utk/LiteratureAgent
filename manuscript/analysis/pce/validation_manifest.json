@@ -1,0 +1,44 @@
+{
+  "analysis": "bounded repaired secondary PCE sensitivities",
+  "created_utc": "2026-10-28T19:33:12.815775+00:00",
+  "status": "PASS",
+  "canonical_files_modified": false,
+  "model_script": "../models/frozen/pce_then_stability_same_approach_sha256_19f58acd.py",
+  "model_script_sha256": "19f58acdfb6143a75df5d034be08f1de070d43713b716cba6c77d4b422898115",
+  "repaired_input": "source_records/repaired_modeling_database.csv",
+  "repaired_input_sha256": "438961d20d426152bd99d69d44af7057b448ffd9c692c2792c54791cd65c8b0f",
+  "target": "JV_default_PCE",
+  "group_column": "Ref_DOI_number",
+  "feature_contract": {
+    "total": 278,
+    "numeric": 113,
+    "categorical": 165
+  },
+  "model": {
+    "backend": "ExtraTreesRegressor",
+    "n_estimators": 300,
+    "min_samples_leaf": 2,
+    "max_features": "sqrt",
+    "random_state": 42
+  },
+  "bootstrap": {
+    "iterations": 2000,
+    "seed": 42,
+    "unit": "publication / normalized DOI group"
+  },
+  "repeated_split_seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "repeated_split_rule": "GroupShuffleSplit(n_splits=1, test_size=0.20, random_state=split_seed)",
+  "row_random_policy": "exact frozen 4,159-row historical row-random test membership; only affected repaired expansion fit recomputed",
+  "software": {
+    "python": "3.11.9",
+    "numpy": "2.3.5",
+    "pandas": "3.0.2",
+    "scikit_learn": "1.8.0"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "selection_method": "uniform random draw from ordered 21426-row fitted-training-cohort explanation table",
+  "random_seed": 42,
+  "selected_position_zero_based": 1912,
+  "production_row_index": 3942,
+  "publication_group_id": "10.1021/acsami.9b06933",
+  "publication_group_device_count": 4,
+  "base_value_pce_points": 14.27738543215957,
+  "base_value_semantics": "SHAP expected value for the repaired fitted model",
+  "predicted_pce": 13.973887435918554,
+  "observed_pce": 5.63,
+  "full_contribution_sum_pce_points": -0.30349804614564074,
+  "reconstructed_prediction": 13.973887386013928,
+  "prediction_reconstruction_difference": -4.990462620924063e-08,
+  "top_group_count": 10,
+  "other_group_count": 208,
+  "other_group_signed_net_remainder_pce_points": -0.18778529998884583,
+  "explanation_scope": "Final repaired fitted-model in-sample attribution table; not out-of-fold"
+}

@@ -1,0 +1,4 @@
+metric,value,ci_low,ci_high,dataset_version,split_strategy,frozen_test_rows,frozen_test_doi_groups,test_doi_groups_also_in_training
+r2,0.6255761157508661,0.600360394987292,0.6499325313649039,03_repaired_after_google_drive_plus_expansion,row_random,4159,2248,2115
+rmse,2.532659531277361,2.4542013422233007,2.614281277636493,03_repaired_after_google_drive_plus_expansion,row_random,4159,2248,2115
+mae,1.9180800228056225,1.8599233829310466,1.9765150099666788,03_repaired_after_google_drive_plus_expansion,row_random,4159,2248,2115

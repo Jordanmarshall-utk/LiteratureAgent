@@ -27,7 +27,7 @@ from sklearn.model_selection import GroupKFold
 from sklearn.pipeline import Pipeline
 
 ROOT = Path(__file__).resolve().parents[1]
-MODEL_SCRIPT = ROOT / "models" / "pce_then_stability_same_approach.py"
+MODEL_SCRIPT = ROOT / "models" / "pce_stability.py"
 PROJECT_FINAL_MODEL_SCRIPT = (
     ROOT
     / "artifacts/literature_agent_pce_stability/source_data/model_results/code_snapshots"

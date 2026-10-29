@@ -38,14 +38,12 @@ result = generate_with_reasoning(
 print(result["reasoning_metadata"])
 print(result["response"])
 
-Codex integration instruction
------------------------------
-Tell Codex:
-"Copy scientific_reasoning_policy_layer.py into the POLARIS project. Do not
-refactor the whole project. Locate the Literature Agent LLM calls and wrap them
-with generate_with_reasoning. Keep the layer optional and preserve existing
-outputs. If adding metadata breaks downstream parsing, save reasoning_metadata
-to a sidecar log instead."
+Integration
+-----------
+Wrap the existing language-model client with generate_with_reasoning to apply
+the selected policy. The layer is optional and returns reasoning metadata
+separately from the model response so structured-output parsing can retain its
+existing schema.
 """
 
 from __future__ import annotations
@@ -667,8 +665,8 @@ def prepare_reasoned_prompt(
     """
     Build a reasoned prompt without calling an LLM.
 
-    Useful when the project has a custom LLM client and Codex only needs to
-    insert prompt-building before the existing call.
+    Use this adapter to build the policy-aware prompt before invoking an
+    existing language-model client.
     """
 
     prompt, metadata = build_reasoning_prompt(

@@ -1,0 +1,74 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "check": "figure_assets",
+      "status": "PASS",
+      "details": {
+        "panels": 24,
+        "asset_references": 96
+      }
+    },
+    {
+      "check": "stability_data_dependencies",
+      "status": "PASS",
+      "details": {
+        "full_estimates": 66,
+        "main_plot_rows": 24,
+        "requested_alternatives": 24
+      }
+    },
+    {
+      "check": "repair_evidence_counts",
+      "status": "PASS",
+      "details": {
+        "original_and_adjudicated_evidence_classifications.csv": 173,
+        "typed_repair_ledger.csv": 232,
+        "doi_verification_and_duplicate_decisions.csv": 10
+      }
+    },
+    {
+      "check": "supplementary_attachments",
+      "status": "PASS",
+      "details": {
+        "numbered_attachments": 6,
+        "all_manifest_entries": 9
+      }
+    },
+    {
+      "check": "current_shap_contract",
+      "status": "PASS",
+      "details": {
+        "training_rows": 21426,
+        "publication_group_count": 4080,
+        "encoded_feature_count": 6262,
+        "scientific_group_count": 218
+      }
+    },
+    {
+      "check": "graph_count_reconciliation",
+      "status": "PASS",
+      "details": {
+        "nodes": 91134,
+        "relationships": 173911
+      }
+    },
+    {
+      "check": "file_size_and_source_text",
+      "status": "PASS",
+      "details": {
+        "files_checked": 778,
+        "longest_relative_path_length": 132
+      }
+    }
+  ],
+  "errors": [],
+  "visual_review_performed": false,
+  "longest_relative_path": {
+    "path": "manuscript/source/references/current_individual_exports/figs4b_normalization_sensitivity/FigureS4B_normalization_rank_robustness.pdf",
+    "length": 132,
+    "limit": 180
+  },
+  "file_issues": [],
+  "validated_at_utc": "2026-10-29T19:31:00.660505+00:00"
+}

@@ -1,0 +1,98 @@
+{
+  "plot_id": "figs1_global_shap",
+  "current_figure": "Figure S1",
+  "panel": "",
+  "status": "READY",
+  "required_action": "REGENERATE",
+  "scientific_content": "Top-20 grouped SHAP overview",
+  "authoritative_analysis_version": "2026-10-27_controlled_repaired_rerun_v1",
+  "portable_paths_only": true,
+  "style": {
+    "standalone_dimensions_mm": {
+      "width": 180,
+      "height": 160
+    },
+    "font_family": "Times New Roman",
+    "font_sizes_pt": {
+      "tick_and_category": 8,
+      "legend": 8,
+      "axis_label": 9,
+      "title": 9
+    },
+    "background": "white",
+    "outer_frame": "none",
+    "spines": {
+      "top": false,
+      "right": false,
+      "left": true,
+      "bottom": true
+    },
+    "grid_color": "#D9DEE5",
+    "export": {
+      "vector": [
+        "PDF",
+        "SVG or EMF"
+      ],
+      "raster": "PNG, 600 dpi at final physical dimensions",
+      "transparent_background": false
+    },
+    "palette": {
+      "blue": "#0072B2",
+      "sky": "#3C8DBC",
+      "teal": "#009E73",
+      "amber": "#E69F00",
+      "orange": "#D55E00",
+      "purple": "#7B61A8",
+      "neutral": "#4B5563",
+      "grid": "#D9DEE5",
+      "pale": "#F4F6F8",
+      "ink": "#202124",
+      "white": "#FFFFFF"
+    }
+  },
+  "output_filenames": [
+    "figs1_global_shap.opju",
+    "figs1_global_shap.pdf",
+    "figs1_global_shap.svg",
+    "figs1_global_shap.png"
+  ],
+  "assembly_instruction": "Standalone plot only. Do not assemble with another panel in OriginPro.",
+  "input": {
+    "points_file": "data/figs1_global_shap/display_points.csv",
+    "group_order_file": "data/figs1_global_shap/top20_group_order.csv",
+    "x_column": "grouped_shap_pce_points",
+    "y_column": "y_display",
+    "color_column": "color_hex",
+    "record_id_column": "production_row_index",
+    "publication_id_column": "publication_group_id"
+  },
+  "plot_type": "horizontal deterministic beeswarm",
+  "axes": {
+    "x": {
+      "label": "Grouped SHAP contribution to predicted PCE (percentage points)",
+      "scale": "linear",
+      "reference_line": 0
+    },
+    "y": {
+      "label": "",
+      "reverse_order": true,
+      "coordinates_are_frozen": true
+    }
+  },
+  "ranking_rule": "All-row mean absolute grouped SHAP; descending, then scientific_group ascending; top 20.",
+  "style_overrides": {
+    "negative_point_color": "#0072B2",
+    "positive_point_color": "#D55E00",
+    "point_size_pt": 4,
+    "point_opacity": 0.58,
+    "point_outline": "none",
+    "jitter_width": 0.32
+  },
+  "expected_plotted_counts": {
+    "groups": 20,
+    "points_per_group": 21426,
+    "displayed_point_appearances": 428520,
+    "unique_records": 21426,
+    "publication_groups": 4080
+  }
+}

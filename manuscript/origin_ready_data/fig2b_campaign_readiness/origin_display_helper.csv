@@ -1,0 +1,7 @@
+category_order,display_label,value,display_group,color_hex,value_label,label_inside_bar,y_position
+1,Minimal PCE-ready,663,readiness,#33546E,663,0,6
+2,Strict PCE-ready,400,readiness,#33546E,400,0,5
+3,Minimal stability-ready,81,readiness,#FF9F25,81,0,4
+4,Strict stability-ready,18,readiness,#FF9F25,18,0,3
+5,Physical stability-ready,0,readiness,#B2BCC9,0 records,0,2
+6,PCE completeness gate,641,completeness_gate,#F28A00,"641 / 1,096",0,1

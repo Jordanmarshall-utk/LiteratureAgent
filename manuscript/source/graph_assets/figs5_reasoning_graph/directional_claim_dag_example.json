@@ -1,0 +1,43 @@
+{
+  "view_type": "evidence-grounded directional-claim DAG",
+  "source_scope": "910-paper production graph",
+  "interpretation": "Solid edges summarize paper-reported directional claims; dashed edges are cross-paper synthesis hypotheses and are not validated causal effects.",
+  "claims": [
+    {
+      "doi": "10.1002/adfm.202104251",
+      "predicate": "INHIBITS",
+      "context": "2D-3D\nperovskite film",
+      "claim": "INHIBITS\nCl evaporation",
+      "outcome": "Effective bulk\npassivation",
+      "claim_id": "claim:384c67ddf28bbb4f3d83",
+      "claim_text": "The annealing‐induced evaporation of Cl from bulk perovskite is also inhibited in 2D–3D perovskite film as compared to pristine 3D perovskite, ensuring effective bulk passivation in the relevant film.",
+      "causal_status": "reported_directional_hypothesis",
+      "claim_source": "source_abstract",
+      "support_status": "evidence_linked"
+    },
+    {
+      "doi": "10.1002/adfm.202107650",
+      "predicate": "REDUCES",
+      "context": "Higher band offset\n+ lower trap density",
+      "claim": "REDUCES\nnon-radiative recombination",
+      "outcome": "Lower voltage deficit\n(0.43 V)",
+      "claim_id": "claim:15a58cf92a02e453657f",
+      "claim_text": "The reduction in voltage deficit down to 0.43 V is attributed to reduced non‐radiative recombination that the authors attribute to two aspects: 1) a higher conduction band offset of ≈0.2 eV (>0 eV) that hampers charge‐carrier‐back‐transfer recombination; 2) a decrease in trap density at the perovskite/interlayer/C 60 interfaces that results in reduced trap‐assisted recombination.",
+      "causal_status": "reported_directional_hypothesis",
+      "claim_source": "source_abstract",
+      "support_status": "evidence_linked"
+    },
+    {
+      "doi": "10.1002/adfm.202107650",
+      "predicate": "ENHANCES",
+      "context": "IPH interlayer",
+      "claim": "ENHANCES\ncharge extraction",
+      "outcome": "Higher short-circuit\ncurrent density",
+      "claim_id": "claim:da140639cbdf2ad021e6",
+      "claim_text": "In addition, incorporating the IPH interlayer enhances charge extraction within the devices that results in considerable enhancement in short‐circuit current density.",
+      "causal_status": "reported_directional_hypothesis",
+      "claim_source": "source_abstract",
+      "support_status": "evidence_linked"
+    }
+  ]
+}

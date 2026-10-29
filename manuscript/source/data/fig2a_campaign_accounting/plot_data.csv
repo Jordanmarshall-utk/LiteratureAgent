@@ -1,0 +1,4 @@
+status,value,accounting_scope,provenance,category_order
+Direct retained,720,"final 1,223-row expansion-campaign audit",source_records/campaign_accounting_20260823.md,1
+Sparse retained,417,"final 1,223-row expansion-campaign audit",source_records/campaign_accounting_20260823.md,2
+Rejected,86,"final 1,223-row expansion-campaign audit",campaign_qa_final/batch_summary.json,3
